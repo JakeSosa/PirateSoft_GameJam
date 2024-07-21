@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cug6kjou6ccef"]
+
+[node name="Brazier" type="Node3D"]
+
+[node name="TempLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.681334, 0)
+layers = 3
+light_color = Color(0, 0, 1, 1)
+shadow_enabled = true
