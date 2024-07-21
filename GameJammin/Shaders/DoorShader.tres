@@ -1,11 +1,7 @@
-[gd_resource type="VisualShader" load_steps=24 format=3 uid="uid://bj3q3fxm0e45v"]
-
-[ext_resource type="Texture2D" uid="uid://bt1mpj6hhhi05" path="res://Textures/vmiibjkn_2K_Albedo.jpg" id="1_51jfo"]
-[ext_resource type="Texture2D" uid="uid://cncd1lpq8g20o" path="res://Textures/vmiibjkn_2K_Normal.jpg" id="2_3ctf2"]
+[gd_resource type="VisualShader" load_steps=23 format=3 uid="uid://bj3q3fxm0e45v"]
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_sfbu4"]
 source = 5
-texture = ExtResource("1_51jfo")
 
 [sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_v8f6p"]
 parameter_name = "GlowDecal"
@@ -49,7 +45,6 @@ texture = SubResource("NoiseTexture2D_ph6uy")
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_w4tbg"]
 source = 5
-texture = ExtResource("1_51jfo")
 
 [sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_sorvs"]
 
@@ -61,9 +56,11 @@ default_value_enabled = true
 [sub_resource type="VisualShaderNodeCompare" id="VisualShaderNodeCompare_xt3fd"]
 function = 4
 
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_2utuh"]
+function = 31
+
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_qdmlk"]
 source = 5
-texture = ExtResource("2_3ctf2")
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_pr0f4"]
 input_name = "uv"
@@ -154,6 +151,10 @@ void fragment() {
 	bool n_out24p0 = n_out20p0 < n_out22p0;
 
 
+// FloatFunc:25
+	float n_out25p0 = 1.0 - (n_out24p0 ? 1.0 : 0.0);
+
+
 // VectorOp:15
 	vec3 n_out15p0 = vec3(n_out11p0.xyz) * vec3(n_out14p0.xyz);
 
@@ -173,14 +174,14 @@ void fragment() {
 
 // Output:0
 	ALBEDO = n_out13p0;
-	ALPHA = (n_out24p0 ? 1.0 : 0.0);
+	ALPHA = n_out25p0;
 	EMISSION = n_out16p0;
 	NORMAL_MAP = vec3(n_out3p0.xyz);
 
 
 }
 "
-graph_offset = Vector2(-644.804, 1141.06)
+graph_offset = Vector2(-433.235, 73.0711)
 nodes/fragment/0/position = Vector2(100, 2160)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_w4tbg")
 nodes/fragment/2/position = Vector2(-620, 3680)
@@ -220,4 +221,6 @@ nodes/fragment/22/node = SubResource("VisualShaderNodeFloatParameter_sdnfy")
 nodes/fragment/22/position = Vector2(-1500, 3840)
 nodes/fragment/24/node = SubResource("VisualShaderNodeCompare_xt3fd")
 nodes/fragment/24/position = Vector2(-220, 620)
-nodes/fragment/connections = PackedInt32Array(5, 0, 2, 2, 6, 0, 3, 2, 4, 0, 8, 0, 7, 0, 8, 1, 8, 0, 3, 0, 8, 0, 2, 0, 11, 0, 13, 2, 12, 0, 11, 2, 13, 0, 0, 0, 3, 0, 0, 9, 11, 0, 15, 0, 14, 0, 15, 1, 15, 0, 16, 0, 16, 0, 0, 5, 17, 0, 16, 1, 18, 0, 11, 0, 2, 0, 13, 0, 14, 0, 13, 1, 4, 0, 19, 0, 19, 0, 20, 0, 20, 0, 24, 0, 22, 0, 24, 1, 24, 0, 0, 1)
+nodes/fragment/25/node = SubResource("VisualShaderNodeFloatFunc_2utuh")
+nodes/fragment/25/position = Vector2(-40, 680)
+nodes/fragment/connections = PackedInt32Array(5, 0, 2, 2, 6, 0, 3, 2, 4, 0, 8, 0, 7, 0, 8, 1, 8, 0, 3, 0, 8, 0, 2, 0, 11, 0, 13, 2, 12, 0, 11, 2, 13, 0, 0, 0, 3, 0, 0, 9, 11, 0, 15, 0, 14, 0, 15, 1, 15, 0, 16, 0, 16, 0, 0, 5, 17, 0, 16, 1, 18, 0, 11, 0, 2, 0, 13, 0, 14, 0, 13, 1, 4, 0, 19, 0, 19, 0, 20, 0, 20, 0, 24, 0, 22, 0, 24, 1, 24, 0, 25, 0, 25, 0, 0, 1)
