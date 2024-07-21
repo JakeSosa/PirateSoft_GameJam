@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwgpe75u0j5rt"]
+
+[ext_resource type="ArrayMesh" uid="uid://cwbs6ly31mu7y" path="res://Art/Meshes/Objects/WallKit1_Door1.res" id="1_f0bnf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_47d8r"]
+
+[node name="MazeDoor" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0118029, 0.0188093, -0.0580211)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_f0bnf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_47d8r")
