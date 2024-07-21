@@ -22,3 +22,8 @@ mesh = SubResource("SphereMesh_1jtu5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_lo8sq")
+
+[node name="TorchLightTEMP" type="OmniLight3D" parent="."]
+transform = Transform3D(2.75817, 0, 0, 0, 2.75817, 0, 0, 0, 2.75817, 0, 0.110327, 0)
+light_cull_mask = 4293918721
+shadow_enabled = true
