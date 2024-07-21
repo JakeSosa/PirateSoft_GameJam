@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpsau6s0g741l"]
+
+[ext_resource type="ArrayMesh" uid="uid://cv3ujnnwtskd6" path="res://Art/Meshes/Objects/Wall1M_Wall1_1.res" id="1_66wix"]
+[ext_resource type="Material" uid="uid://dk5qyy862clr3" path="res://Art/Materials/brick.tres" id="2_8mt64"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gjblu"]
+size = Vector3(1.06738, 2.66309, 1.08606)
+
+[node name="Wall1m" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_66wix")
+surface_material_override/0 = ExtResource("2_8mt64")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.509006, 1.33137, 0.499917)
+shape = SubResource("BoxShape3D_gjblu")
