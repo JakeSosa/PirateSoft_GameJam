@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://cmbso2ne6dhpj"]
+[gd_scene load_steps=19 format=3 uid="uid://cmbso2ne6dhpj"]
 
 [ext_resource type="PackedScene" uid="uid://cpsau6s0g741l" path="res://Objects/wall_1m.tscn" id="1_k38sm"]
+[ext_resource type="Shader" path="res://Shaders/PPShaderGLSL.gdshader" id="2_4tpr0"]
 [ext_resource type="PackedScene" uid="uid://cj3iw4sipgygu" path="res://Objects/wall_2m.tscn" id="2_tvpwx"]
 [ext_resource type="PackedScene" uid="uid://0l8xsyxymvjb" path="res://Objects/wall_4m.tscn" id="3_hfrog"]
 [ext_resource type="PackedScene" uid="uid://odyk1shlpw38" path="res://Objects/wall_8m.tscn" id="4_4q6tb"]
@@ -11,6 +12,15 @@
 [ext_resource type="Texture2D" uid="uid://c62mjv8o31x16" path="res://Art/Textures/FloorTexture/M_Floor_Normal.png" id="9_pn3o3"]
 [ext_resource type="Texture2D" uid="uid://c5hdrl7kem4yn" path="res://Art/Textures/FloorTexture/M_Floor_Roughness.png" id="10_75ury"]
 [ext_resource type="PackedScene" uid="uid://538fnpxacxpf" path="res://Character/test_character.tscn" id="11_fkrui"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_53br7"]
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3c4i0"]
+render_priority = 0
+shader = ExtResource("2_4tpr0")
+shader_parameter/PixelSize = 19.214
 
 [sub_resource type="QuadMesh" id="QuadMesh_k6j7g"]
 size = Vector2(32, 32)
@@ -37,6 +47,12 @@ transform = Transform3D(-1.5848e-08, 0, -0.362559, 0, 0.362559, 0, 0.362559, 0, 
 
 [node name="MainCam" type="Camera3D" parent="TestCharacter"]
 transform = Transform3D(-1.19779e-07, -1.94483, 1.95579, -1.37297e-08, 1.95579, 1.94483, -2.75817, 7.47227e-08, -9.46154e-08, 8.48971, 12.2345, -0.27128)
+
+[node name="PostProcess" type="MeshInstance3D" parent="TestCharacter"]
+transform = Transform3D(-1.20564e-07, 0, 2.75817, 0, 2.75817, 0, -2.75817, 0, -1.20564e-07, -20.4935, -0.469143, -18.9652)
+mesh = SubResource("QuadMesh_53br7")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_3c4i0")
 
 [node name="WallKit" type="Node" parent="."]
 
