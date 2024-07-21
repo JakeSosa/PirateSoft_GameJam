@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=22 format=3 uid="uid://bj3q3fxm0e45v"]
+[gd_resource type="VisualShader" load_steps=16 format=3 uid="uid://bj3q3fxm0e45v"]
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_sfbu4"]
 source = 5
@@ -26,35 +26,13 @@ parameter_name = "GlowSTR"
 default_value_enabled = true
 default_value = 1.0
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_6nv7c"]
-noise_type = 2
-frequency = 0.0067
-fractal_lacunarity = 2.03
-fractal_gain = 0.445
-cellular_distance_function = 3
-cellular_jitter = 1.14
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ph6uy"]
-noise = SubResource("FastNoiseLite_6nv7c")
-
-[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_tx6nl"]
-texture = SubResource("NoiseTexture2D_ph6uy")
-
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_w4tbg"]
 source = 5
-
-[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_sorvs"]
 
 [sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_sdnfy"]
 parameter_name = "DoorOPEN"
 hint = 1
 default_value_enabled = true
-
-[sub_resource type="VisualShaderNodeCompare" id="VisualShaderNodeCompare_xt3fd"]
-function = 4
-
-[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_2utuh"]
-function = 31
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_qdmlk"]
 source = 5
@@ -88,8 +66,6 @@ uniform float TilingScale = 1;
 uniform sampler2D BC : source_color;
 uniform vec4 GlowColor : source_color = vec4(1.000000, 1.000000, 1.000000, 1.000000);
 uniform sampler2D GlowDecal : repeat_disable;
-uniform sampler2D tex_frg_19;
-uniform float DoorOPEN : hint_range(0, 1) = 0;
 uniform float GlowSTR = 1;
 uniform sampler2D NRM : hint_normal;
 
@@ -126,28 +102,6 @@ void fragment() {
 	vec3 n_out13p0 = mix(vec3(n_out2p0.xyz), vec3(n_out14p0.xyz), vec3(n_out11p0.xyz));
 
 
-// Texture2D:19
-	vec4 n_out19p0 = texture(tex_frg_19, n_out4p0);
-
-
-// VectorDecompose:20
-	float n_out20p0 = vec3(n_out19p0.xyz).x;
-	float n_out20p1 = vec3(n_out19p0.xyz).y;
-	float n_out20p2 = vec3(n_out19p0.xyz).z;
-
-
-// FloatParameter:22
-	float n_out22p0 = DoorOPEN;
-
-
-// Compare:24
-	bool n_out24p0 = n_out20p0 < n_out22p0;
-
-
-// FloatFunc:25
-	float n_out25p0 = 1.0 - (n_out24p0 ? 1.0 : 0.0);
-
-
 // VectorOp:15
 	vec3 n_out15p0 = vec3(n_out11p0.xyz) * vec3(n_out14p0.xyz);
 
@@ -167,13 +121,13 @@ void fragment() {
 
 // Output:0
 	ALBEDO = n_out13p0;
-	ALPHA = n_out25p0;
 	EMISSION = n_out16p0;
 	NORMAL_MAP = vec3(n_out3p0.xyz);
 
 
 }
 "
+graph_offset = Vector2(-784.749, 193.783)
 nodes/fragment/0/position = Vector2(100, 2160)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_w4tbg")
 nodes/fragment/2/position = Vector2(-620, 3680)
@@ -203,14 +157,6 @@ nodes/fragment/16/node = SubResource("VisualShaderNodeVectorOp_cxnq1")
 nodes/fragment/16/position = Vector2(-220, 2220)
 nodes/fragment/17/node = SubResource("VisualShaderNodeFloatParameter_fx5sj")
 nodes/fragment/17/position = Vector2(-1500, 3060)
-nodes/fragment/19/node = SubResource("VisualShaderNodeTexture_tx6nl")
-nodes/fragment/19/position = Vector2(-960, 520)
-nodes/fragment/20/node = SubResource("VisualShaderNodeVectorDecompose_sorvs")
-nodes/fragment/20/position = Vector2(-620, 680)
 nodes/fragment/22/node = SubResource("VisualShaderNodeFloatParameter_sdnfy")
 nodes/fragment/22/position = Vector2(-1500, 3840)
-nodes/fragment/24/node = SubResource("VisualShaderNodeCompare_xt3fd")
-nodes/fragment/24/position = Vector2(-220, 620)
-nodes/fragment/25/node = SubResource("VisualShaderNodeFloatFunc_2utuh")
-nodes/fragment/25/position = Vector2(-40, 680)
-nodes/fragment/connections = PackedInt32Array(5, 0, 2, 2, 6, 0, 3, 2, 4, 0, 8, 0, 7, 0, 8, 1, 8, 0, 3, 0, 8, 0, 2, 0, 11, 0, 13, 2, 12, 0, 11, 2, 13, 0, 0, 0, 3, 0, 0, 9, 11, 0, 15, 0, 14, 0, 15, 1, 15, 0, 16, 0, 16, 0, 0, 5, 17, 0, 16, 1, 2, 0, 13, 0, 14, 0, 13, 1, 4, 0, 19, 0, 19, 0, 20, 0, 20, 0, 24, 0, 22, 0, 24, 1, 24, 0, 25, 0, 25, 0, 0, 1, 4, 0, 11, 0)
+nodes/fragment/connections = PackedInt32Array(5, 0, 2, 2, 6, 0, 3, 2, 4, 0, 8, 0, 7, 0, 8, 1, 8, 0, 3, 0, 8, 0, 2, 0, 11, 0, 13, 2, 12, 0, 11, 2, 13, 0, 0, 0, 3, 0, 0, 9, 11, 0, 15, 0, 14, 0, 15, 1, 15, 0, 16, 0, 16, 0, 0, 5, 17, 0, 16, 1, 2, 0, 13, 0, 14, 0, 13, 1, 4, 0, 11, 0)

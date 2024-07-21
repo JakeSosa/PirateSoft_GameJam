@@ -103,13 +103,12 @@ render_priority = 0
 shader = ExtResource("5_a1ies")
 shader_parameter/TilingScale = 1.0
 shader_parameter/GlowColor = Color(1, 1, 1, 1)
-shader_parameter/DoorOPEN = 0.0
 shader_parameter/GlowSTR = 1.0
 shader_parameter/BC = ExtResource("7_l433i")
 shader_parameter/GlowDecal = ExtResource("8_s1o2x")
 shader_parameter/NRM = ExtResource("9_xjx52")
 
-[node name="MazeDoor" type="Node"]
+[node name="MazeDoor" type="Node3D"]
 
 [node name="DoorObjFrame" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_cl7n2")
@@ -126,6 +125,7 @@ libraries = {
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.988378, 1.08185, 0.504763)
+visible = false
 shape = SubResource("BoxShape3D_47d8r")
 
 [node name="DoorObj" type="MeshInstance3D" parent="StaticBody3D"]
@@ -135,3 +135,4 @@ surface_material_override/0 = SubResource("ShaderMaterial_bg0fp")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.979428, 1.19207, 0.536967)
+visible = false
