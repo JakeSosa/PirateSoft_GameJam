@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bka3pofer6t1h"
+path="res://.godot/imported/DoorOBJ.obj-9006d18e017dcf8bfcb5dafbd81fb61e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/DoorOBJ.obj-9006d18e017dcf8bfcb5dafbd81fb61e.mesh"]
+
+source_file="res://Art/Meshes/Objects/DoorOBJ.obj"
+dest_files=["res://.godot/imported/DoorOBJ.obj-9006d18e017dcf8bfcb5dafbd81fb61e.mesh", "res://.godot/imported/DoorOBJ.obj-9006d18e017dcf8bfcb5dafbd81fb61e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
