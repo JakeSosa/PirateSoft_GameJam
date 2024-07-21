@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://bpeeoeo46wdvp"]
+
+[ext_resource type="Shader" uid="uid://d2cm7x8ippg05" path="res://Shaders/PBR.tres" id="1_kve6w"]
+[ext_resource type="Texture2D" uid="uid://ch3s8x0tjlu0c" path="res://Art/Textures/TrimTexture/M_Trim_Mixed_AO.png" id="2_5strb"]
+[ext_resource type="Texture2D" uid="uid://b2nlnhsxd67m3" path="res://Art/Textures/TrimTexture/M_Trim_Base_color.png" id="3_scfai"]
+[ext_resource type="Texture2D" uid="uid://bhqabd88sjece" path="res://Art/Textures/TrimTexture/M_Trim_Normal.png" id="4_1f1qe"]
+[ext_resource type="Texture2D" uid="uid://bac0plx1vsst6" path="res://Art/Textures/TrimTexture/M_Trim_Roughness.png" id="5_8dsav"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_kve6w")
+shader_parameter/UV_Tile = 1.0
+shader_parameter/BC = ExtResource("3_scfai")
+shader_parameter/AmbientOcclusion = ExtResource("2_5strb")
+shader_parameter/Rough = ExtResource("5_8dsav")
+shader_parameter/NRM = ExtResource("4_1f1qe")
