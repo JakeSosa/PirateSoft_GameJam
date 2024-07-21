@@ -1,16 +1,16 @@
 [gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://dk5qyy862clr3"]
 
 [ext_resource type="Shader" uid="uid://d2cm7x8ippg05" path="res://Shaders/PBR.tres" id="1_4v7iv"]
-[ext_resource type="Texture2D" uid="uid://b7ojdvp6272lf" path="res://Art/Textures/tiwmdezg_2K_AO.jpg" id="2_8tf35"]
-[ext_resource type="Texture2D" uid="uid://ckj4elh606qee" path="res://Art/Textures/tiwmdezg_2K_Albedo.jpg" id="3_njjgq"]
-[ext_resource type="Texture2D" uid="uid://b0csscvin7bpe" path="res://Art/Textures/tiwmdezg_2K_Normal.jpg" id="4_tnhcb"]
-[ext_resource type="Texture2D" uid="uid://dlil03rouu0r" path="res://Art/Textures/tiwmdezg_2K_Roughness.jpg" id="5_au341"]
+[ext_resource type="Texture2D" uid="uid://4dkhwdsx3h" path="res://Art/Textures/WallTexture/M_Wall_Mixed_AO.png" id="2_xu5gu"]
+[ext_resource type="Texture2D" uid="uid://cpqny7ub8jmy3" path="res://Art/Textures/WallTexture/M_Wall_Base_color.png" id="3_gqm7q"]
+[ext_resource type="Texture2D" uid="uid://tcl8iotvqt70" path="res://Art/Textures/WallTexture/M_Wall_Normal.png" id="4_ehdrq"]
+[ext_resource type="Texture2D" uid="uid://gapc6th8u7ee" path="res://Art/Textures/WallTexture/M_Wall_Roughness.png" id="5_x4akh"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_4v7iv")
 shader_parameter/UV_Tile = 1.0
-shader_parameter/BC = ExtResource("3_njjgq")
-shader_parameter/AmbientOcclusion = ExtResource("2_8tf35")
-shader_parameter/Rough = ExtResource("5_au341")
-shader_parameter/NRM = ExtResource("4_tnhcb")
+shader_parameter/BC = ExtResource("3_gqm7q")
+shader_parameter/AmbientOcclusion = ExtResource("2_xu5gu")
+shader_parameter/Rough = ExtResource("5_x4akh")
+shader_parameter/NRM = ExtResource("4_ehdrq")

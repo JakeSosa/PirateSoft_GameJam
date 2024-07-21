@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cj3iw4sipgygu"]
+[gd_scene load_steps=5 format=3 uid="uid://cj3iw4sipgygu"]
 
-[ext_resource type="ArrayMesh" uid="uid://drrxaa71e4rgy" path="res://Art/Meshes/Objects/SM_Wall2m.res" id="1_kvhus"]
+[ext_resource type="ArrayMesh" uid="uid://drrxaa71e4rgy" path="res://Art/Meshes/Objects/SM_Wall2m.res" id="1_mr8t2"]
 [ext_resource type="Material" uid="uid://dk5qyy862clr3" path="res://Art/Materials/brick.tres" id="2_fe6cj"]
+[ext_resource type="Material" uid="uid://bpeeoeo46wdvp" path="res://Art/Materials/stone.tres" id="3_22ey2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lh6vh"]
 size = Vector3(2.0509, 2.66418, 1.01758)
@@ -9,9 +10,11 @@ size = Vector3(2.0509, 2.66418, 1.01758)
 [node name="Wall2m" type="StaticBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = ExtResource("1_kvhus")
+mesh = ExtResource("1_mr8t2")
 surface_material_override/0 = ExtResource("2_fe6cj")
+surface_material_override/1 = ExtResource("3_22ey2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01073, 1.33096, 0.499675)
+visible = false
 shape = SubResource("BoxShape3D_lh6vh")
