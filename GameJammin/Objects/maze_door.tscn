@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cwgpe75u0j5rt"]
 
-[ext_resource type="ArrayMesh" uid="uid://cwbs6ly31mu7y" path="res://Art/Meshes/Objects/WallKit1_Door1.res" id="1_f0bnf"]
+[ext_resource type="ArrayMesh" uid="uid://r4x3lnylsmfc" path="res://Art/Meshes/Objects/SM_MazeDoor.res" id="1_kiedw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_47d8r"]
 
@@ -8,7 +8,7 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0118029, 0.0188093, -0.0580211)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = ExtResource("1_f0bnf")
+mesh = ExtResource("1_kiedw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_47d8r")

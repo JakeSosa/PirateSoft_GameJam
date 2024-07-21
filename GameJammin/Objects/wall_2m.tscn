@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cj3iw4sipgygu"]
 
-[ext_resource type="ArrayMesh" uid="uid://drrxaa71e4rgy" path="res://Art/Meshes/Objects/WallKit1_Wall1_2.res" id="1_kvhus"]
+[ext_resource type="ArrayMesh" uid="uid://drrxaa71e4rgy" path="res://Art/Meshes/Objects/SM_Wall2m.res" id="1_kvhus"]
 [ext_resource type="Material" uid="uid://dk5qyy862clr3" path="res://Art/Materials/brick.tres" id="2_fe6cj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lh6vh"]

@@ -9,7 +9,7 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_4v7iv")
-shader_parameter/FloatParameter = 1.0
+shader_parameter/UV_Tile = 1.0
 shader_parameter/BC = ExtResource("3_njjgq")
 shader_parameter/AmbientOcclusion = ExtResource("2_8tf35")
 shader_parameter/Rough = ExtResource("5_au341")
