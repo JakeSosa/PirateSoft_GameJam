@@ -33,11 +33,10 @@ background_energy_multiplier = 5.12
 
 [node name="Level1" type="Node3D"]
 
-[node name="TestCharacter" parent="." instance=ExtResource("1_uwyr2")]
-transform = Transform3D(-1.5848e-08, 0, -0.362559, 0, 0.362559, 0, 0.362559, 0, -1.5848e-08, -6.876, 0.17, 7.43)
+[node name="TestCharacter2" parent="." instance=ExtResource("1_uwyr2")]
 
-[node name="MainCam" type="Camera3D" parent="TestCharacter"]
-transform = Transform3D(-1.20563e-07, -1.9435, 1.95711, 0, 1.95711, 1.9435, -2.75817, 8.4953e-08, -8.55482e-08, 8.49, 12.234, -0.271)
+[node name="MainCam" type="Camera3D" parent="TestCharacter2"]
+transform = Transform3D(2.75817, 1.0289e-08, 9.12458e-09, -1.37297e-08, 1.95579, 1.94483, 7.84763e-10, -1.94483, 1.95579, -18.6939, 12.7036, 28.9832)
 
 [node name="WallKit" type="Node" parent="."]
 
@@ -56,12 +55,11 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14, -0
 [node name="MazeDoor3" parent="WallKit" instance=ExtResource("6_34b7w")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.4, 30)
 
+[node name="StaticBody3D" parent="WallKit/MazeDoor3" index="2"]
+script = ExtResource("7_yqtu7")
+
 [node name="MazeDoor4" parent="WallKit" instance=ExtResource("6_34b7w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -0.4, 9)
-
-[node name="StaticBody3D" parent="WallKit/MazeDoor4" index="2" node_paths=PackedStringArray("animation_player")]
-script = ExtResource("7_yqtu7")
-animation_player = NodePath("../AnimationPlayer")
 
 [node name="MazeDoor5" parent="WallKit" instance=ExtResource("6_34b7w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.4, 9)
@@ -378,6 +376,4 @@ shape = SubResource("BoxShape3D_gib2c")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ay3fa")
 
-[editable path="TestCharacter"]
 [editable path="WallKit/MazeDoor3"]
-[editable path="WallKit/MazeDoor4"]
