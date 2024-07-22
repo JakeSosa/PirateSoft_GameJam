@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://3lrlx8iuwkvh"]
+
+[ext_resource type="ArrayMesh" uid="uid://ddp5fy0iuogra" path="res://Art/Meshes/Objects/Props/LevelTop.obj" id="1_p752m"]
+[ext_resource type="Material" uid="uid://sid86jvq7qpj" path="res://Art/Materials/propPack1.tres" id="2_2y2dr"]
+[ext_resource type="ArrayMesh" uid="uid://d0rq7tihykqhw" path="res://Art/Meshes/Objects/Props/LeverBottom.obj" id="2_dp75s"]
+
+[node name="Lever" type="StaticBody3D"]
+transform = Transform3D(2.62962, 0, 0, 0, 2.62962, 0, 0, 0, 2.62962, 0, 0, 0)
+
+[node name="Top" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_p752m")
+surface_material_override/0 = ExtResource("2_2y2dr")
+
+[node name="Bottom" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_dp75s")
+skeleton = NodePath("../Top")
+surface_material_override/0 = ExtResource("2_2y2dr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]

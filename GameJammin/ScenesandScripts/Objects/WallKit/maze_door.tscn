@@ -1,14 +1,14 @@
 [gd_scene load_steps=16 format=3 uid="uid://cwgpe75u0j5rt"]
 
-[ext_resource type="ArrayMesh" uid="uid://bnyi1n8ikmx0n" path="res://Art/Meshes/Objects/DoorOBJFrame.obj" id="1_cl7n2"]
-[ext_resource type="Material" uid="uid://dk5qyy862clr3" path="res://Art/Materials/brick.tres" id="2_0y3ce"]
-[ext_resource type="Material" uid="uid://bpeeoeo46wdvp" path="res://Art/Materials/stone.tres" id="3_mg6v6"]
-[ext_resource type="ArrayMesh" uid="uid://bka3pofer6t1h" path="res://Art/Meshes/Objects/DoorOBJ.obj" id="4_cg3la"]
+[ext_resource type="ArrayMesh" uid="uid://bnyi1n8ikmx0n" path="res://Art/Meshes/Objects/Construction/DoorOBJFrame.obj" id="1_elj2r"]
+[ext_resource type="Material" uid="uid://dk5qyy862clr3" path="res://Art/Materials/brick.tres" id="2_y6ai0"]
+[ext_resource type="Material" uid="uid://bpeeoeo46wdvp" path="res://Art/Materials/stone.tres" id="3_a1i1t"]
+[ext_resource type="ArrayMesh" uid="uid://bka3pofer6t1h" path="res://Art/Meshes/Objects/Construction/DoorOBJ.obj" id="3_rsqwm"]
 [ext_resource type="AudioStream" uid="uid://cyyuudho6egcf" path="res://Art/Sounds/SFX/DoorSFX.wav" id="4_chyei"]
-[ext_resource type="Shader" uid="uid://bj3q3fxm0e45v" path="res://Shaders/DoorShader.tres" id="5_a1ies"]
-[ext_resource type="Texture2D" uid="uid://b2nlnhsxd67m3" path="res://Art/Textures/TrimTexture/M_Trim_Base_color.png" id="7_l433i"]
-[ext_resource type="Texture2D" uid="uid://optp5pg471n3" path="res://Art/Textures/Spiral3.png" id="8_s1o2x"]
-[ext_resource type="Texture2D" uid="uid://blei66bcl4lp" path="res://Art/Textures/TrimTexture/M_Trim_Normal_DirectX.png" id="9_xjx52"]
+[ext_resource type="Shader" uid="uid://bj3q3fxm0e45v" path="res://Art/Shaders/DoorShader.tres" id="6_ur55s"]
+[ext_resource type="Texture2D" uid="uid://b2nlnhsxd67m3" path="res://Art/Textures/TrimTexture/M_Trim_Base_color.png" id="7_yfukm"]
+[ext_resource type="Texture2D" uid="uid://optp5pg471n3" path="res://Art/Textures/Spiral3.png" id="8_510jo"]
+[ext_resource type="Texture2D" uid="uid://bhqabd88sjece" path="res://Art/Textures/TrimTexture/M_Trim_Normal.png" id="9_oj0j5"]
 
 [sub_resource type="Animation" id="Animation_3dmec"]
 resource_name = "DoorClose"
@@ -98,22 +98,22 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_47d8r"]
 size = Vector3(2.03619, 2.19446, 0.463898)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bg0fp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6o05d"]
 render_priority = 0
-shader = ExtResource("5_a1ies")
+shader = ExtResource("6_ur55s")
 shader_parameter/TilingScale = 1.0
 shader_parameter/GlowColor = Color(1, 1, 1, 1)
 shader_parameter/GlowSTR = 1.0
-shader_parameter/BC = ExtResource("7_l433i")
-shader_parameter/GlowDecal = ExtResource("8_s1o2x")
-shader_parameter/NRM = ExtResource("9_xjx52")
+shader_parameter/BC = ExtResource("7_yfukm")
+shader_parameter/GlowDecal = ExtResource("8_510jo")
+shader_parameter/NRM = ExtResource("9_oj0j5")
 
 [node name="MazeDoor" type="Node3D"]
 
 [node name="DoorObjFrame" type="MeshInstance3D" parent="."]
-mesh = ExtResource("1_cl7n2")
-surface_material_override/0 = ExtResource("2_0y3ce")
-surface_material_override/1 = ExtResource("3_mg6v6")
+mesh = ExtResource("1_elj2r")
+surface_material_override/0 = ExtResource("2_y6ai0")
+surface_material_override/1 = ExtResource("3_a1i1t")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../StaticBody3D")
@@ -130,9 +130,9 @@ shape = SubResource("BoxShape3D_47d8r")
 disabled = true
 
 [node name="DoorObj" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = ExtResource("4_cg3la")
+mesh = ExtResource("3_rsqwm")
 skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_bg0fp")
+surface_material_override/0 = SubResource("ShaderMaterial_6o05d")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.979428, 1.19207, 0.536967)

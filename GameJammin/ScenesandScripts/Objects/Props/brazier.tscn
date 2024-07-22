@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://cug6kjou6ccef"]
+
+[ext_resource type="ArrayMesh" uid="uid://p7joiyfir4x" path="res://Art/Meshes/Objects/Props/Brazier.obj" id="1_hyo2a"]
+[ext_resource type="Shader" uid="uid://d2cm7x8ippg05" path="res://Art/Shaders/PBR.tres" id="2_8cl88"]
+[ext_resource type="Texture2D" uid="uid://rnbgh7va5t1u" path="res://Art/Textures/PropTexture/M_Props01_Mixed_AO.png" id="3_2vwdk"]
+[ext_resource type="Texture2D" uid="uid://cuxb6oeo6dshp" path="res://Art/Textures/PropTexture/M_Props01_Base_color.png" id="4_42vy0"]
+[ext_resource type="Texture2D" uid="uid://gjlm3h0g6q1" path="res://Art/Textures/PropTexture/M_Props01_Normal.png" id="5_ecdvm"]
+[ext_resource type="Texture2D" uid="uid://mc8pavqrnelh" path="res://Art/Textures/PropTexture/M_Props01_Roughness.png" id="6_rsxq6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ged1f"]
+render_priority = 0
+shader = ExtResource("2_8cl88")
+shader_parameter/UV_Tile = 1.0
+shader_parameter/BC = ExtResource("4_42vy0")
+shader_parameter/AmbientOcclusion = ExtResource("3_2vwdk")
+shader_parameter/Rough = ExtResource("6_rsxq6")
+shader_parameter/NRM = ExtResource("5_ecdvm")
+
+[node name="Brazier" type="StaticBody3D"]
+transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(6.98956, 0, 0, 0, 6.98956, 0, 0, 0, 6.98956, 0, 0, 0)
+cast_shadow = 0
+mesh = ExtResource("1_hyo2a")
+surface_material_override/0 = SubResource("ShaderMaterial_ged1f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1.39491, 0, 0, 0, 1.39491, 0, 0, 0, 1.39491, 0, 0.589216, 0)
+light_color = Color(0.00392157, 0.2, 0.866667, 1)
+light_energy = 5.0
+light_indirect_energy = 2.0
+shadow_enabled = true

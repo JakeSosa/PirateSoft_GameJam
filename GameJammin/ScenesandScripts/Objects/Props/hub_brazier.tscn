@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg2qsl7l74nnr"]
+
+[ext_resource type="ArrayMesh" uid="uid://m5mcf1n2cw0i" path="res://Art/Meshes/Objects/Props/HubBrazier.obj" id="1_a5vvg"]
+[ext_resource type="Material" uid="uid://sid86jvq7qpj" path="res://Art/Materials/propPack1.tres" id="2_wirl0"]
+
+[node name="HubBrazier" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.33066, 0, 0, 0, 3.33066, 0, 0, 0, 3.33066, 0, 0, 0)
+mesh = ExtResource("1_a5vvg")
+skeleton = NodePath("../CollisionShape3D")
+surface_material_override/0 = ExtResource("2_wirl0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]

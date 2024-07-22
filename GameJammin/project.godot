@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PirateSoftwareGameJam"
-run/main_scene="res://Levels/level_1.tscn"
+run/main_scene="res://ScenesandScripts/Levels/level_1.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+
+[filesystem]
+
+import/fbx/enabled=false
 
 [input]
 

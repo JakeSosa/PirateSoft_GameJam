@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://dk5qyy862clr3"]
 
-[ext_resource type="Shader" uid="uid://d2cm7x8ippg05" path="res://Shaders/PBR.tres" id="1_4v7iv"]
+[ext_resource type="Shader" uid="uid://d2cm7x8ippg05" path="res://Art/Shaders/PBR.tres" id="1_4v7iv"]
 [ext_resource type="Texture2D" uid="uid://4dkhwdsx3h" path="res://Art/Textures/WallTexture/M_Wall_Mixed_AO.png" id="2_xu5gu"]
 [ext_resource type="Texture2D" uid="uid://cpqny7ub8jmy3" path="res://Art/Textures/WallTexture/M_Wall_Base_color.png" id="3_gqm7q"]
 [ext_resource type="Texture2D" uid="uid://tcl8iotvqt70" path="res://Art/Textures/WallTexture/M_Wall_Normal.png" id="4_ehdrq"]
