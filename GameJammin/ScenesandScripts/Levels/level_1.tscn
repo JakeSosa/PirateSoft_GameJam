@@ -31,16 +31,17 @@ curve = SubResource("Curve_3fq2n")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3c4i0"]
 render_priority = 0
 shader = ExtResource("2_4tpr0")
-shader_parameter/PixelSize = 20.0
+shader_parameter/PixelSize = 36.562
 shader_parameter/curve = SubResource("CurveTexture_u3pb1")
 
 [sub_resource type="QuadMesh" id="QuadMesh_k6j7g"]
-size = Vector2(32, 32)
+size = Vector2(8, 8)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sn74t"]
 render_priority = 0
 shader = ExtResource("6_6sov4")
-shader_parameter/UV_Tile = 6.0
+shader_parameter/TexPix = 122.4
+shader_parameter/UV_Tile = 1.5
 shader_parameter/BC = ExtResource("8_52apw")
 shader_parameter/AmbientOcclusion = ExtResource("7_xygt2")
 shader_parameter/Rough = ExtResource("10_75ury")
@@ -175,7 +176,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9881, -0.4, 15.0119)
 transform = Transform3D(-1.07284e-07, 0, 1, 0, 1, 0, -1, 0, -1.07284e-07, -4.98811, -0.4, 4.0119)
 
 [node name="Wall2m8" parent="WallConstructionPieces" instance=ExtResource("2_tvpwx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.98811, -0.4, -1.9881)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.18209, -0.308457, -1.93911)
 
 [node name="Wall2m10" parent="WallConstructionPieces" instance=ExtResource("2_tvpwx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9881, -0.4, 10.0119)
@@ -392,7 +393,82 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.629
 metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WallConstructionPieces/Floor"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -5, 0, 3)
+mesh = SubResource("QuadMesh_k6j7g")
+surface_material_override/0 = SubResource("ShaderMaterial_sn74t")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="WallConstructionPieces/Floor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -5, 0, 11)
+mesh = SubResource("QuadMesh_k6j7g")
+surface_material_override/0 = SubResource("ShaderMaterial_sn74t")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="WallConstructionPieces/Floor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -5, 0, -5)
+mesh = SubResource("QuadMesh_k6j7g")
+surface_material_override/0 = SubResource("ShaderMaterial_sn74t")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="WallConstructionPieces/Floor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -5, 0, -13)
+mesh = SubResource("QuadMesh_k6j7g")
+surface_material_override/0 = SubResource("ShaderMaterial_sn74t")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="WallConstructionPieces/Floor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -13, 0, 3)
+mesh = SubResource("QuadMesh_k6j7g")
+surface_material_override/0 = SubResource("ShaderMaterial_sn74t")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="WallConstructionPieces/Floor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -13, 0, 11)
+mesh = SubResource("QuadMesh_k6j7g")
+surface_material_override/0 = SubResource("ShaderMaterial_sn74t")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="WallConstructionPieces/Floor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -13, 0, -5)
+mesh = SubResource("QuadMesh_k6j7g")
+surface_material_override/0 = SubResource("ShaderMaterial_sn74t")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="WallConstructionPieces/Floor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -13, 0, -13)
+mesh = SubResource("QuadMesh_k6j7g")
+surface_material_override/0 = SubResource("ShaderMaterial_sn74t")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="WallConstructionPieces/Floor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3, 0, 3)
+mesh = SubResource("QuadMesh_k6j7g")
+surface_material_override/0 = SubResource("ShaderMaterial_sn74t")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="WallConstructionPieces/Floor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3, 0, 11)
+mesh = SubResource("QuadMesh_k6j7g")
+surface_material_override/0 = SubResource("ShaderMaterial_sn74t")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="WallConstructionPieces/Floor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3, 0, -5)
+mesh = SubResource("QuadMesh_k6j7g")
+surface_material_override/0 = SubResource("ShaderMaterial_sn74t")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="WallConstructionPieces/Floor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3, 0, -13)
+mesh = SubResource("QuadMesh_k6j7g")
+surface_material_override/0 = SubResource("ShaderMaterial_sn74t")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="WallConstructionPieces/Floor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 11, 0, 3)
+mesh = SubResource("QuadMesh_k6j7g")
+surface_material_override/0 = SubResource("ShaderMaterial_sn74t")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="WallConstructionPieces/Floor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 11, 0, 11)
+mesh = SubResource("QuadMesh_k6j7g")
+surface_material_override/0 = SubResource("ShaderMaterial_sn74t")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="WallConstructionPieces/Floor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 11, 0, -5)
+mesh = SubResource("QuadMesh_k6j7g")
+surface_material_override/0 = SubResource("ShaderMaterial_sn74t")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="WallConstructionPieces/Floor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 11, 0, -13)
 mesh = SubResource("QuadMesh_k6j7g")
 surface_material_override/0 = SubResource("ShaderMaterial_sn74t")
 

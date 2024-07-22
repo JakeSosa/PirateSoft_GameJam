@@ -10,6 +10,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ged1f"]
 render_priority = 0
 shader = ExtResource("2_8cl88")
+shader_parameter/TexPix = 100.0
 shader_parameter/UV_Tile = 1.0
 shader_parameter/BC = ExtResource("4_42vy0")
 shader_parameter/AmbientOcclusion = ExtResource("3_2vwdk")
@@ -19,9 +20,13 @@ shader_parameter/NRM = ExtResource("5_ecdvm")
 [node name="Brazier" type="StaticBody3D"]
 transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, 0, 0, 0)
 
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1.39491, 0, 0, 0, 1.39491, 0, 0, 0, 1.39491, 0, 0.776666, 0)
+light_color = Color(0, 0, 1, 1)
+shadow_enabled = true
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(6.98956, 0, 0, 0, 6.98956, 0, 0, 0, 6.98956, 0, 0, 0)
-cast_shadow = 0
 mesh = ExtResource("1_hyo2a")
 surface_material_override/0 = SubResource("ShaderMaterial_ged1f")
 

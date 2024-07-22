@@ -20,7 +20,6 @@ metadata/_edit_group_ = true
 
 [node name="Char" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.10293e-07, -1.01576, 2.52322, -4.44003e-08, 2.52322, 1.01576, -2.72, 0, -1.18895e-07, 0.00247048, -0.983525, -0.0619024)
-cast_shadow = 0
 mesh = ExtResource("2_v0h14")
 surface_material_override/0 = ExtResource("3_sy54o")
 surface_material_override/1 = SubResource("ShaderMaterial_f1spo")
@@ -36,4 +35,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00499217, 0)
 shape = SubResource("CapsuleShape3D_lo8sq")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(2.75817, 0, 0, 0, 2.75817, 0, 0, 0, 2.75817, -0.319285, 0, 0)
+transform = Transform3D(2.75817, 0, 0, 0, 2.75817, 0, 0, 0, 2.75817, 0.283951, 0.516416, 0.390101)
+shadow_enabled = true
