@@ -1,0 +1,114 @@
+[gd_resource type="VisualShader" load_steps=14 format=3 uid="uid://dieokxo23tni5"]
+
+[ext_resource type="Texture2D" uid="uid://bwrn60108hqlb" path="res://Art/Textures/Character/Material_Base_color.png" id="1_vvhlm"]
+[ext_resource type="Texture2D" uid="uid://dw3xpqujvmoex" path="res://Art/Textures/Character/Material_Metallic.png" id="2_q4ugn"]
+[ext_resource type="Texture2D" uid="uid://bxqjjt0xnhfl6" path="res://Art/Textures/Character/Material_Mixed_AO.png" id="3_vkhpe"]
+[ext_resource type="Texture2D" uid="uid://cpqnb6dn2ohuw" path="res://Art/Textures/Character/Material_Normal_DirectX.png" id="4_g75ve"]
+[ext_resource type="Texture2D" uid="uid://504s106fm11b" path="res://Art/Textures/Character/Material_Roughness.png" id="5_l4re4"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_ed84e"]
+texture = ExtResource("1_vvhlm")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_6lomd"]
+expanded_output_ports = [0]
+texture = ExtResource("2_q4ugn")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_26osl"]
+texture = ExtResource("3_vkhpe")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_ojpf1"]
+texture = ExtResource("4_g75ve")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_c6sr8"]
+expanded_output_ports = [0]
+texture = ExtResource("5_l4re4")
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_wjyop"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1), 2, Vector3(0.5, 0.5, 0.5)]
+op_type = 3
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_77m7h"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_ueg5o"]
+parameter_name = "EmitSTR"
+hint = 1
+default_value_enabled = true
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D tex_frg_2;
+uniform sampler2D tex_frg_4;
+uniform sampler2D tex_frg_3;
+uniform sampler2D tex_frg_6;
+uniform float EmitSTR : hint_range(0, 1) = 0;
+uniform sampler2D tex_frg_5;
+
+
+
+void fragment() {
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, UV);
+
+
+// Texture2D:4
+	vec4 n_out4p0 = texture(tex_frg_4, UV);
+
+
+// Mix:7
+	vec3 n_in7p0 = vec3(0.00000, 0.00000, 0.00000);
+	vec3 n_out7p0 = mix(n_in7p0, vec3(n_out2p0.xyz), vec3(n_out4p0.xyz));
+
+
+// Texture2D:3
+	vec4 n_out3p0 = texture(tex_frg_3, UV);
+	float n_out3p2 = n_out3p0.g;
+
+
+// Texture2D:6
+	vec4 n_out6p0 = texture(tex_frg_6, UV);
+	float n_out6p1 = n_out6p0.r;
+
+
+// FloatParameter:9
+	float n_out9p0 = EmitSTR;
+
+
+// VectorOp:8
+	vec3 n_out8p0 = n_out7p0 * vec3(n_out9p0);
+
+
+// Texture2D:5
+	vec4 n_out5p0 = texture(tex_frg_5, UV);
+
+
+// Output:0
+	ALBEDO = n_out7p0;
+	METALLIC = n_out3p2;
+	ROUGHNESS = n_out6p1;
+	EMISSION = n_out8p0;
+	NORMAL_MAP = vec3(n_out5p0.xyz);
+
+
+}
+"
+graph_offset = Vector2(-550.033, -160.738)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_ed84e")
+nodes/fragment/2/position = Vector2(-900, 20)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_6lomd")
+nodes/fragment/3/position = Vector2(-554.877, 415.263)
+nodes/fragment/4/node = SubResource("VisualShaderNodeTexture_26osl")
+nodes/fragment/4/position = Vector2(-800, -380)
+nodes/fragment/5/node = SubResource("VisualShaderNodeTexture_ojpf1")
+nodes/fragment/5/position = Vector2(-640, 1220)
+nodes/fragment/6/node = SubResource("VisualShaderNodeTexture_c6sr8")
+nodes/fragment/6/position = Vector2(-600, 1540)
+nodes/fragment/7/node = SubResource("VisualShaderNodeMix_wjyop")
+nodes/fragment/7/position = Vector2(-118.923, -216.217)
+nodes/fragment/8/node = SubResource("VisualShaderNodeVectorOp_77m7h")
+nodes/fragment/8/position = Vector2(0, 80)
+nodes/fragment/9/node = SubResource("VisualShaderNodeFloatParameter_ueg5o")
+nodes/fragment/9/position = Vector2(-500, 120)
+nodes/fragment/connections = PackedInt32Array(6, 1, 0, 3, 5, 0, 0, 9, 3, 2, 0, 2, 2, 0, 7, 1, 4, 0, 7, 2, 7, 0, 0, 0, 7, 0, 8, 0, 8, 0, 0, 5, 9, 0, 8, 1)
