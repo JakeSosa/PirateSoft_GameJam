@@ -26,10 +26,3 @@ mesh = ExtResource("1_hyo2a")
 surface_material_override/0 = SubResource("ShaderMaterial_ged1f")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1.39491, 0, 0, 0, 1.39491, 0, 0, 0, 1.39491, 0, 0.589216, 0)
-light_color = Color(0.00392157, 0.2, 0.866667, 1)
-light_energy = 5.0
-light_indirect_energy = 2.0
-shadow_enabled = true
