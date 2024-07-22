@@ -1,0 +1,140 @@
+[gd_scene load_steps=17 format=3 uid="uid://c0xw1rprri0gd"]
+
+[ext_resource type="ArrayMesh" uid="uid://bnyi1n8ikmx0n" path="res://Art/Meshes/Objects/DoorOBJFrame.obj" id="1_6llfx"]
+[ext_resource type="Material" uid="uid://dk5qyy862clr3" path="res://Art/Materials/brick.tres" id="2_4xeoi"]
+[ext_resource type="Material" uid="uid://bpeeoeo46wdvp" path="res://Art/Materials/stone.tres" id="3_ykn55"]
+[ext_resource type="AudioStream" uid="uid://cyyuudho6egcf" path="res://Art/Sounds/SFX/DoorSFX.wav" id="4_y6hlo"]
+[ext_resource type="Script" path="res://Programming/DoorProgrammingScript.gd" id="5_485en"]
+[ext_resource type="ArrayMesh" uid="uid://bka3pofer6t1h" path="res://Art/Meshes/Objects/DoorOBJ.obj" id="5_c8tsy"]
+[ext_resource type="Shader" uid="uid://bj3q3fxm0e45v" path="res://Shaders/DoorShader.tres" id="6_cvjhy"]
+[ext_resource type="Texture2D" uid="uid://b2nlnhsxd67m3" path="res://Art/Textures/TrimTexture/M_Trim_Base_color.png" id="7_ljydp"]
+[ext_resource type="Texture2D" uid="uid://optp5pg471n3" path="res://Art/Textures/Spiral3.png" id="8_5h400"]
+[ext_resource type="Texture2D" uid="uid://blei66bcl4lp" path="res://Art/Textures/TrimTexture/M_Trim_Normal_DirectX.png" id="9_moc7d"]
+
+[sub_resource type="Animation" id="Animation_3dmec"]
+resource_name = "DoorClose"
+length = 2.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -2.22594, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_y6hlo")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_b2d8j"]
+resource_name = "DoorOpen"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -2.22594, 0)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_y6hlo")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_q8fhm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sxj7c"]
+_data = {
+"DoorClose": SubResource("Animation_3dmec"),
+"DoorOpen": SubResource("Animation_b2d8j"),
+"RESET": SubResource("Animation_q8fhm")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_47d8r"]
+size = Vector3(2.03619, 2.19446, 0.463898)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bg0fp"]
+render_priority = 0
+shader = ExtResource("6_cvjhy")
+shader_parameter/TilingScale = 1.0
+shader_parameter/GlowColor = Color(1, 1, 1, 1)
+shader_parameter/GlowSTR = 1.0
+shader_parameter/BC = ExtResource("7_ljydp")
+shader_parameter/GlowDecal = ExtResource("8_5h400")
+shader_parameter/NRM = ExtResource("9_moc7d")
+
+[node name="MazeDoorProgramming" type="Node3D"]
+
+[node name="DoorObjFrame" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_6llfx")
+surface_material_override/0 = ExtResource("2_4xeoi")
+surface_material_override/1 = ExtResource("3_ykn55")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../StaticBody3D")
+libraries = {
+"": SubResource("AnimationLibrary_sxj7c")
+}
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+script = ExtResource("5_485en")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.988378, 1.08185, 0.504763)
+visible = false
+shape = SubResource("BoxShape3D_47d8r")
+
+[node name="DoorObj" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = ExtResource("5_c8tsy")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_bg0fp")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.979428, 1.19207, 0.536967)
+visible = false

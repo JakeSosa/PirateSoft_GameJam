@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dl2oc7dc2ka3e"]
 
 [ext_resource type="Script" path="res://Character/test_character.gd" id="1_rdrao"]
-[ext_resource type="Script" path="res://Programming/RayCast3D.gd" id="2_8e3l7"]
+[ext_resource type="Script" path="res://DoorProgramming/PlayerRayCast3D.gd" id="2_8e3l7"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_sqbtt"]
 
@@ -11,6 +11,7 @@
 
 [node name="TestCharacter" type="CharacterBody3D"]
 transform = Transform3D(0.362559, 0, 0, 0, 0.362559, 0, 0, 0, 0.362559, 0, 0, 0)
+collision_layer = 2
 script = ExtResource("1_rdrao")
 metadata/_edit_group_ = true
 

@@ -1,15 +1,18 @@
-[gd_scene load_steps=17 format=3 uid="uid://c0xw1rprri0gd"]
+[gd_scene load_steps=18 format=3 uid="uid://dhyly1b0h38g4"]
 
-[ext_resource type="ArrayMesh" uid="uid://bnyi1n8ikmx0n" path="res://Art/Meshes/Objects/DoorOBJFrame.obj" id="1_6llfx"]
-[ext_resource type="Material" uid="uid://dk5qyy862clr3" path="res://Art/Materials/brick.tres" id="2_4xeoi"]
-[ext_resource type="Material" uid="uid://bpeeoeo46wdvp" path="res://Art/Materials/stone.tres" id="3_ykn55"]
-[ext_resource type="AudioStream" uid="uid://cyyuudho6egcf" path="res://Art/Sounds/SFX/DoorSFX.wav" id="4_y6hlo"]
-[ext_resource type="Script" path="res://Programming/DoorProgrammingScript.gd" id="5_485en"]
-[ext_resource type="ArrayMesh" uid="uid://bka3pofer6t1h" path="res://Art/Meshes/Objects/DoorOBJ.obj" id="5_c8tsy"]
-[ext_resource type="Shader" uid="uid://bj3q3fxm0e45v" path="res://Shaders/DoorShader.tres" id="6_cvjhy"]
-[ext_resource type="Texture2D" uid="uid://b2nlnhsxd67m3" path="res://Art/Textures/TrimTexture/M_Trim_Base_color.png" id="7_ljydp"]
-[ext_resource type="Texture2D" uid="uid://optp5pg471n3" path="res://Art/Textures/Spiral3.png" id="8_5h400"]
-[ext_resource type="Texture2D" uid="uid://blei66bcl4lp" path="res://Art/Textures/TrimTexture/M_Trim_Normal_DirectX.png" id="9_moc7d"]
+[ext_resource type="ArrayMesh" uid="uid://bnyi1n8ikmx0n" path="res://Art/Meshes/Objects/DoorOBJFrame.obj" id="1_605fv"]
+[ext_resource type="Script" path="res://DoorProgramming/DoorArea3D.gd" id="1_ucvf0"]
+[ext_resource type="Material" uid="uid://dk5qyy862clr3" path="res://Art/Materials/brick.tres" id="2_6my2r"]
+[ext_resource type="Material" uid="uid://bpeeoeo46wdvp" path="res://Art/Materials/stone.tres" id="3_wn2lw"]
+[ext_resource type="AudioStream" uid="uid://cyyuudho6egcf" path="res://Art/Sounds/SFX/DoorSFX.wav" id="4_4rq0t"]
+[ext_resource type="ArrayMesh" uid="uid://bka3pofer6t1h" path="res://Art/Meshes/Objects/DoorOBJ.obj" id="6_1seyn"]
+[ext_resource type="Shader" uid="uid://bj3q3fxm0e45v" path="res://Shaders/DoorShader.tres" id="7_ytuxb"]
+[ext_resource type="Texture2D" uid="uid://b2nlnhsxd67m3" path="res://Art/Textures/TrimTexture/M_Trim_Base_color.png" id="8_6axln"]
+[ext_resource type="Texture2D" uid="uid://optp5pg471n3" path="res://Art/Textures/Spiral3.png" id="9_sm2bp"]
+[ext_resource type="Texture2D" uid="uid://blei66bcl4lp" path="res://Art/Textures/TrimTexture/M_Trim_Normal_DirectX.png" id="10_1huup"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bjf35"]
+size = Vector3(4.09427, 2.24854, 3.05957)
 
 [sub_resource type="Animation" id="Animation_3dmec"]
 resource_name = "DoorClose"
@@ -37,7 +40,7 @@ tracks/1/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("4_y6hlo")
+"stream": ExtResource("4_4rq0t")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -68,7 +71,7 @@ tracks/1/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("4_y6hlo")
+"stream": ExtResource("4_4rq0t")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -101,20 +104,28 @@ size = Vector3(2.03619, 2.19446, 0.463898)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bg0fp"]
 render_priority = 0
-shader = ExtResource("6_cvjhy")
+shader = ExtResource("7_ytuxb")
 shader_parameter/TilingScale = 1.0
 shader_parameter/GlowColor = Color(1, 1, 1, 1)
 shader_parameter/GlowSTR = 1.0
-shader_parameter/BC = ExtResource("7_ljydp")
-shader_parameter/GlowDecal = ExtResource("8_5h400")
-shader_parameter/NRM = ExtResource("9_moc7d")
+shader_parameter/BC = ExtResource("8_6axln")
+shader_parameter/GlowDecal = ExtResource("9_sm2bp")
+shader_parameter/NRM = ExtResource("10_1huup")
 
-[node name="MazeDoorProgramming" type="Node3D"]
+[node name="Door" type="Area3D" node_paths=PackedStringArray("animation_player")]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("1_ucvf0")
+animation_player = NodePath("AnimationPlayer")
 
 [node name="DoorObjFrame" type="MeshInstance3D" parent="."]
-mesh = ExtResource("1_6llfx")
-surface_material_override/0 = ExtResource("2_4xeoi")
-surface_material_override/1 = ExtResource("3_ykn55")
+mesh = ExtResource("1_605fv")
+surface_material_override/0 = ExtResource("2_6my2r")
+surface_material_override/1 = ExtResource("3_wn2lw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01693, 1.07427, 0.499764)
+shape = SubResource("BoxShape3D_bjf35")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../StaticBody3D")
@@ -122,9 +133,7 @@ libraries = {
 "": SubResource("AnimationLibrary_sxj7c")
 }
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." node_paths=PackedStringArray("animation_player")]
-script = ExtResource("5_485en")
-animation_player = NodePath("../AnimationPlayer")
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.988378, 1.08185, 0.504763)
@@ -132,10 +141,13 @@ visible = false
 shape = SubResource("BoxShape3D_47d8r")
 
 [node name="DoorObj" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = ExtResource("5_c8tsy")
+mesh = ExtResource("6_1seyn")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_bg0fp")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.979428, 1.19207, 0.536967)
 visible = false
+
+[connection signal="body_entered" from="." to="." method="_on_Door_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Door_body_exited"]
