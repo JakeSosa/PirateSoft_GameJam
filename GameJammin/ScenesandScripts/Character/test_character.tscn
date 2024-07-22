@@ -1,10 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://538fnpxacxpf"]
+[gd_scene load_steps=7 format=3 uid="uid://538fnpxacxpf"]
 
 [ext_resource type="Script" path="res://ScenesandScripts/Character/test_character.gd" id="1_nscsg"]
+[ext_resource type="ArrayMesh" uid="uid://bqn2pfh2vx3bt" path="res://Art/Meshes/Character/Char.obj" id="2_v0h14"]
+[ext_resource type="Material" uid="uid://bhcxpu6ybwkff" path="res://Art/Materials/Char/Charmat.tres" id="3_sy54o"]
+[ext_resource type="Shader" uid="uid://1dvbeglbvagw" path="res://Art/Shaders/CharHair.tres" id="4_dtwy1"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_sqbtt"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_1jtu5"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f1spo"]
+render_priority = 0
+shader = ExtResource("4_dtwy1")
+shader_parameter/ColRoot = Color(0.0672026, 0.0364459, 0.0260101, 1)
+shader_parameter/ColTip = Color(0.227451, 0.156863, 0.129412, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lo8sq"]
 
@@ -13,17 +18,24 @@ transform = Transform3D(0.362559, 0, 0, 0, 0.362559, 0, 0, 0, 0.362559, 0, 0, 0)
 script = ExtResource("1_nscsg")
 metadata/_edit_group_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_sqbtt")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.825008, 0, 0, 0, 0.825008, 0, 0, 0, 0.825008, 0, 1.24903, 0)
-mesh = SubResource("SphereMesh_1jtu5")
+[node name="Char" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.10293e-07, -1.01576, 2.52322, -4.44003e-08, 2.52322, 1.01576, -2.72, 0, -1.18895e-07, 0.00247048, -0.983525, -0.0619024)
+cast_shadow = 0
+mesh = ExtResource("2_v0h14")
+surface_material_override/0 = ExtResource("3_sy54o")
+surface_material_override/1 = SubResource("ShaderMaterial_f1spo")
+surface_material_override/2 = ExtResource("3_sy54o")
+surface_material_override/3 = ExtResource("3_sy54o")
+surface_material_override/4 = ExtResource("3_sy54o")
+surface_material_override/5 = ExtResource("3_sy54o")
+surface_material_override/6 = ExtResource("3_sy54o")
+surface_material_override/7 = ExtResource("3_sy54o")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00499217, 0)
 shape = SubResource("CapsuleShape3D_lo8sq")
 
 [node name="TorchLightTEMP" type="OmniLight3D" parent="."]
-transform = Transform3D(2.75817, 0, 0, 0, 2.75817, 0, 0, 0, 2.75817, 0, 0.110327, 0)
+transform = Transform3D(2.75817, 0, 0, 0, 2.75817, 0, 0, 0, 2.75817, 1.34896, 1.07094, 0.660393)
 light_cull_mask = 4293918721
 shadow_enabled = true

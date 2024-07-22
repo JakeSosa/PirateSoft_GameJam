@@ -50,6 +50,7 @@ shader_parameter/NRM = ExtResource("9_pn3o3")
 size = Vector3(32, 0.5, 32)
 
 [sub_resource type="Environment" id="Environment_ay3fa"]
+background_energy_multiplier = 0.0
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.0
 
