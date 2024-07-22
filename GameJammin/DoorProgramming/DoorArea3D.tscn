@@ -137,7 +137,6 @@ libraries = {
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.988378, 1.08185, 0.504763)
-visible = false
 shape = SubResource("BoxShape3D_47d8r")
 
 [node name="DoorObj" type="MeshInstance3D" parent="StaticBody3D"]

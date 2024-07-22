@@ -34,7 +34,9 @@ func interact():
 func _on_Door_body_entered(body: Node3D) -> void:
 	#When player body enters door's Area3D, then set near_door to true
 	near_door = true
+	print("NearDoorTrue")
 
 func _on_Door_body_exited(body: Node3D) -> void:
 	#When player body exits door's Area3D, then set near_door to false
 	near_door = false
+	print("NearDoorTrue")

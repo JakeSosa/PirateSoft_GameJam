@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PirateSoftwareGameJam"
-run/main_scene="res://DoorProgramming/LevelOneRayCast3D.tscn"
+run/main_scene="res://DoorProgramming/LevelOneDoorArea3D.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
