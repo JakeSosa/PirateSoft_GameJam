@@ -9,6 +9,7 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_kve6w")
+shader_parameter/TexPix = 82.9
 shader_parameter/UV_Tile = 1.0
 shader_parameter/BC = ExtResource("3_scfai")
 shader_parameter/AmbientOcclusion = ExtResource("2_5strb")
