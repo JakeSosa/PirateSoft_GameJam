@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://m5mcf1n2cw0i"
+path="res://.godot/imported/HubBrazier.obj-dd67d99c768e8fb80d8234e2e148fc7c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/HubBrazier.obj-dd67d99c768e8fb80d8234e2e148fc7c.mesh"]
+
+source_file="res://Art/Meshes/Objects/Props/HubBrazier.obj"
+dest_files=["res://.godot/imported/HubBrazier.obj-dd67d99c768e8fb80d8234e2e148fc7c.mesh", "res://.godot/imported/HubBrazier.obj-dd67d99c768e8fb80d8234e2e148fc7c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

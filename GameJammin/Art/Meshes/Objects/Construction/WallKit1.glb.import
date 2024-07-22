@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dfrb7oxlsi28x"
-path="res://.godot/imported/WallKit1.glb-a4fe8d553ab5566a694f6801d9ecaf20.scn"
+path="res://.godot/imported/WallKit1.glb-e3925f0d39a15c584307d9f51b0e62cb.scn"
 
 [deps]
 
-source_file="res://Art/Meshes/Objects/WallKit1.glb"
-dest_files=["res://.godot/imported/WallKit1.glb-a4fe8d553ab5566a694f6801d9ecaf20.scn"]
+source_file="res://Art/Meshes/Objects/Construction/WallKit1.glb"
+dest_files=["res://.godot/imported/WallKit1.glb-e3925f0d39a15c584307d9f51b0e62cb.scn"]
 
 [params]
 

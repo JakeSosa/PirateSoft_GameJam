@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cj3iw4sipgygu"]
 
-[ext_resource type="ArrayMesh" uid="uid://drrxaa71e4rgy" path="res://Art/Meshes/Objects/SM_Wall2m.res" id="1_mr8t2"]
+[ext_resource type="ArrayMesh" uid="uid://drrxaa71e4rgy" path="res://Art/Meshes/Objects/Construction/SM_Wall2m.res" id="1_5iwrf"]
 [ext_resource type="Material" uid="uid://dk5qyy862clr3" path="res://Art/Materials/brick.tres" id="2_fe6cj"]
 [ext_resource type="Material" uid="uid://bpeeoeo46wdvp" path="res://Art/Materials/stone.tres" id="3_22ey2"]
 
@@ -10,7 +10,7 @@ size = Vector3(2.0509, 2.66418, 1.01758)
 [node name="Wall2m" type="StaticBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = ExtResource("1_mr8t2")
+mesh = ExtResource("1_5iwrf")
 surface_material_override/0 = ExtResource("2_fe6cj")
 surface_material_override/1 = ExtResource("3_22ey2")
 

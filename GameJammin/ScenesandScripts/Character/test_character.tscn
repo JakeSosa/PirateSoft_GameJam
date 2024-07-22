@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://538fnpxacxpf"]
 
-[ext_resource type="Script" path="res://Character/test_character.gd" id="1_nscsg"]
+[ext_resource type="Script" path="res://ScenesandScripts/Character/test_character.gd" id="1_nscsg"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_sqbtt"]
 
