@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d2h2wl1flipu4"
+path="res://.godot/imported/Grate.obj-ad457185c67b38c0788329d9fc620b1c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Grate.obj-ad457185c67b38c0788329d9fc620b1c.mesh"]
+
+source_file="res://Art/Meshes/Objects/Props/Grate.obj"
+dest_files=["res://.godot/imported/Grate.obj-ad457185c67b38c0788329d9fc620b1c.mesh", "res://.godot/imported/Grate.obj-ad457185c67b38c0788329d9fc620b1c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
