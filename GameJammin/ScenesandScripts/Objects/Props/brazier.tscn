@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cug6kjou6ccef"]
+[gd_scene load_steps=9 format=3 uid="uid://cug6kjou6ccef"]
 
 [ext_resource type="ArrayMesh" uid="uid://p7joiyfir4x" path="res://Art/Meshes/Objects/Props/Brazier.obj" id="1_hyo2a"]
 [ext_resource type="Shader" uid="uid://d2cm7x8ippg05" path="res://Art/Shaders/PBR.tres" id="2_8cl88"]
@@ -17,13 +17,12 @@ shader_parameter/AmbientOcclusion = ExtResource("3_2vwdk")
 shader_parameter/Rough = ExtResource("6_rsxq6")
 shader_parameter/NRM = ExtResource("5_ecdvm")
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jmwbp"]
+height = 0.450695
+radius = 0.544265
+
 [node name="Brazier" type="StaticBody3D"]
 transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, 0, 0, 0)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1.39491, 0, 0, 0, 1.39491, 0, 0, 0, 1.39491, 0, 0.776666, 0)
-light_color = Color(0, 0, 1, 1)
-shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(6.98956, 0, 0, 0, 6.98956, 0, 0, 0, 6.98956, 0, 0, 0)
@@ -31,3 +30,11 @@ mesh = ExtResource("1_hyo2a")
 surface_material_override/0 = SubResource("ShaderMaterial_ged1f")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0450693, 0)
+shape = SubResource("CylinderShape3D_jmwbp")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1.39491, 0, 0, 0, 1.39491, 0, 0, 0, 1.39491, 0, 0.776666, 0)
+visible = false
+light_color = Color(0, 0, 1, 1)
+shadow_enabled = true
