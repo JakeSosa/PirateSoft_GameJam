@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://3lrlx8iuwkvh"]
+[gd_scene load_steps=5 format=3 uid="uid://3lrlx8iuwkvh"]
 
 [ext_resource type="ArrayMesh" uid="uid://ddp5fy0iuogra" path="res://Art/Meshes/Objects/Props/LevelTop.obj" id="1_p752m"]
 [ext_resource type="Material" uid="uid://sid86jvq7qpj" path="res://Art/Materials/propPack1.tres" id="2_2y2dr"]
 [ext_resource type="ArrayMesh" uid="uid://d0rq7tihykqhw" path="res://Art/Meshes/Objects/Props/LeverBottom.obj" id="2_dp75s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iml0w"]
+size = Vector3(0.123291, 0.219971, 0.246094)
 
 [node name="Lever" type="StaticBody3D"]
 transform = Transform3D(2.62962, 0, 0, 0, 2.62962, 0, 0, 0, 2.62962, 0, 0, 0)
@@ -17,3 +20,5 @@ skeleton = NodePath("../Top")
 surface_material_override/0 = ExtResource("2_2y2dr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00134277, 0.106567, 0.0166016)
+shape = SubResource("BoxShape3D_iml0w")

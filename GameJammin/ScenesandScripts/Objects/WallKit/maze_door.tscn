@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cwgpe75u0j5rt"]
+[gd_scene load_steps=17 format=3 uid="uid://cwgpe75u0j5rt"]
 
 [ext_resource type="ArrayMesh" uid="uid://bnyi1n8ikmx0n" path="res://Art/Meshes/Objects/Construction/DoorOBJFrame.obj" id="1_elj2r"]
 [ext_resource type="Material" uid="uid://dk5qyy862clr3" path="res://Art/Materials/brick.tres" id="2_y6ai0"]
@@ -95,8 +95,8 @@ _data = {
 "RESET": SubResource("Animation_q8fhm")
 }
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_47d8r"]
-size = Vector3(2.03619, 2.19446, 0.463898)
+[sub_resource type="BoxShape3D" id="BoxShape3D_tiycb"]
+size = Vector3(0.272491, 2.20056, 0.400024)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6o05d"]
 render_priority = 0
@@ -108,7 +108,10 @@ shader_parameter/BC = ExtResource("7_yfukm")
 shader_parameter/GlowDecal = ExtResource("8_510jo")
 shader_parameter/NRM = ExtResource("9_oj0j5")
 
-[node name="MazeDoor" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_7dra3"]
+size = Vector3(1.45587, 2.18835, 0.229736)
+
+[node name="MazeDoor" type="StaticBody3D"]
 
 [node name="DoorObjFrame" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_elj2r")
@@ -121,18 +124,28 @@ libraries = {
 "": SubResource("AnimationLibrary_sxj7c")
 }
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.988378, 1.08185, 0.504763)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.131149, 1.10221, 0.515131)
 visible = false
-shape = SubResource("BoxShape3D_47d8r")
-disabled = true
+shape = SubResource("BoxShape3D_tiycb")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85964, 1.10221, 0.515131)
+visible = false
+shape = SubResource("BoxShape3D_tiycb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="DoorObj" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = ExtResource("3_rsqwm")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_6o05d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01203, 1.10327, 0.497082)
+visible = false
+shape = SubResource("BoxShape3D_7dra3")
+disabled = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.979428, 1.19207, 0.536967)

@@ -58,13 +58,14 @@ ambient_light_energy = 0.0
 [node name="Level1" type="Node3D"]
 
 [node name="TestCharacter" parent="." instance=ExtResource("11_fkrui")]
-transform = Transform3D(-1.5848e-08, 0, -0.362559, 0, 0.362559, 0, 0.362559, 0, -1.5848e-08, -5.84515, -1.90735e-06, 8.4566)
+transform = Transform3D(-4.71298e-08, 0, -1.0782, 0, 1.0782, 0, 1.0782, 0, -4.71298e-08, -5.84515, -0.341019, 8.4566)
 
 [node name="MainCam" type="Camera3D" parent="TestCharacter"]
-transform = Transform3D(-1.14587e-07, -2.54502, 1.0632, -1.23854e-08, 1.0632, 2.54502, -2.75817, 1.00957e-07, -5.55983e-08, 4.86957, 14.4704, -0.189734)
+transform = Transform3D(-3.85314e-08, -0.855796, 0.357515, -4.16475e-09, 0.357515, 0.855796, -0.927472, 3.39482e-08, -1.86957e-08, 1.63746, 4.86586, -0.0638008)
 
 [node name="PostProcess" type="MeshInstance3D" parent="TestCharacter"]
-transform = Transform3D(-1.20564e-07, 0, 2.75817, 0, 2.75817, 0, -2.75817, 0, -1.20564e-07, -20.5666, 5.2197e-06, -18.8801)
+transform = Transform3D(-4.05412e-08, 0, 0.927473, 0, 0.927473, 0, -0.927473, 0, -4.05412e-08, -6.9158, 1.75834e-06, -6.3487)
+visible = false
 mesh = SubResource("QuadMesh_53br7")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_3c4i0")
