@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cuos8mpkfruk5"]
 
-[ext_resource type="Script" path="res://Character/test_character.gd" id="1_ndxna"]
+[ext_resource type="Script" path="res://DoorProgramming/PlayerArea3DController.gd" id="1_slw6x"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_sqbtt"]
 
@@ -8,10 +8,10 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lo8sq"]
 
-[node name="TestCharacter" type="CharacterBody3D"]
+[node name="PlayerArea3D" type="CharacterBody3D"]
 transform = Transform3D(0.362559, 0, 0, 0, 0.362559, 0, 0, 0, 0.362559, 0, 0, 0)
 collision_layer = 2
-script = ExtResource("1_ndxna")
+script = ExtResource("1_slw6x")
 metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -27,3 +27,7 @@ mesh = SubResource("SphereMesh_1jtu5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_lo8sq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.465022, 0)
+omni_range = 2.0

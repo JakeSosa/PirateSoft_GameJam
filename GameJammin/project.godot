@@ -51,6 +51,7 @@ interact={
 
 3d_physics/layer_1="environment"
 3d_physics/layer_2="player"
+3d_physics/layer_3="sconces"
 
 [rendering]
 

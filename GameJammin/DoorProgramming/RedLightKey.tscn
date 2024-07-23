@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp0g8ksregu56"]
+
+[ext_resource type="Script" path="res://DoorProgramming/RedLightKey.gd" id="1_fnuam"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1vujy"]
+radius = 1.32747
+
+[node name="RedLightKey" type="Area3D"]
+collision_layer = 0
+collision_mask = 7
+script = ExtResource("1_fnuam")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_1vujy")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(1, 0, 0, 1)
+omni_range = 2.0
+
+[connection signal="body_entered" from="." to="." method="_on_RedKey_body_entered"]

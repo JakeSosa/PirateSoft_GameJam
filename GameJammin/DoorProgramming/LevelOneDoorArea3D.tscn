@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://deeokdrx7dib7"]
+[gd_scene load_steps=18 format=3 uid="uid://deeokdrx7dib7"]
 
 [ext_resource type="PackedScene" uid="uid://cuos8mpkfruk5" path="res://DoorProgramming/PlayerArea3D.tscn" id="1_2dvy7"]
+[ext_resource type="PackedScene" uid="uid://bp0g8ksregu56" path="res://DoorProgramming/RedLightKey.tscn" id="1_chpbp"]
 [ext_resource type="PackedScene" uid="uid://cpsau6s0g741l" path="res://Objects/wall_1m.tscn" id="2_ol30a"]
 [ext_resource type="PackedScene" uid="uid://cj3iw4sipgygu" path="res://Objects/wall_2m.tscn" id="3_ixjwe"]
 [ext_resource type="PackedScene" uid="uid://0l8xsyxymvjb" path="res://Objects/wall_4m.tscn" id="4_qphoa"]
@@ -33,11 +34,14 @@ background_energy_multiplier = 5.12
 
 [node name="Level1" type="Node3D"]
 
-[node name="TestCharacter2" parent="." instance=ExtResource("1_2dvy7")]
-transform = Transform3D(-5.74583e-09, 0, -0.131449, 0, 0.131449, 0, 0.131449, 0, -5.74583e-09, 0.456068, 2.22684, -9.20826)
+[node name="PlayerArea3D2" parent="." instance=ExtResource("1_2dvy7")]
+transform = Transform3D(0.362559, 0, 0, 0, 0.362559, 0, 0, 0, 0.362559, 0, 0, -9)
 
-[node name="MainCam" type="Camera3D" parent="TestCharacter2"]
-transform = Transform3D(-3.32534e-07, -5.36052, 5.39806, 0, 5.39806, 5.36052, -7.60751, 2.34315e-07, -2.35956e-07, 23.4169, 33.7435, -0.747465)
+[node name="MainCam" type="Camera3D" parent="PlayerArea3D2"]
+transform = Transform3D(2.75817, 3.00039e-14, -3.02141e-14, 0, 1.95712, 1.9435, 4.25808e-14, -1.9435, 1.95712, 0.748373, 33.7845, 21.3946)
+
+[node name="RedLightKey" parent="." instance=ExtResource("1_chpbp")]
+transform = Transform3D(-1.58672e-08, 0, -0.363, 0, 0.363, 0, 0.363, 0, -1.58672e-08, 0, 0, -12.3533)
 
 [node name="WallKit" type="Node" parent="."]
 
@@ -85,32 +89,40 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, -0.
 [node name="Door6" parent="WallKit" instance=ExtResource("7_shmfc")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 13, -0.4, -5)
 
-[node name="Door7" parent="WallKit" instance=ExtResource("7_shmfc")]
+[node name="Door7" parent="WallKit" node_paths=PackedStringArray("animation_player") instance=ExtResource("7_shmfc")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9, -0.4, -12)
+animation_player = NodePath("../Door15/StaticBody3D/@AnimationPlayer@27057")
 
 [node name="Door8" parent="WallKit" instance=ExtResource("7_shmfc")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 13, -0.4, -1)
 
-[node name="Door9" parent="WallKit" instance=ExtResource("7_shmfc")]
+[node name="Door9" parent="WallKit" node_paths=PackedStringArray("animation_player") instance=ExtResource("7_shmfc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -0.4, -6)
+animation_player = NodePath("../Door4/StaticBody3D/@AnimationPlayer@27046")
 
-[node name="Door10" parent="WallKit" instance=ExtResource("7_shmfc")]
+[node name="Door10" parent="WallKit" node_paths=PackedStringArray("animation_player") instance=ExtResource("7_shmfc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -0.4, -3)
+animation_player = NodePath("../Door6/StaticBody3D/@AnimationPlayer@27048")
 
-[node name="Door11" parent="WallKit" instance=ExtResource("7_shmfc")]
+[node name="Door11" parent="WallKit" node_paths=PackedStringArray("animation_player") instance=ExtResource("7_shmfc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.4, 1)
+animation_player = NodePath("../Door10/StaticBody3D/@AnimationPlayer@27052")
 
-[node name="Door12" parent="WallKit" instance=ExtResource("7_shmfc")]
+[node name="Door12" parent="WallKit" node_paths=PackedStringArray("animation_player") instance=ExtResource("7_shmfc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -0.4, -7)
+animation_player = NodePath("StaticBody3D/@AnimationPlayer@27054")
 
-[node name="Door13" parent="WallKit" instance=ExtResource("7_shmfc")]
+[node name="Door13" parent="WallKit" node_paths=PackedStringArray("animation_player") instance=ExtResource("7_shmfc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, -0.4, -7)
+animation_player = NodePath("../Door/StaticBody3D/@AnimationPlayer@27043")
 
-[node name="Door14" parent="WallKit" instance=ExtResource("7_shmfc")]
+[node name="Door14" parent="WallKit" node_paths=PackedStringArray("animation_player") instance=ExtResource("7_shmfc")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11, -0.4, 11)
+animation_player = NodePath("../Door2/StaticBody3D/@AnimationPlayer@27044")
 
-[node name="Door15" parent="WallKit" instance=ExtResource("7_shmfc")]
+[node name="Door15" parent="WallKit" node_paths=PackedStringArray("animation_player") instance=ExtResource("7_shmfc")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, -0.4, 6)
+animation_player = NodePath("../Door8/StaticBody3D/@AnimationPlayer@27050")
 
 [node name="MapPieces" type="Node" parent="."]
 

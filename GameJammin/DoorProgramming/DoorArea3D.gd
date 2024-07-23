@@ -7,6 +7,7 @@ var near_door := false
 var is_open = false
 #Set variable to determine when the player can or cannot interact with the door
 var interactable = true
+#Set variable to define door's color
 
 @export var animation_player: AnimationPlayer
 

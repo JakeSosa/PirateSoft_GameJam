@@ -1,0 +1,318 @@
+[gd_scene load_steps=33 format=3 uid="uid://c3dgtigk0oywi"]
+
+[ext_resource type="Script" path="res://DoorProgramming/DoorArea3D.gd" id="1_fuv3m"]
+[ext_resource type="ArrayMesh" uid="uid://bnyi1n8ikmx0n" path="res://Art/Meshes/Objects/DoorOBJFrame.obj" id="2_4qctu"]
+[ext_resource type="Material" uid="uid://dk5qyy862clr3" path="res://Art/Materials/brick.tres" id="3_0feqe"]
+[ext_resource type="Material" uid="uid://bpeeoeo46wdvp" path="res://Art/Materials/stone.tres" id="4_ghdcv"]
+[ext_resource type="AudioStream" uid="uid://cyyuudho6egcf" path="res://Art/Sounds/SFX/DoorSFX.wav" id="5_cnjsb"]
+[ext_resource type="ArrayMesh" uid="uid://bka3pofer6t1h" path="res://Art/Meshes/Objects/DoorOBJ.obj" id="6_cf4mj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bjf35"]
+size = Vector3(4.09427, 2.24854, 3.05957)
+
+[sub_resource type="Animation" id="Animation_3dmec"]
+resource_name = "DoorClose"
+length = 2.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -2.22594, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_cnjsb")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_b2d8j"]
+resource_name = "DoorOpen"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -2.22594, 0)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_cnjsb")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_q8fhm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sxj7c"]
+_data = {
+"DoorClose": SubResource("Animation_3dmec"),
+"DoorOpen": SubResource("Animation_b2d8j"),
+"RESET": SubResource("Animation_q8fhm")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_47d8r"]
+size = Vector3(2.03619, 2.19446, 0.463898)
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_mdtvw"]
+source = 5
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_bvemu"]
+parameter_name = "GlowDecal"
+texture_repeat = 2
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_a73rx"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1), 2, Vector3(0.5, 0.5, 0.5)]
+op_type = 3
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_6ocpl"]
+parameter_name = "GlowColor"
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_dekt7"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_kelt1"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_86c5o"]
+parameter_name = "GlowSTR"
+default_value_enabled = true
+default_value = 1.0
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_b2wo0"]
+source = 5
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_5dvpq"]
+parameter_name = "DoorOPEN"
+hint = 1
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_qw66y"]
+source = 5
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_dccmr"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_hwu02"]
+parameter_name = "BC"
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_14qbx"]
+parameter_name = "NRM"
+texture_type = 2
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_l2xue"]
+parameter_name = "TilingScale"
+default_value_enabled = true
+default_value = 1.0
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_hfghp"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+operator = 2
+
+[sub_resource type="VisualShader" id="VisualShader_dre01"]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform float TilingScale = 1;
+uniform sampler2D BC : source_color;
+uniform vec4 GlowColor : source_color = vec4(1.000000, 1.000000, 1.000000, 1.000000);
+uniform sampler2D GlowDecal : repeat_disable;
+uniform float GlowSTR = 1;
+uniform sampler2D NRM : hint_normal;
+
+
+
+void fragment() {
+// Input:4
+	vec2 n_out4p0 = UV;
+
+
+// FloatParameter:7
+	float n_out7p0 = TilingScale;
+
+
+// VectorOp:8
+	vec2 n_out8p0 = n_out4p0 * vec2(n_out7p0);
+
+
+	vec4 n_out2p0;
+// Texture2D:2
+	n_out2p0 = texture(BC, n_out8p0);
+
+
+// ColorParameter:14
+	vec4 n_out14p0 = GlowColor;
+
+
+	vec4 n_out11p0;
+// Texture2D:11
+	n_out11p0 = texture(GlowDecal, n_out4p0);
+
+
+// Mix:13
+	vec3 n_out13p0 = mix(vec3(n_out2p0.xyz), vec3(n_out14p0.xyz), vec3(n_out11p0.xyz));
+
+
+// VectorOp:15
+	vec3 n_out15p0 = vec3(n_out11p0.xyz) * vec3(n_out14p0.xyz);
+
+
+// FloatParameter:17
+	float n_out17p0 = GlowSTR;
+
+
+// VectorOp:16
+	vec3 n_out16p0 = n_out15p0 * vec3(n_out17p0);
+
+
+	vec4 n_out3p0;
+// Texture2D:3
+	n_out3p0 = texture(NRM, n_out8p0);
+
+
+// Output:0
+	ALBEDO = n_out13p0;
+	EMISSION = n_out16p0;
+	NORMAL_MAP = vec3(n_out3p0.xyz);
+
+
+}
+"
+graph_offset = Vector2(-784.749, 193.783)
+nodes/fragment/0/position = Vector2(100, 2160)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_b2wo0")
+nodes/fragment/2/position = Vector2(-620, 3680)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_qw66y")
+nodes/fragment/3/position = Vector2(-620, 3380)
+nodes/fragment/4/node = SubResource("VisualShaderNodeInput_dccmr")
+nodes/fragment/4/position = Vector2(-2040, 2340)
+nodes/fragment/5/node = SubResource("VisualShaderNodeTexture2DParameter_hwu02")
+nodes/fragment/5/position = Vector2(-1500, 1400)
+nodes/fragment/6/node = SubResource("VisualShaderNodeTexture2DParameter_14qbx")
+nodes/fragment/6/position = Vector2(-1500, 920)
+nodes/fragment/7/node = SubResource("VisualShaderNodeFloatParameter_l2xue")
+nodes/fragment/7/position = Vector2(-1500, 3440)
+nodes/fragment/8/node = SubResource("VisualShaderNodeVectorOp_hfghp")
+nodes/fragment/8/position = Vector2(-960, 3320)
+nodes/fragment/11/node = SubResource("VisualShaderNodeTexture_mdtvw")
+nodes/fragment/11/position = Vector2(-960, 2280)
+nodes/fragment/12/node = SubResource("VisualShaderNodeTexture2DParameter_bvemu")
+nodes/fragment/12/position = Vector2(-1500, 2520)
+nodes/fragment/13/node = SubResource("VisualShaderNodeMix_a73rx")
+nodes/fragment/13/position = Vector2(-220, 3680)
+nodes/fragment/14/node = SubResource("VisualShaderNodeColorParameter_6ocpl")
+nodes/fragment/14/position = Vector2(-1500, 1940)
+nodes/fragment/15/node = SubResource("VisualShaderNodeVectorOp_dekt7")
+nodes/fragment/15/position = Vector2(-620, 2220)
+nodes/fragment/16/node = SubResource("VisualShaderNodeVectorOp_kelt1")
+nodes/fragment/16/position = Vector2(-220, 2220)
+nodes/fragment/17/node = SubResource("VisualShaderNodeFloatParameter_86c5o")
+nodes/fragment/17/position = Vector2(-1500, 3060)
+nodes/fragment/22/node = SubResource("VisualShaderNodeFloatParameter_5dvpq")
+nodes/fragment/22/position = Vector2(-1500, 3840)
+nodes/fragment/connections = PackedInt32Array(5, 0, 2, 2, 6, 0, 3, 2, 4, 0, 8, 0, 7, 0, 8, 1, 8, 0, 3, 0, 8, 0, 2, 0, 11, 0, 13, 2, 12, 0, 11, 2, 13, 0, 0, 0, 3, 0, 0, 9, 11, 0, 15, 0, 14, 0, 15, 1, 15, 0, 16, 0, 16, 0, 0, 5, 17, 0, 16, 1, 2, 0, 13, 0, 14, 0, 13, 1, 4, 0, 11, 0)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h5m31"]
+load_path = "res://.godot/imported/M_Trim_Base_color.png-7f667f34798180a2c411a61cb29621e7.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sfve1"]
+load_path = "res://.godot/imported/Spiral3.png-8c432b3d3163f54474fd653770d67642.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dffj1"]
+load_path = "res://.godot/imported/M_Trim_Normal_DirectX.png-cbfa88fe63032a2520c5c88cce5adeb7.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4hsy3"]
+render_priority = 0
+shader = SubResource("VisualShader_dre01")
+shader_parameter/TilingScale = 1.0
+shader_parameter/GlowColor = Color(1, 0, 0, 1)
+shader_parameter/GlowSTR = 1.0
+shader_parameter/BC = SubResource("CompressedTexture2D_h5m31")
+shader_parameter/GlowDecal = SubResource("CompressedTexture2D_sfve1")
+shader_parameter/NRM = SubResource("CompressedTexture2D_dffj1")
+
+[node name="Door" type="Area3D" node_paths=PackedStringArray("animation_player")]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("1_fuv3m")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="DoorObjFrame" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_4qctu")
+surface_material_override/0 = ExtResource("3_0feqe")
+surface_material_override/1 = ExtResource("4_ghdcv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01693, 1.07427, 0.499764)
+shape = SubResource("BoxShape3D_bjf35")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../StaticBody3D")
+libraries = {
+"": SubResource("AnimationLibrary_sxj7c")
+}
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.988378, 1.08185, 0.504763)
+shape = SubResource("BoxShape3D_47d8r")
+
+[node name="DoorObj" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = ExtResource("6_cf4mj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_4hsy3")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.979428, 1.19207, 0.536967)
+visible = false
+
+[connection signal="body_entered" from="." to="." method="_on_Door_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Door_body_exited"]
