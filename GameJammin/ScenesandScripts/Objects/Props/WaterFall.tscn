@@ -1,12 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://b82tvavmk75tg"]
+[gd_scene load_steps=14 format=3 uid="uid://b82tvavmk75tg"]
 
 [ext_resource type="Shader" uid="uid://bossd6vdywrx5" path="res://Art/Shaders/WaterFall.tres" id="1_x8ll0"]
 [ext_resource type="Texture2D" uid="uid://bj672mthf518i" path="res://Art/Textures/WaterFallTex/WaterFallBits.png" id="2_6o1pk"]
 [ext_resource type="Shader" uid="uid://gnxbxckui5py" path="res://Art/Shaders/WallDecals.tres" id="3_55mre"]
+[ext_resource type="ArrayMesh" uid="uid://da7tpxc5y8kpw" path="res://Art/Meshes/Objects/Construction/WaterFallMesh.obj" id="3_o0ta2"]
 [ext_resource type="Texture2D" uid="uid://dvj2k5sakvjq" path="res://Art/Textures/WaterFallTex/WaterFallParticle.png" id="4_4mcm6"]
-
-[sub_resource type="QuadMesh" id="QuadMesh_l6efd"]
-size = Vector2(1, 2)
 
 [sub_resource type="Gradient" id="Gradient_ggwe4"]
 
@@ -30,12 +28,8 @@ shader_parameter/WiggleSTR = 0.185
 shader_parameter/WaterBase = SubResource("NoiseTexture2D_x4kfw")
 shader_parameter/WaterFallBits = ExtResource("2_6o1pk")
 
-[sub_resource type="QuadMesh" id="QuadMesh_pcrjt"]
-flip_faces = true
-size = Vector2(1, 2)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_1f62e"]
-size = Vector3(1, 1.99811, 0.0854492)
+size = Vector3(2.00223, 2.32124, 0.0854492)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qbllp"]
 emission_shape_scale = Vector3(0.1, 0.1, 0.1)
@@ -69,24 +63,18 @@ orientation = 1
 
 [node name="WaterFall" type="Node3D"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.998045, 0)
-mesh = SubResource("QuadMesh_l6efd")
-surface_material_override/0 = SubResource("ShaderMaterial_oxias")
+[node name="WaterFallMesh" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_oxias")
+mesh = ExtResource("3_o0ta2")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
-mesh = SubResource("QuadMesh_pcrjt")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_oxias")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/MeshInstance3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0205993, -0.0178223)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WaterFallMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00138855, 1.15957, 0)
 shape = SubResource("BoxShape3D_1f62e")
 disabled = true
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.809639, 0)
+[node name="GPUParticles3D" type="GPUParticles3D" parent="WaterFallMesh"]
+transform = Transform3D(1.73238, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.156171, 0)
 amount = 100
-visibility_aabb = AABB(-0.531128, -0.169974, -0.159549, 1.06226, 0.336041, 0.319099)
+visibility_aabb = AABB(-0.59223, -0.169974, -0.159549, 1.18446, 0.336041, 0.319099)
 process_material = SubResource("ParticleProcessMaterial_qbllp")
 draw_pass_1 = SubResource("QuadMesh_otcwf")
