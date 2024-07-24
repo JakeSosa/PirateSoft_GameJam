@@ -105,7 +105,7 @@ shader_parameter/NRM = ExtResource("9_pn3o3")
 size = Vector3(32, 0.5, 32)
 
 [sub_resource type="Environment" id="Environment_ay3fa"]
-background_energy_multiplier = 1.95
+background_energy_multiplier = 0.0
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.0
 
@@ -118,7 +118,8 @@ transform = Transform3D(-4.71298e-08, 0, -1.0782, 0, 1.0782, 0, 1.0782, 0, -4.71
 transform = Transform3D(-3.85314e-08, -0.855796, 0.357515, -4.16475e-09, 0.357515, 0.855796, -0.927472, 3.39482e-08, -1.86957e-08, 1.63746, 4.86586, -0.0638008)
 
 [node name="PostProcess" type="MeshInstance3D" parent="TestCharacter"]
-transform = Transform3D(-4.05412e-08, 0, 0.927473, 0, 0.927473, 0, -0.927473, 0, -4.05412e-08, -6.9158, 1.75834e-06, -6.3487)
+transform = Transform3D(-4.05412e-08, 0, 0.927473, 0, 0.927473, 0, -0.927473, 0, -4.05412e-08, -7.42488, 0.247539, -6.19226)
+visible = false
 mesh = SubResource("QuadMesh_53br7")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_3c4i0")
@@ -158,9 +159,9 @@ skeleton = NodePath("../..")
 
 [node name="SkeletonShackled" type="MeshInstance3D" parent="Deco"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -4.12921, -0.288669, 11.8506)
-material_override = SubResource("ShaderMaterial_hwn5i")
 mesh = ExtResource("19_mvayl")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_hwn5i")
 
 [node name="SkeletonSkull" type="MeshInstance3D" parent="Deco"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -3.43062, -0.288669, 11.8736)
