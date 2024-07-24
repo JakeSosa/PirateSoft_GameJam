@@ -1,0 +1,49 @@
+[gd_resource type="VisualShader" load_steps=4 format=3 uid="uid://itiaibnihmo3"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_bysxg"]
+expanded_output_ports = [0]
+source = 5
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_2f2a6"]
+parameter_name = "ColAlph"
+texture_filter = 1
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_6k5ii"]
+constant = 0.2
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D ColAlph : filter_nearest;
+
+
+
+void fragment() {
+	vec4 n_out2p0;
+// Texture2D:2
+	n_out2p0 = texture(ColAlph, UV);
+	float n_out2p4 = n_out2p0.a;
+
+
+// FloatConstant:4
+	float n_out4p0 = 0.200000;
+
+
+// Output:0
+	ALBEDO = vec3(n_out2p0.xyz);
+	ALPHA = n_out2p4;
+	ALPHA_SCISSOR_THRESHOLD = n_out4p0;
+
+
+}
+"
+graph_offset = Vector2(-758.397, 47.968)
+nodes/fragment/0/position = Vector2(600, 200)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_bysxg")
+nodes/fragment/2/position = Vector2(-360, 140)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture2DParameter_2f2a6")
+nodes/fragment/3/position = Vector2(-880, 140)
+nodes/fragment/4/node = SubResource("VisualShaderNodeFloatConstant_6k5ii")
+nodes/fragment/4/position = Vector2(200, 780)
+nodes/fragment/connections = PackedInt32Array(3, 0, 2, 2, 4, 0, 0, 19, 2, 0, 0, 0, 2, 4, 0, 1)
