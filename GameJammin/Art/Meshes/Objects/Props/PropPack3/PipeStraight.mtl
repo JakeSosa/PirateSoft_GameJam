@@ -1,0 +1,14 @@
+# Blender 4.0.2 MTL File: 'Kit.blend'
+# www.blender.org
+
+newmtl M_Props03
+Ka 0.500000 0.500000 0.500000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd E:/MyGames/GameJam/Props/Props03/M_Props03_Base_color.png
+map_Ns E:/MyGames/GameJam/Props/Props03/M_Props03_Roughness.png
+map_refl E:/MyGames/GameJam/Props/Props03/M_Props03_Metallic.png
+map_Bump -bm 1.000000 E:/MyGames/GameJam/Props/Props03/M_Props03_Normal_DirectX.png

@@ -1,0 +1,270 @@
+# Blender 4.0.2 MTL File: 'Kit.blend'
+# www.blender.org
+
+newmtl Door
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd E:/MyGames/GameJam/Door/Door_Base_color.png
+map_Ns E:/MyGames/GameJam/Door/Door_Roughness.png
+map_refl E:/MyGames/GameJam/Door/Door_Metallic.png
+map_Bump -bm 1.000000 E:/MyGames/GameJam/Door/Door_Normal_DirectX.png
+
+newmtl Floor
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/FloorTexture/M_Floor_Base_color.png
+map_Ns E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/FloorTexture/M_Floor_Roughness.png
+map_refl E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/FloorTexture/M_Floor_Metallic.png
+map_Bump -bm 1.000000 E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/FloorTexture/M_Floor_Normal.png
+
+newmtl Hair
+Ns 360.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl M_Circle
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd E:/MyGames/GameJam/TrimCircle/Material_Base_color.png
+map_Ns E:/MyGames/GameJam/TrimCircle/Material_Roughness.png
+map_refl E:/MyGames/GameJam/TrimCircle/Material_Metallic.png
+map_Bump -bm 1.000000 E:/MyGames/GameJam/TrimCircle/Material_Normal_DirectX.png
+
+newmtl M_Grate
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd E:/MyGames/GameJam/Props/Grate/M_Grate_Base_color.png
+map_Ns E:/MyGames/GameJam/Props/Grate/M_Grate_Roughness.png
+map_refl E:/MyGames/GameJam/Props/Grate/M_Grate_Metallic.png
+map_Bump -bm 1.000000 E:/MyGames/GameJam/Props/Grate/M_Grate_Normal_DirectX.png
+
+newmtl M_Props
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd E:/MyGames/GameJam/Props/PropTextures/M_Props01_Base_color.png
+map_Ns E:/MyGames/GameJam/Props/PropTextures/M_Props01_Roughness.png
+map_refl E:/MyGames/GameJam/Props/PropTextures/M_Props01_Metallic.png
+map_Bump -bm 1.000000 E:/MyGames/GameJam/Props/PropTextures/M_Props01_Normal_DirectX.png
+
+newmtl M_Props.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+
+newmtl M_Props.002
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+
+newmtl M_Props.003
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd E:/MyGames/GameJam/Props/PropTextures/M_Props01_Base_color.png
+map_Ns E:/MyGames/GameJam/Props/PropTextures/M_Props01_Roughness.png
+map_refl E:/MyGames/GameJam/Props/PropTextures/M_Props01_Metallic.png
+map_Bump -bm 1.000000 E:/MyGames/GameJam/Props/PropTextures/M_Props01_Normal_DirectX.png
+
+newmtl M_Props.004
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd E:/MyGames/GameJam/Props/PropTextures/M_Props01_Base_color.png
+map_Ns E:/MyGames/GameJam/Props/PropTextures/M_Props01_Roughness.png
+map_refl E:/MyGames/GameJam/Props/PropTextures/M_Props01_Metallic.png
+map_Bump -bm 1.000000 E:/MyGames/GameJam/Props/PropTextures/M_Props01_Normal_DirectX.png
+
+newmtl M_Props02
+Ka 0.500000 0.500000 0.500000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd E:/MyGames/GameJam/Props/Props02/M_Props02_Base_color.png
+map_Ns E:/MyGames/GameJam/Props/Props02/M_Props02_Roughness.png
+map_refl E:/MyGames/GameJam/Props/Props02/M_Props02_Metallic.png
+map_Bump -bm 1.000000 E:/MyGames/GameJam/Props/Props02/M_Props02_Normal_DirectX.png
+
+newmtl M_Props03
+Ka 0.500000 0.500000 0.500000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd E:/MyGames/GameJam/Props/Props03/M_Props03_Base_color.png
+map_Ns E:/MyGames/GameJam/Props/Props03/M_Props03_Roughness.png
+map_refl E:/MyGames/GameJam/Props/Props03/M_Props03_Metallic.png
+map_Bump -bm 1.000000 E:/MyGames/GameJam/Props/Props03/M_Props03_Normal_DirectX.png
+
+newmtl Material
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd E:/MyGames/PirateSoft_GameJam/GameJammin/Art/Meshes/Objects/Deco/Skeleton/SKELCol.png
+
+newmtl Material.001
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd E:/MyGames/GameJam/CharacterTexture/Material_Base_color.png
+map_Ns E:/MyGames/GameJam/CharacterTexture/Material_Roughness.png
+map_refl E:/MyGames/GameJam/CharacterTexture/Material_Metallic.png
+map_Bump -bm 1.000000 E:/MyGames/GameJam/CharacterTexture/Material_Normal_DirectX.png
+
+newmtl standardSurface1
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd E:/MyGames/GameJam/Props/PropTextures/M_Props01_Base_color.png
+map_Ns E:/MyGames/GameJam/Props/PropTextures/M_Props01_Roughness.png
+map_refl E:/MyGames/GameJam/Props/PropTextures/M_Props01_Metallic.png
+map_Bump -bm 1.000000 E:/MyGames/GameJam/Props/PropTextures/M_Props01_Normal.png
+
+newmtl tops
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/TrimTexture/M_Trim_Base_color.png
+map_Ns E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/TrimTexture/M_Trim_Roughness.png
+map_refl E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/TrimTexture/M_Trim_Metallic.png
+map_Bump -bm 1.000000 E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/TrimTexture/M_Trim_Normal.png
+
+newmtl tops.001
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/TrimTexture/M_Trim_Base_color.png
+map_Ns E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/TrimTexture/M_Trim_Roughness.png
+map_refl E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/TrimTexture/M_Trim_Metallic.png
+map_Bump -bm 1.000000 E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/TrimTexture/M_Trim_Normal.png
+
+newmtl tops.002
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/TrimTexture/M_Trim_Base_color.png
+map_Ns E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/TrimTexture/M_Trim_Roughness.png
+map_refl E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/TrimTexture/M_Trim_Metallic.png
+map_Bump -bm 1.000000 E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/TrimTexture/M_Trim_Normal.png
+
+newmtl tops.003
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/TrimTexture/M_Trim_Base_color.png
+map_Ns E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/TrimTexture/M_Trim_Roughness.png
+map_refl E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/TrimTexture/M_Trim_Metallic.png
+map_Bump -bm 1.000000 E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/TrimTexture/M_Trim_Normal.png
+
+newmtl wall
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.200000
+d 1.000000
+illum 2
+map_Kd E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/WallTexture/M_Wall_Base_color.png
+map_Ns E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/WallTexture/M_Wall_Roughness.png
+map_refl E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/WallTexture/M_Wall_Metallic.png
+map_Bump -bm 1.000000 E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/WallTexture/M_Wall_Normal.png
+
+newmtl wall.001
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.200000
+d 1.000000
+illum 2
+map_Kd E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/WallTexture/M_Wall_Base_color.png
+map_Ns E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/WallTexture/M_Wall_Roughness.png
+map_refl E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/WallTexture/M_Wall_Metallic.png
+map_Bump -bm 1.000000 E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/WallTexture/M_Wall_Normal.png
+
+newmtl wall.002
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.200000
+d 1.000000
+illum 2
+map_Kd E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/WallTexture/M_Wall_Base_color.png
+map_Ns E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/WallTexture/M_Wall_Roughness.png
+map_refl E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/WallTexture/M_Wall_Metallic.png
+map_Bump -bm 1.000000 E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/WallTexture/M_Wall_Normal.png
+
+newmtl wall.003
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.200000
+d 1.000000
+illum 2
+map_Kd E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/WallTexture/M_Wall_Base_color.png
+map_Ns E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/WallTexture/M_Wall_Roughness.png
+map_refl E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/WallTexture/M_Wall_Metallic.png
+map_Bump -bm 1.000000 E:/MyGames/PirateSoft_GameJam/Jake'sWorkFiles/Pngs/WallTexture/M_Wall_Normal.png
