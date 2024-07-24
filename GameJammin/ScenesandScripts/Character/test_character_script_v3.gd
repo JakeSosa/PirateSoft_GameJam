@@ -47,3 +47,7 @@ func _physics_process(_delta):
 	#Make camera controller position match the player's position via lerp
 	camera_controller.position = lerp(camera_controller.position, position, 0.10)
 	
+
+
+func _on_area_3d_body_entered(body):
+	pass # Replace with function body.
