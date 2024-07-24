@@ -98,7 +98,7 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_tiycb"]
 size = Vector3(0.272491, 2.20056, 0.400024)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6o05d"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_41hx5"]
 render_priority = 0
 shader = ExtResource("6_ur55s")
 shader_parameter/TilingScale = 1.0
@@ -139,7 +139,7 @@ shape = SubResource("BoxShape3D_tiycb")
 [node name="DoorObj" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = ExtResource("3_rsqwm")
 skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_6o05d")
+surface_material_override/0 = SubResource("ShaderMaterial_41hx5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01203, 1.10327, 0.497082)

@@ -1,6 +1,7 @@
 [gd_scene load_steps=50 format=3 uid="uid://cmbso2ne6dhpj"]
 
 [ext_resource type="PackedScene" uid="uid://cpsau6s0g741l" path="res://ScenesandScripts/Objects/WallKit/wall_1m.tscn" id="1_k38sm"]
+[ext_resource type="PackedScene" uid="uid://b3gex8777ka4" path="res://ScenesandScripts/Character/test_character_camera.tscn" id="1_yxkem"]
 [ext_resource type="Shader" path="res://Art/Shaders/PPShaderGLSL.gdshader" id="2_4tpr0"]
 [ext_resource type="PackedScene" uid="uid://cj3iw4sipgygu" path="res://ScenesandScripts/Objects/WallKit/wall_2m.tscn" id="2_tvpwx"]
 [ext_resource type="PackedScene" uid="uid://0l8xsyxymvjb" path="res://ScenesandScripts/Objects/WallKit/wall_4m.tscn" id="3_hfrog"]
@@ -15,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://c5hdrl7kem4yn" path="res://Art/Textures/FloorTexture/M_Floor_Roughness.png" id="10_75ury"]
 [ext_resource type="PackedScene" uid="uid://dtgq230awict6" path="res://ScenesandScripts/Objects/Props/banner.tscn" id="10_86vvw"]
 [ext_resource type="PackedScene" uid="uid://br5j71vexcf8f" path="res://ScenesandScripts/Objects/Props/barrel.tscn" id="11_0ctpp"]
-[ext_resource type="PackedScene" uid="uid://538fnpxacxpf" path="res://ScenesandScripts/Character/test_character.tscn" id="11_fkrui"]
 [ext_resource type="PackedScene" uid="uid://du20k3qbp5o8c" path="res://ScenesandScripts/Objects/Props/bench.tscn" id="12_ilbub"]
 [ext_resource type="PackedScene" uid="uid://e4m4iyb7a7jc" path="res://ScenesandScripts/Objects/Props/book.tscn" id="13_bnu8s"]
 [ext_resource type="PackedScene" uid="uid://cug6kjou6ccef" path="res://ScenesandScripts/Objects/Props/brazier.tscn" id="13_mrgay"]
@@ -117,15 +117,11 @@ ambient_light_energy = 0.0
 
 [node name="Level1" type="Node3D"]
 
-[node name="TestCharacter" parent="." instance=ExtResource("11_fkrui")]
-transform = Transform3D(-4.71298e-08, 0, -1.0782, 0, 1.0782, 0, 1.0782, 0, -4.71298e-08, -5.84515, -0.341019, 8.4566)
+[node name="TestCharacterCamera" parent="." instance=ExtResource("1_yxkem")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.84834, -0.343523, 8.06747)
 
-[node name="MainCam" type="Camera3D" parent="TestCharacter"]
-transform = Transform3D(-3.85314e-08, -0.855796, 0.357515, -4.16475e-09, 0.357515, 0.855796, -0.927472, 3.39482e-08, -1.86957e-08, 1.63746, 4.86586, -0.0638008)
-
-[node name="PostProcess" type="MeshInstance3D" parent="TestCharacter"]
-transform = Transform3D(-4.05412e-08, 0, 0.927473, 0, 0.927473, 0, -0.927473, 0, -4.05412e-08, -7.42488, 0.247539, -6.19226)
-visible = false
+[node name="PostProcess" type="MeshInstance3D" parent="TestCharacterCamera"]
+transform = Transform3D(1, 0, -9.59233e-14, 0, 1, 0, 9.59233e-14, 0, 1, 0.503351, -0.0741225, -0.014081)
 mesh = SubResource("QuadMesh_53br7")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_3c4i0")
