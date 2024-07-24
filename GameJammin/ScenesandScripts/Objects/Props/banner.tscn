@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtgq230awict6"]
+
+[ext_resource type="ArrayMesh" uid="uid://0c1qarua1gqb" path="res://Art/Meshes/Objects/Props/PropPack3/Banner.obj" id="1_7rbny"]
+[ext_resource type="Material" uid="uid://d0s534rwxfuu2" path="res://Art/Materials/propPack3.tres" id="2_ym2na"]
+
+[node name="Banner" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.1, 0, 0, 0, 2.1, 0, 0, 0, 2.1, -0.235429, 0, 0)
+mesh = ExtResource("1_7rbny")
+surface_material_override/0 = ExtResource("2_ym2na")

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://car3ae2ad4yjf"
+path="res://.godot/imported/CenterCircle.obj-21486188097383546ebbd08ca349ee61.mesh"
+
+[deps]
+
+files=["res://.godot/imported/CenterCircle.obj-21486188097383546ebbd08ca349ee61.mesh"]
+
+source_file="res://Art/Meshes/Objects/Props/PropPack1/CenterCircle.obj"
+dest_files=["res://.godot/imported/CenterCircle.obj-21486188097383546ebbd08ca349ee61.mesh", "res://.godot/imported/CenterCircle.obj-21486188097383546ebbd08ca349ee61.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfx0fk8am1u00"]
+
+[ext_resource type="ArrayMesh" uid="uid://b0w5la701kmdj" path="res://Art/Meshes/Objects/Props/PropPack3/ChainFloor02.obj" id="1_m751g"]
+[ext_resource type="Material" uid="uid://d0s534rwxfuu2" path="res://Art/Materials/propPack3.tres" id="2_rhfov"]
+
+[node name="ChainFloor2" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.1, 0, 0, 0, 2.1, 0, 0, 0, 2.1, -0.235429, 0, 0)
+mesh = ExtResource("1_m751g")
+surface_material_override/0 = ExtResource("2_rhfov")

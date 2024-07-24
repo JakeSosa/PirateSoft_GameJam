@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cucpsroek1jxt"]
 
-[ext_resource type="ArrayMesh" uid="uid://dfb5ff0bpe22t" path="res://Art/Meshes/Objects/Props/Sconce.obj" id="1_irbxo"]
+[ext_resource type="ArrayMesh" uid="uid://dfb5ff0bpe22t" path="res://Art/Meshes/Objects/Props/PropPack1/Sconce.obj" id="1_irbxo"]
 [ext_resource type="Material" uid="uid://sid86jvq7qpj" path="res://Art/Materials/propPack1.tres" id="2_pg655"]
 
 [node name="Sconce" type="StaticBody3D"]
