@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c78pd0l3qb8af"
+path="res://.godot/imported/Crate.obj-19ff1bf60e30480128bc4c8a98b24549.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Crate.obj-19ff1bf60e30480128bc4c8a98b24549.mesh"]
+
+source_file="res://Art/Meshes/Objects/Deco/Crate.obj"
+dest_files=["res://.godot/imported/Crate.obj-19ff1bf60e30480128bc4c8a98b24549.mesh", "res://.godot/imported/Crate.obj-19ff1bf60e30480128bc4c8a98b24549.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
