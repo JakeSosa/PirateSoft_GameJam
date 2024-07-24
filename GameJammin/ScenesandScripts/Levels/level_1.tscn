@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cmbso2ne6dhpj"]
+[gd_scene load_steps=39 format=3 uid="uid://cmbso2ne6dhpj"]
 
 [ext_resource type="PackedScene" uid="uid://cpsau6s0g741l" path="res://ScenesandScripts/Objects/WallKit/wall_1m.tscn" id="1_k38sm"]
 [ext_resource type="Shader" path="res://Art/Shaders/PPShaderGLSL.gdshader" id="2_4tpr0"]
@@ -9,6 +9,8 @@
 [ext_resource type="Shader" uid="uid://d2cm7x8ippg05" path="res://Art/Shaders/PBR.tres" id="6_6sov4"]
 [ext_resource type="Texture2D" uid="uid://gdnkc5gcdkrn" path="res://Art/Textures/FloorTexture/M_Floor_Mixed_AO.png" id="7_xygt2"]
 [ext_resource type="Texture2D" uid="uid://c17klptfqgqvl" path="res://Art/Textures/FloorTexture/M_Floor_Base_color.png" id="8_52apw"]
+[ext_resource type="Shader" uid="uid://gnxbxckui5py" path="res://Art/Shaders/WallDecals.tres" id="8_gj5lu"]
+[ext_resource type="Texture2D" uid="uid://dvjsdgegqmu7l" path="res://Art/Textures/Decals/GreenAtlas.png" id="8_v0yww"]
 [ext_resource type="Texture2D" uid="uid://c62mjv8o31x16" path="res://Art/Textures/FloorTexture/M_Floor_Normal.png" id="9_pn3o3"]
 [ext_resource type="Texture2D" uid="uid://c5hdrl7kem4yn" path="res://Art/Textures/FloorTexture/M_Floor_Roughness.png" id="10_75ury"]
 [ext_resource type="PackedScene" uid="uid://538fnpxacxpf" path="res://ScenesandScripts/Character/test_character.tscn" id="11_fkrui"]
@@ -16,6 +18,11 @@
 [ext_resource type="PackedScene" uid="uid://dg2qsl7l74nnr" path="res://ScenesandScripts/Objects/Props/hub_brazier.tscn" id="14_jrr4f"]
 [ext_resource type="PackedScene" uid="uid://cucpsroek1jxt" path="res://ScenesandScripts/Objects/Props/sconce.tscn" id="15_j5my4"]
 [ext_resource type="PackedScene" uid="uid://3lrlx8iuwkvh" path="res://ScenesandScripts/Objects/Props/lever.tscn" id="16_d4cvb"]
+[ext_resource type="Shader" uid="uid://itiaibnihmo3" path="res://Art/Shaders/DecoAlpha.tres" id="17_f3iu0"]
+[ext_resource type="Texture2D" uid="uid://bxqompllcodwy" path="res://Art/Meshes/Objects/Deco/Skeleton/SKELCol.png" id="18_71w63"]
+[ext_resource type="ArrayMesh" uid="uid://br8rswti4asub" path="res://Art/Meshes/Objects/Deco/Skeleton/SkeletonShackled.obj" id="19_mvayl"]
+[ext_resource type="ArrayMesh" uid="uid://dn21mngwh1xv7" path="res://Art/Meshes/Objects/Deco/Skeleton/SkeletonSkull.obj" id="20_gwscf"]
+[ext_resource type="ArrayMesh" uid="uid://clejk0buo4g5h" path="res://Art/Meshes/Objects/Deco/Skeleton/SkeletonBroken.obj" id="21_t40he"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_53br7"]
 flip_faces = true
@@ -34,6 +41,53 @@ shader = ExtResource("2_4tpr0")
 shader_parameter/PixelSize = 36.562
 shader_parameter/curve = SubResource("CurveTexture_u3pb1")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6iqes"]
+render_priority = 0
+shader = ExtResource("8_gj5lu")
+shader_parameter/BlackColor = Color(0.0555, 0.37, 0.0764666, 1)
+shader_parameter/WhiteCol = Color(1, 1, 0.568627, 1)
+shader_parameter/TopLeft = Vector2(-1, 0)
+shader_parameter/BottomRight = Vector2(1, 0.5)
+shader_parameter/BlackPoint = 0.2
+shader_parameter/Tex = ExtResource("8_v0yww")
+
+[sub_resource type="QuadMesh" id="QuadMesh_w3mii"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eg0sd"]
+render_priority = 0
+shader = ExtResource("8_gj5lu")
+shader_parameter/BlackColor = Color(5.36658e-06, 0.56805, 0.0423294, 1)
+shader_parameter/WhiteCol = Color(0.8, 0.795867, 0.552, 1)
+shader_parameter/TopLeft = Vector2(0, -1)
+shader_parameter/BottomRight = Vector2(0.5, 1)
+shader_parameter/BlackPoint = 0.2
+shader_parameter/Tex = ExtResource("8_v0yww")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8o8nj"]
+render_priority = 0
+shader = ExtResource("8_gj5lu")
+shader_parameter/BlackColor = Color(0.2108, 0.34, 0.28186, 1)
+shader_parameter/WhiteCol = Color(0.2346, 0.46, 0.260897, 1)
+shader_parameter/TopLeft = Vector2(0, 0)
+shader_parameter/BottomRight = Vector2(0.5, 0.5)
+shader_parameter/BlackPoint = 0.67
+shader_parameter/Tex = ExtResource("8_v0yww")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1axkx"]
+render_priority = 0
+shader = ExtResource("17_f3iu0")
+shader_parameter/ColAlph = ExtResource("18_71w63")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hwn5i"]
+render_priority = 0
+shader = ExtResource("17_f3iu0")
+shader_parameter/ColAlph = ExtResource("18_71w63")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_467a7"]
+render_priority = 0
+shader = ExtResource("17_f3iu0")
+shader_parameter/ColAlph = ExtResource("18_71w63")
+
 [sub_resource type="QuadMesh" id="QuadMesh_k6j7g"]
 size = Vector2(8, 8)
 
@@ -51,7 +105,7 @@ shader_parameter/NRM = ExtResource("9_pn3o3")
 size = Vector3(32, 0.5, 32)
 
 [sub_resource type="Environment" id="Environment_ay3fa"]
-background_energy_multiplier = 0.0
+background_energy_multiplier = 1.95
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.0
 
@@ -65,10 +119,54 @@ transform = Transform3D(-3.85314e-08, -0.855796, 0.357515, -4.16475e-09, 0.35751
 
 [node name="PostProcess" type="MeshInstance3D" parent="TestCharacter"]
 transform = Transform3D(-4.05412e-08, 0, 0.927473, 0, 0.927473, 0, -0.927473, 0, -4.05412e-08, -6.9158, 1.75834e-06, -6.3487)
-visible = false
 mesh = SubResource("QuadMesh_53br7")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_3c4i0")
+
+[node name="Deco" type="Node" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Deco"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.51273, 1.29911, 11.0471)
+material_override = SubResource("ShaderMaterial_6iqes")
+mesh = SubResource("QuadMesh_w3mii")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Deco"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.55308, 1.43984, 11.0181)
+material_override = SubResource("ShaderMaterial_eg0sd")
+mesh = SubResource("QuadMesh_w3mii")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Deco"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.55308, 0.688063, 11.0181)
+material_override = SubResource("ShaderMaterial_eg0sd")
+mesh = SubResource("QuadMesh_w3mii")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Deco"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.93383, 1.1129, 11.0181)
+material_override = SubResource("ShaderMaterial_8o8nj")
+mesh = SubResource("QuadMesh_w3mii")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Deco"]
+transform = Transform3D(0.76935, 0, 0, 0, 0.819871, 0, 0, 0, 1, 1.39526, 1.72524, 11.0181)
+material_override = SubResource("ShaderMaterial_8o8nj")
+mesh = SubResource("QuadMesh_w3mii")
+
+[node name="SkeletonBroken" type="MeshInstance3D" parent="Deco"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -5.10771, -0.288669, 11.8515)
+material_override = SubResource("ShaderMaterial_1axkx")
+mesh = ExtResource("21_t40he")
+skeleton = NodePath("../..")
+
+[node name="SkeletonShackled" type="MeshInstance3D" parent="Deco"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -4.12921, -0.288669, 11.8506)
+material_override = SubResource("ShaderMaterial_hwn5i")
+mesh = ExtResource("19_mvayl")
+skeleton = NodePath("../..")
+
+[node name="SkeletonSkull" type="MeshInstance3D" parent="Deco"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -3.43062, -0.288669, 11.8736)
+material_override = SubResource("ShaderMaterial_467a7")
+mesh = ExtResource("20_gwscf")
+skeleton = NodePath("../..")
 
 [node name="WallKit" type="Node" parent="."]
 
