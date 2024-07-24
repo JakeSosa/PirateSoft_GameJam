@@ -23,6 +23,7 @@ func _physics_process(_delta):
 		velocity.z = direction.z * Speed 
 		#Set character model to look in direction of player input
 		character_model.look_at(direction + -position)
+		print(direction)
 		#If is_running does not equal false, then we set it to true & play Run animation
 		if !is_running:
 			is_running = true
