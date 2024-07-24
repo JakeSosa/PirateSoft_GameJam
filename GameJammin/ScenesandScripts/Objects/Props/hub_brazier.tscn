@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dg2qsl7l74nnr"]
 
-[ext_resource type="ArrayMesh" uid="uid://m5mcf1n2cw0i" path="res://Art/Meshes/Objects/Props/HubBrazier.obj" id="1_a5vvg"]
+[ext_resource type="ArrayMesh" uid="uid://m5mcf1n2cw0i" path="res://Art/Meshes/Objects/Props/PropPack1/HubBrazier.obj" id="1_a5vvg"]
 [ext_resource type="Material" uid="uid://sid86jvq7qpj" path="res://Art/Materials/propPack1.tres" id="2_wirl0"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_qqgr5"]

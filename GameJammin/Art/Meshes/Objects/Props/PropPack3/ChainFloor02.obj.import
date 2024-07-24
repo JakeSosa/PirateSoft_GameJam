@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b0w5la701kmdj"
+path="res://.godot/imported/ChainFloor02.obj-451359420cc4f83dda26025f82202a89.mesh"
+
+[deps]
+
+files=["res://.godot/imported/ChainFloor02.obj-451359420cc4f83dda26025f82202a89.mesh"]
+
+source_file="res://Art/Meshes/Objects/Props/PropPack3/ChainFloor02.obj"
+dest_files=["res://.godot/imported/ChainFloor02.obj-451359420cc4f83dda26025f82202a89.mesh", "res://.godot/imported/ChainFloor02.obj-451359420cc4f83dda26025f82202a89.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

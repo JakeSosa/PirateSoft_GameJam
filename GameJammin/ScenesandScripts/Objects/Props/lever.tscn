@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://3lrlx8iuwkvh"]
 
-[ext_resource type="ArrayMesh" uid="uid://ddp5fy0iuogra" path="res://Art/Meshes/Objects/Props/LevelTop.obj" id="1_p752m"]
+[ext_resource type="ArrayMesh" uid="uid://ddp5fy0iuogra" path="res://Art/Meshes/Objects/Props/PropPack1/LevelTop.obj" id="1_p752m"]
 [ext_resource type="Material" uid="uid://sid86jvq7qpj" path="res://Art/Materials/propPack1.tres" id="2_2y2dr"]
-[ext_resource type="ArrayMesh" uid="uid://d0rq7tihykqhw" path="res://Art/Meshes/Objects/Props/LeverBottom.obj" id="2_dp75s"]
+[ext_resource type="ArrayMesh" uid="uid://d0rq7tihykqhw" path="res://Art/Meshes/Objects/Props/PropPack1/LeverBottom.obj" id="2_dp75s"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iml0w"]
 size = Vector3(0.123291, 0.219971, 0.246094)

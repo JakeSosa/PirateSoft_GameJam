@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d0rq7tihykqhw"
+path="res://.godot/imported/LeverBottom.obj-d8b414fcb570edc53879bd3119dd5ce0.mesh"
+
+[deps]
+
+files=["res://.godot/imported/LeverBottom.obj-d8b414fcb570edc53879bd3119dd5ce0.mesh"]
+
+source_file="res://Art/Meshes/Objects/Props/PropPack1/LeverBottom.obj"
+dest_files=["res://.godot/imported/LeverBottom.obj-d8b414fcb570edc53879bd3119dd5ce0.mesh", "res://.godot/imported/LeverBottom.obj-d8b414fcb570edc53879bd3119dd5ce0.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

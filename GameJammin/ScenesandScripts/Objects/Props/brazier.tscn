@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cug6kjou6ccef"]
 
-[ext_resource type="ArrayMesh" uid="uid://p7joiyfir4x" path="res://Art/Meshes/Objects/Props/Brazier.obj" id="1_hyo2a"]
+[ext_resource type="ArrayMesh" uid="uid://p7joiyfir4x" path="res://Art/Meshes/Objects/Props/PropPack1/Brazier.obj" id="1_hyo2a"]
 [ext_resource type="Shader" uid="uid://d2cm7x8ippg05" path="res://Art/Shaders/PBR.tres" id="2_8cl88"]
 [ext_resource type="Texture2D" uid="uid://rnbgh7va5t1u" path="res://Art/Textures/PropTexture/M_Props01_Mixed_AO.png" id="3_2vwdk"]
 [ext_resource type="Texture2D" uid="uid://cuxb6oeo6dshp" path="res://Art/Textures/PropTexture/M_Props01_Base_color.png" id="4_42vy0"]
