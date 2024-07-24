@@ -22,8 +22,12 @@ func _physics_process(_delta):
 		velocity.x = direction.x * Speed
 		velocity.z = direction.z * Speed 
 		#Set character model to look in direction of player input
-		character_model.look_at(direction + -position)
-		print(direction)
+		if is_running == true:
+			var angle = atan2(velocity.z, -velocity.x)
+			var character_rotation = character_model.get_rotation()
+			character_rotation.y = angle
+			character_model.set_rotation(character_rotation)
+		
 		#If is_running does not equal false, then we set it to true & play Run animation
 		if !is_running:
 			is_running = true
