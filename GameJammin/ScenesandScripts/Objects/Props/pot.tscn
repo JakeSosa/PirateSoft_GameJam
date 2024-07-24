@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://tt6r556ajo1i"]
+
+[ext_resource type="ArrayMesh" uid="uid://cf6wu82iyj118" path="res://Art/Meshes/Objects/Props/PropPack2/Pot.obj" id="1_envkv"]
+[ext_resource type="Material" uid="uid://6myhals0kp80" path="res://Art/Materials/propPack2.tres" id="2_wq5a5"]
+
+[node name="Pot" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.1, 0, 0, 0, 2.1, 0, 0, 0, 2.1, -0.0118877, 0, -1.11827)
+mesh = ExtResource("1_envkv")
+surface_material_override/0 = ExtResource("2_wq5a5")

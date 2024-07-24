@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx4ys4gko51d4"]
+
+[ext_resource type="ArrayMesh" uid="uid://c2nyi7yxr0sja" path="res://Art/Meshes/Objects/Props/PropPack2/Shelf.obj" id="1_vb0mx"]
+[ext_resource type="Material" uid="uid://6myhals0kp80" path="res://Art/Materials/propPack2.tres" id="2_oksfi"]
+
+[node name="Shelf" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.1, 0, 0, 0, 2.1, 0, 0, 0, 2.1, -0.36703, 0, 0)
+mesh = ExtResource("1_vb0mx")
+surface_material_override/0 = ExtResource("2_oksfi")

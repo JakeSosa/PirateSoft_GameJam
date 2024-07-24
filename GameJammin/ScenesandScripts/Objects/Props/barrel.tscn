@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://br5j71vexcf8f"]
+
+[ext_resource type="ArrayMesh" uid="uid://c8v8xllh3h34i" path="res://Art/Meshes/Objects/Props/PropPack2/Barrel.obj" id="1_q3qo5"]
+[ext_resource type="Material" uid="uid://6myhals0kp80" path="res://Art/Materials/propPack2.tres" id="2_hcerl"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0j4ud"]
+height = 1.09624
+radius = 0.454523
+
+[node name="Barrel" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.1, 0, 0, 0, 2.1, 0, 0, 0, 2.1, -0.235429, 0, 0)
+mesh = ExtResource("1_q3qo5")
+surface_material_override/0 = ExtResource("2_hcerl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.238526, 0.518177, 0)
+shape = SubResource("CylinderShape3D_0j4ud")

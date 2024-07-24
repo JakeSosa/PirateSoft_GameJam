@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb54wggsooh0f"
-path.s3tc="res://.godot/imported/M_Props02_Mixed_AO.png-acef062888152b91a1c79cf0bf065432.s3tc.ctex"
+uid="uid://dw5fttxj1yeeo"
+path.s3tc="res://.godot/imported/M_Props03_Normal.png-a2c9db96c2e61fb7bb36b250ea70b9fc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Art/Textures/Props02Texture/M_Props02_Mixed_AO.png"
-dest_files=["res://.godot/imported/M_Props02_Mixed_AO.png-acef062888152b91a1c79cf0bf065432.s3tc.ctex"]
+source_file="res://Art/Textures/Props03Textures/M_Props03_Normal.png"
+dest_files=["res://.godot/imported/M_Props03_Normal.png-a2c9db96c2e61fb7bb36b250ea70b9fc.s3tc.ctex"]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1

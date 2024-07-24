@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dfb5ff0bpe22t"
+path="res://.godot/imported/Sconce.obj-cac5911c4509b7547a9d0c70fc452311.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Sconce.obj-cac5911c4509b7547a9d0c70fc452311.mesh"]
+
+source_file="res://Art/Meshes/Objects/Props/PropPack1/Sconce.obj"
+dest_files=["res://.godot/imported/Sconce.obj-cac5911c4509b7547a9d0c70fc452311.mesh", "res://.godot/imported/Sconce.obj-cac5911c4509b7547a9d0c70fc452311.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

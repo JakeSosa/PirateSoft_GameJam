@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ddp5fy0iuogra"
+path="res://.godot/imported/LevelTop.obj-056f66125b5059dba1dbfc707e4bb963.mesh"
+
+[deps]
+
+files=["res://.godot/imported/LevelTop.obj-056f66125b5059dba1dbfc707e4bb963.mesh"]
+
+source_file="res://Art/Meshes/Objects/Props/PropPack1/LevelTop.obj"
+dest_files=["res://.godot/imported/LevelTop.obj-056f66125b5059dba1dbfc707e4bb963.mesh", "res://.godot/imported/LevelTop.obj-056f66125b5059dba1dbfc707e4bb963.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

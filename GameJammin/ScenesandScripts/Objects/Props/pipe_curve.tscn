@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsled3pov6f2q"]
+
+[ext_resource type="ArrayMesh" uid="uid://beocq7dn3du2i" path="res://Art/Meshes/Objects/Props/PropPack3/PipeCurve.obj" id="1_wfcch"]
+[ext_resource type="Material" uid="uid://d0s534rwxfuu2" path="res://Art/Materials/propPack3.tres" id="2_hep7l"]
+
+[node name="PipeCurve" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.1, 0, 0, 0, 2.1, 0, 0, 0, 2.1, -0.235429, 0, 0)
+mesh = ExtResource("1_wfcch")
+surface_material_override/0 = ExtResource("2_hep7l")

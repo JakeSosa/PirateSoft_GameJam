@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://6myhals0kp80"]
+
+[ext_resource type="Shader" uid="uid://d2cm7x8ippg05" path="res://Art/Shaders/PBR.tres" id="1_rtota"]
+[ext_resource type="Texture2D" uid="uid://bb54wggsooh0f" path="res://Art/Textures/Props02Texture/M_Props02_Mixed_AO.png" id="2_lwekj"]
+[ext_resource type="Texture2D" uid="uid://bi65evfuyjhjt" path="res://Art/Textures/Props02Texture/M_Props02_Base_color.png" id="3_qjgih"]
+[ext_resource type="Texture2D" uid="uid://b56gslwubkbs3" path="res://Art/Textures/Props02Texture/M_Props02_Normal_DirectX.png" id="4_kgaly"]
+[ext_resource type="Texture2D" uid="uid://5hapsh0ebcja" path="res://Art/Textures/Props02Texture/M_Props02_Roughness.png" id="5_t83xq"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_rtota")
+shader_parameter/TexPix = 100.0
+shader_parameter/UV_Tile = 1.0
+shader_parameter/BC = ExtResource("3_qjgih")
+shader_parameter/AmbientOcclusion = ExtResource("2_lwekj")
+shader_parameter/Rough = ExtResource("5_t83xq")
+shader_parameter/NRM = ExtResource("4_kgaly")

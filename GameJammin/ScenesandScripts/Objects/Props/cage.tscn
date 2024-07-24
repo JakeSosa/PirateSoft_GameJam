@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://q8qqshj04qsf"]
+
+[ext_resource type="ArrayMesh" uid="uid://ctjw0xdsjvupe" path="res://Art/Meshes/Objects/Props/PropPack3/Cage.obj" id="1_gtro1"]
+[ext_resource type="Material" uid="uid://d0s534rwxfuu2" path="res://Art/Materials/propPack3.tres" id="2_62fnj"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_x4t47"]
+height = 1.32393
+radius = 0.911398
+
+[node name="Cage" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.1, 0, 0, 0, 2.1, 0, 0, 0, 2.1, -0.014775, 1.06229, 0)
+mesh = ExtResource("1_gtro1")
+surface_material_override/0 = ExtResource("2_62fnj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.661963, 0)
+shape = SubResource("CylinderShape3D_x4t47")

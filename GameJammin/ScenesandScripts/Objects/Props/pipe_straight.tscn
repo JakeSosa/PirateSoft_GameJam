@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://di36deq36jc8k"]
+
+[ext_resource type="ArrayMesh" uid="uid://bgwpu0iblg2sf" path="res://Art/Meshes/Objects/Props/PropPack3/PipeStraight.obj" id="1_hs33h"]
+[ext_resource type="Material" uid="uid://d0s534rwxfuu2" path="res://Art/Materials/propPack3.tres" id="2_hs0r2"]
+
+[node name="PipeStraight" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_hs33h")
+surface_material_override/0 = ExtResource("2_hs0r2")

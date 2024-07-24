@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://p7joiyfir4x"
+path="res://.godot/imported/Brazier.obj-9c0d54e910520d8b86306fafd4c9e73f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Brazier.obj-9c0d54e910520d8b86306fafd4c9e73f.mesh"]
+
+source_file="res://Art/Meshes/Objects/Props/PropPack1/Brazier.obj"
+dest_files=["res://.godot/imported/Brazier.obj-9c0d54e910520d8b86306fafd4c9e73f.mesh", "res://.godot/imported/Brazier.obj-9c0d54e910520d8b86306fafd4c9e73f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
