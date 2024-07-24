@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://samyftw2fbk5"]
+[gd_scene load_steps=69 format=3 uid="uid://samyftw2fbk5"]
 
 [ext_resource type="PackedScene" uid="uid://538fnpxacxpf" path="res://ScenesandScripts/Character/test_character.tscn" id="1_2uo0f"]
 [ext_resource type="Shader" path="res://Art/Shaders/PPShaderGLSL.gdshader" id="2_d10ar"]
@@ -25,12 +25,21 @@
 [ext_resource type="Texture2D" uid="uid://bw3ajmjafr0nv" path="res://Art/Textures/CenterCircle/Material_Base_color.png" id="22_p03qi"]
 [ext_resource type="ArrayMesh" uid="uid://d2h2wl1flipu4" path="res://Art/Meshes/Objects/Props/Grate.obj" id="23_21ehj"]
 [ext_resource type="Texture2D" uid="uid://da53vr5vgpai4" path="res://Art/Textures/CenterCircle/Material_Metallic.png" id="23_ejgyb"]
+[ext_resource type="ArrayMesh" uid="uid://c8v8xllh3h34i" path="res://Art/Meshes/Objects/Deco/Barrel.obj" id="23_tcnhc"]
 [ext_resource type="Texture2D" uid="uid://mhmo8txem56n" path="res://Art/Textures/CenterCircle/Material_Normal.png" id="24_44k1f"]
+[ext_resource type="Texture2D" uid="uid://bi65evfuyjhjt" path="res://Art/Textures/Props02Texture/M_Props02_Base_color.png" id="24_lkbvj"]
+[ext_resource type="Texture2D" uid="uid://crkscq742cul2" path="res://Art/Textures/Props02Texture/M_Props02_Metallic.png" id="25_5whoe"]
 [ext_resource type="Texture2D" uid="uid://byh6ufyrfely6" path="res://Art/Textures/CenterCircle/Material_Roughness.png" id="25_qfn5m"]
+[ext_resource type="Texture2D" uid="uid://dhqnsu0isjmys" path="res://Art/Textures/Props02Texture/M_Props02_Normal.png" id="26_6rm3e"]
 [ext_resource type="Texture2D" uid="uid://bxolwaa3i73tv" path="res://Art/Textures/GrateTexture/M_Grate_Base_color.png" id="27_f260o"]
+[ext_resource type="Texture2D" uid="uid://5hapsh0ebcja" path="res://Art/Textures/Props02Texture/M_Props02_Roughness.png" id="27_jyh5k"]
+[ext_resource type="ArrayMesh" uid="uid://dat6g2pqmxbm" path="res://Art/Meshes/Objects/Deco/Bench.obj" id="28_1n04g"]
 [ext_resource type="Texture2D" uid="uid://duvj7w7t5w8ct" path="res://Art/Textures/GrateTexture/M_Grate_Metallic.png" id="28_b84q1"]
 [ext_resource type="Texture2D" uid="uid://io4c6rmqggpi" path="res://Art/Textures/GrateTexture/M_Grate_Normal.png" id="29_3pgsv"]
+[ext_resource type="ArrayMesh" uid="uid://c78pd0l3qb8af" path="res://Art/Meshes/Objects/Deco/Crate.obj" id="29_b8adi"]
 [ext_resource type="Texture2D" uid="uid://bgduk6iqfrsb7" path="res://Art/Textures/GrateTexture/M_Grate_Roughness.png" id="30_mbclw"]
+[ext_resource type="ArrayMesh" uid="uid://cf6wu82iyj118" path="res://Art/Meshes/Objects/Deco/Pot.obj" id="30_s6jmy"]
+[ext_resource type="ArrayMesh" uid="uid://c2nyi7yxr0sja" path="res://Art/Meshes/Objects/Deco/Shelf.obj" id="31_om8bm"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_53br7"]
 flip_faces = true
@@ -64,6 +73,62 @@ shader_parameter/NRM = ExtResource("11_nf1bp")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gib2c"]
 size = Vector3(32, 0.5, 32)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cy0gn"]
+albedo_texture = ExtResource("22_p03qi")
+metallic = 1.0
+metallic_texture = ExtResource("23_ejgyb")
+roughness_texture = ExtResource("25_qfn5m")
+normal_enabled = true
+normal_texture = ExtResource("24_44k1f")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ipawl"]
+albedo_texture = ExtResource("27_f260o")
+metallic = 1.0
+metallic_texture = ExtResource("28_b84q1")
+roughness_texture = ExtResource("30_mbclw")
+normal_enabled = true
+normal_texture = ExtResource("29_3pgsv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mli4l"]
+albedo_texture = ExtResource("24_lkbvj")
+metallic = 1.0
+metallic_texture = ExtResource("25_5whoe")
+roughness_texture = ExtResource("27_jyh5k")
+normal_enabled = true
+normal_texture = ExtResource("26_6rm3e")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h74tr"]
+albedo_texture = ExtResource("24_lkbvj")
+metallic = 1.0
+metallic_texture = ExtResource("25_5whoe")
+roughness_texture = ExtResource("27_jyh5k")
+normal_enabled = true
+normal_texture = ExtResource("26_6rm3e")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j227r"]
+albedo_texture = ExtResource("24_lkbvj")
+metallic = 1.0
+metallic_texture = ExtResource("25_5whoe")
+roughness_texture = ExtResource("27_jyh5k")
+normal_enabled = true
+normal_texture = ExtResource("26_6rm3e")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dojwj"]
+albedo_texture = ExtResource("24_lkbvj")
+metallic = 1.0
+metallic_texture = ExtResource("25_5whoe")
+roughness_texture = ExtResource("27_jyh5k")
+normal_enabled = true
+normal_texture = ExtResource("26_6rm3e")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eqg4y"]
+albedo_texture = ExtResource("24_lkbvj")
+metallic = 1.0
+metallic_texture = ExtResource("25_5whoe")
+roughness_texture = ExtResource("27_jyh5k")
+normal_enabled = true
+normal_texture = ExtResource("26_6rm3e")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_81a3c"]
 render_priority = 0
@@ -138,22 +203,6 @@ background_energy_multiplier = 0.0
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.0
 glow_intensity = 0.95
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cy0gn"]
-albedo_texture = ExtResource("22_p03qi")
-metallic = 1.0
-metallic_texture = ExtResource("23_ejgyb")
-roughness_texture = ExtResource("25_qfn5m")
-normal_enabled = true
-normal_texture = ExtResource("24_44k1f")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ipawl"]
-albedo_texture = ExtResource("27_f260o")
-metallic = 1.0
-metallic_texture = ExtResource("28_b84q1")
-roughness_texture = ExtResource("30_mbclw")
-normal_enabled = true
-normal_texture = ExtResource("29_3pgsv")
 
 [node name="Level1" type="Node3D"]
 
@@ -579,6 +628,48 @@ shape = SubResource("BoxShape3D_gib2c")
 
 [node name="Props" type="Node" parent="."]
 
+[node name="CenterCircle" type="MeshInstance3D" parent="Props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0798708, -0.364627, -0.046143)
+material_override = SubResource("StandardMaterial3D_cy0gn")
+mesh = ExtResource("22_fjx6h")
+skeleton = NodePath("../..")
+
+[node name="Grate" type="MeshInstance3D" parent="Props"]
+transform = Transform3D(1.28113, 0, 0, 0, 1, 0, 0, 0, 0.716543, -9.8922, -0.35791, -4.45896)
+material_override = SubResource("StandardMaterial3D_ipawl")
+mesh = ExtResource("23_21ehj")
+skeleton = NodePath("../..")
+
+[node name="Barrel" type="MeshInstance3D" parent="Props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.80886, -0.28343, 13.1754)
+mesh = ExtResource("23_tcnhc")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_mli4l")
+
+[node name="Bench" type="MeshInstance3D" parent="Props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.40315, -0.286151, 13.1801)
+mesh = ExtResource("28_1n04g")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_h74tr")
+
+[node name="Crate" type="MeshInstance3D" parent="Props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.19062, -0.288669, 13.1885)
+mesh = ExtResource("29_b8adi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_j227r")
+
+[node name="Pot" type="MeshInstance3D" parent="Props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.82386, -0.288669, 13.1891)
+mesh = ExtResource("30_s6jmy")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_dojwj")
+
+[node name="Shelf" type="MeshInstance3D" parent="Props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.15868, -0.28616, 13.1801)
+mesh = ExtResource("31_om8bm")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_eqg4y")
+
 [node name="Brazier" parent="Props" instance=ExtResource("13_s6a8o")]
 transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -13, 0, 8)
 
@@ -667,13 +758,3 @@ environment = SubResource("Environment_ay3fa")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35339, 1.46769)
-
-[node name="CenterCircle" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0798708, -0.364627, -0.046143)
-material_override = SubResource("StandardMaterial3D_cy0gn")
-mesh = ExtResource("22_fjx6h")
-
-[node name="Grate" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.28113, 0, 0, 0, 1, 0, 0, 0, 0.716543, -9.8922, -0.35791, -4.45896)
-material_override = SubResource("StandardMaterial3D_ipawl")
-mesh = ExtResource("23_21ehj")
