@@ -26,7 +26,9 @@ func change_torch_color():
 	
 func _on_brazier_body_entered(body: Node3D) -> void:
 	player.near_brazier = true
+	print("player near brazier")
 	
 func _on_brazier_body_exited(body: Node3D) -> void:
 	player.near_brazier = false
+	print("player NOT near brazier")
 	

@@ -44,6 +44,8 @@ light_color = Color(0.170688, 7.70092e-07, 0.926429, 1)
 shadow_enabled = true
 
 [node name="Area3D" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0.261338, 0)
