@@ -11,11 +11,12 @@ var is_running = false
 #Camera Controller Variables
 @onready var camera_controller = $CameraController
 
-#Torch Controller Variables (also used in brazier script)
+#Torch Controller Variables (also used in brazier, sconce, waterfall script)
 @onready var torch = $Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D
 var near_brazier := false
+var under_waterfall : = false
 var interactable = true
-
+	
 func _physics_process(_delta):
 	player_controller()
 	player_camera()

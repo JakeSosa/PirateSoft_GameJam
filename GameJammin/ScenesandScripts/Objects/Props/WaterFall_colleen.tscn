@@ -1,0 +1,82 @@
+[gd_scene load_steps=14 format=3 uid="uid://clqiatx4tfh54"]
+
+[ext_resource type="Shader" uid="uid://bossd6vdywrx5" path="res://Art/Shaders/WaterFall.tres" id="1_hfs1p"]
+[ext_resource type="Texture2D" uid="uid://bj672mthf518i" path="res://Art/Textures/WaterFallTex/WaterFallBits.png" id="2_kv685"]
+[ext_resource type="ArrayMesh" uid="uid://da7tpxc5y8kpw" path="res://Art/Meshes/Objects/Construction/WaterFallMesh.obj" id="3_5hw4n"]
+[ext_resource type="Shader" uid="uid://gnxbxckui5py" path="res://Art/Shaders/WallDecals.tres" id="4_03ljy"]
+[ext_resource type="Texture2D" uid="uid://dvj2k5sakvjq" path="res://Art/Textures/WaterFallTex/WaterFallParticle.png" id="5_1dj0s"]
+
+[sub_resource type="Gradient" id="Gradient_ggwe4"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wvg8k"]
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_x4kfw"]
+seamless = true
+color_ramp = SubResource("Gradient_ggwe4")
+noise = SubResource("FastNoiseLite_wvg8k")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oxias"]
+render_priority = 0
+shader = ExtResource("1_hfs1p")
+shader_parameter/ColorParameter2 = Color(0.117647, 0.313726, 0.729412, 1)
+shader_parameter/ColorParameter = Color(0.607843, 0.768627, 0.898039, 1)
+shader_parameter/PixelCount = 45.0
+shader_parameter/WaterBaseTile = Vector2(2.135, 0.515)
+shader_parameter/FlowSpeed = 0.3
+shader_parameter/WiggleSTR = 0.185
+shader_parameter/WaterBase = SubResource("NoiseTexture2D_x4kfw")
+shader_parameter/WaterFallBits = ExtResource("2_kv685")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1f62e"]
+size = Vector3(2.00223, 2.32124, 0.0854492)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qbllp"]
+emission_shape_scale = Vector3(0.1, 0.1, 0.1)
+emission_shape = 3
+emission_box_extents = Vector3(5, 1, 1)
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, -1, 0)
+scale_min = 0.02
+scale_max = 0.05
+turbulence_enabled = true
+turbulence_noise_scale = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s0ge8"]
+render_priority = 0
+shader = ExtResource("4_03ljy")
+shader_parameter/BlackColor = Color(0, 0, 0, 1)
+shader_parameter/WhiteCol = Color(1, 1, 1, 1)
+shader_parameter/TopLeft = Vector2(0, 0)
+shader_parameter/BottomRight = Vector2(1, 1)
+shader_parameter/BlackPoint = 0.0
+shader_parameter/Tex = ExtResource("5_1dj0s")
+
+[sub_resource type="QuadMesh" id="QuadMesh_otcwf"]
+material = SubResource("ShaderMaterial_s0ge8")
+orientation = 1
+
+[node name="WaterFall" type="Node3D"]
+
+[node name="WaterFallMesh" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_oxias")
+mesh = ExtResource("3_5hw4n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WaterFallMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00138855, 1.15957, 0)
+shape = SubResource("BoxShape3D_1f62e")
+disabled = true
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="WaterFallMesh"]
+transform = Transform3D(1.73238, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.156171, 0)
+amount = 100
+visibility_aabb = AABB(-0.59223, -0.169974, -0.159549, 1.18446, 0.336041, 0.319099)
+process_material = SubResource("ParticleProcessMaterial_qbllp")
+draw_pass_1 = SubResource("QuadMesh_otcwf")
+
+[node name="Area3D" type="Area3D" parent="."]
