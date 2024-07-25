@@ -328,7 +328,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.848
 
 [node name="PostProcess" type="MeshInstance3D" parent="TestCharacterCamera"]
 transform = Transform3D(1, 0, -9.59233e-14, 0, 1, 0, 9.59233e-14, 0, 1, 0.503351, -0.0741225, -0.014081)
-visible = false
 mesh = SubResource("QuadMesh_53br7")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_3c4i0")
