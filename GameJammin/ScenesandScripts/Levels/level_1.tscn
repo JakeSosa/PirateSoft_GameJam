@@ -1090,3 +1090,5 @@ transform = Transform3D(-1.14944e-07, 0, 2.62962, -1.33163, 2.26753, -5.82071e-0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ay3fa")
+
+[connection signal="colorpass" from="Props/Brazier" to="TestCharacterCamera" method="_on_brazier_colorpass"]

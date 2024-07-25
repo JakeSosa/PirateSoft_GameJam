@@ -11,6 +11,10 @@ var is_running = false
 #Camera Controller Variables
 @onready var camera_controller = $CameraController
 
+var torch_color
+
+func _ready():
+	torch_color = $Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color
 
 func _physics_process(_delta):
 	
@@ -49,5 +53,6 @@ func _physics_process(_delta):
 	
 
 
-func _on_area_3d_body_entered(body):
-	pass # Replace with function body.
+
+func _on_brazier_colorpass(current_color):
+	$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = current_color
