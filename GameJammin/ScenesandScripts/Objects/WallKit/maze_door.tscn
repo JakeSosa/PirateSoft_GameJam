@@ -1,14 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://cwgpe75u0j5rt"]
+[gd_scene load_steps=16 format=3 uid="uid://cwgpe75u0j5rt"]
 
 [ext_resource type="ArrayMesh" uid="uid://bnyi1n8ikmx0n" path="res://Art/Meshes/Objects/Construction/DoorOBJFrame.obj" id="1_elj2r"]
+[ext_resource type="Script" path="res://ScenesandScripts/Objects/WallKit/maze_door.gd" id="1_hc1jc"]
 [ext_resource type="Material" uid="uid://dk5qyy862clr3" path="res://Art/Materials/brick.tres" id="2_y6ai0"]
 [ext_resource type="Material" uid="uid://bpeeoeo46wdvp" path="res://Art/Materials/stone.tres" id="3_a1i1t"]
 [ext_resource type="ArrayMesh" uid="uid://bka3pofer6t1h" path="res://Art/Meshes/Objects/Construction/DoorOBJ.obj" id="3_rsqwm"]
 [ext_resource type="AudioStream" uid="uid://cyyuudho6egcf" path="res://Art/Sounds/SFX/DoorSFX.wav" id="4_chyei"]
-[ext_resource type="Shader" uid="uid://bj3q3fxm0e45v" path="res://Art/Shaders/DoorShader.tres" id="6_ur55s"]
-[ext_resource type="Texture2D" uid="uid://b2nlnhsxd67m3" path="res://Art/Textures/TrimTexture/M_Trim_Base_color.png" id="7_yfukm"]
-[ext_resource type="Texture2D" uid="uid://optp5pg471n3" path="res://Art/Textures/Spiral3.png" id="8_510jo"]
-[ext_resource type="Texture2D" uid="uid://bhqabd88sjece" path="res://Art/Textures/TrimTexture/M_Trim_Normal.png" id="9_oj0j5"]
+[ext_resource type="Material" uid="uid://gd1kswgvutdb" path="res://Art/Materials/DoorColor/DoorBlue.tres" id="7_xoi1m"]
+[ext_resource type="Material" uid="uid://ba54quher52ps" path="res://Art/Materials/DoorColor/DoorWhite.tres" id="8_2ci6g"]
 
 [sub_resource type="Animation" id="Animation_3dmec"]
 resource_name = "DoorClose"
@@ -98,20 +97,15 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_tiycb"]
 size = Vector3(0.272491, 2.20056, 0.400024)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_41hx5"]
-render_priority = 0
-shader = ExtResource("6_ur55s")
-shader_parameter/TilingScale = 1.0
-shader_parameter/Color = Vector4(1, 1, 1, 1)
-shader_parameter/GlowSTR = 1.0
-shader_parameter/BC = ExtResource("7_yfukm")
-shader_parameter/GlowDecal = ExtResource("8_510jo")
-shader_parameter/NRM = ExtResource("9_oj0j5")
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dra3"]
 size = Vector3(1.45587, 2.18835, 0.229736)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_hsvff"]
+size = Vector3(2.35919, 1.70117, 1.29218)
+
 [node name="MazeDoor" type="StaticBody3D"]
+script = ExtResource("1_hc1jc")
+matoverride = ExtResource("7_xoi1m")
 
 [node name="DoorObjFrame" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_elj2r")
@@ -119,7 +113,7 @@ surface_material_override/0 = ExtResource("2_y6ai0")
 surface_material_override/1 = ExtResource("3_a1i1t")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../StaticBody3D")
+root_node = NodePath("../SlidingDoor")
 libraries = {
 "": SubResource("AnimationLibrary_sxj7c")
 }
@@ -134,19 +128,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85964, 1.10221, 0.515131)
 visible = false
 shape = SubResource("BoxShape3D_tiycb")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="SlidingDoor" type="StaticBody3D" parent="."]
 
-[node name="DoorObj" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="DoorObj" type="MeshInstance3D" parent="SlidingDoor"]
 mesh = ExtResource("3_rsqwm")
 skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_41hx5")
+surface_material_override/0 = ExtResource("8_2ci6g")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SlidingDoor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01203, 1.10327, 0.497082)
 visible = false
 shape = SubResource("BoxShape3D_7dra3")
 disabled = true
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="StaticBody3D"]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SlidingDoor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.979428, 1.19207, 0.536967)
 visible = false
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.982819, 0.858507, 0.537444)
+shape = SubResource("BoxShape3D_hsvff")

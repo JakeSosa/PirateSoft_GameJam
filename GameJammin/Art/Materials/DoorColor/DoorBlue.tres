@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://gd1kswgvutdb"]
+
+[ext_resource type="Shader" uid="uid://bj3q3fxm0e45v" path="res://Art/Shaders/DoorShader.tres" id="1_u4og0"]
+[ext_resource type="Texture2D" uid="uid://b2nlnhsxd67m3" path="res://Art/Textures/TrimTexture/M_Trim_Base_color.png" id="2_1auck"]
+[ext_resource type="Texture2D" uid="uid://optp5pg471n3" path="res://Art/Textures/Spiral3.png" id="3_dh665"]
+[ext_resource type="Texture2D" uid="uid://bhqabd88sjece" path="res://Art/Textures/TrimTexture/M_Trim_Normal.png" id="4_rtysa"]
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_u4og0")
+shader_parameter/TilingScale = 1.0
+shader_parameter/Color = Vector4(0, 0, 1, 1)
+shader_parameter/GlowSTR = 1.0
+shader_parameter/BC = ExtResource("2_1auck")
+shader_parameter/GlowDecal = ExtResource("3_dh665")
+shader_parameter/NRM = ExtResource("4_rtysa")
