@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://cadv5bx70eqho"]
+
+[ext_resource type="ArrayMesh" uid="uid://b22umtgpe28x2" path="res://Art/Meshes/Objects/Props/PropsPack4/Rocks.obj" id="1_erhw4"]
+[ext_resource type="Texture2D" uid="uid://t36e6rxvmfcq" path="res://Art/Textures/PropTexture04/M_Props04_Base_color.png" id="2_kcq1c"]
+[ext_resource type="Texture2D" uid="uid://cce50s15t28jy" path="res://Art/Textures/PropTexture04/M_Props04_Normal.png" id="3_xoehm"]
+[ext_resource type="Texture2D" uid="uid://4f435lspfoua" path="res://Art/Textures/PropTexture04/M_Props04_Roughness.png" id="4_kijxb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxsgj"]
+albedo_texture = ExtResource("2_kcq1c")
+roughness_texture = ExtResource("4_kijxb")
+normal_enabled = true
+normal_texture = ExtResource("3_xoehm")
+
+[node name="Rock" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.1, 0, 0, 0, 2.1, 0, 0, 0, 2.1, -0.235429, 0, 0)
+mesh = ExtResource("1_erhw4")
+surface_material_override/0 = SubResource("StandardMaterial3D_sxsgj")

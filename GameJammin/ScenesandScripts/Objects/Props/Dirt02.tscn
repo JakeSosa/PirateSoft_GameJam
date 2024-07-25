@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://sgm4plr6a7a4"]
+
+[ext_resource type="ArrayMesh" uid="uid://ubbxnwbl2krs" path="res://Art/Meshes/Objects/Props/PropsPack4/Dirt02.obj" id="1_tygv3"]
+[ext_resource type="Texture2D" uid="uid://t36e6rxvmfcq" path="res://Art/Textures/PropTexture04/M_Props04_Base_color.png" id="2_hyytx"]
+[ext_resource type="Texture2D" uid="uid://cce50s15t28jy" path="res://Art/Textures/PropTexture04/M_Props04_Normal.png" id="3_lb1wd"]
+[ext_resource type="Texture2D" uid="uid://4f435lspfoua" path="res://Art/Textures/PropTexture04/M_Props04_Roughness.png" id="4_60mpq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxsgj"]
+albedo_texture = ExtResource("2_hyytx")
+roughness_texture = ExtResource("4_60mpq")
+normal_enabled = true
+normal_texture = ExtResource("3_lb1wd")
+
+[node name="Dirt02" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.1, 0, 0, 0, 2.1, 0, 0, 0, 2.1, -0.235429, 0, 0)
+mesh = ExtResource("1_tygv3")
+surface_material_override/0 = SubResource("StandardMaterial3D_sxsgj")
