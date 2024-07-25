@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://samyftw2fbk5"]
+[gd_scene load_steps=87 format=3 uid="uid://samyftw2fbk5"]
 
 [ext_resource type="PackedScene" uid="uid://538fnpxacxpf" path="res://ScenesandScripts/Character/test_character.tscn" id="1_2uo0f"]
 [ext_resource type="Shader" path="res://Art/Shaders/PPShaderGLSL.gdshader" id="2_d10ar"]
@@ -8,8 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://odyk1shlpw38" path="res://ScenesandScripts/Objects/WallKit/wall_8m.tscn" id="6_3fuqh"]
 [ext_resource type="PackedScene" uid="uid://cwgpe75u0j5rt" path="res://ScenesandScripts/Objects/WallKit/maze_door.tscn" id="7_5lgho"]
 [ext_resource type="Shader" uid="uid://d2cm7x8ippg05" path="res://Art/Shaders/PBR.tres" id="8_4p40i"]
+[ext_resource type="Shader" uid="uid://bj3q3fxm0e45v" path="res://Art/Shaders/DoorShader.tres" id="8_he7na"]
+[ext_resource type="Texture2D" uid="uid://b2nlnhsxd67m3" path="res://Art/Textures/TrimTexture/M_Trim_Base_color.png" id="9_kquoh"]
 [ext_resource type="Texture2D" uid="uid://gdnkc5gcdkrn" path="res://Art/Textures/FloorTexture/M_Floor_Mixed_AO.png" id="9_m7rk7"]
 [ext_resource type="Texture2D" uid="uid://c17klptfqgqvl" path="res://Art/Textures/FloorTexture/M_Floor_Base_color.png" id="10_v4nfo"]
+[ext_resource type="Texture2D" uid="uid://optp5pg471n3" path="res://Art/Textures/Spiral3.png" id="10_xw5kb"]
+[ext_resource type="Texture2D" uid="uid://bhqabd88sjece" path="res://Art/Textures/TrimTexture/M_Trim_Normal.png" id="11_4c5ql"]
 [ext_resource type="Texture2D" uid="uid://c62mjv8o31x16" path="res://Art/Textures/FloorTexture/M_Floor_Normal.png" id="11_nf1bp"]
 [ext_resource type="Texture2D" uid="uid://c5hdrl7kem4yn" path="res://Art/Textures/FloorTexture/M_Floor_Roughness.png" id="12_3jb21"]
 [ext_resource type="PackedScene" uid="uid://cug6kjou6ccef" path="res://ScenesandScripts/Objects/Props/brazier.tscn" id="13_s6a8o"]
@@ -45,18 +49,186 @@
 flip_faces = true
 size = Vector2(2, 2)
 
-[sub_resource type="Curve" id="Curve_3fq2n"]
-_data = [Vector2(0, 1), 0.0, -2.38923, 0, 0, Vector2(1, 0), -0.244162, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_u3pb1"]
-curve = SubResource("Curve_3fq2n")
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3c4i0"]
 render_priority = 0
 shader = ExtResource("2_d10ar")
 shader_parameter/PixelSize = 36.562
-shader_parameter/curve = SubResource("CurveTexture_u3pb1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0fnuy"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("8_he7na")
+shader_parameter/TilingScale = 1.0
+shader_parameter/Color = Vector4(0, 0, 1, 1)
+shader_parameter/GlowSTR = 1.0
+shader_parameter/BC = ExtResource("9_kquoh")
+shader_parameter/GlowDecal = ExtResource("10_xw5kb")
+shader_parameter/NRM = ExtResource("11_4c5ql")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_inreb"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("8_he7na")
+shader_parameter/TilingScale = 1.0
+shader_parameter/Color = Vector4(0, 0, 1, 1)
+shader_parameter/GlowSTR = 1.0
+shader_parameter/BC = ExtResource("9_kquoh")
+shader_parameter/GlowDecal = ExtResource("10_xw5kb")
+shader_parameter/NRM = ExtResource("11_4c5ql")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vve1n"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("8_he7na")
+shader_parameter/TilingScale = 1.0
+shader_parameter/Color = Vector4(0, 0, 1, 1)
+shader_parameter/GlowSTR = 1.0
+shader_parameter/BC = ExtResource("9_kquoh")
+shader_parameter/GlowDecal = ExtResource("10_xw5kb")
+shader_parameter/NRM = ExtResource("11_4c5ql")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n2yqc"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("8_he7na")
+shader_parameter/TilingScale = 1.0
+shader_parameter/Color = Vector4(0, 0, 1, 1)
+shader_parameter/GlowSTR = 1.0
+shader_parameter/BC = ExtResource("9_kquoh")
+shader_parameter/GlowDecal = ExtResource("10_xw5kb")
+shader_parameter/NRM = ExtResource("11_4c5ql")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sd3m5"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("8_he7na")
+shader_parameter/TilingScale = 1.0
+shader_parameter/Color = Vector4(0, 0, 1, 1)
+shader_parameter/GlowSTR = 1.0
+shader_parameter/BC = ExtResource("9_kquoh")
+shader_parameter/GlowDecal = ExtResource("10_xw5kb")
+shader_parameter/NRM = ExtResource("11_4c5ql")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w0nxu"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("8_he7na")
+shader_parameter/TilingScale = 1.0
+shader_parameter/Color = Vector4(0, 0, 1, 1)
+shader_parameter/GlowSTR = 1.0
+shader_parameter/BC = ExtResource("9_kquoh")
+shader_parameter/GlowDecal = ExtResource("10_xw5kb")
+shader_parameter/NRM = ExtResource("11_4c5ql")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2ywov"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("8_he7na")
+shader_parameter/TilingScale = 1.0
+shader_parameter/Color = Vector4(0, 0, 1, 1)
+shader_parameter/GlowSTR = 1.0
+shader_parameter/BC = ExtResource("9_kquoh")
+shader_parameter/GlowDecal = ExtResource("10_xw5kb")
+shader_parameter/NRM = ExtResource("11_4c5ql")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_00ml3"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("8_he7na")
+shader_parameter/TilingScale = 1.0
+shader_parameter/Color = Vector4(0, 0, 1, 1)
+shader_parameter/GlowSTR = 1.0
+shader_parameter/BC = ExtResource("9_kquoh")
+shader_parameter/GlowDecal = ExtResource("10_xw5kb")
+shader_parameter/NRM = ExtResource("11_4c5ql")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8bsiw"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("8_he7na")
+shader_parameter/TilingScale = 1.0
+shader_parameter/Color = Vector4(0, 0, 1, 1)
+shader_parameter/GlowSTR = 1.0
+shader_parameter/BC = ExtResource("9_kquoh")
+shader_parameter/GlowDecal = ExtResource("10_xw5kb")
+shader_parameter/NRM = ExtResource("11_4c5ql")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ss6ef"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("8_he7na")
+shader_parameter/TilingScale = 1.0
+shader_parameter/Color = Vector4(0, 0, 1, 1)
+shader_parameter/GlowSTR = 1.0
+shader_parameter/BC = ExtResource("9_kquoh")
+shader_parameter/GlowDecal = ExtResource("10_xw5kb")
+shader_parameter/NRM = ExtResource("11_4c5ql")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ab8l0"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("8_he7na")
+shader_parameter/TilingScale = 1.0
+shader_parameter/Color = Vector4(0, 0, 1, 1)
+shader_parameter/GlowSTR = 1.0
+shader_parameter/BC = ExtResource("9_kquoh")
+shader_parameter/GlowDecal = ExtResource("10_xw5kb")
+shader_parameter/NRM = ExtResource("11_4c5ql")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ndeqx"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("8_he7na")
+shader_parameter/TilingScale = 1.0
+shader_parameter/Color = Vector4(0, 0, 1, 1)
+shader_parameter/GlowSTR = 1.0
+shader_parameter/BC = ExtResource("9_kquoh")
+shader_parameter/GlowDecal = ExtResource("10_xw5kb")
+shader_parameter/NRM = ExtResource("11_4c5ql")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oa78i"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("8_he7na")
+shader_parameter/TilingScale = 1.0
+shader_parameter/Color = Vector4(0, 0, 1, 1)
+shader_parameter/GlowSTR = 1.0
+shader_parameter/BC = ExtResource("9_kquoh")
+shader_parameter/GlowDecal = ExtResource("10_xw5kb")
+shader_parameter/NRM = ExtResource("11_4c5ql")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xrere"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("8_he7na")
+shader_parameter/TilingScale = 1.0
+shader_parameter/Color = Vector4(0, 0, 1, 1)
+shader_parameter/GlowSTR = 1.0
+shader_parameter/BC = ExtResource("9_kquoh")
+shader_parameter/GlowDecal = ExtResource("10_xw5kb")
+shader_parameter/NRM = ExtResource("11_4c5ql")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e3x1l"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("8_he7na")
+shader_parameter/TilingScale = 1.0
+shader_parameter/Color = Vector4(0, 0, 1, 1)
+shader_parameter/GlowSTR = 1.0
+shader_parameter/BC = ExtResource("9_kquoh")
+shader_parameter/GlowDecal = ExtResource("10_xw5kb")
+shader_parameter/NRM = ExtResource("11_4c5ql")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pow45"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("8_he7na")
+shader_parameter/TilingScale = 1.0
+shader_parameter/Color = Vector4(0, 0, 1, 1)
+shader_parameter/GlowSTR = 1.0
+shader_parameter/BC = ExtResource("9_kquoh")
+shader_parameter/GlowDecal = ExtResource("10_xw5kb")
+shader_parameter/NRM = ExtResource("11_4c5ql")
 
 [sub_resource type="QuadMesh" id="QuadMesh_k6j7g"]
 size = Vector2(8, 8)
@@ -235,6 +407,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14, -0
 
 [node name="MazeDoor3" parent="WallKit" instance=ExtResource("7_5lgho")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.4, 30)
+matoverride = SubResource("ShaderMaterial_0fnuy")
 
 [node name="WallConstructionPieces" type="Node" parent="."]
 
@@ -495,48 +668,63 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.98811, -0.4, -14.9881)
 
 [node name="MazeDoor4" parent="WallConstructionPieces" instance=ExtResource("7_5lgho")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -0.4, 10)
+matoverride = SubResource("ShaderMaterial_inreb")
 
 [node name="MazeDoor5" parent="WallConstructionPieces" instance=ExtResource("7_5lgho")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.4, 10)
+matoverride = SubResource("ShaderMaterial_vve1n")
 
 [node name="MazeDoor7" parent="WallConstructionPieces" instance=ExtResource("7_5lgho")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, -0.4, -1)
+matoverride = SubResource("ShaderMaterial_n2yqc")
 
 [node name="MazeDoor9" parent="WallConstructionPieces" instance=ExtResource("7_5lgho")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, -0.4, -1)
+matoverride = SubResource("ShaderMaterial_sd3m5")
 
 [node name="MazeDoor12" parent="WallConstructionPieces" instance=ExtResource("7_5lgho")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 13, -0.4, -4)
+matoverride = SubResource("ShaderMaterial_w0nxu")
 
 [node name="MazeDoor16" parent="WallConstructionPieces" instance=ExtResource("7_5lgho")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9, -0.4, -11)
+matoverride = SubResource("ShaderMaterial_2ywov")
 
 [node name="MazeDoor13" parent="WallConstructionPieces" instance=ExtResource("7_5lgho")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 13, -0.4, 5.96046e-07)
+matoverride = SubResource("ShaderMaterial_00ml3")
 
 [node name="MazeDoor10" parent="WallConstructionPieces" instance=ExtResource("7_5lgho")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.4, -5)
+matoverride = SubResource("ShaderMaterial_8bsiw")
 
 [node name="MazeDoor17" parent="WallConstructionPieces" instance=ExtResource("7_5lgho")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -0.4, -5)
+matoverride = SubResource("ShaderMaterial_ss6ef")
 
 [node name="MazeDoor18" parent="WallConstructionPieces" instance=ExtResource("7_5lgho")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -0.4, -2)
+matoverride = SubResource("ShaderMaterial_ab8l0")
 
 [node name="MazeDoor11" parent="WallConstructionPieces" instance=ExtResource("7_5lgho")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.4, 2)
+matoverride = SubResource("ShaderMaterial_ndeqx")
 
 [node name="MazeDoor14" parent="WallConstructionPieces" instance=ExtResource("7_5lgho")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.99999, -0.4, -6)
+matoverride = SubResource("ShaderMaterial_oa78i")
 
 [node name="MazeDoor15" parent="WallConstructionPieces" instance=ExtResource("7_5lgho")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, -0.4, -6)
+matoverride = SubResource("ShaderMaterial_xrere")
 
 [node name="MazeDoor6" parent="WallConstructionPieces" instance=ExtResource("7_5lgho")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11, -0.4, 12)
+matoverride = SubResource("ShaderMaterial_e3x1l")
 
 [node name="MazeDoor8" parent="WallConstructionPieces" instance=ExtResource("7_5lgho")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, -0.4, 7)
+matoverride = SubResource("ShaderMaterial_pow45")
 
 [node name="Floor" type="StaticBody3D" parent="WallConstructionPieces"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.62939e-06, -0.359047, 1.01189)
