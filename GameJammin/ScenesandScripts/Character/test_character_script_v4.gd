@@ -11,13 +11,15 @@ var is_running = false
 #Camera Controller Variables
 @onready var camera_controller = $CameraController
 
-#Torch Controller Variables (used in brazier script)
+#Torch Controller Variables (also used in brazier script)
 @onready var torch = $Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D
 var near_brazier := false
+var interactable = true
 
 func _physics_process(_delta):
 	player_controller()
 	player_camera()
+	douse_torch()
 	
 func player_controller():
 	#Note, in our game map,movement is not the standard (-x. +x, -z, +z)
@@ -49,6 +51,18 @@ func player_camera():
 	#Make camera controller position match the player's position via lerp
 	camera_controller.position = lerp(camera_controller.position, position, 0.10)
 	
+func douse_torch():
+	if interactable == true:
+		#After player interacts with torch, then set interactable to false
+		interactable = false
+		#If player presses Q, douse torch aka reset color to white
+		if Input.is_action_just_pressed("douseTorch"):
+			torch.light_color = Color.WHITE
+			animation_player.play("Douse")
+			#Set timer to 2 seconds to match time of our Douse animation
+			await get_tree().create_timer(2.0,false).timeout
+		#After the above code has run, set interactable back to true
+		interactable = true
 
 
 
