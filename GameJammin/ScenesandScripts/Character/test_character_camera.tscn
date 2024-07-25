@@ -750,6 +750,8 @@ height = 1.00255
 
 [node name="TestCharacterCamera" type="CharacterBody3D"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_o2332")
 metadata/_edit_group_ = true
 
@@ -957,6 +959,7 @@ mesh = SubResource("CapsuleMesh_j2joe")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D"]
 transform = Transform3D(24.5839, 1.73748e-05, 1.2517e-05, -6.09457e-06, 24.5839, -2.86102e-06, -3.21865e-06, -1.19209e-06, 24.5839, -0.0161943, -4.38647, 0.0855465)
+layers = 3
 shadow_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Char2"]
