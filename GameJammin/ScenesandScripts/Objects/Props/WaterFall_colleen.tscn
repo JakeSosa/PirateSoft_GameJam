@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://clqiatx4tfh54"]
+[gd_scene load_steps=16 format=3 uid="uid://clqiatx4tfh54"]
 
+[ext_resource type="Script" path="res://ScenesandScripts/Objects/Props/WaterFall_colleen_script.gd" id="1_52vom"]
 [ext_resource type="Shader" uid="uid://bossd6vdywrx5" path="res://Art/Shaders/WaterFall.tres" id="1_hfs1p"]
 [ext_resource type="Texture2D" uid="uid://bj672mthf518i" path="res://Art/Textures/WaterFallTex/WaterFallBits.png" id="2_kv685"]
 [ext_resource type="ArrayMesh" uid="uid://da7tpxc5y8kpw" path="res://Art/Meshes/Objects/Construction/WaterFallMesh.obj" id="3_5hw4n"]
@@ -61,7 +62,11 @@ shader_parameter/Tex = ExtResource("5_1dj0s")
 material = SubResource("ShaderMaterial_s0ge8")
 orientation = 1
 
-[node name="WaterFall" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_nx0du"]
+size = Vector3(2.02692, 2.28552, 0.279053)
+
+[node name="WaterFallColleen" type="Node3D"]
+script = ExtResource("1_52vom")
 
 [node name="WaterFallMesh" type="MeshInstance3D" parent="."]
 material_override = SubResource("ShaderMaterial_oxias")
@@ -80,3 +85,12 @@ process_material = SubResource("ParticleProcessMaterial_qbllp")
 draw_pass_1 = SubResource("QuadMesh_otcwf")
 
 [node name="Area3D" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018219, 1.16332, 0.0179443)
+shape = SubResource("BoxShape3D_nx0du")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_waterfall_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_waterfall_body_exited"]
