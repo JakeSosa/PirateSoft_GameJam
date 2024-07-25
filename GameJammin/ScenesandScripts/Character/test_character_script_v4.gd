@@ -1,6 +1,7 @@
 extends CharacterBody3D
 #Player Controller reference video (https://www.youtube.com/watch?v=0T-FMkSru64)
 #Camera Controller reference video (https://www.youtube.com/watch?v=yVde3I3K7oo)
+#Torch Controller referecne video (https://www.youtube.com/watch?v=RIJeoJ8qi1w)
 
 #Player Controller Variables
 const Speed = 5.0
@@ -10,6 +11,10 @@ var is_running = false
 
 #Camera Controller Variables
 @onready var camera_controller = $CameraController
+
+#Torch Controller Variables
+@onready var player_torch = $Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D
+var near_brazier := false
 
 func _physics_process(_delta):
 	player_controller()
@@ -44,4 +49,5 @@ func player_controller():
 func player_camera():
 	#Make camera controller position match the player's position via lerp
 	camera_controller.position = lerp(camera_controller.position, position, 0.10)
-	
+
+

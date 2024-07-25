@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://t8iuo4xxw5um"]
+[gd_scene load_steps=51 format=3 uid="uid://t8iuo4xxw5um"]
 
 [ext_resource type="PackedScene" uid="uid://b3gex8777ka4" path="res://ScenesandScripts/Character/test_character_camera.tscn" id="1_ue4ie"]
 [ext_resource type="Shader" path="res://Art/Shaders/PPShaderGLSL.gdshader" id="2_x8hpg"]
@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://c62mjv8o31x16" path="res://Art/Textures/FloorTexture/M_Floor_Normal.png" id="30_a1bnh"]
 [ext_resource type="Texture2D" uid="uid://c5hdrl7kem4yn" path="res://Art/Textures/FloorTexture/M_Floor_Roughness.png" id="31_5lbxn"]
 [ext_resource type="PackedScene" uid="uid://cug6kjou6ccef" path="res://ScenesandScripts/Objects/Props/brazier.tscn" id="32_7oo4w"]
+[ext_resource type="PackedScene" uid="uid://bf8ulok6ickqu" path="res://ScenesandScripts/Objects/Props/brazier_colleen.tscn" id="32_qfw48"]
 [ext_resource type="PackedScene" uid="uid://dg2qsl7l74nnr" path="res://ScenesandScripts/Objects/Props/hub_brazier.tscn" id="33_uljwd"]
 [ext_resource type="PackedScene" uid="uid://cucpsroek1jxt" path="res://ScenesandScripts/Objects/Props/sconce.tscn" id="34_dcjgs"]
 [ext_resource type="PackedScene" uid="uid://3lrlx8iuwkvh" path="res://ScenesandScripts/Objects/Props/lever.tscn" id="35_mrf42"]
@@ -761,8 +762,12 @@ shape = SubResource("BoxShape3D_gib2c")
 
 [node name="Props" type="Node" parent="."]
 
-[node name="Brazier" parent="Props" instance=ExtResource("32_7oo4w")]
-transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -12.6937, 0, 8)
+[node name="Brazier10" parent="Props" node_paths=PackedStringArray("player") instance=ExtResource("32_qfw48")]
+transform = Transform3D(0.717, 0, 0, 0, 0.717, 0, 0, 0, 0.717, -12.6937, 0, 8)
+player = NodePath("../../TestCharacterCamera")
+
+[node name="MeshInstance3D" parent="Props/Brazier10" index="0"]
+skeleton = NodePath("../../Brazier10")
 
 [node name="Brazier2" parent="Props" instance=ExtResource("32_7oo4w")]
 transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, 7.92382, 9.53674e-07, 9.41205)
@@ -820,3 +825,5 @@ transform = Transform3D(-1.14944e-07, 0, 2.62962, -1.33163, 2.26753, -5.82071e-0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ay3fa")
+
+[editable path="Props/Brazier10"]
