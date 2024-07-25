@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dyu37f2faxlb1"
+path="res://.godot/imported/Dirt01.obj-8c3252703d2c7bd4c23bf0e9adbd70f1.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Dirt01.obj-8c3252703d2c7bd4c23bf0e9adbd70f1.mesh"]
+
+source_file="res://Art/Meshes/Objects/Props/PropPack4/Dirt01.obj"
+dest_files=["res://.godot/imported/Dirt01.obj-8c3252703d2c7bd4c23bf0e9adbd70f1.mesh", "res://.godot/imported/Dirt01.obj-8c3252703d2c7bd4c23bf0e9adbd70f1.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
