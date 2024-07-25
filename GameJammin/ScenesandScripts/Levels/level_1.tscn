@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://cmbso2ne6dhpj"]
+[gd_scene load_steps=56 format=3 uid="uid://cmbso2ne6dhpj"]
 
 [ext_resource type="PackedScene" uid="uid://cpsau6s0g741l" path="res://ScenesandScripts/Objects/WallKit/wall_1m.tscn" id="1_k38sm"]
 [ext_resource type="PackedScene" uid="uid://b3gex8777ka4" path="res://ScenesandScripts/Character/test_character_camera.tscn" id="1_yxkem"]
@@ -42,18 +42,36 @@
 flip_faces = true
 size = Vector2(2, 2)
 
-[sub_resource type="Curve" id="Curve_3fq2n"]
-_data = [Vector2(0, 1), 0.0, -2.38923, 0, 0, Vector2(1, 0), -0.244162, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_pyoba"]
+_data = [Vector2(0, 0), 0.0, 0.845961, 0, 1, Vector2(0.292271, 0.24725), 1.08208, 1.08208, 0, 0, Vector2(0.714976, 0.868269), 0.779097, 0.779097, 0, 0, Vector2(1, 1), 0.462176, 0.0, 1, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_tdmip"]
+_data = [Vector2(0, 0), 0.0, 0.91394, 0, 1, Vector2(0.270531, 0.24725), 0.747932, 0.747932, 0, 0, Vector2(0.763285, 0.695136), 0.905926, 0.905926, 0, 0, Vector2(1, 1), 1.28789, 0.0, 1, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_3uueb"]
+_data = [Vector2(0, 0), 0.0, 1.38941, 0, 1, Vector2(0.118357, 0.164447), 0.991578, 0.991578, 0, 0, Vector2(0.608696, 0.394036), 0.795674, 0.795674, 0, 0, Vector2(1, 1), 1.54857, 0.0, 1, 0]
+point_count = 4
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_5impl"]
+curve_x = SubResource("Curve_pyoba")
+curve_y = SubResource("Curve_tdmip")
+curve_z = SubResource("Curve_3uueb")
+
+[sub_resource type="Curve" id="Curve_1q44f"]
+_data = [Vector2(0.161836, 1), 0.0, -0.0697699, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_u3pb1"]
-curve = SubResource("Curve_3fq2n")
+[sub_resource type="CurveTexture" id="CurveTexture_2urd2"]
+curve = SubResource("Curve_1q44f")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3c4i0"]
 render_priority = 0
 shader = ExtResource("2_4tpr0")
-shader_parameter/PixelSize = 36.562
-shader_parameter/curve = SubResource("CurveTexture_u3pb1")
+shader_parameter/PixelSize = 37.75
+shader_parameter/vignetteCurve = SubResource("CurveTexture_2urd2")
+shader_parameter/ColorsCurve = SubResource("CurveXYZTexture_5impl")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6iqes"]
 render_priority = 0
