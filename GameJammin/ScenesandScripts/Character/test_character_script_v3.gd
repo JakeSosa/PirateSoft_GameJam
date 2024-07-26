@@ -50,9 +50,6 @@ func _physics_process(_delta):
 	#Camera Contoller
 	#Make camera controller position match the player's position via lerp
 	camera_controller.position = lerp(camera_controller.position, position, 0.10)
-	
 
-
-
-func _on_brazier_colorpass(current_color):
-	$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = current_color
+func _on_brazier_color_pass(colorChange):
+	$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = colorChange

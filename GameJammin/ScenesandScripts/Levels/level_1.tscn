@@ -331,6 +331,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.848
 
 [node name="PostProcess" type="MeshInstance3D" parent="TestCharacterCamera"]
 transform = Transform3D(1, 0, -9.59233e-14, 0, 1, 0, 9.59233e-14, 0, 1, 0.503351, -0.0741225, -0.014081)
+visible = false
 mesh = SubResource("QuadMesh_53br7")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_3c4i0")
@@ -1722,45 +1723,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.23969, -0.405666, 9.86645)
 
 [node name="Props" type="Node" parent="."]
 
-[node name="Brazier" parent="Props" node_paths=PackedStringArray("player") instance=ExtResource("13_mrgay")]
+[node name="Brazier" parent="Props" instance=ExtResource("13_mrgay")]
 transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -12.6937, 0, 8)
-player = NodePath("../../TestCharacterCamera")
-assign_brazier_color = Color(0, 0, 1, 1)
+colorChange = Color(0, 0, 1, 1)
 
-[node name="Brazier2" parent="Props" node_paths=PackedStringArray("player") instance=ExtResource("13_mrgay")]
-transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, 7.92382, 9.53674e-07, 9.41205)
-player = NodePath("../../TestCharacterCamera")
-assign_brazier_color = Color(1, 0, 0, 1)
-
-[node name="Brazier9" parent="Props" node_paths=PackedStringArray("player") instance=ExtResource("13_mrgay")]
-transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, 5.67294, 9.53674e-07, -6.61897)
-player = NodePath("../../TestCharacterCamera")
-
-[node name="Brazier3" parent="Props" node_paths=PackedStringArray("player") instance=ExtResource("13_mrgay")]
-transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, 2.9143, 9.53674e-07, 3.32787)
-player = NodePath("../../TestCharacterCamera")
-assign_brazier_color = Color(0, 0, 1, 1)
-
-[node name="Brazier4" parent="Props" node_paths=PackedStringArray("player") instance=ExtResource("13_mrgay")]
-transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -2.80335, 1.90735e-06, 3.30912)
-player = NodePath("../../TestCharacterCamera")
-assign_brazier_color = Color(1, 1, 0, 1)
-
-[node name="Brazier7" parent="Props" node_paths=PackedStringArray("player") instance=ExtResource("13_mrgay")]
-transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -8.45872, 1.90735e-06, -11.4541)
-player = NodePath("../../TestCharacterCamera")
-
-[node name="Brazier8" parent="Props" node_paths=PackedStringArray("player") instance=ExtResource("13_mrgay")]
-transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -13.1089, 9.53674e-07, 4.29293)
-player = NodePath("../../TestCharacterCamera")
-
-[node name="Brazier5" parent="Props" node_paths=PackedStringArray("player") instance=ExtResource("13_mrgay")]
-transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, 2.82547, 9.53674e-07, -2.78187)
-player = NodePath("../../TestCharacterCamera")
-
-[node name="Brazier6" parent="Props" node_paths=PackedStringArray("player") instance=ExtResource("13_mrgay")]
-transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -2.76074, 1.90735e-06, -2.76055)
-player = NodePath("../../TestCharacterCamera")
+[node name="Brazier2" parent="Props" instance=ExtResource("13_mrgay")]
+transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -12.6937, 0, 13)
+colorChange = Color(0, 1, 0, 1)
 
 [node name="HubBrazier" parent="Props" instance=ExtResource("14_jrr4f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.238953, 0)
@@ -1795,5 +1764,5 @@ transform = Transform3D(-1.14944e-07, 0, 2.62962, -1.33163, 2.26753, -5.82071e-0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ay3fa")
 
-[editable path="Props/Brazier"]
-[editable path="Props/Brazier2"]
+[connection signal="colorPass" from="Props/Brazier" to="TestCharacterCamera" method="_on_brazier_color_pass"]
+[connection signal="colorPass" from="Props/Brazier2" to="TestCharacterCamera" method="_on_brazier_color_pass"]
