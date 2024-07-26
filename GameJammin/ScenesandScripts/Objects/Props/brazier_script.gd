@@ -4,13 +4,23 @@ extends StaticBody3D
 
 #Set public variable that will act as a pointer to the player in level 1 scene
 @export var player : CharacterBody3D
+#Set public variable to assign unique color to brazier
+@export var assign_brazier_color : Color
+
 #Set onready variable to define brazier color
-@onready var brazier_color = $OmniLight3D.light_color
+@onready var brazier_color = $OmniLight3D
+
 #Set Variable to define when player can interact with the brazier
 var interactable = true
 
+func _ready() -> void:
+	new_brazier_color()
+
 func _process(delta: float) -> void:
 	change_torch_color()
+
+func new_brazier_color():
+		brazier_color.light_color = assign_brazier_color
 	
 func change_torch_color():
 	if interactable == true:
@@ -19,12 +29,13 @@ func change_torch_color():
 		#If player is near brazier and presses E, change torch color to brazier color
 		if player.near_brazier == true && Input.is_action_just_pressed("lightTorch"):
 			player.torch.visible = true
-			player.torch.light_color = brazier_color
+			player.torch.light_color = brazier_color.light_color
 			player.animation_player.play("Light")
 			#Set timer to 2 seconds to match time of our Light animation
 			await get_tree().create_timer(2.0,false).timeout
 		#After the above code has run, set interactable back to true
 		interactable = true
+		print(player.torch.light_color)
 
 func _on_brazier_body_entered(body: Node3D) -> void:
 	player.near_brazier = true
