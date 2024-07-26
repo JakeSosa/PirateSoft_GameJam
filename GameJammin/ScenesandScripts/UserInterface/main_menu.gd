@@ -8,7 +8,7 @@ extends Control
 @export var creditselected : Texture 
 
 func _on_start_button_pressed():
-	get_tree().change_scene_to_file("res://ScenesandScripts/Levels/level_1.tscn")
+	get_tree().change_scene_to_file("res://ScenesandScripts/UserInterface/loading_screen.tscn")
 
 func _on_button_mouse_entered_start():
 	$TextureRect/Start/StartImage.texture = startselected
