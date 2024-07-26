@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://b82tvavmk75tg"]
+[gd_scene load_steps=16 format=3 uid="uid://b82tvavmk75tg"]
 
 [ext_resource type="Shader" uid="uid://bossd6vdywrx5" path="res://Art/Shaders/WaterFall.tres" id="1_x8ll0"]
+[ext_resource type="Script" path="res://ScenesandScripts/Objects/Props/WaterFall_script.gd" id="1_xfgqy"]
 [ext_resource type="Texture2D" uid="uid://bj672mthf518i" path="res://Art/Textures/WaterFallTex/WaterFallBits.png" id="2_6o1pk"]
 [ext_resource type="Shader" uid="uid://gnxbxckui5py" path="res://Art/Shaders/WallDecals.tres" id="3_55mre"]
 [ext_resource type="ArrayMesh" uid="uid://da7tpxc5y8kpw" path="res://Art/Meshes/Objects/Construction/WaterFallMesh.obj" id="3_o0ta2"]
@@ -61,7 +62,11 @@ shader_parameter/Tex = ExtResource("4_4mcm6")
 material = SubResource("ShaderMaterial_1rgv1")
 orientation = 1
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ejs1"]
+size = Vector3(2.00757, 2.31934, 0.223145)
+
 [node name="WaterFall" type="Node3D"]
+script = ExtResource("1_xfgqy")
 
 [node name="WaterFallMesh" type="MeshInstance3D" parent="."]
 material_override = SubResource("ShaderMaterial_oxias")
@@ -78,3 +83,14 @@ amount = 100
 visibility_aabb = AABB(-0.59223, -0.169974, -0.159549, 1.18446, 0.336041, 0.319099)
 process_material = SubResource("ParticleProcessMaterial_qbllp")
 draw_pass_1 = SubResource("QuadMesh_otcwf")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0133057, 1.15088, -0.00463867)
+shape = SubResource("BoxShape3D_2ejs1")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_waterfall_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_waterfall_body_exited"]

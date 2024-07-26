@@ -931,23 +931,29 @@ transform = Transform3D(0.5, 0, 8.74228e-08, 0, 0.5, 0, -8.74228e-08, 0, 0.5, 14
 [node name="PipeStraight7" parent="Deco" instance=ExtResource("36_10nwt")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 14.69, 1.47696, 10.6656)
 
-[node name="WaterFall" parent="Deco" instance=ExtResource("23_o3b72")]
+[node name="WaterFall" parent="Deco" node_paths=PackedStringArray("player") instance=ExtResource("23_o3b72")]
 transform = Transform3D(-4.37114e-08, 0, -0.920531, 0, 1, 0, 1, 0, -4.02377e-08, 9.50472, -0.288658, 8.01121)
+player = NodePath("../../TestCharacterCamera")
 
-[node name="WaterFall2" parent="Deco" instance=ExtResource("23_o3b72")]
+[node name="WaterFall2" parent="Deco" node_paths=PackedStringArray("player") instance=ExtResource("23_o3b72")]
 transform = Transform3D(-6.84123e-08, 0, -1.47465, 0, 1, 0, 1.56509, 0, -6.44589e-08, 8.58216, -0.288658, 0.580906)
+player = NodePath("../../TestCharacterCamera")
 
-[node name="WaterFall6" parent="Deco" instance=ExtResource("23_o3b72")]
+[node name="WaterFall6" parent="Deco" node_paths=PackedStringArray("player") instance=ExtResource("23_o3b72")]
 transform = Transform3D(-0.00678229, 0.000498161, -1.70935, -0.00318374, 0.999996, 0.000877962, 1.18308, 0.00269391, -0.00979693, -8.6682, -0.242387, -0.136805)
+player = NodePath("../../TestCharacterCamera")
 
-[node name="WaterFall3" parent="Deco" instance=ExtResource("23_o3b72")]
+[node name="WaterFall3" parent="Deco" node_paths=PackedStringArray("player") instance=ExtResource("23_o3b72")]
 transform = Transform3D(1.23316, 0, 0, 0, 1, 0, 0, 0, 1.70938, 11.2401, -0.288658, -11.545)
+player = NodePath("../../TestCharacterCamera")
 
-[node name="WaterFall5" parent="Deco" instance=ExtResource("23_o3b72")]
+[node name="WaterFall5" parent="Deco" node_paths=PackedStringArray("player") instance=ExtResource("23_o3b72")]
 transform = Transform3D(1.23316, 0, 0, 0, 1, 0, 0, 0, 1.70938, 6.0534, -0.288658, -11.545)
+player = NodePath("../../TestCharacterCamera")
 
-[node name="WaterFall4" parent="Deco" instance=ExtResource("23_o3b72")]
+[node name="WaterFall4" parent="Deco" node_paths=PackedStringArray("player") instance=ExtResource("23_o3b72")]
 transform = Transform3D(1.23316, 0, 0, 0, 1, 0, 0, 0, 1.70938, -10.0837, -0.288658, -4.47239)
+player = NodePath("../../TestCharacterCamera")
 
 [node name="Dirt01" parent="Deco" instance=ExtResource("45_2qrnl")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -24.4681, 0, 16.4722)

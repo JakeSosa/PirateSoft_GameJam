@@ -1,5 +1,6 @@
 extends StaticBody3D
 #Torch Controller reference video (https://www.youtube.com/watch?v=RIJeoJ8qi1w)
+#NOTE - Make sure Area 3D collission layer & mask are set to 2
 
 #Set public variable that will act as a pointer to the player in level 1 scene
 @export var player : CharacterBody3D
