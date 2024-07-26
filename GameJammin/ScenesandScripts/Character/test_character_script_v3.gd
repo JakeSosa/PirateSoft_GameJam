@@ -7,12 +7,14 @@ const Speed = 5.0
 var is_running = false
 @onready var animation_player = $Char2/AnimationPlayer
 @onready var character_model = $Char2
-
+@onready var torch = $Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D
 #Camera Controller Variables
 @onready var camera_controller = $CameraController
 
+var isInArea : bool = false
+var changingColor : Color
 var torch_color
-
+var under_waterfall : = false
 func _ready():
 	torch_color = $Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color
 
@@ -44,6 +46,10 @@ func _physics_process(_delta):
 		if is_running:
 			is_running = false
 			animation_player.play("Idle")
+	if isInArea == true && Input.is_action_just_pressed("lightTorch"):
+		torch.visible = true
+		$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = changingColor
+
 
 	move_and_slide()
 	
@@ -52,4 +58,10 @@ func _physics_process(_delta):
 	camera_controller.position = lerp(camera_controller.position, position, 0.10)
 
 func _on_brazier_color_pass(colorChange):
-	$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = colorChange
+	changingColor = colorChange
+
+func _on_brazier_area_enter_check():
+	isInArea = true
+
+func _on_brazier_area_exit_check():
+	isInArea = false
