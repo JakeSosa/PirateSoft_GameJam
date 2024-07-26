@@ -41,8 +41,7 @@ shape = SubResource("CylinderShape3D_jmwbp")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1.39491, 0, 0, 0, 1.39491, 0, 0, 0, 1.39491, 0, 0.776666, 0)
-visible = false
-light_color = Color(0.170688, 7.70092e-07, 0.926429, 1)
+light_color = Color(0.32549, 0.411765, 1, 1)
 shadow_enabled = true
 
 [node name="Area3D" type="Area3D" parent="."]
