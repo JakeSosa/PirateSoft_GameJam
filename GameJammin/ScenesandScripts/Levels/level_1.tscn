@@ -1727,22 +1727,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.23969, -0.405666, 9.86645)
 transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -12.6937, 0, 8)
 colorChange = Color(0, 0, 1, 1)
 
-[node name="Brazier3" parent="Props" instance=ExtResource("13_mrgay")]
-transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -13.1784, 0, 4.39261)
-colorChange = Color(0, 0, 1, 1)
-
-[node name="Brazier4" parent="Props" instance=ExtResource("13_mrgay")]
-transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -8.38762, 0, -11.0697)
-colorChange = Color(0, 1, 1, 1)
-
-[node name="Brazier5" parent="Props" instance=ExtResource("13_mrgay")]
-transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, 5.91407, 0, -6.62722)
-colorChange = Color(0, 1, 0, 1)
-
-[node name="Brazier2" parent="Props" instance=ExtResource("13_mrgay")]
-transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, 7.71643, 0, 9.3238)
-colorChange = Color(1, 0, 0, 1)
-
 [node name="HubBrazier" parent="Props" instance=ExtResource("14_jrr4f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.238953, 0)
 
@@ -1776,8 +1760,6 @@ transform = Transform3D(-1.14944e-07, 0, 2.62962, -1.33163, 2.26753, -5.82071e-0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ay3fa")
 
+[connection signal="areaEnterCheck" from="Props/Brazier" to="TestCharacterCamera" method="_on_brazier_area_enter_check"]
+[connection signal="areaExitCheck" from="Props/Brazier" to="TestCharacterCamera" method="_on_brazier_area_exit_check"]
 [connection signal="colorPass" from="Props/Brazier" to="TestCharacterCamera" method="_on_brazier_color_pass"]
-[connection signal="colorPass" from="Props/Brazier3" to="TestCharacterCamera" method="_on_brazier_color_pass"]
-[connection signal="colorPass" from="Props/Brazier4" to="TestCharacterCamera" method="_on_brazier_color_pass"]
-[connection signal="colorPass" from="Props/Brazier5" to="TestCharacterCamera" method="_on_brazier_color_pass"]
-[connection signal="colorPass" from="Props/Brazier2" to="TestCharacterCamera" method="_on_brazier_color_pass"]
