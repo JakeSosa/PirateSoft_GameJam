@@ -40,9 +40,9 @@
 [ext_resource type="Texture2D" uid="uid://b2nlnhsxd67m3" path="res://Art/Textures/TrimTexture/M_Trim_Base_color.png" id="30_rqdet"]
 [ext_resource type="Texture2D" uid="uid://optp5pg471n3" path="res://Art/Textures/Spiral3.png" id="31_dobt0"]
 [ext_resource type="Texture2D" uid="uid://bhqabd88sjece" path="res://Art/Textures/TrimTexture/M_Trim_Normal.png" id="32_mksed"]
-[ext_resource type="PackedScene" uid="uid://bty4b8wayb7a7" path="res://ScenesandScripts/Objects/WallKit/PillarBroken.tscn" id="33_77yts"]
-[ext_resource type="PackedScene" uid="uid://bn3mykm2qmu7h" path="res://ScenesandScripts/Objects/WallKit/Arch.tscn" id="34_i3b47"]
-[ext_resource type="PackedScene" uid="uid://d0ru43luxr8n2" path="res://ScenesandScripts/Objects/WallKit/Pillar.tscn" id="35_y17iw"]
+[ext_resource type="PackedScene" path="res://ScenesandScripts/Objects/WallKit/PillarBroken.tscn" id="33_77yts"]
+[ext_resource type="PackedScene" path="res://ScenesandScripts/Objects/WallKit/Arch.tscn" id="34_i3b47"]
+[ext_resource type="PackedScene" path="res://ScenesandScripts/Objects/WallKit/Pillar.tscn" id="35_y17iw"]
 [ext_resource type="PackedScene" uid="uid://di36deq36jc8k" path="res://ScenesandScripts/Objects/Props/pipe_straight.tscn" id="36_10nwt"]
 [ext_resource type="PackedScene" uid="uid://b73ovwek7avnq" path="res://ScenesandScripts/Objects/Props/Dirt01.tscn" id="45_2qrnl"]
 [ext_resource type="PackedScene" uid="uid://sgm4plr6a7a4" path="res://ScenesandScripts/Objects/Props/Dirt02.tscn" id="46_i0oso"]
@@ -1716,32 +1716,41 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.23969, -0.405666, 9.86645)
 
 [node name="Props" type="Node" parent="."]
 
-[node name="Brazier" parent="Props" instance=ExtResource("13_mrgay")]
+[node name="Brazier" parent="Props" node_paths=PackedStringArray("player") instance=ExtResource("13_mrgay")]
 transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -12.6937, 0, 8)
+player = NodePath("../../TestCharacterCamera")
 
-[node name="Brazier2" parent="Props" instance=ExtResource("13_mrgay")]
+[node name="Brazier2" parent="Props" node_paths=PackedStringArray("player") instance=ExtResource("13_mrgay")]
 transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, 7.92382, 9.53674e-07, 9.41205)
+player = NodePath("../../TestCharacterCamera")
 
-[node name="Brazier9" parent="Props" instance=ExtResource("13_mrgay")]
+[node name="Brazier9" parent="Props" node_paths=PackedStringArray("player") instance=ExtResource("13_mrgay")]
 transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, 5.67294, 9.53674e-07, -6.61897)
+player = NodePath("../../TestCharacterCamera")
 
-[node name="Brazier3" parent="Props" instance=ExtResource("13_mrgay")]
+[node name="Brazier3" parent="Props" node_paths=PackedStringArray("player") instance=ExtResource("13_mrgay")]
 transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, 2.9143, 9.53674e-07, 3.32787)
+player = NodePath("../../TestCharacterCamera")
 
-[node name="Brazier4" parent="Props" instance=ExtResource("13_mrgay")]
+[node name="Brazier4" parent="Props" node_paths=PackedStringArray("player") instance=ExtResource("13_mrgay")]
 transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -2.80335, 1.90735e-06, 3.30912)
+player = NodePath("../../TestCharacterCamera")
 
-[node name="Brazier7" parent="Props" instance=ExtResource("13_mrgay")]
+[node name="Brazier7" parent="Props" node_paths=PackedStringArray("player") instance=ExtResource("13_mrgay")]
 transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -8.45872, 1.90735e-06, -11.4541)
+player = NodePath("../../TestCharacterCamera")
 
-[node name="Brazier8" parent="Props" instance=ExtResource("13_mrgay")]
+[node name="Brazier8" parent="Props" node_paths=PackedStringArray("player") instance=ExtResource("13_mrgay")]
 transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -13.1089, 9.53674e-07, 4.29293)
+player = NodePath("../../TestCharacterCamera")
 
-[node name="Brazier5" parent="Props" instance=ExtResource("13_mrgay")]
+[node name="Brazier5" parent="Props" node_paths=PackedStringArray("player") instance=ExtResource("13_mrgay")]
 transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, 2.82547, 9.53674e-07, -2.78187)
+player = NodePath("../../TestCharacterCamera")
 
-[node name="Brazier6" parent="Props" instance=ExtResource("13_mrgay")]
+[node name="Brazier6" parent="Props" node_paths=PackedStringArray("player") instance=ExtResource("13_mrgay")]
 transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -2.76074, 1.90735e-06, -2.76055)
+player = NodePath("../../TestCharacterCamera")
 
 [node name="HubBrazier" parent="Props" instance=ExtResource("14_jrr4f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.238953, 0)
@@ -1775,5 +1784,3 @@ transform = Transform3D(-1.14944e-07, 0, 2.62962, -1.33163, 2.26753, -5.82071e-0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ay3fa")
-
-[connection signal="colorpass" from="Props/Brazier" to="TestCharacterCamera" method="_on_brazier_colorpass"]
