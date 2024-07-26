@@ -413,3 +413,8 @@ current = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.166714, 0)
+
+[node name="AnimationTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="AnimationTimer" to="." method="_on_animation_timer_timeout"]
