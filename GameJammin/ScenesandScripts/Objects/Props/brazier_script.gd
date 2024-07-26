@@ -1,9 +1,9 @@
 extends StaticBody3D
 #Torch Controller reference video (https://www.youtube.com/watch?v=RIJeoJ8qi1w)
+#NOTE - Make sure Area 3D collission layer & mask are set to 2
 
 #Set public variable that will act as a pointer to the player in level 1 scene
 @export var player : CharacterBody3D
-
 #Set onready variable to define brazier color
 @onready var brazier_color = $OmniLight3D.light_color
 #Set Variable to define when player can interact with the brazier
@@ -25,12 +25,9 @@ func change_torch_color():
 			await get_tree().create_timer(2.0,false).timeout
 		#After the above code has run, set interactable back to true
 		interactable = true
-	
+
 func _on_brazier_body_entered(body: Node3D) -> void:
 	player.near_brazier = true
-	print("player near brazier")
 	
 func _on_brazier_body_exited(body: Node3D) -> void:
 	player.near_brazier = false
-	print("player NOT near brazier")
-	
