@@ -29,6 +29,7 @@ radius = 0.823317
 [node name="Brazier" type="StaticBody3D"]
 transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, 0, 0, 0)
 script = ExtResource("1_ph8db")
+assign_brazier_color = Color(1, 1, 1, 1)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(6.98956, 0, 0, 0, 6.98956, 0, 0, 0, 6.98956, 0, 0, 0)
@@ -41,7 +42,6 @@ shape = SubResource("CylinderShape3D_jmwbp")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.776666, 0)
-light_color = Color(0.32549, 0.411765, 1, 1)
 shadow_enabled = true
 
 [node name="Area3D" type="Area3D" parent="."]
