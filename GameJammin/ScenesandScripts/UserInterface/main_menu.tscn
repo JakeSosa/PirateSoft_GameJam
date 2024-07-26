@@ -1,8 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://b70uid2073v1r"]
+[gd_scene load_steps=17 format=3 uid="uid://b70uid2073v1r"]
 
 [ext_resource type="Script" path="res://ScenesandScripts/UserInterface/main_menu.gd" id="1_yub6l"]
 [ext_resource type="Texture2D" uid="uid://bg52cmrt1ier8" path="res://Art/UI/TitleScreen.png" id="2_61not"]
+[ext_resource type="Texture2D" uid="uid://dyi8fbldglvmv" path="res://Art/UI/UI_StartGameSelected.png" id="2_xca6t"]
 [ext_resource type="Texture2D" uid="uid://cb7chqvdlvnom" path="res://Art/UI/UI_StartGameUnSelected.png" id="3_ih7xw"]
+[ext_resource type="Texture2D" uid="uid://emabsth8ww5w" path="res://Art/UI/UI_SettingUnSelected.png" id="4_o4pse"]
+[ext_resource type="Texture2D" uid="uid://dyeoy8nopjsgs" path="res://Art/UI/UI_SettingsSelected.png" id="5_6t1l1"]
+[ext_resource type="Texture2D" uid="uid://bqujmsecketnw" path="res://Art/UI/UI_CreditsUnselected.png" id="6_36a60"]
+[ext_resource type="Texture2D" uid="uid://rag5inthrhy0" path="res://Art/UI/UI_CreditsSelected.png" id="7_b256l"]
+[ext_resource type="Texture2D" uid="uid://doice43sg1cn6" path="res://Art/UI/GameName.png" id="9_rvu0x"]
+[ext_resource type="Texture2D" uid="uid://rkpjywexfta1" path="res://Art/UI/BackBoard.png" id="10_lbwrf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t7q00"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3b28o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ymhe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pbmq2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6gyxt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mqr8f"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -12,6 +31,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yub6l")
+startunselected = ExtResource("3_ih7xw")
+startselected = ExtResource("2_xca6t")
+settingunselected = ExtResource("4_o4pse")
+settingselected = ExtResource("5_6t1l1")
+creditunselected = ExtResource("6_36a60")
+creditselected = ExtResource("7_b256l")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -19,7 +44,92 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_61not")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="GameName" type="TextureRect" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -256.0
+offset_top = 18.0
+offset_right = 256.0
+offset_bottom = 274.0
+grow_horizontal = 2
+texture = ExtResource("9_rvu0x")
+
+[node name="BlackBox" type="TextureRect" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -450.0
+offset_top = -303.0
+offset_right = 450.0
+offset_bottom = 97.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("10_lbwrf")
+
+[node name="Settings" type="PanelContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 247.0
+offset_top = 239.0
+offset_right = 447.0
+offset_bottom = 311.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_t7q00")
+metadata/_edit_group_ = true
+
+[node name="SettingsImage" type="TextureRect" parent="TextureRect/Settings"]
+layout_mode = 2
+texture = ExtResource("4_o4pse")
+
+[node name="Button" type="Button" parent="TextureRect/Settings"]
+show_behind_parent = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3b28o")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7ymhe")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_pbmq2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_6gyxt")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mqr8f")
+
+[node name="Credits" type="PanelContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -444.0
+offset_top = 240.0
+offset_right = -244.0
+offset_bottom = 312.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_t7q00")
+metadata/_edit_group_ = true
+
+[node name="CreditsImage" type="TextureRect" parent="TextureRect/Credits"]
+layout_mode = 2
+texture = ExtResource("6_36a60")
+
+[node name="Button" type="Button" parent="TextureRect/Credits"]
+show_behind_parent = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3b28o")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7ymhe")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_pbmq2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_6gyxt")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mqr8f")
+
+[node name="Start" type="PanelContainer" parent="TextureRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -27,17 +137,33 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -200.0
-offset_top = 186.0
+offset_top = 209.0
 offset_right = 200.0
-offset_bottom = 258.0
+offset_bottom = 281.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_t7q00")
+metadata/_edit_group_ = true
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+[node name="StartImage" type="TextureRect" parent="TextureRect/Start"]
 layout_mode = 2
 texture = ExtResource("3_ih7xw")
 
-[node name="Button" type="Button" parent="PanelContainer"]
+[node name="Button" type="Button" parent="TextureRect/Start"]
+show_behind_parent = true
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3b28o")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7ymhe")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_pbmq2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_6gyxt")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mqr8f")
 
-[connection signal="pressed" from="PanelContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="TextureRect/Settings/Button" to="." method="_on_button_mouse_entered_settings"]
+[connection signal="mouse_exited" from="TextureRect/Settings/Button" to="." method="_on_button_mouse_exited_settings"]
+[connection signal="pressed" from="TextureRect/Settings/Button" to="." method="_on_button_pressed_settings"]
+[connection signal="mouse_entered" from="TextureRect/Credits/Button" to="." method="_on_button_mouse_entered_credits"]
+[connection signal="mouse_exited" from="TextureRect/Credits/Button" to="." method="_on_button_mouse_exited_credits"]
+[connection signal="pressed" from="TextureRect/Credits/Button" to="." method="_on_button_pressed_credits"]
+[connection signal="mouse_entered" from="TextureRect/Start/Button" to="." method="_on_button_mouse_entered_start"]
+[connection signal="mouse_exited" from="TextureRect/Start/Button" to="." method="_on_button_mouse_exited_start"]
+[connection signal="pressed" from="TextureRect/Start/Button" to="." method="_on_start_button_pressed"]
