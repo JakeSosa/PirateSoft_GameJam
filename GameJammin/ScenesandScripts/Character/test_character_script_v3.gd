@@ -12,15 +12,18 @@ var is_running = false
 @onready var camera_controller = $CameraController
 
 var isInArea : bool = false
-var changingColor : Color
+var change_torch_color : Color
 var torch_color
 var under_waterfall : = false
 func _ready():
 	torch_color = $Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color
 
 func _physics_process(_delta):
+	player_controller()
+	player_camera()
+	torch_controller()
 	
-	#Player Controller
+func player_controller():
 	#Note, in our game map,movement is not the standard (-x. +x, -z, +z)
 	var input_dir = Input.get_vector("moveUp", "moveDown" , "moveRight" ,"moveLeft")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -46,19 +49,25 @@ func _physics_process(_delta):
 		if is_running:
 			is_running = false
 			animation_player.play("Idle")
-	if isInArea == true && Input.is_action_just_pressed("lightTorch"):
-		torch.visible = true
-		$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = changingColor
-
-
+	
 	move_and_slide()
 	
-	#Camera Contoller
+func player_camera():
 	#Make camera controller position match the player's position via lerp
 	camera_controller.position = lerp(camera_controller.position, position, 0.10)
 
+func torch_controller():
+	if isInArea == true && Input.is_action_just_pressed("lightTorch"):
+		torch.visible = true
+		$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = change_torch_color
+		animation_player.play("Light")
+	if Input.is_action_just_pressed("douseTorch"):
+		$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = Color.WHITE
+		animation_player.play("Douse")
+		
+		
 func _on_brazier_color_pass(colorChange):
-	changingColor = colorChange
+	change_torch_color = colorChange
 
 func _on_brazier_area_enter_check():
 	isInArea = true
