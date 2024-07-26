@@ -16,6 +16,5 @@ func _process(delta):
 
 
 func _on_area_3d_body_entered(body):
-	print("HELLO")
 	colorpass.emit(current_color)
 
