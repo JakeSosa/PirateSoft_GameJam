@@ -33,7 +33,7 @@ _subresources={
 "animations": {
 "Douse": {
 "save_to_file/enabled": true,
-"save_to_file/keep_custom_tracks": "",
+"save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "res://Art/Meshes/Character/ANims/Douse.res",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
@@ -1832,7 +1832,7 @@ _subresources={
 },
 "Idle": {
 "save_to_file/enabled": true,
-"save_to_file/keep_custom_tracks": "",
+"save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "res://Art/Meshes/Character/ANims/Idle.res",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
@@ -3631,7 +3631,7 @@ _subresources={
 },
 "Light": {
 "save_to_file/enabled": true,
-"save_to_file/keep_custom_tracks": "",
+"save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "res://Art/Meshes/Character/ANims/Light.res",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
@@ -5430,7 +5430,7 @@ _subresources={
 },
 "Run": {
 "save_to_file/enabled": true,
-"save_to_file/keep_custom_tracks": "",
+"save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "res://Art/Meshes/Character/ANims/Run.res",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
