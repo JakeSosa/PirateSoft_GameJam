@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://3lrlx8iuwkvh"]
+[gd_scene load_steps=7 format=3 uid="uid://3lrlx8iuwkvh"]
 
 [ext_resource type="ArrayMesh" uid="uid://ddp5fy0iuogra" path="res://Art/Meshes/Objects/Props/PropPack1/LevelTop.obj" id="1_p752m"]
 [ext_resource type="Material" uid="uid://sid86jvq7qpj" path="res://Art/Materials/propPack1.tres" id="2_2y2dr"]
@@ -7,10 +7,34 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_iml0w"]
 size = Vector3(0.123291, 0.219971, 0.246094)
 
+[sub_resource type="Animation" id="Animation_vowqs"]
+resource_name = "Rotation_L"
+length = 0.5
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.0333333, 1, 0, 0, 0, 1, 0.0666667, 1, 0, 0, 0, 1, 0.1, 1, 0, 0, 0, 1, 0.133333, 1, 0, 0, 0, 1, 0.166667, 1, 0, 0, 0, 1, 0.2, 1, 0, 0, 0, 1, 0.233333, 1, 0, 0, 0, 1, 0.266667, 1, 0, 0, 0, 1, 0.3, 1, 0, 0, 0, 1, 0.333333, 1, 0, 0, 0, 1, 0.366667, 1, 0, 0, 0, 1, 0.4, 1, 0, 0, 0, 1, 0.433333, 1, 0, 0, 0, 1, 0.466667, 1, 0, 0, 0, 1, 0.5, 1, 0, 0, 0, 1)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.1, 1, -0.170175, 0, 0, 0.985414, 0.2, 1, -0.354568, 0, 0, 0.93503, 0.3, 1, -0.497663, 0, 0, 0.86737, 0.4, 1, -0.64084, 0, 0, 0.767674, 0.5, 1, -0.603875, 0, 0, 0.797078)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_60n0r"]
+_data = {
+"Rotation_L": SubResource("Animation_vowqs")
+}
+
 [node name="Lever" type="StaticBody3D"]
 transform = Transform3D(2.62962, 0, 0, 0, 2.62962, 0, 0, 0, 2.62962, 0, 0, 0)
 
 [node name="Top" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0, 0)
 mesh = ExtResource("1_p752m")
 surface_material_override/0 = ExtResource("2_2y2dr")
 
@@ -22,3 +46,8 @@ surface_material_override/0 = ExtResource("2_2y2dr")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00134277, 0.106567, 0.0166016)
 shape = SubResource("BoxShape3D_iml0w")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_60n0r")
+}
