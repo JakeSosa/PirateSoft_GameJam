@@ -1,19 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://brufowiy3bgd8"]
+[gd_scene load_steps=8 format=3 uid="uid://brufowiy3bgd8"]
 
 [ext_resource type="ArrayMesh" uid="uid://bb4pqhak00x6f" path="res://Art/Meshes/Objects/Props/PropsPack4/Dirt03.obj" id="1_neiid"]
+[ext_resource type="Shader" uid="uid://d2cm7x8ippg05" path="res://Art/Shaders/PBR.tres" id="2_36de0"]
 [ext_resource type="Texture2D" uid="uid://t36e6rxvmfcq" path="res://Art/Textures/PropTexture04/M_Props04_Base_color.png" id="2_dyn6i"]
-[ext_resource type="Texture2D" uid="uid://cce50s15t28jy" path="res://Art/Textures/PropTexture04/M_Props04_Normal.png" id="3_dj7xh"]
+[ext_resource type="Texture2D" uid="uid://k0e18j37aws0" path="res://Art/Textures/PropTexture04/M_Props04_Mixed_AO.png" id="3_e3yc7"]
 [ext_resource type="Texture2D" uid="uid://4f435lspfoua" path="res://Art/Textures/PropTexture04/M_Props04_Roughness.png" id="4_5v0a7"]
+[ext_resource type="Texture2D" uid="uid://dccbw7gfuiwq8" path="res://Art/Textures/PropTexture04/M_Props04_Normal_DirectX.png" id="5_idk2r"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxsgj"]
-albedo_texture = ExtResource("2_dyn6i")
-roughness_texture = ExtResource("4_5v0a7")
-normal_enabled = true
-normal_texture = ExtResource("3_dj7xh")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_647f2"]
+render_priority = 0
+shader = ExtResource("2_36de0")
+shader_parameter/TexPix = 100.0
+shader_parameter/UV_Tile = 1.0
+shader_parameter/BC = ExtResource("2_dyn6i")
+shader_parameter/AmbientOcclusion = ExtResource("3_e3yc7")
+shader_parameter/Rough = ExtResource("4_5v0a7")
+shader_parameter/NRM = ExtResource("5_idk2r")
 
 [node name="Dirt03" type="StaticBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.1, 0, 0, 0, 2.1, 0, 0, 0, 2.1, -0.235429, 0, 0)
 mesh = ExtResource("1_neiid")
-surface_material_override/0 = SubResource("StandardMaterial3D_sxsgj")
+surface_material_override/0 = SubResource("ShaderMaterial_647f2")

@@ -1,9 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://b3gex8777ka4"]
+[gd_scene load_steps=21 format=3 uid="uid://b3gex8777ka4"]
 
 [ext_resource type="Script" path="res://ScenesandScripts/Character/test_character_script_v3.gd" id="1_o2332"]
 [ext_resource type="Material" uid="uid://bhcxpu6ybwkff" path="res://Art/Materials/Char/Charmat.tres" id="2_toxwk"]
 [ext_resource type="Shader" uid="uid://1dvbeglbvagw" path="res://Art/Shaders/CharHair.tres" id="3_a3b71"]
+[ext_resource type="Material" uid="uid://l53g3kfqgrs0" path="res://Art/Shaders/FireParticle.tres" id="4_53v1a"]
 [ext_resource type="Animation" uid="uid://gl0b5plvm3ok" path="res://Art/Meshes/Character/ANims/Idle.res" id="4_sr5fg"]
+[ext_resource type="Texture2D" uid="uid://dvj2k5sakvjq" path="res://Art/Textures/WaterFallTex/WaterFallParticle.png" id="5_la0bl"]
 [ext_resource type="Animation" uid="uid://dcnjq3xa5utsx" path="res://Art/Meshes/Character/ANims/Run.res" id="5_pw4bw"]
 [ext_resource type="Animation" uid="uid://cursf08sr5" path="res://Art/Meshes/Character/ANims/Light.res" id="6_panlo"]
 [ext_resource type="Animation" uid="uid://2pn2splfgapm" path="res://Art/Meshes/Character/ANims/Douse.res" id="7_785jt"]
@@ -137,6 +139,24 @@ blend_shape_mode = 0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_j2joe"]
 height = 10.078
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ex8w"]
+transparency = 2
+alpha_scissor_threshold = 0.563
+alpha_antialiasing_mode = 0
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("5_la0bl")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_25yvt"]
+material = SubResource("StandardMaterial3D_0ex8w")
+size = Vector2(0.1, 0.1)
+orientation = 2
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h0ps6"]
 _data = {
@@ -363,6 +383,15 @@ mesh = SubResource("CapsuleMesh_j2joe")
 transform = Transform3D(24.5839, 1.73748e-05, 1.2517e-05, -6.09457e-06, 24.5839, -2.86102e-06, -3.21865e-06, -1.19209e-06, 24.5839, -0.0161943, -4.38647, 0.0855465)
 layers = 3
 shadow_enabled = true
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D"]
+editor_description = "ADD A SCRIPT TO LOWER PARTICLE TIME WHEN PLAYER MOVING"
+transform = Transform3D(1, -7.45058e-09, 0, 0, 1, 0, -1.49012e-08, 0, 1, 0, 0, 0)
+cast_shadow = 0
+amount = 16
+lifetime = 0.85
+process_material = ExtResource("4_53v1a")
+draw_pass_1 = SubResource("PlaneMesh_25yvt")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Char2"]
 libraries = {

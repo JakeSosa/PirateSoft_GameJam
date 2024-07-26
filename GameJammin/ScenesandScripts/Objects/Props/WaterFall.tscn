@@ -47,7 +47,7 @@ scale_max = 0.05
 turbulence_enabled = true
 turbulence_noise_scale = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_s0ge8"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1rgv1"]
 render_priority = 0
 shader = ExtResource("3_55mre")
 shader_parameter/BlackColor = Color(0, 0, 0, 1)
@@ -58,7 +58,7 @@ shader_parameter/BlackPoint = 0.0
 shader_parameter/Tex = ExtResource("4_4mcm6")
 
 [sub_resource type="QuadMesh" id="QuadMesh_otcwf"]
-material = SubResource("ShaderMaterial_s0ge8")
+material = SubResource("ShaderMaterial_1rgv1")
 orientation = 1
 
 [node name="WaterFall" type="Node3D"]
