@@ -1,0 +1,20 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://l53g3kfqgrs0"]
+
+[sub_resource type="Curve" id="Curve_qpqli"]
+_data = [Vector2(0, 0), 0.0, 10.8262, 0, 0, Vector2(0.159091, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -4.19016, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_34x13"]
+curve = SubResource("Curve_qpqli")
+
+[resource]
+gravity = Vector3(0, 1, 0)
+tangential_accel_min = -1.0
+tangential_accel_max = 1.0
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_34x13")
+color = Color(0.967555, 0.390337, 0.170691, 1)
+turbulence_enabled = true
+turbulence_noise_strength = 7.9
+turbulence_noise_scale = 3.538
+turbulence_noise_speed_random = 4.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://cmbso2ne6dhpj"]
+[gd_scene load_steps=84 format=3 uid="uid://cmbso2ne6dhpj"]
 
 [ext_resource type="PackedScene" uid="uid://cpsau6s0g741l" path="res://ScenesandScripts/Objects/WallKit/wall_1m.tscn" id="1_k38sm"]
 [ext_resource type="PackedScene" uid="uid://b3gex8777ka4" path="res://ScenesandScripts/Character/test_character_camera.tscn" id="1_yxkem"]
@@ -47,6 +47,8 @@
 [ext_resource type="PackedScene" uid="uid://b73ovwek7avnq" path="res://ScenesandScripts/Objects/Props/Dirt01.tscn" id="45_2qrnl"]
 [ext_resource type="PackedScene" uid="uid://sgm4plr6a7a4" path="res://ScenesandScripts/Objects/Props/Dirt02.tscn" id="46_i0oso"]
 [ext_resource type="PackedScene" uid="uid://brufowiy3bgd8" path="res://ScenesandScripts/Objects/Props/Dirt03.tscn" id="47_hh8lm"]
+[ext_resource type="PackedScene" uid="uid://b8gp50uh2vx08" path="res://ScenesandScripts/Objects/Props/Flower.tscn" id="48_eb2ol"]
+[ext_resource type="PackedScene" uid="uid://cadv5bx70eqho" path="res://ScenesandScripts/Objects/Props/Rock.tscn" id="49_ivr1v"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_53br7"]
 flip_faces = true
@@ -318,6 +320,7 @@ shader_parameter/NRM = ExtResource("9_pn3o3")
 size = Vector3(32, 0.5, 32)
 
 [sub_resource type="Environment" id="Environment_ay3fa"]
+background_energy_multiplier = 0.3
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.0
 
@@ -929,10 +932,10 @@ transform = Transform3D(0.5, 0, 8.74228e-08, 0, 0.5, 0, -8.74228e-08, 0, 0.5, 14
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 14.69, 1.47696, 10.6656)
 
 [node name="WaterFall" parent="Deco" instance=ExtResource("23_o3b72")]
-transform = Transform3D(-4.37114e-08, 0, -1.70938, 0, 1, 0, 1, 0, -7.47195e-08, 9.60624, -0.288658, 8.01121)
+transform = Transform3D(-4.37114e-08, 0, -0.920531, 0, 1, 0, 1, 0, -4.02377e-08, 9.50472, -0.288658, 8.01121)
 
 [node name="WaterFall2" parent="Deco" instance=ExtResource("23_o3b72")]
-transform = Transform3D(-6.84123e-08, 0, -1.70938, 0, 1, 0, 1.56509, 0, -7.47195e-08, 8.58216, -0.288658, 0.580906)
+transform = Transform3D(-6.84123e-08, 0, -1.47465, 0, 1, 0, 1.56509, 0, -6.44589e-08, 8.58216, -0.288658, 0.580906)
 
 [node name="WaterFall6" parent="Deco" instance=ExtResource("23_o3b72")]
 transform = Transform3D(-0.00678229, 0.000498161, -1.70935, -0.00318374, 0.999996, 0.000877962, 1.18308, 0.00269391, -0.00979693, -8.6682, -0.242387, -0.136805)
@@ -975,6 +978,12 @@ transform = Transform3D(1.04707, 0, 0, 0, 0.5, 0, 0, 0, 0.945954, -5.96305, -0.3
 
 [node name="Dirt06" parent="Deco" instance=ExtResource("47_hh8lm")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -20.2713, -0.369115, 14.5516)
+
+[node name="Flower2" parent="Deco" instance=ExtResource("48_eb2ol")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -0.289, 15)
+
+[node name="Rock" parent="Deco" instance=ExtResource("49_ivr1v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, -0.289, 15)
 
 [node name="WallKit" type="Node" parent="."]
 
@@ -1514,7 +1523,10 @@ shape = SubResource("BoxShape3D_gib2c")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5973, 0, 19.5214)
 
 [node name="Arch2" parent="WallConstructionPieces" instance=ExtResource("34_i3b47")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.35261, 0, 18.6198)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.50311, 1.6, 8.02243)
+
+[node name="Arch9" parent="WallConstructionPieces" instance=ExtResource("34_i3b47")]
+transform = Transform3D(-6.47583e-08, 0, -1, 0, 1, 0, 1.4815, 0, -4.37114e-08, 8.56407, 1.6, 0.53351)
 
 [node name="Arch3" parent="WallConstructionPieces" instance=ExtResource("34_i3b47")]
 transform = Transform3D(-5.56049e-08, 0, -1.36966, 0, 1.03745, 0, 1.27209, 0, -5.98698e-08, -8.29667, 1.51222, 12.9926)

@@ -1,19 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://cadv5bx70eqho"]
+[gd_scene load_steps=8 format=3 uid="uid://cadv5bx70eqho"]
 
 [ext_resource type="ArrayMesh" uid="uid://b22umtgpe28x2" path="res://Art/Meshes/Objects/Props/PropsPack4/Rocks.obj" id="1_erhw4"]
+[ext_resource type="Shader" uid="uid://d2cm7x8ippg05" path="res://Art/Shaders/PBR.tres" id="2_2phkl"]
 [ext_resource type="Texture2D" uid="uid://t36e6rxvmfcq" path="res://Art/Textures/PropTexture04/M_Props04_Base_color.png" id="2_kcq1c"]
-[ext_resource type="Texture2D" uid="uid://cce50s15t28jy" path="res://Art/Textures/PropTexture04/M_Props04_Normal.png" id="3_xoehm"]
+[ext_resource type="Texture2D" uid="uid://k0e18j37aws0" path="res://Art/Textures/PropTexture04/M_Props04_Mixed_AO.png" id="3_l5y0e"]
 [ext_resource type="Texture2D" uid="uid://4f435lspfoua" path="res://Art/Textures/PropTexture04/M_Props04_Roughness.png" id="4_kijxb"]
+[ext_resource type="Texture2D" uid="uid://dccbw7gfuiwq8" path="res://Art/Textures/PropTexture04/M_Props04_Normal_DirectX.png" id="6_0um8g"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxsgj"]
-albedo_texture = ExtResource("2_kcq1c")
-roughness_texture = ExtResource("4_kijxb")
-normal_enabled = true
-normal_texture = ExtResource("3_xoehm")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2hw51"]
+render_priority = 0
+shader = ExtResource("2_2phkl")
+shader_parameter/TexPix = 58.7
+shader_parameter/UV_Tile = 1.0
+shader_parameter/BC = ExtResource("2_kcq1c")
+shader_parameter/AmbientOcclusion = ExtResource("3_l5y0e")
+shader_parameter/Rough = ExtResource("6_0um8g")
+shader_parameter/NRM = ExtResource("4_kijxb")
 
 [node name="Rock" type="StaticBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.1, 0, 0, 0, 2.1, 0, 0, 0, 2.1, -0.235429, 0, 0)
 mesh = ExtResource("1_erhw4")
-surface_material_override/0 = SubResource("StandardMaterial3D_sxsgj")
+surface_material_override/0 = SubResource("ShaderMaterial_2hw51")
