@@ -144,6 +144,7 @@ disabled = true
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SlidingDoor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.979428, 1.19207, 0.536967)
 visible = false
+bus = &"SFX"
 
 [node name="Area3D" type="Area3D" parent="."]
 
