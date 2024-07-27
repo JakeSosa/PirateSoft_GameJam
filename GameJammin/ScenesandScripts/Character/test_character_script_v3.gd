@@ -16,10 +16,11 @@ var is_dousing = false
 
 #Torch Controller Variables
 var isInArea : bool = false
+var nearLever : bool = false
 var change_torch_color : Color
 var torch_color
 var under_waterfall : = false
-
+signal kill_waterfall
 #Sconce Variables
 signal change_sconce_color
 
@@ -79,7 +80,8 @@ func torch_controller():
 		$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = Color.WHITE
 		animation_player.play("Douse")
 		$AnimationTimer.start()
-		
+	if Input.is_action_just_pressed("pull"):
+		pass
 #Emitted signals from brazier scene to pass color change value if player in brazier area
 func _on_brazier_color_pass(colorChange):
 	change_torch_color = colorChange
@@ -99,3 +101,17 @@ func _on_animation_timer_timeout() -> void:
 
 
 
+
+
+func _input(event):
+	if Input.is_action_just_pressed("lightTorch") and nearLever == true:
+		print ("lever pressed")
+		kill_waterfall.emit()
+
+
+func _on_lever_lever_enter_check():
+	nearLever = true
+
+
+func _on_lever_lever_exit_check():
+	nearLever = false
