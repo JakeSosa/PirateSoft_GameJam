@@ -1764,6 +1764,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.23969, -0.405666, 9.86645)
 transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -12.6937, 0, 8)
 colorChange = Color(0, 0, 1, 1)
 
+[node name="Brazier2" parent="Props" instance=ExtResource("13_mrgay")]
+transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -13.0619, 0, 4.45754)
+colorChange = Color(0, 0, 1, 1)
+
+[node name="Brazier3" parent="Props" instance=ExtResource("13_mrgay")]
+transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, 7.65013, 0, 9.54838)
+colorChange = Color(1, 0, 0, 1)
+
+[node name="Brazier4" parent="Props" instance=ExtResource("13_mrgay")]
+transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -8.45274, 0, -11.5816)
+colorChange = Color(0, 1, 1, 1)
+
+[node name="Brazier5" parent="Props" instance=ExtResource("13_mrgay")]
+transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, 5.90013, 0, -6.53297)
+colorChange = Color(1, 0, 0, 1)
+
 [node name="HubBrazier" parent="Props" instance=ExtResource("14_jrr4f")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.00865757, -0.364329, 0)
 
@@ -1805,6 +1821,18 @@ environment = SubResource("Environment_ay3fa")
 [connection signal="areaEnterCheck" from="Props/Brazier" to="TestCharacterCamera" method="_on_brazier_area_enter_check"]
 [connection signal="areaExitCheck" from="Props/Brazier" to="TestCharacterCamera" method="_on_brazier_area_exit_check"]
 [connection signal="colorPass" from="Props/Brazier" to="TestCharacterCamera" method="_on_brazier_color_pass"]
+[connection signal="areaEnterCheck" from="Props/Brazier2" to="TestCharacterCamera" method="_on_brazier_area_enter_check"]
+[connection signal="areaExitCheck" from="Props/Brazier2" to="TestCharacterCamera" method="_on_brazier_area_exit_check"]
+[connection signal="colorPass" from="Props/Brazier2" to="TestCharacterCamera" method="_on_brazier_color_pass"]
+[connection signal="areaEnterCheck" from="Props/Brazier3" to="TestCharacterCamera" method="_on_brazier_area_enter_check"]
+[connection signal="areaExitCheck" from="Props/Brazier3" to="TestCharacterCamera" method="_on_brazier_area_exit_check"]
+[connection signal="colorPass" from="Props/Brazier3" to="TestCharacterCamera" method="_on_brazier_color_pass"]
+[connection signal="areaEnterCheck" from="Props/Brazier4" to="TestCharacterCamera" method="_on_brazier_area_enter_check"]
+[connection signal="areaExitCheck" from="Props/Brazier4" to="TestCharacterCamera" method="_on_brazier_area_exit_check"]
+[connection signal="colorPass" from="Props/Brazier4" to="TestCharacterCamera" method="_on_brazier_color_pass"]
+[connection signal="areaEnterCheck" from="Props/Brazier5" to="TestCharacterCamera" method="_on_brazier_area_enter_check"]
+[connection signal="areaExitCheck" from="Props/Brazier5" to="TestCharacterCamera" method="_on_brazier_area_exit_check"]
+[connection signal="colorPass" from="Props/Brazier5" to="TestCharacterCamera" method="_on_brazier_color_pass"]
 [connection signal="sconce_colorPass" from="Props/Sconce" to="TestCharacterCamera" method="_on_sconce_sconce_color_pass"]
 [connection signal="leverEnterCheck" from="Props/Lever" to="TestCharacterCamera" method="_on_lever_lever_enter_check"]
 [connection signal="leverExitCheck" from="Props/Lever" to="TestCharacterCamera" method="_on_lever_lever_exit_check"]
