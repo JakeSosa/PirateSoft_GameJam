@@ -30,11 +30,13 @@ var under_waterfall : = false
 signal kill_waterfall
 
 #Sconce Variables
+var withdraw_sconce_color : Color
 var sconce_visibility : OmniLight3D 
+signal deposit_sconce_color
 
 func _ready():
 	torch_color = $Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color
-
+	
 func _physics_process(_delta):
 	player_controller()
 	player_camera()
@@ -92,16 +94,13 @@ func torch_controller():
 		
 	#Paramters for interacting with sconce
 	#Withdraw color from sconce
-	if near_sconce == true && Input.is_action_just_pressed("interact"):
-		is_lighting = true
-		torch.visible = true
-		sconce_visibility.visible = false
-		
-		$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = change_torch_color
-		animation_player.play("Light")
-		$AnimationTimer.start()	
-		
-		
+	#if near_sconce == true && Input.is_action_just_pressed("interact"):
+		#is_lighting = true
+		#torch.visible = true
+		#sconce_visibility.visible = false
+		#$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = change_torch_color
+		#animation_player.play("Light")
+		#$AnimationTimer.start()	
 		
 		
 		
@@ -120,7 +119,7 @@ func _on_brazier_exit_check() -> void:
 	
 #Emitted signals from sconce scene if player is near sconce
 func _on_sconce_variables(sconce_color, sconce_light) -> void:
-	change_torch_color = sconce_color
+	withdraw_sconce_color = sconce_color
 	sconce_visibility = sconce_light
 func _on_sconce_enter_check() -> void:
 	near_sconce = true
@@ -132,12 +131,23 @@ func _on_lever_enter_check() -> void:
 	near_lever = true
 func _on_lever_exit_check() -> void:
 	near_lever = false
+	
+#Emit signals from player script to waterfall & sconce scripts
 func _input(event):
-	#If player is near lever and press E, play Pull animation
-	if Input.is_action_just_pressed("interact") and near_lever == true:
+	#If player is near lever & presses E, play Pull animation
+	if Input.is_action_just_pressed("interact") && near_lever == true:
 		lever_animation_player.play("Pull")
 		lever_audio_player.play()
+		#Emit signal from player script to waterfall script
 		kill_waterfall.emit()	
+	#If player is near sconce & presses E, deposit torch color to sconce
+	if Input.is_action_just_pressed("interact") && near_sconce == true:
+		is_lighting = true
+		sconce_visibility.visible = true
+		animation_player.play("Light")
+		$AnimationTimer.start()	
+		deposit_sconce_color.emit(torch_color, change_torch_color)
+		
 		
 
 
