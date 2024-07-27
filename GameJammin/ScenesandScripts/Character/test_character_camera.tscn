@@ -419,5 +419,9 @@ bus = &"SFX"
 [node name="AnimationTimer" type="Timer" parent="."]
 wait_time = 2.0
 
+[node name="SconceTimer" type="Timer" parent="."]
+wait_time = 10.0
+
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="timeout" from="AnimationTimer" to="." method="_on_animation_timer_timeout"]
+[connection signal="timeout" from="SconceTimer" to="." method="_on_sconce_timer_timeout"]

@@ -102,6 +102,7 @@ func torch_controller():
 			$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = default_torch_color
 			animation_player.play("Light")
 			$AnimationTimer.start()	
+			$SconceTimer.start()
 			#Emit signals from player script to sconce script
 			deposit_sconce_color.emit(change_torch_color)	
 	#Withdraw color from sconce
@@ -156,3 +157,7 @@ func _input(event):
 		
 
 
+
+
+func _on_sconce_timer_timeout() -> void:
+	sconce_visibility.visible = false
