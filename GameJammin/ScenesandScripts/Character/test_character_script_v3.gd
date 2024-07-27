@@ -95,7 +95,7 @@ func torch_controller():
 		
 	#Paramters for interacting with sconce
 	#Deposit color from to torch to sconce 
-	if near_sconce == true && sconce_visibility.visible == false && Input.is_action_just_pressed("interact"):
+	if near_sconce == true && Input.is_action_just_pressed("interact"):
 		is_lighting = true
 		sconce_visibility.visible = true
 		$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = torch_color
@@ -104,14 +104,13 @@ func torch_controller():
 		#Emit signals from player script to sconce script
 		deposit_sconce_color.emit(change_torch_color)	
 	#Withdraw color from sconce
-	else:
-		if near_sconce == true && sconce_visibility.visible == true && Input.is_action_just_pressed("interact"):
-			is_lighting = true
-			torch.visible = true
-			sconce_visibility.visible = false
-			$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = change_torch_color
-			animation_player.play("Light")
-			$AnimationTimer.start()	
+	#if near_sconce == true && Input.is_action_just_pressed("interact"):
+		#is_lighting = true
+		#torch.visible = true
+		#sconce_visibility.visible = false
+		#$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = change_torch_color
+		#animation_player.play("Light")
+		#$AnimationTimer.start()	
 		
 		
 #Set Animation timer on player scene to make sure animation finishes before player moves
