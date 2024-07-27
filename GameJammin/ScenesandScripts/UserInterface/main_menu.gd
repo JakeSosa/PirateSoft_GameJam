@@ -17,7 +17,7 @@ func _on_button_mouse_exited_start():
 	$TextureRect/Start/StartImage.texture = startunselected
 
 func _on_button_pressed_credits():
-	pass 
+	get_tree().change_scene_to_file("res://ScenesandScripts/UserInterface/credits.tscn")
 
 func _on_button_mouse_entered_credits():
 	$TextureRect/Credits/CreditsImage.texture = creditselected
@@ -26,7 +26,7 @@ func _on_button_mouse_exited_credits():
 	$TextureRect/Credits/CreditsImage.texture = creditunselected
 
 func _on_button_pressed_settings():
-	pass
+	get_tree().change_scene_to_file("res://ScenesandScripts/UserInterface/settings.tscn")
 
 func _on_button_mouse_entered_settings():
 	$TextureRect/Settings/SettingsImage.texture = settingselected
