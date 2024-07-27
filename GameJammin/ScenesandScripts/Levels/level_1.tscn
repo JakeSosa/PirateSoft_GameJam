@@ -1764,17 +1764,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.23969, -0.405666, 9.86645)
 
 [node name="Brazier" parent="Props" instance=ExtResource("13_mrgay")]
 transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -12.8396, 0, 8)
-colorChange = Color(0, 0, 1, 1)
+brazier_color = Color(0, 0, 1, 1)
 
 [node name="HubBrazier" parent="Props" instance=ExtResource("14_jrr4f")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.00865757, -0.364329, 0)
 
 [node name="Sconce" parent="Props" instance=ExtResource("15_j5my4")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9, 1, 10.019)
-sconce_colorChange = Color(0, 0.968627, 0, 1)
-
-[node name="OmniLight3D" parent="Props/Sconce" index="2"]
-visible = true
 
 [node name="Sconce2" parent="Props" instance=ExtResource("15_j5my4")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -9.33833, 1, 10.9936)
@@ -1804,14 +1800,17 @@ transform = Transform3D(-1.14944e-07, 0, 2.62962, -1.33163, 2.26753, -5.82071e-0
 environment = SubResource("Environment_ay3fa")
 
 [connection signal="kill_waterfall" from="TestCharacterCamera" to="Deco/WaterFall5" method="_on_test_character_camera_kill_waterfall"]
-[connection signal="areaEnterCheck" from="Props/Brazier" to="TestCharacterCamera" method="_on_brazier_area_enter_check"]
-[connection signal="areaExitCheck" from="Props/Brazier" to="TestCharacterCamera" method="_on_brazier_area_exit_check"]
-[connection signal="colorPass" from="Props/Brazier" to="TestCharacterCamera" method="_on_brazier_color_pass"]
-[connection signal="sconce_colorPass" from="Props/Sconce" to="TestCharacterCamera" method="_on_sconce_sconce_color_pass"]
-[connection signal="leverEnterCheck" from="Props/Lever" to="TestCharacterCamera" method="_on_lever_lever_enter_check"]
-[connection signal="leverExitCheck" from="Props/Lever" to="TestCharacterCamera" method="_on_lever_lever_exit_check"]
+[connection signal="EnterCheck" from="Props/Brazier" to="TestCharacterCamera" method="_on_brazier_enter_check"]
+[connection signal="ExitCheck" from="Props/Brazier" to="TestCharacterCamera" method="_on_brazier_exit_check"]
+[connection signal="variables" from="Props/Brazier" to="TestCharacterCamera" method="_on_brazier_variables"]
+[connection signal="EnterCheck" from="Props/Sconce" to="TestCharacterCamera" method="_on_sconce_enter_check"]
+[connection signal="ExitCheck" from="Props/Sconce" to="TestCharacterCamera" method="_on_sconce_exit_check"]
+[connection signal="variables" from="Props/Sconce" to="TestCharacterCamera" method="_on_sconce_variables"]
+[connection signal="EnterCheck" from="Props/Lever" to="TestCharacterCamera" method="_on_lever_enter_check"]
+[connection signal="ExitCheck" from="Props/Lever" to="TestCharacterCamera" method="_on_lever_exit_check"]
 
 [editable path="Deco/WaterFall5"]
+[editable path="Props/Brazier"]
 [editable path="Props/Sconce"]
 [editable path="Props/Sconce2"]
 [editable path="Props/Lever"]

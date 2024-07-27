@@ -10,7 +10,7 @@ func _ready():
 
 
 
-func _process(delta):
+func _process(_delta):
 	sceneloadstatus = ResourceLoader.load_threaded_get_status(sceneName,progress)
 	$ColorRect/LoadPercent.text = str(floor(progress[0]*100)) + "%"
 	if sceneloadstatus == ResourceLoader.THREAD_LOAD_LOADED:

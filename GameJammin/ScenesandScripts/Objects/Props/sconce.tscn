@@ -20,7 +20,6 @@ surface_material_override/0 = ExtResource("2_pg655")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.338475, 0.219294, 0)
-visible = false
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 2
@@ -31,5 +30,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.322511, -0.327175, 0)
 shape = SubResource("CylinderShape3D_6s4h2")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_sconce_body_entered"]
-[connection signal="body_entered" from="Area3D" to="." method="_on_sconce_area_bool_check"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_sconce_body_exited"]
