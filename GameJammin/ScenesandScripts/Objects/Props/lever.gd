@@ -1,12 +1,12 @@
 extends StaticBody3D
 
-signal leverEnterCheck
-signal leverExitCheck
-
+#Signal lever area enter & exit checks to player script
+signal EnterCheck
+signal ExitCheck
 
 func _on_lever_body_entered(body):
-	leverEnterCheck.emit()
+	EnterCheck.emit()
 
 func _on_lever_body_exited(body):
-	leverExitCheck.emit()
+	ExitCheck.emit()
 	

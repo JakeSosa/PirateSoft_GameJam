@@ -1,20 +1,21 @@
 extends StaticBody3D
 
-@export var sconce_colorChange : Color
+#Sconce variables
+var sconce_color : Color
 
-signal sconce_colorPass
-
-signal sconceEnterCheck
-signal sconeExitCheck
+#Signal sconce variables to player script
+signal variables
+#Signal sconce area enter & exit checks to player script
+signal EnterCheck
+signal ExitCheck
 
 func _ready():
-	$OmniLight3D.light_color = sconce_colorChange
+	$OmniLight3D.light_color = sconce_color
 	
 func _on_sconce_body_entered(body: Node3D) -> void:
-	sconce_colorPass.emit(sconce_colorChange)
-
-func _on_sconce_area_bool_check(body: Node3D) -> void:
-	sconceEnterCheck.emit()
+	variables.emit(sconce_color)
+	EnterCheck.emit()
+	
 	
 func _on_sconce_body_exited(body: Node3D) -> void:
-	sconeExitCheck.emit()
+	ExitCheck.emit()

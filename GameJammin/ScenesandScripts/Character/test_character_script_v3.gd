@@ -83,11 +83,7 @@ func torch_controller():
 	
 	#Paramters for interacting with sconce
 	if near_sconce == true && Input.is_action_just_pressed("interact"):
-		is_lighting = true
-		torch.visible = true
-		$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = change_torch_color
-		animation_player.play("Light")
-		$AnimationTimer.start()
+		print("player pressed E near sconce")
 	
 	#If player presses Q play Douse animation	
 	if Input.is_action_just_pressed("douseTorch"):
@@ -95,29 +91,32 @@ func torch_controller():
 		$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = Color.WHITE
 		animation_player.play("Douse")
 		$AnimationTimer.start()
-	if Input.is_action_just_pressed("pull"):
-		pass
-#Emitted signals from brazier scene to pass color change value if player in brazier area
-func _on_brazier_color_pass(colorChange):
-	change_torch_color = colorChange
-func _on_brazier_area_enter_check():
+#Set Animation timer on player scene to make sure animation finishes before player moves
+func _on_animation_timer_timeout() -> void:
+	is_dousing = false
+	is_lighting = false	
+	
+#Emitted signals from brazier if player is near brazier
+func _on_brazier_variables(brazier_color) -> void:
+	change_torch_color = brazier_color
+func _on_brazier_enter_check() -> void:
 	near_brazier = true
-func _on_brazier_area_exit_check():
+func _on_brazier_exit_check() -> void:
 	near_brazier = false
 	
 #Emitted signals from sconce scene if player is near sconce
-func _on_sconce_sconce_color_pass(sconce_colorChange) -> void:
-	change_torch_color = sconce_colorChange
-	print("sconce color pass")	
-func _on_sconce_sconce_enter_check() -> void:
+func _on_sconce_variables(sconce_color) -> void:
+	change_torch_color = sconce_color
+	print("sconce color pass")
+func _on_sconce_enter_check() -> void:
 	near_sconce = true
-func _on_sconce_scone_exit_check() -> void:
-	near_sconce = false	
+func _on_sconce_exit_check() -> void:
+	near_sconce = false
 	
 #Emiited signals from lever scene if player is near lever
-func _on_lever_lever_enter_check():
+func _on_lever_enter_check() -> void:
 	near_lever = true
-func _on_lever_lever_exit_check():
+func _on_lever_exit_check() -> void:
 	near_lever = false
 func _input(event):
 	#If player is near lever and press E, play Pull animation
@@ -126,13 +125,8 @@ func _input(event):
 		lever_audio_player.play()
 		kill_waterfall.emit()	
 		
-#Set Animation timer on player scene to make sure animation finishes before player moves
-func _on_animation_timer_timeout() -> void:
-	is_dousing = false
-	is_lighting = false
-
-
-		
 
 
 
+
+	
