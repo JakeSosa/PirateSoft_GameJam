@@ -1,27 +1,23 @@
 extends StaticBody3D
 
-@export var colorChange : Color
+#Brazier variables
+#Make brazier_color public to assign unique color to each brazier in level_1 scene
+@export var brazier_color : Color
 
-signal colorPass
+#Signal brazier variables to player script
+signal variables
 
-signal areaEnterCheck
-signal areaExitCheck
+#Signal brazier area enter & exit checks to player script
+signal EnterCheck
+signal ExitCheck
 
 func _ready():
-	$OmniLight3D.light_color = colorChange
+	$OmniLight3D.light_color = brazier_color
 
-func _process(delta):
-	pass
-
-
-
-func _on_area_3d_body_entered(body):
-	colorPass.emit(colorChange)
+func _on_brazier_body_entered(body: Node3D) -> void:
+	variables.emit(brazier_color)
+	EnterCheck.emit()
 
 
-func _on_area_bool_check(body):
-	areaEnterCheck.emit()
-
-
-func _on_area_3d_body_exited(body):
-	areaExitCheck.emit()
+func _on_brazier_body_exited(body: Node3D) -> void:
+	ExitCheck.emit()

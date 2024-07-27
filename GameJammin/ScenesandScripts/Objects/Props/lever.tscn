@@ -1,16 +1,46 @@
-[gd_scene load_steps=5 format=3 uid="uid://3lrlx8iuwkvh"]
+[gd_scene load_steps=10 format=3 uid="uid://3lrlx8iuwkvh"]
 
 [ext_resource type="ArrayMesh" uid="uid://ddp5fy0iuogra" path="res://Art/Meshes/Objects/Props/PropPack1/LevelTop.obj" id="1_p752m"]
+[ext_resource type="Script" path="res://ScenesandScripts/Objects/Props/lever.gd" id="1_s10qu"]
 [ext_resource type="Material" uid="uid://sid86jvq7qpj" path="res://Art/Materials/propPack1.tres" id="2_2y2dr"]
 [ext_resource type="ArrayMesh" uid="uid://d0rq7tihykqhw" path="res://Art/Meshes/Objects/Props/PropPack1/LeverBottom.obj" id="2_dp75s"]
+[ext_resource type="AudioStream" uid="uid://b66giy0c27an8" path="res://Art/Sounds/SFX/EnvironmentSFX/LeverSwitch.mp3" id="5_1fo2h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iml0w"]
 size = Vector3(0.123291, 0.219971, 0.246094)
 
+[sub_resource type="Animation" id="Animation_vowqs"]
+resource_name = "Pull"
+length = 0.5
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.0333333, 1, 0, 0, 0, 1, 0.0666667, 1, 0, 0, 0, 1, 0.1, 1, 0, 0, 0, 1, 0.133333, 1, 0, 0, 0, 1, 0.166667, 1, 0, 0, 0, 1, 0.2, 1, 0, 0, 0, 1, 0.233333, 1, 0, 0, 0, 1, 0.266667, 1, 0, 0, 0, 1, 0.3, 1, 0, 0, 0, 1, 0.333333, 1, 0, 0, 0, 1, 0.366667, 1, 0, 0, 0, 1, 0.4, 1, 0, 0, 0, 1, 0.433333, 1, 0, 0, 0, 1, 0.466667, 1, 0, 0, 0, 1, 0.5, 1, 0, 0, 0, 1)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.1, 1, -0.170175, 0, 0, 0.985414, 0.2, 1, -0.354568, 0, 0, 0.93503, 0.3, 1, -0.497663, 0, 0, 0.86737, 0.4, 1, -0.64084, 0, 0, 0.767674, 0.5, 1, -0.603875, 0, 0, 0.797078)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_60n0r"]
+_data = {
+"Pull": SubResource("Animation_vowqs")
+}
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_73se4"]
+radius = 0.809152
+
 [node name="Lever" type="StaticBody3D"]
 transform = Transform3D(2.62962, 0, 0, 0, 2.62962, 0, 0, 0, 2.62962, 0, 0, 0)
+script = ExtResource("1_s10qu")
 
 [node name="Top" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.270669, 0.962673, 0, -0.962673, 0.270669, 0, 0, 0)
 mesh = ExtResource("1_p752m")
 surface_material_override/0 = ExtResource("2_2y2dr")
 
@@ -22,3 +52,22 @@ surface_material_override/0 = ExtResource("2_2y2dr")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00134277, 0.106567, 0.0166016)
 shape = SubResource("BoxShape3D_iml0w")
+
+[node name="AnimationPlayer_Lever" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_60n0r")
+}
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_73se4")
+
+[node name="LeverSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_1fo2h")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_lever_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_lever_body_exited"]

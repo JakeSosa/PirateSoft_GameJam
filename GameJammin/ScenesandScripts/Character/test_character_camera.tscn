@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://b3gex8777ka4"]
 
-[ext_resource type="Script" path="res://ScenesandScripts/Character/test_character_script_v3.gd" id="1_3qtlm"]
+[ext_resource type="Script" path="res://ScenesandScripts/Character/test_character_script_v3.gd" id="1_g4chd"]
 [ext_resource type="Material" uid="uid://bhcxpu6ybwkff" path="res://Art/Materials/Char/Charmat.tres" id="2_toxwk"]
 [ext_resource type="Shader" uid="uid://1dvbeglbvagw" path="res://Art/Shaders/CharHair.tres" id="3_a3b71"]
 [ext_resource type="Material" uid="uid://l53g3kfqgrs0" path="res://Art/Shaders/FireParticle.tres" id="4_53v1a"]
@@ -172,9 +172,9 @@ height = 1.00255
 
 [node name="TestCharacterCamera" type="CharacterBody3D"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("1_3qtlm")
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_g4chd")
 metadata/_edit_group_ = true
 
 [node name="Char2" type="Node3D" parent="."]
@@ -371,7 +371,7 @@ mesh = SubResource("ArrayMesh_mqn0g")
 skin = SubResource("Skin_8k4yr")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Char2/Armature/Skeleton3D"]
-transform = Transform3D(1.99859, 0.0380075, 0.064856, -0.0507534, 1.95512, 0.418252, -0.0554521, -0.419602, 1.9547, -5.19758, 29.0332, -38.7713)
+transform = Transform3D(1.99859, 0.0380066, 0.0648549, -0.0507522, 1.95512, 0.418251, -0.0554513, -0.419601, 1.9547, -5.19761, 29.0332, -38.7713)
 bone_name = "mixamorig_RightHand"
 bone_idx = 14
 
@@ -413,3 +413,10 @@ current = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.166714, 0)
+volume_db = -10.0
+
+[node name="AnimationTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="timeout" from="AnimationTimer" to="." method="_on_animation_timer_timeout"]

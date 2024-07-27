@@ -24,7 +24,7 @@ radius = 0.544265
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_q4ufa"]
 height = 0.4219
-radius = 0.823317
+radius = 0.972095
 
 [node name="Brazier" type="StaticBody3D"]
 transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, 0, 0, 0)
@@ -41,16 +41,15 @@ shape = SubResource("CylinderShape3D_jmwbp")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.776666, 0)
-shadow_enabled = true
+distance_fade_enabled = true
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0.0523928, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0523928, 0)
 shape = SubResource("CylinderShape3D_q4ufa")
 
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_bool_check"]
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_brazier_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_brazier_body_exited"]
