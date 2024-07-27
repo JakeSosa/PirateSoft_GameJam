@@ -41,7 +41,7 @@ shape = SubResource("CylinderShape3D_jmwbp")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.776666, 0)
-shadow_enabled = true
+distance_fade_enabled = true
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 2
