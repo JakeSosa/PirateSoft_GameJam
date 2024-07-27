@@ -80,6 +80,15 @@ func torch_controller():
 		$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = change_torch_color
 		animation_player.play("Light")
 		$AnimationTimer.start()
+	
+	#Paramters for interacting with sconce
+	if near_sconce == true && Input.is_action_just_pressed("interact"):
+		is_lighting = true
+		torch.visible = true
+		$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = change_torch_color
+		animation_player.play("Light")
+		$AnimationTimer.start()
+	
 	#If player presses Q play Douse animation	
 	if Input.is_action_just_pressed("douseTorch"):
 		is_dousing = true
@@ -100,6 +109,10 @@ func _on_brazier_area_exit_check():
 func _on_sconce_sconce_color_pass(sconce_colorChange) -> void:
 	change_torch_color = sconce_colorChange
 	print("sconce color pass")	
+func _on_sconce_sconce_enter_check() -> void:
+	near_sconce = true
+func _on_sconce_scone_exit_check() -> void:
+	near_sconce = false	
 	
 #Emiited signals from lever scene if player is near lever
 func _on_lever_lever_enter_check():
@@ -122,9 +135,4 @@ func _on_animation_timer_timeout() -> void:
 		
 
 
-func _on_sconce_sconce_enter_check() -> void:
-	pass # Replace with function body.
 
-
-func _on_sconce_scone_exit_check() -> void:
-	pass # Replace with function body.
