@@ -1761,7 +1761,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.23969, -0.405666, 9.86645)
 [node name="Props" type="Node" parent="."]
 
 [node name="Brazier" parent="Props" instance=ExtResource("13_mrgay")]
-transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -12.6937, 0, 8)
+transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -12.8396, 0, 8)
 colorChange = Color(0, 0, 1, 1)
 
 [node name="Brazier2" parent="Props" instance=ExtResource("13_mrgay")]
