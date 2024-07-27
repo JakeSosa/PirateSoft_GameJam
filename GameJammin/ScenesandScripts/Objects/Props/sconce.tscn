@@ -8,9 +8,10 @@
 height = 4.00103
 radius = 1.13648
 
-[node name="Sconce" type="StaticBody3D"]
+[node name="Sconce" type="StaticBody3D" node_paths=PackedStringArray("sconce_light")]
 script = ExtResource("1_ovwss")
 sconce_color = Color(1, 1, 1, 1)
+sconce_light = NodePath("OmniLight3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.1, 0, 0, 0, 2.1, 0, 0, 0, 2.1, -0.235429, 0, 0)

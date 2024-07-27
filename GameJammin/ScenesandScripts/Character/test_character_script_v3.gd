@@ -24,11 +24,13 @@ var near_lever : bool = false
 var near_sconce : bool = false
 var change_torch_color : Color
 var torch_color
+
 #Waterfall variables
 var under_waterfall : = false
 signal kill_waterfall
+
 #Sconce Variables
-signal change_sconce_color
+var sconce_visibility : OmniLight3D 
 
 func _ready():
 	torch_color = $Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color
@@ -73,24 +75,36 @@ func player_camera():
 	camera_controller.position = lerp(camera_controller.position, position, 0.10)
 	
 func torch_controller():
-	#If player is in area of brazier and presses E play Light animation
+	#If player near brazier and presses E, play Light animation
 	if near_brazier == true && Input.is_action_just_pressed("interact"):
 		is_lighting = true
 		torch.visible = true
 		$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = change_torch_color
 		animation_player.play("Light")
 		$AnimationTimer.start()
-	
-	#Paramters for interacting with sconce
-	if near_sconce == true && Input.is_action_just_pressed("interact"):
-		print("player pressed E near sconce")
-	
-	#If player presses Q play Douse animation	
+		
+	#If player presses Q, play Douse animation	
 	if Input.is_action_just_pressed("douseTorch"):
 		is_dousing = true
 		$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = Color.WHITE
 		animation_player.play("Douse")
 		$AnimationTimer.start()
+		
+	#Paramters for interacting with sconce
+	#Withdraw color from sconce
+	if near_sconce == true && Input.is_action_just_pressed("interact"):
+		is_lighting = true
+		torch.visible = true
+		sconce_visibility.visible = false
+		
+		$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = change_torch_color
+		animation_player.play("Light")
+		$AnimationTimer.start()	
+		
+		
+		
+		
+		
 #Set Animation timer on player scene to make sure animation finishes before player moves
 func _on_animation_timer_timeout() -> void:
 	is_dousing = false
@@ -105,9 +119,9 @@ func _on_brazier_exit_check() -> void:
 	near_brazier = false
 	
 #Emitted signals from sconce scene if player is near sconce
-func _on_sconce_variables(sconce_color) -> void:
+func _on_sconce_variables(sconce_color, sconce_light) -> void:
 	change_torch_color = sconce_color
-	print("sconce color pass")
+	sconce_visibility = sconce_light
 func _on_sconce_enter_check() -> void:
 	near_sconce = true
 func _on_sconce_exit_check() -> void:
@@ -127,6 +141,3 @@ func _input(event):
 		
 
 
-
-
-	
