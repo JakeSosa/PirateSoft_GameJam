@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://3lrlx8iuwkvh"]
+[gd_scene load_steps=9 format=3 uid="uid://3lrlx8iuwkvh"]
 
 [ext_resource type="ArrayMesh" uid="uid://ddp5fy0iuogra" path="res://Art/Meshes/Objects/Props/PropPack1/LevelTop.obj" id="1_p752m"]
+[ext_resource type="Script" path="res://ScenesandScripts/Objects/Props/lever.gd" id="1_s10qu"]
 [ext_resource type="Material" uid="uid://sid86jvq7qpj" path="res://Art/Materials/propPack1.tres" id="2_2y2dr"]
 [ext_resource type="ArrayMesh" uid="uid://d0rq7tihykqhw" path="res://Art/Meshes/Objects/Props/PropPack1/LeverBottom.obj" id="2_dp75s"]
 
@@ -8,7 +9,7 @@
 size = Vector3(0.123291, 0.219971, 0.246094)
 
 [sub_resource type="Animation" id="Animation_vowqs"]
-resource_name = "Rotation_L"
+resource_name = "lever_ani"
 length = 0.5
 tracks/0/type = "rotation_3d"
 tracks/0/imported = false
@@ -27,14 +28,18 @@ tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.1, 1, -0.170175, 0, 0, 0.
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_60n0r"]
 _data = {
-"Rotation_L": SubResource("Animation_vowqs")
+"lever_ani": SubResource("Animation_vowqs")
 }
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_73se4"]
+radius = 0.809152
 
 [node name="Lever" type="StaticBody3D"]
 transform = Transform3D(2.62962, 0, 0, 0, 2.62962, 0, 0, 0, 2.62962, 0, 0, 0)
+script = ExtResource("1_s10qu")
 
 [node name="Top" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = ExtResource("1_p752m")
 surface_material_override/0 = ExtResource("2_2y2dr")
 
@@ -47,7 +52,15 @@ surface_material_override/0 = ExtResource("2_2y2dr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00134277, 0.106567, 0.0166016)
 shape = SubResource("BoxShape3D_iml0w")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer_Lever" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_60n0r")
 }
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_73se4")
