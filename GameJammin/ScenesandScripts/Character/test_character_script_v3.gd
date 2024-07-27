@@ -30,9 +30,14 @@ var under_waterfall : = false
 signal kill_waterfall
 
 #Sconce Variables
-var withdraw_sconce_color : Color
+var withdraw_sconce_color : Color #Don't think we need this anymore?
 var sconce_visibility : OmniLight3D 
 signal deposit_sconce_color
+
+#Door Variables
+var current_door_color 
+var near_door = false
+signal pass_torch_color
 
 func _ready():
 	$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = default_torch_color
@@ -41,6 +46,7 @@ func _physics_process(_delta):
 	player_controller()
 	player_camera()
 	torch_controller()
+	door_controller()
 	
 func player_controller():
 	if is_dousing == false && is_lighting == false:
@@ -82,10 +88,9 @@ func torch_controller():
 		is_lighting = true
 		torch.visible = true
 		$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = change_torch_color
-		print(change_torch_color)
 		animation_player.play("Light")
 		$AnimationTimer.start()
-		
+		print(change_torch_color)
 	#If player presses Q, play Douse animation	
 	if Input.is_action_just_pressed("douseTorch"):
 		is_dousing = true
@@ -114,12 +119,18 @@ func torch_controller():
 			$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = change_torch_color
 			animation_player.play("Light")
 			$AnimationTimer.start()	
-		
+			
+	#Emit torch color to door script
+	pass_torch_color.emit(change_torch_color)	
 		
 #Set Animation timer on player scene to make sure animation finishes before player moves
 func _on_animation_timer_timeout() -> void:
 	is_dousing = false
 	is_lighting = false	
+	
+#Set Sconce timer to put out sconce light after 10 seconds
+func _on_sconce_timer_timeout() -> void:
+	sconce_visibility.visible = false	
 	
 #Recieved emiited from brazier if player is near brazier
 func _on_brazier_variables(brazier_color) -> void:
@@ -131,7 +142,7 @@ func _on_brazier_exit_check() -> void:
 	
 #Recieved emiited signals from sconce scene if player is near sconce
 func _on_sconce_variables(sconce_color, sconce_light) -> void:
-	withdraw_sconce_color = sconce_color
+	withdraw_sconce_color = sconce_color #Don't think we need this anymore?
 	sconce_visibility = sconce_light
 func _on_sconce_enter_check() -> void:
 	near_sconce = true
@@ -154,10 +165,24 @@ func _input(event):
 		kill_waterfall.emit()	
 			
 		
-		
+
+func door_controller():
+	if current_door_color == null:
+		pass
+	else:
+		if change_torch_color.is_equal_approx(Color(current_door_color.x, current_door_color.y, current_door_color.z, current_door_color.w)):
+			print("open door")
+				
 
 
+func _on_maze_door_enter_check() -> void:
+	near_door = true
 
 
-func _on_sconce_timer_timeout() -> void:
-	sconce_visibility.visible = false
+func _on_maze_door_exit_check() -> void:
+	near_door = false
+
+
+func _on_maze_door_4_variables(door_color) -> void:
+	current_door_color = door_color
+	
