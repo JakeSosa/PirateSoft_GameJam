@@ -14,11 +14,15 @@ var is_dousing = false
 #Camera Controller Variables
 @onready var camera_controller = $CameraController
 
+#Lever Aniamtion Variables
+@export var lever_animation_player : AnimationPlayer
+
 #Torch Controller Variables
 var isInArea : bool = false
 var nearLever : bool = false
 var change_torch_color : Color
 var torch_color
+#Waterfall variables
 var under_waterfall : = false
 signal kill_waterfall
 #Sconce Variables
@@ -65,7 +69,7 @@ func player_controller():
 func player_camera():
 	#Make camera controller position match the player's position via lerp
 	camera_controller.position = lerp(camera_controller.position, position, 0.10)
-
+	
 func torch_controller():
 	#If player is in area of brazier and presses E play Light animation
 	if isInArea == true && Input.is_action_just_pressed("lightTorch"):
@@ -100,11 +104,9 @@ func _on_animation_timer_timeout() -> void:
 	is_lighting = false
 
 
-
-
-
 func _input(event):
 	if Input.is_action_just_pressed("lightTorch") and nearLever == true:
+		lever_animation_player.play("Pull")
 		print ("lever pressed")
 		kill_waterfall.emit()
 

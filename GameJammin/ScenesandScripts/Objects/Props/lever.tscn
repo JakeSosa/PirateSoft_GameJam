@@ -9,11 +9,11 @@
 size = Vector3(0.123291, 0.219971, 0.246094)
 
 [sub_resource type="Animation" id="Animation_vowqs"]
-resource_name = "lever_ani"
+resource_name = "Pull"
 length = 0.5
 tracks/0/type = "rotation_3d"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -28,7 +28,7 @@ tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.1, 1, -0.170175, 0, 0, 0.
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_60n0r"]
 _data = {
-"lever_ani": SubResource("Animation_vowqs")
+"Pull": SubResource("Animation_vowqs")
 }
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_73se4"]
@@ -39,6 +39,7 @@ transform = Transform3D(2.62962, 0, 0, 0, 2.62962, 0, 0, 0, 2.62962, 0, 0, 0)
 script = ExtResource("1_s10qu")
 
 [node name="Top" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.270669, 0.962673, 0, -0.962673, 0.270669, 0, 0, 0)
 mesh = ExtResource("1_p752m")
 surface_material_override/0 = ExtResource("2_2y2dr")
 
@@ -64,7 +65,5 @@ collision_mask = 4
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("SphereShape3D_73se4")
 
-[connection signal="leverEnterCheck" from="." to="." method="_on_lever_enter_check"]
-[connection signal="leverExitCheck" from="." to="." method="_on_lever_exit_check"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_lever_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_lever_body_exited"]
