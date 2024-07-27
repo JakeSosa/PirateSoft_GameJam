@@ -22,6 +22,7 @@ surface_material_override/0 = ExtResource("2_pg655")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.338475, 0.219294, 0)
+visible = false
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 2
