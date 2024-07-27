@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://cmbso2ne6dhpj"]
+[gd_scene load_steps=89 format=3 uid="uid://cmbso2ne6dhpj"]
 
 [ext_resource type="PackedScene" uid="uid://cpsau6s0g741l" path="res://ScenesandScripts/Objects/WallKit/wall_1m.tscn" id="1_k38sm"]
 [ext_resource type="PackedScene" uid="uid://b3gex8777ka4" path="res://ScenesandScripts/Character/test_character_camera.tscn" id="1_yxkem"]
@@ -40,15 +40,19 @@
 [ext_resource type="Texture2D" uid="uid://b2nlnhsxd67m3" path="res://Art/Textures/TrimTexture/M_Trim_Base_color.png" id="30_rqdet"]
 [ext_resource type="Texture2D" uid="uid://optp5pg471n3" path="res://Art/Textures/Spiral3.png" id="31_dobt0"]
 [ext_resource type="Texture2D" uid="uid://bhqabd88sjece" path="res://Art/Textures/TrimTexture/M_Trim_Normal.png" id="32_mksed"]
-[ext_resource type="PackedScene" path="res://ScenesandScripts/Objects/WallKit/PillarBroken.tscn" id="33_77yts"]
-[ext_resource type="PackedScene" path="res://ScenesandScripts/Objects/WallKit/Arch.tscn" id="34_i3b47"]
-[ext_resource type="PackedScene" path="res://ScenesandScripts/Objects/WallKit/Pillar.tscn" id="35_y17iw"]
+[ext_resource type="PackedScene" uid="uid://bty4b8wayb7a7" path="res://ScenesandScripts/Objects/WallKit/PillarBroken.tscn" id="33_77yts"]
+[ext_resource type="PackedScene" uid="uid://bn3mykm2qmu7h" path="res://ScenesandScripts/Objects/WallKit/Arch.tscn" id="34_i3b47"]
+[ext_resource type="PackedScene" uid="uid://d0ru43luxr8n2" path="res://ScenesandScripts/Objects/WallKit/Pillar.tscn" id="35_y17iw"]
 [ext_resource type="PackedScene" uid="uid://di36deq36jc8k" path="res://ScenesandScripts/Objects/Props/pipe_straight.tscn" id="36_10nwt"]
 [ext_resource type="PackedScene" uid="uid://b73ovwek7avnq" path="res://ScenesandScripts/Objects/Props/Dirt01.tscn" id="45_2qrnl"]
 [ext_resource type="PackedScene" uid="uid://sgm4plr6a7a4" path="res://ScenesandScripts/Objects/Props/Dirt02.tscn" id="46_i0oso"]
 [ext_resource type="PackedScene" uid="uid://brufowiy3bgd8" path="res://ScenesandScripts/Objects/Props/Dirt03.tscn" id="47_hh8lm"]
 [ext_resource type="PackedScene" uid="uid://b8gp50uh2vx08" path="res://ScenesandScripts/Objects/Props/Flower.tscn" id="48_eb2ol"]
 [ext_resource type="PackedScene" uid="uid://cadv5bx70eqho" path="res://ScenesandScripts/Objects/Props/Rock.tscn" id="49_ivr1v"]
+[ext_resource type="Texture2D" uid="uid://bw3ajmjafr0nv" path="res://Art/Textures/CenterCircle/Material_Base_color.png" id="50_k5ru5"]
+[ext_resource type="Texture2D" uid="uid://cccs81y3skd2f" path="res://Art/Textures/CenterCircle/Material_Normal_DirectX.png" id="51_ghvbw"]
+[ext_resource type="Texture2D" uid="uid://byh6ufyrfely6" path="res://Art/Textures/CenterCircle/Material_Roughness.png" id="52_lmalw"]
+[ext_resource type="ArrayMesh" uid="uid://car3ae2ad4yjf" path="res://Art/Meshes/Objects/Props/PropPack1/CenterCircle.obj" id="53_t717q"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_53br7"]
 flip_faces = true
@@ -126,6 +130,12 @@ shader_parameter/ColAlph = ExtResource("18_71w63")
 render_priority = 0
 shader = ExtResource("17_f3iu0")
 shader_parameter/ColAlph = ExtResource("18_71w63")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ru0tr"]
+albedo_texture = ExtResource("50_k5ru5")
+roughness_texture = ExtResource("52_lmalw")
+normal_enabled = true
+normal_texture = ExtResource("51_ghvbw")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ps6i2"]
 resource_local_to_scene = true
@@ -331,7 +341,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.848
 
 [node name="PostProcess" type="MeshInstance3D" parent="TestCharacterCamera"]
 transform = Transform3D(1, 0, -9.59233e-14, 0, 1, 0, 9.59233e-14, 0, 1, 0.503351, -0.0741225, -0.014081)
-visible = false
 mesh = SubResource("QuadMesh_53br7")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_3c4i0")
@@ -936,6 +945,10 @@ transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 14.69, 1
 transform = Transform3D(-4.37114e-08, 0, -0.920531, 0, 1, 0, 1, 0, -4.02377e-08, 9.50472, -0.288658, 8.01121)
 player = NodePath("../../TestCharacterCamera")
 
+[node name="WaterFall7" parent="Deco" node_paths=PackedStringArray("player") instance=ExtResource("23_o3b72")]
+transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.06581e-14, 0, 0.920531, 14.0632, -0.288658, 2.54454)
+player = NodePath("../../TestCharacterCamera")
+
 [node name="WaterFall2" parent="Deco" node_paths=PackedStringArray("player") instance=ExtResource("23_o3b72")]
 transform = Transform3D(-6.84123e-08, 0, -1.47465, 0, 1, 0, 1.56509, 0, -6.44589e-08, 8.58216, -0.288658, 0.580906)
 player = NodePath("../../TestCharacterCamera")
@@ -953,7 +966,7 @@ transform = Transform3D(1.23316, 0, 0, 0, 1, 0, 0, 0, 1.70938, 6.0534, -0.288658
 player = NodePath("../../TestCharacterCamera")
 
 [node name="WaterFall4" parent="Deco" node_paths=PackedStringArray("player") instance=ExtResource("23_o3b72")]
-transform = Transform3D(1.23316, 0, 0, 0, 1, 0, 0, 0, 1.70938, -10.0837, -0.288658, -4.47239)
+transform = Transform3D(1.23316, 0, 0, 0, 1, 0, 0, 0, 1.70938, -10.0837, -0.288658, -4.52709)
 player = NodePath("../../TestCharacterCamera")
 
 [node name="Dirt01" parent="Deco" instance=ExtResource("45_2qrnl")]
@@ -991,6 +1004,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -0.289, 15)
 
 [node name="Rock" parent="Deco" instance=ExtResource("49_ivr1v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, -0.289, 15)
+
+[node name="CenterCircle" type="MeshInstance3D" parent="Deco"]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0.087231, -0.371577, -0.0606182)
+material_override = SubResource("StandardMaterial3D_ru0tr")
+mesh = ExtResource("53_t717q")
+skeleton = NodePath("../..")
+
+[node name="CenterCircle2" type="MeshInstance3D" parent="Deco"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5.6604, -0.344961, 8.03671)
+material_override = SubResource("StandardMaterial3D_ru0tr")
+mesh = ExtResource("53_t717q")
+skeleton = NodePath("../..")
 
 [node name="WallKit" type="Node" parent="."]
 
@@ -1535,11 +1560,26 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.5031
 [node name="Arch9" parent="WallConstructionPieces" instance=ExtResource("34_i3b47")]
 transform = Transform3D(-6.47583e-08, 0, -1, 0, 1, 0, 1.4815, 0, -4.37114e-08, 8.56407, 1.6, 0.53351)
 
+[node name="Arch11" parent="WallConstructionPieces" instance=ExtResource("34_i3b47")]
+transform = Transform3D(-4.4165e-08, 0, -1, 0, 1, 0, 1.01038, 0, -4.37114e-08, -8.57172, 1.6, -0.0140287)
+
+[node name="Arch12" parent="WallConstructionPieces" instance=ExtResource("34_i3b47")]
+transform = Transform3D(1.01038, 0, -1.06581e-14, 0, 1, 0, -8.88178e-14, 0, 1, -10.0132, 1.6, -4.52277)
+
+[node name="Arch10" parent="WallConstructionPieces" instance=ExtResource("34_i3b47")]
+transform = Transform3D(-1.08461, 0, 8.74228e-08, 0, 1, 0, -9.48196e-08, 0, -1, 13.9869, 1.6, 2.49626)
+
+[node name="Arch13" parent="WallConstructionPieces" instance=ExtResource("34_i3b47")]
+transform = Transform3D(-0.957445, 0, 8.74228e-08, 0, 1, 0, -8.37025e-08, 0, -1, 11.0203, 1.6, -11.4862)
+
+[node name="Arch14" parent="WallConstructionPieces" instance=ExtResource("34_i3b47")]
+transform = Transform3D(-0.957445, 0, 8.74228e-08, 0, 1, 0, -8.37025e-08, 0, -1, 6.04157, 1.6, -11.4862)
+
 [node name="Arch3" parent="WallConstructionPieces" instance=ExtResource("34_i3b47")]
 transform = Transform3D(-5.56049e-08, 0, -1.36966, 0, 1.03745, 0, 1.27209, 0, -5.98698e-08, -8.29667, 1.51222, 12.9926)
 
 [node name="Arch8" parent="WallConstructionPieces" instance=ExtResource("34_i3b47")]
-transform = Transform3D(-1.29454, 0, 1.1974e-07, 0, 1.03745, 0, -1.13172e-07, 0, -1.36966, -8.45474, 1.46896, -9.489)
+transform = Transform3D(-1.32954, 0, 1.1974e-07, 0, 1.03745, 0, -1.16232e-07, 0, -1.36966, -8.48759, 1.46896, -9.489)
 
 [node name="Arch4" parent="WallConstructionPieces" instance=ExtResource("34_i3b47")]
 transform = Transform3D(-5.56049e-08, 0, -1.36966, 0, 1.03745, 0, 1.27209, 0, -5.98698e-08, -5.48665, 1.51222, 12.9926)
@@ -1652,9 +1692,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.55625, -0.405666, 6.21602)
 [node name="Pillar31" parent="WallConstructionPieces" instance=ExtResource("35_y17iw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.55593, -0.404488, 9.83554)
 
-[node name="Pillar14" parent="WallConstructionPieces" instance=ExtResource("35_y17iw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8665, -0.405666, 2.34217)
-
 [node name="Pillar15" parent="WallConstructionPieces" instance=ExtResource("35_y17iw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8665, -0.405666, -0.189198)
 
@@ -1728,7 +1765,7 @@ transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -12.6937
 colorChange = Color(0, 0, 1, 1)
 
 [node name="HubBrazier" parent="Props" instance=ExtResource("14_jrr4f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.238953, 0)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.00865757, -0.364329, 0)
 
 [node name="Sconce" parent="Props" instance=ExtResource("15_j5my4")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9, 1, 10.019)
