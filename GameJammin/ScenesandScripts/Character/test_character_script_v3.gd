@@ -23,7 +23,7 @@ var near_brazier : bool = false
 var near_lever : bool = false
 var near_sconce : bool = false
 var change_torch_color : Color
-var torch_color
+var torch_color = Color.WHITE
 
 #Waterfall variables
 var under_waterfall : = false
@@ -35,7 +35,7 @@ var sconce_visibility : OmniLight3D
 signal deposit_sconce_color
 
 func _ready():
-	torch_color = $Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color
+	$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = torch_color
 	
 func _physics_process(_delta):
 	player_controller()
@@ -88,11 +88,20 @@ func torch_controller():
 	#If player presses Q, play Douse animation	
 	if Input.is_action_just_pressed("douseTorch"):
 		is_dousing = true
-		$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = Color.WHITE
+		$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = torch_color
 		animation_player.play("Douse")
 		$AnimationTimer.start()
 		
 	#Paramters for interacting with sconce
+	#Deposit color from to torch to sconce 
+	if near_sconce == true && Input.is_action_just_pressed("interact"):
+		is_lighting = true
+		sconce_visibility.visible = true
+		$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = torch_color
+		animation_player.play("Light")
+		$AnimationTimer.start()	
+		#Emit signals from player script to sconce script
+		deposit_sconce_color.emit(change_torch_color)	
 	#Withdraw color from sconce
 	#if near_sconce == true && Input.is_action_just_pressed("interact"):
 		#is_lighting = true
@@ -103,13 +112,12 @@ func torch_controller():
 		#$AnimationTimer.start()	
 		
 		
-		
 #Set Animation timer on player scene to make sure animation finishes before player moves
 func _on_animation_timer_timeout() -> void:
 	is_dousing = false
 	is_lighting = false	
 	
-#Emitted signals from brazier if player is near brazier
+#Recieved emiited from brazier if player is near brazier
 func _on_brazier_variables(brazier_color) -> void:
 	change_torch_color = brazier_color
 func _on_brazier_enter_check() -> void:
@@ -117,7 +125,7 @@ func _on_brazier_enter_check() -> void:
 func _on_brazier_exit_check() -> void:
 	near_brazier = false
 	
-#Emitted signals from sconce scene if player is near sconce
+#Recieved emiited signals from sconce scene if player is near sconce
 func _on_sconce_variables(sconce_color, sconce_light) -> void:
 	withdraw_sconce_color = sconce_color
 	sconce_visibility = sconce_light
@@ -126,13 +134,13 @@ func _on_sconce_enter_check() -> void:
 func _on_sconce_exit_check() -> void:
 	near_sconce = false
 	
-#Emiited signals from lever scene if player is near lever
+#Recieved emiited signals from lever scene if player is near lever
 func _on_lever_enter_check() -> void:
 	near_lever = true
 func _on_lever_exit_check() -> void:
 	near_lever = false
 	
-#Emit signals from player script to waterfall & sconce scripts
+#Emit signals from player script to waterfall script
 func _input(event):
 	#If player is near lever & presses E, play Pull animation
 	if Input.is_action_just_pressed("interact") && near_lever == true:
@@ -140,13 +148,7 @@ func _input(event):
 		lever_audio_player.play()
 		#Emit signal from player script to waterfall script
 		kill_waterfall.emit()	
-	#If player is near sconce & presses E, deposit torch color to sconce
-	if Input.is_action_just_pressed("interact") && near_sconce == true:
-		is_lighting = true
-		sconce_visibility.visible = true
-		animation_player.play("Light")
-		$AnimationTimer.start()	
-		deposit_sconce_color.emit(torch_color, change_torch_color)
+			
 		
 		
 
