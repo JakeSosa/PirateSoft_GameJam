@@ -13,12 +13,21 @@ var interactable = true
 
 @export var animation_player: AnimationPlayer
 
+var door_color
+var v3_door_color : Vector3
+
 func _ready():
 	pass
 
 func _process(delta: float) -> void :
 	
 	$SlidingDoor/DoorObj.set_surface_override_material(0,matoverride)
+	
+	door_color = matoverride.get("shader_parameter/Color")
+	#print(door_color)
+	
+	#v3_door_color = door_color 
+	#print(v3_door_color)
 	
 	if near_door == true && Input.is_action_just_pressed("interact"):
 		interact()

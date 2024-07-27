@@ -32,5 +32,7 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.322511, -0.327175, 0)
 shape = SubResource("CylinderShape3D_6s4h2")
 
+[node name="SconceTimer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_sconce_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_sconce_body_exited"]

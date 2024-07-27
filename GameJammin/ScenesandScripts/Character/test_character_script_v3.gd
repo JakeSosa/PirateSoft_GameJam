@@ -82,6 +82,7 @@ func torch_controller():
 		is_lighting = true
 		torch.visible = true
 		$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = change_torch_color
+		print(change_torch_color)
 		animation_player.play("Light")
 		$AnimationTimer.start()
 		
