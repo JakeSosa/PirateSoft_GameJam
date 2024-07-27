@@ -39,7 +39,6 @@ transform = Transform3D(2.62962, 0, 0, 0, 2.62962, 0, 0, 0, 2.62962, 0, 0, 0)
 script = ExtResource("1_s10qu")
 
 [node name="Top" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = ExtResource("1_p752m")
 surface_material_override/0 = ExtResource("2_2y2dr")
 
@@ -64,3 +63,8 @@ collision_mask = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("SphereShape3D_73se4")
+
+[connection signal="leverEnterCheck" from="." to="." method="_on_lever_enter_check"]
+[connection signal="leverExitCheck" from="." to="." method="_on_lever_exit_check"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_lever_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_lever_body_exited"]
