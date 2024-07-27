@@ -10,6 +10,7 @@ radius = 1.13648
 
 [node name="Sconce" type="StaticBody3D"]
 script = ExtResource("1_ovwss")
+sconce_color = Color(1, 1, 1, 1)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.1, 0, 0, 0, 2.1, 0, 0, 0, 2.1, -0.235429, 0, 0)
