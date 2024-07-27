@@ -1732,6 +1732,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.238953, 0)
 
 [node name="Sconce" parent="Props" instance=ExtResource("15_j5my4")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9, 1, 10.019)
+sconce_colorChange = Color(0, 0.968627, 0, 1)
+
+[node name="OmniLight3D" parent="Props/Sconce" index="2"]
+visible = true
 
 [node name="Sconce2" parent="Props" instance=ExtResource("15_j5my4")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -9.33833, 1, 10.9936)
@@ -1763,3 +1767,7 @@ environment = SubResource("Environment_ay3fa")
 [connection signal="areaEnterCheck" from="Props/Brazier" to="TestCharacterCamera" method="_on_brazier_area_enter_check"]
 [connection signal="areaExitCheck" from="Props/Brazier" to="TestCharacterCamera" method="_on_brazier_area_exit_check"]
 [connection signal="colorPass" from="Props/Brazier" to="TestCharacterCamera" method="_on_brazier_color_pass"]
+[connection signal="sconce_colorPass" from="Props/Sconce" to="TestCharacterCamera" method="_on_sconce_sconce_color_pass"]
+
+[editable path="Props/Sconce"]
+[editable path="Props/Sconce2"]
