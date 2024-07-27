@@ -1807,7 +1807,9 @@ environment = SubResource("Environment_ay3fa")
 [connection signal="areaEnterCheck" from="Props/Brazier" to="TestCharacterCamera" method="_on_brazier_area_enter_check"]
 [connection signal="areaExitCheck" from="Props/Brazier" to="TestCharacterCamera" method="_on_brazier_area_exit_check"]
 [connection signal="colorPass" from="Props/Brazier" to="TestCharacterCamera" method="_on_brazier_color_pass"]
+[connection signal="sconceEnterCheck" from="Props/Sconce" to="TestCharacterCamera" method="_on_sconce_sconce_enter_check"]
 [connection signal="sconce_colorPass" from="Props/Sconce" to="TestCharacterCamera" method="_on_sconce_sconce_color_pass"]
+[connection signal="sconeExitCheck" from="Props/Sconce" to="TestCharacterCamera" method="_on_sconce_scone_exit_check"]
 [connection signal="leverEnterCheck" from="Props/Lever" to="TestCharacterCamera" method="_on_lever_lever_enter_check"]
 [connection signal="leverExitCheck" from="Props/Lever" to="TestCharacterCamera" method="_on_lever_lever_exit_check"]
 

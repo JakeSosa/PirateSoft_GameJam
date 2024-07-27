@@ -19,8 +19,9 @@ var is_dousing = false
 @export var lever_audio_player: AudioStreamPlayer3D
 
 #Torch Controller Variables
-var isInArea : bool = false
-var nearLever : bool = false
+var near_brazier : bool = false
+var near_lever : bool = false
+var near_sconce : bool = false
 var change_torch_color : Color
 var torch_color
 #Waterfall variables
@@ -73,7 +74,7 @@ func player_camera():
 	
 func torch_controller():
 	#If player is in area of brazier and presses E play Light animation
-	if isInArea == true && Input.is_action_just_pressed("lightTorch"):
+	if near_brazier == true && Input.is_action_just_pressed("interact"):
 		is_lighting = true
 		torch.visible = true
 		$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = change_torch_color
@@ -91,31 +92,39 @@ func torch_controller():
 func _on_brazier_color_pass(colorChange):
 	change_torch_color = colorChange
 func _on_brazier_area_enter_check():
-	isInArea = true
+	near_brazier = true
 func _on_brazier_area_exit_check():
-	isInArea = false
+	near_brazier = false
 	
-#Emitted signals from sconce scence to pass color change value if player in sconce area
+#Emitted signals from sconce scene if player is near sconce
 func _on_sconce_sconce_color_pass(sconce_colorChange) -> void:
+	change_torch_color = sconce_colorChange
 	print("sconce color pass")	
 	
+#Emiited signals from lever scene if player is near lever
+func _on_lever_lever_enter_check():
+	near_lever = true
+func _on_lever_lever_exit_check():
+	near_lever = false
+func _input(event):
+	#If player is near lever and press E, play Pull animation
+	if Input.is_action_just_pressed("interact") and near_lever == true:
+		lever_animation_player.play("Pull")
+		lever_audio_player.play()
+		kill_waterfall.emit()	
+		
 #Set Animation timer on player scene to make sure animation finishes before player moves
 func _on_animation_timer_timeout() -> void:
 	is_dousing = false
 	is_lighting = false
 
 
-func _input(event):
-	if Input.is_action_just_pressed("lightTorch") and nearLever == true:
-		lever_animation_player.play("Pull")
-		lever_audio_player.play()
-		print ("lever pressed")
-		kill_waterfall.emit()
+		
 
 
-func _on_lever_lever_enter_check():
-	nearLever = true
+func _on_sconce_sconce_enter_check() -> void:
+	pass # Replace with function body.
 
 
-func _on_lever_lever_exit_check():
-	nearLever = false
+func _on_sconce_scone_exit_check() -> void:
+	pass # Replace with function body.

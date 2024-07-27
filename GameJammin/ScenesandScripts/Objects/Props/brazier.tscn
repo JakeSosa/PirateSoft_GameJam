@@ -51,6 +51,6 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0523928, 0)
 shape = SubResource("CylinderShape3D_q4ufa")
 
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_bool_check"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_bool_check"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
