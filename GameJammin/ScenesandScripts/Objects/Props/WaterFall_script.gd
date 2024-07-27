@@ -11,7 +11,3 @@ func _on_waterfall_body_entered(body: Node3D) -> void:
 func _on_waterfall_body_exited(body: Node3D) -> void:
 	player.under_waterfall = false
 	
-
-
-func _on_test_character_camera_kill_waterfall():
-	$".".queue_free()
