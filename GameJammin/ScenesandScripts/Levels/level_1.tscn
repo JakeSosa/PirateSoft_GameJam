@@ -1799,6 +1799,7 @@ transform = Transform3D(-1.14944e-07, 0, 2.62962, -1.33163, 2.26753, -5.82071e-0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ay3fa")
 
+[connection signal="deposit_sconce_color" from="TestCharacterCamera" to="Props/Sconce" method="_on_player_deposit_sconce_color"]
 [connection signal="kill_waterfall" from="TestCharacterCamera" to="Deco/WaterFall5" method="_on_test_character_camera_kill_waterfall"]
 [connection signal="EnterCheck" from="Props/Brazier" to="TestCharacterCamera" method="_on_brazier_enter_check"]
 [connection signal="ExitCheck" from="Props/Brazier" to="TestCharacterCamera" method="_on_brazier_exit_check"]
