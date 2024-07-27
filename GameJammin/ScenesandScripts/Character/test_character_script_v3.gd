@@ -23,7 +23,7 @@ var near_brazier : bool = false
 var near_lever : bool = false
 var near_sconce : bool = false
 var change_torch_color : Color
-var torch_color = Color.WHITE
+var default_torch_color = Color.WHITE
 
 #Waterfall variables
 var under_waterfall : = false
@@ -35,7 +35,7 @@ var sconce_visibility : OmniLight3D
 signal deposit_sconce_color
 
 func _ready():
-	$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = torch_color
+	$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = default_torch_color
 	
 func _physics_process(_delta):
 	player_controller()
@@ -89,22 +89,23 @@ func torch_controller():
 	#If player presses Q, play Douse animation	
 	if Input.is_action_just_pressed("douseTorch"):
 		is_dousing = true
-		$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = torch_color
+		$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = default_torch_color
 		animation_player.play("Douse")
 		$AnimationTimer.start()
 		
 	#Paramters for interacting with sconce
 	#Deposit color from to torch to sconce 
-	if near_sconce == true && sconce_visibility.visible == false && Input.is_action_just_pressed("interact"):
-		is_lighting = true
-		sconce_visibility.visible = true
-		$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = torch_color
-		animation_player.play("Light")
-		$AnimationTimer.start()	
-		#Emit signals from player script to sconce script
-		deposit_sconce_color.emit(change_torch_color)	
+	if $Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color != default_torch_color:
+		if near_sconce == true && sconce_visibility.visible == false && Input.is_action_just_pressed("interact"):
+			is_lighting = true
+			sconce_visibility.visible = true
+			$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = default_torch_color
+			animation_player.play("Light")
+			$AnimationTimer.start()	
+			#Emit signals from player script to sconce script
+			deposit_sconce_color.emit(change_torch_color)	
 	#Withdraw color from sconce
-	else:
+	elif $Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color == default_torch_color: 
 		if near_sconce == true && sconce_visibility.visible == true && Input.is_action_just_pressed("interact"):
 			is_lighting = true
 			torch.visible = true
