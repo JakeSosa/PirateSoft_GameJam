@@ -6,7 +6,6 @@ signal ExitCheck
 
 func _on_lever_body_entered(body):
 	EnterCheck.emit()
-	#I changed the audio player and It's now a part of the animation track --Israel
 
 func _on_lever_body_exited(body):
 	ExitCheck.emit()
