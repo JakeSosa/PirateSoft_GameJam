@@ -1811,7 +1811,5 @@ environment = SubResource("Environment_ay3fa")
 [connection signal="ExitCheck" from="Props/Lever" to="TestCharacterCamera" method="_on_lever_exit_check"]
 
 [editable path="Deco/WaterFall5"]
-[editable path="Props/Brazier"]
-[editable path="Props/Sconce"]
 [editable path="Props/Sconce2"]
 [editable path="Props/Lever"]
