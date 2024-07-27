@@ -40,9 +40,9 @@
 [ext_resource type="Texture2D" uid="uid://b2nlnhsxd67m3" path="res://Art/Textures/TrimTexture/M_Trim_Base_color.png" id="30_rqdet"]
 [ext_resource type="Texture2D" uid="uid://optp5pg471n3" path="res://Art/Textures/Spiral3.png" id="31_dobt0"]
 [ext_resource type="Texture2D" uid="uid://bhqabd88sjece" path="res://Art/Textures/TrimTexture/M_Trim_Normal.png" id="32_mksed"]
-[ext_resource type="PackedScene" uid="uid://bty4b8wayb7a7" path="res://ScenesandScripts/Objects/WallKit/PillarBroken.tscn" id="33_77yts"]
-[ext_resource type="PackedScene" uid="uid://bn3mykm2qmu7h" path="res://ScenesandScripts/Objects/WallKit/Arch.tscn" id="34_i3b47"]
-[ext_resource type="PackedScene" uid="uid://d0ru43luxr8n2" path="res://ScenesandScripts/Objects/WallKit/Pillar.tscn" id="35_y17iw"]
+[ext_resource type="PackedScene" path="res://ScenesandScripts/Objects/WallKit/PillarBroken.tscn" id="33_77yts"]
+[ext_resource type="PackedScene" path="res://ScenesandScripts/Objects/WallKit/Arch.tscn" id="34_i3b47"]
+[ext_resource type="PackedScene" path="res://ScenesandScripts/Objects/WallKit/Pillar.tscn" id="35_y17iw"]
 [ext_resource type="PackedScene" uid="uid://di36deq36jc8k" path="res://ScenesandScripts/Objects/Props/pipe_straight.tscn" id="36_10nwt"]
 [ext_resource type="PackedScene" uid="uid://b73ovwek7avnq" path="res://ScenesandScripts/Objects/Props/Dirt01.tscn" id="45_2qrnl"]
 [ext_resource type="PackedScene" uid="uid://sgm4plr6a7a4" path="res://ScenesandScripts/Objects/Props/Dirt02.tscn" id="46_i0oso"]
@@ -336,8 +336,9 @@ ambient_light_energy = 0.0
 
 [node name="Level1" type="Node3D"]
 
-[node name="TestCharacterCamera" parent="." instance=ExtResource("1_yxkem")]
+[node name="TestCharacterCamera" parent="." node_paths=PackedStringArray("lever_animation_player") instance=ExtResource("1_yxkem")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.84834, -0.343523, 8.06747)
+lever_animation_player = NodePath("../Props/Lever/AnimationPlayer_Lever")
 
 [node name="PostProcess" type="MeshInstance3D" parent="TestCharacterCamera"]
 transform = Transform3D(1, 0, -9.59233e-14, 0, 1, 0, 9.59233e-14, 0, 1, 0.503351, -0.0741225, -0.014081)
@@ -1812,3 +1813,4 @@ environment = SubResource("Environment_ay3fa")
 [editable path="Deco/WaterFall5"]
 [editable path="Props/Sconce"]
 [editable path="Props/Sconce2"]
+[editable path="Props/Lever"]
