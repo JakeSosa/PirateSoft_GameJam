@@ -10,13 +10,18 @@ var is_dousing = false
 @onready var animation_player = $Char2/AnimationPlayer
 @onready var character_model = $Char2
 @onready var torch = $Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D
+
 #Camera Controller Variables
 @onready var camera_controller = $CameraController
+
 #Torch Controller Variables
 var isInArea : bool = false
 var change_torch_color : Color
 var torch_color
 var under_waterfall : = false
+
+#Sconce Variables
+signal change_sconce_color
 
 func _ready():
 	torch_color = $Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color
@@ -75,15 +80,22 @@ func torch_controller():
 		animation_player.play("Douse")
 		$AnimationTimer.start()
 		
-#Emmited signals from brazier scene to pass color change value & if player in brazier area
+#Emitted signals from brazier scene to pass color change value if player in brazier area
 func _on_brazier_color_pass(colorChange):
 	change_torch_color = colorChange
 func _on_brazier_area_enter_check():
 	isInArea = true
 func _on_brazier_area_exit_check():
 	isInArea = false
-
+	
+#Emitted signals from sconce scence to pass color change value if player in sconce area
+func _on_sconce_sconce_color_pass(sconce_colorChange) -> void:
+	print("sconce color pass")	
+	
 #Set Animation timer on player scene to make sure animation finishes before player moves
 func _on_animation_timer_timeout() -> void:
 	is_dousing = false
 	is_lighting = false
+
+
+
