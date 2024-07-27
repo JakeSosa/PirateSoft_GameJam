@@ -1,7 +1,7 @@
 extends StaticBody3D
 
 #Sconce variables
-var sconce_color : Color
+@export var sconce_color : Color
 
 #Signal sconce variables to player script
 signal variables
