@@ -14,8 +14,9 @@ var is_dousing = false
 #Camera Controller Variables
 @onready var camera_controller = $CameraController
 
-#Lever Aniamtion Variables
+#Lever Animation Variables
 @export var lever_animation_player : AnimationPlayer
+@export var lever_audio_player: AudioStreamPlayer3D
 
 #Torch Controller Variables
 var isInArea : bool = false
@@ -107,6 +108,7 @@ func _on_animation_timer_timeout() -> void:
 func _input(event):
 	if Input.is_action_just_pressed("lightTorch") and nearLever == true:
 		lever_animation_player.play("Pull")
+		lever_audio_player.play()
 		print ("lever pressed")
 		kill_waterfall.emit()
 
