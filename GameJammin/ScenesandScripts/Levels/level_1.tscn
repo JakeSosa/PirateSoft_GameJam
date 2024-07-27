@@ -40,9 +40,9 @@
 [ext_resource type="Texture2D" uid="uid://b2nlnhsxd67m3" path="res://Art/Textures/TrimTexture/M_Trim_Base_color.png" id="30_rqdet"]
 [ext_resource type="Texture2D" uid="uid://optp5pg471n3" path="res://Art/Textures/Spiral3.png" id="31_dobt0"]
 [ext_resource type="Texture2D" uid="uid://bhqabd88sjece" path="res://Art/Textures/TrimTexture/M_Trim_Normal.png" id="32_mksed"]
-[ext_resource type="PackedScene" path="res://ScenesandScripts/Objects/WallKit/PillarBroken.tscn" id="33_77yts"]
-[ext_resource type="PackedScene" path="res://ScenesandScripts/Objects/WallKit/Arch.tscn" id="34_i3b47"]
-[ext_resource type="PackedScene" path="res://ScenesandScripts/Objects/WallKit/Pillar.tscn" id="35_y17iw"]
+[ext_resource type="PackedScene" uid="uid://bty4b8wayb7a7" path="res://ScenesandScripts/Objects/WallKit/PillarBroken.tscn" id="33_77yts"]
+[ext_resource type="PackedScene" uid="uid://bn3mykm2qmu7h" path="res://ScenesandScripts/Objects/WallKit/Arch.tscn" id="34_i3b47"]
+[ext_resource type="PackedScene" uid="uid://d0ru43luxr8n2" path="res://ScenesandScripts/Objects/WallKit/Pillar.tscn" id="35_y17iw"]
 [ext_resource type="PackedScene" uid="uid://di36deq36jc8k" path="res://ScenesandScripts/Objects/Props/pipe_straight.tscn" id="36_10nwt"]
 [ext_resource type="PackedScene" uid="uid://b73ovwek7avnq" path="res://ScenesandScripts/Objects/Props/Dirt01.tscn" id="45_2qrnl"]
 [ext_resource type="PackedScene" uid="uid://sgm4plr6a7a4" path="res://ScenesandScripts/Objects/Props/Dirt02.tscn" id="46_i0oso"]
@@ -328,6 +328,32 @@ ambient_light_energy = 0.0
 
 [node name="TestCharacterCamera" parent="." instance=ExtResource("1_yxkem")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.84834, -0.343523, 8.06747)
+
+[node name="Skeleton3D" parent="TestCharacterCamera/Char2/Armature" index="0"]
+bones/0/position = Vector3(-0.268756, -0.471597, -27.4984)
+bones/0/rotation = Quaternion(-0.676278, 0.118739, -0.137855, 0.713824)
+bones/1/rotation = Quaternion(0.0670757, -0.00697325, 0.0175474, 0.997569)
+bones/2/rotation = Quaternion(0.00862597, 0.0024821, -0.02303, 0.999694)
+bones/3/rotation = Quaternion(0.0089164, 0.000265239, -0.0237806, 0.999677)
+bones/4/rotation = Quaternion(0.0184518, 0.062596, 0.0581588, 0.996172)
+bones/5/rotation = Quaternion(0.0515072, 0.0704117, -0.113419, 0.98971)
+bones/7/rotation = Quaternion(-0.694374, -0.318735, 0.527889, -0.370926)
+bones/8/rotation = Quaternion(0.309701, -0.0446701, 0.284086, 0.906303)
+bones/9/rotation = Quaternion(-0.179727, 0.237263, 0.633913, 0.713834)
+bones/11/rotation = Quaternion(0.748279, -0.190166, 0.398108, 0.495405)
+bones/12/rotation = Quaternion(0.286775, -0.291667, 0.0829872, 0.908737)
+bones/13/rotation = Quaternion(-0.172324, -0.31507, -0.312443, 0.87944)
+bones/14/rotation = Quaternion(-0.233427, -0.089344, -0.0302375, 0.967789)
+bones/15/rotation = Quaternion(0.0125504, 0.0670066, 0.986244, -0.150582)
+bones/16/rotation = Quaternion(-0.177551, 0.0505193, -0.0422842, 0.981904)
+bones/17/rotation = Quaternion(0.567576, -0.0571034, -0.0610681, 0.819065)
+bones/18/rotation = Quaternion(0.322287, -0.0489336, 0.0153248, 0.945252)
+bones/20/rotation = Quaternion(-0.176146, 0.148409, 0.966076, 0.116812)
+bones/21/rotation = Quaternion(-0.198104, 0.0645892, 0.0437374, 0.977072)
+bones/22/rotation = Quaternion(0.502258, -0.0545163, 0.0684097, 0.860282)
+
+[node name="BoneAttachment3D" parent="TestCharacterCamera/Char2/Armature/Skeleton3D" index="2"]
+transform = Transform3D(1.21249, 0.898045, -1.31278, -1.54366, 1.0623, -0.699024, 0.383408, 1.43702, 1.33715, -10.7196, 14.2527, -26.175)
 
 [node name="PostProcess" type="MeshInstance3D" parent="TestCharacterCamera"]
 transform = Transform3D(1, 0, -9.59233e-14, 0, 1, 0, 9.59233e-14, 0, 1, 0.503351, -0.0741225, -0.014081)
@@ -1755,11 +1781,24 @@ transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 12.017, 
 transform = Transform3D(-1, 0, 8.74226e-08, 0, 1, 0, -8.74226e-08, 0, -1, 13.0041, 1, -4.86706)
 
 [node name="Lever" parent="Props" instance=ExtResource("16_d4cvb")]
-transform = Transform3D(-1.14944e-07, 0, 2.62962, -1.33163, 2.26753, -5.82071e-08, -2.26753, -1.33163, -9.91164e-08, 7.02327, -0.349414, -6.60407)
+transform = Transform3D(2.62963, 0, 0, 0, 2.62963, 0, 0, 0, 2.62962, 7.02327, -0.349414, -6.60407)
+collision_mask = 4
+
+[node name="Top" parent="Props/Lever" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ay3fa")
 
+[connection signal="kill_waterfall" from="TestCharacterCamera" to="Deco/WaterFall5" method="_on_test_character_camera_kill_waterfall"]
+[connection signal="kill_waterfall" from="TestCharacterCamera" to="Props/Lever" method="_on_test_character_camera_kill_waterfall"]
 [connection signal="areaEnterCheck" from="Props/Brazier" to="TestCharacterCamera" method="_on_brazier_area_enter_check"]
 [connection signal="areaExitCheck" from="Props/Brazier" to="TestCharacterCamera" method="_on_brazier_area_exit_check"]
 [connection signal="colorPass" from="Props/Brazier" to="TestCharacterCamera" method="_on_brazier_color_pass"]
+[connection signal="lever_in_range" from="Props/Lever" to="TestCharacterCamera" method="_on_lever_lever_in_range"]
+[connection signal="lever_not_in_range" from="Props/Lever" to="TestCharacterCamera" method="_on_lever_lever_not_in_range"]
+[connection signal="body_entered" from="Props/Lever/Area3D" to="Props/Lever" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Props/Lever/Area3D" to="Props/Lever" method="_on_area_3d_body_exited"]
+
+[editable path="TestCharacterCamera"]
+[editable path="Props/Lever"]

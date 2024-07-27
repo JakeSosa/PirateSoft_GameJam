@@ -18,6 +18,7 @@ var change_torch_color : Color
 var torch_color
 var under_waterfall : = false
 
+
 func _ready():
 	torch_color = $Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color
 
@@ -87,3 +88,5 @@ func _on_brazier_area_exit_check():
 func _on_animation_timer_timeout() -> void:
 	is_dousing = false
 	is_lighting = false
+
+
