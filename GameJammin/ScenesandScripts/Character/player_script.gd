@@ -10,7 +10,7 @@ var is_dousing = false
 @onready var animation_player = $Char2/AnimationPlayer
 @onready var character_model = $Char2
 @onready var torch = $Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D
-
+@onready var animation_timer = $AnimationTimer
 #Camera Controller Variables
 @onready var camera_controller = $CameraController
 
@@ -40,7 +40,7 @@ var near_door = false
 signal pass_torch_color
 
 func _ready():
-	$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = default_torch_color
+	torch.light_color = default_torch_color
 	
 func _physics_process(_delta):
 	player_controller()
@@ -83,20 +83,13 @@ func player_camera():
 	camera_controller.position = lerp(camera_controller.position, position, 0.10)
 	
 func torch_controller():
-	#If player near brazier and presses E, play Light animation
-	if near_brazier == true && Input.is_action_just_pressed("interact"):
-		is_lighting = true
-		torch.visible = true
-		$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = change_torch_color
-		animation_player.play("Light")
-		$AnimationTimer.start()
-		print(change_torch_color)
+	
 	#If player presses Q, play Douse animation	
 	if Input.is_action_just_pressed("douseTorch"):
 		is_dousing = true
 		$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = default_torch_color
 		animation_player.play("Douse")
-		$AnimationTimer.start()
+		animation_timer.start()
 		
 	#Paramters for interacting with sconce
 	#Deposit color from to torch to sconce 
@@ -106,8 +99,8 @@ func torch_controller():
 			sconce_visibility.visible = true
 			$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = default_torch_color
 			animation_player.play("Light")
-			$AnimationTimer.start()	
-			$SconceTimer.start()
+			animation_timer.start()	
+			#$SconceTimer.start()
 			#Emit signals from player script to sconce script
 			deposit_sconce_color.emit(change_torch_color)	
 	#Withdraw color from sconce
@@ -118,7 +111,7 @@ func torch_controller():
 			sconce_visibility.visible = false
 			$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = change_torch_color
 			animation_player.play("Light")
-			$AnimationTimer.start()	
+			animation_timer.start()	
 			
 	#Emit torch color to door script
 	pass_torch_color.emit(change_torch_color)	
@@ -132,13 +125,7 @@ func _on_animation_timer_timeout() -> void:
 func _on_sconce_timer_timeout() -> void:
 	sconce_visibility.visible = false	
 	
-#Recieved emiited from brazier if player is near brazier
-func _on_brazier_variables(brazier_color) -> void:
-	change_torch_color = brazier_color
-func _on_brazier_enter_check() -> void:
-	near_brazier = true
-func _on_brazier_exit_check() -> void:
-	near_brazier = false
+
 	
 #Recieved emiited signals from sconce scene if player is near sconce
 func _on_sconce_variables(sconce_color, sconce_light) -> void:
