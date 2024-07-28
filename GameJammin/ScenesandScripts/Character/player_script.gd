@@ -1,6 +1,8 @@
 extends CharacterBody3D
 #Player Controller reference video (https://www.youtube.com/watch?v=0T-FMkSru64)
 #Camera Controller reference video (https://www.youtube.com/watch?v=yVde3I3K7oo)
+#NOTE - Player's Collision is assigned to 2 (player)
+#NOTE - Player's Mask is assigned to 1 (aka environment: doors & 3 (aka props: sconce & brazier) 
 
 #Player Controller Variables
 const Speed = 5.0
@@ -13,24 +15,15 @@ var is_dousing = false
 @onready var animation_timer = $AnimationTimer
 #Torch Variables
 @onready var torch = $Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D
-#var change_torch_color : Color
 var default_torch_color = Color.WHITE
-#var near_sconce : bool = false
 #Camera Controller Variables
 @onready var camera_controller = $CameraController
 #Lever Variables
 @export var lever_animation_player : AnimationPlayer
 @export var lever_audio_player: AudioStreamPlayer3D
 var near_lever : bool = false
-
 #Waterfall variables
 signal kill_waterfall
-
-#Sconce Variables
-var withdraw_sconce_color : Color #Don't think we need this anymore?
-var sconce_visibility : OmniLight3D 
-signal deposit_sconce_color
-
 
 func _ready():
 	torch.light_color = default_torch_color
@@ -75,7 +68,6 @@ func player_camera():
 	camera_controller.position = lerp(camera_controller.position, position, 0.10)
 	
 func torch_controller():
-	
 	#If player presses Q, play Douse animation	
 	if Input.is_action_just_pressed("douseTorch"):
 		is_dousing = true
@@ -83,43 +75,10 @@ func torch_controller():
 		animation_player.play("Douse")
 		animation_timer.start()
 		
-	
-	##Withdraw color from sconce
-	#elif torch.light_color == default_torch_color: 
-		#if near_sconce == true && sconce_visibility.visible == true && Input.is_action_just_pressed("interact"):
-			#is_lighting = true
-			#torch.visible = true
-			#sconce_visibility.visible = false
-			#torch.light_color = change_torch_color
-			#animation_player.play("Light")
-			#animation_timer.start()	
-			
-
-		
 #Set Animation timer on player scene to make sure animation finishes before player moves
 func _on_animation_timer_timeout() -> void:
 	is_dousing = false
 	is_lighting = false	
-	
-##Set Sconce timer to put out sconce light after 10 seconds
-#func _on_sconce_timer_timeout() -> void:
-	#sconce_visibility.visible = false	
-	
-	
-##Recieved emiited signals from sconce scene if player is near sconce
-#func _on_sconce_variables(sconce_color, sconce_light) -> void:
-	#withdraw_sconce_color = sconce_color #Don't think we need this anymore?
-	#sconce_visibility = sconce_light
-#func _on_sconce_enter_check() -> void:
-	#near_sconce = true
-#func _on_sconce_exit_check() -> void:
-	#near_sconce = false
-	
-	
-	
-	
-	
-	
 	
 	
 	

@@ -1,4 +1,6 @@
 extends StaticBody3D
+#NOTE - Sconce's Area3D Collision is assigned to 3 (aka props: sconce & brazier)
+#NOTE - Sconce's Area3D Mask is assigned to 2 (aka player) 
 
 #Set public variable that will act as a pointer to the player in level 1 scene
 @export var player : CharacterBody3D

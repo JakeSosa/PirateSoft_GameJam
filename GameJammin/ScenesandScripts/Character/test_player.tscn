@@ -173,7 +173,7 @@ height = 1.00255
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 collision_layer = 2
-collision_mask = 7
+collision_mask = 5
 script = ExtResource("1_1q0qe")
 metadata/_edit_group_ = true
 
