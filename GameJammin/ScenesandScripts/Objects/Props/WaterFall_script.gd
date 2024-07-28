@@ -1,5 +1,4 @@
 extends Node3D
-#NOTE - Make sure Area 3D collission layer & mask are set to 2
 
 #Set public variable that will act as a pointer to the player in level 1 scene
 @export var player : CharacterBody3D
