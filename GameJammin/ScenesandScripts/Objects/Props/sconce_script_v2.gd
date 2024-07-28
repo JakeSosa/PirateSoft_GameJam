@@ -1,30 +1,34 @@
 extends StaticBody3D
 
+#Set public variable that will act as a pointer to the player in level 1 scene
+@export var player : CharacterBody3D
 #Sconce variables
-@export var sconce_color : Color
-@export var sconce_light : OmniLight3D
-
-#Signal sconce variables to player script
-signal variables
-#Signal sconce area enter & exit checks to player script
-signal EnterCheck
-signal ExitCheck
+@onready var sconce = $OmniLight3D
+var default_sconce_color = Color.WHITE
+var near_sconce := false
 
 func _ready():
-	$OmniLight3D.light_color = sconce_color
-	sconce_light.visible = false
-
-#Recieved following signal from player script to deposit light from torch to sconce
-func _on_player_deposit_sconce_color(change_torch_color) -> void:
-	sconce_light.visible = true
-	$OmniLight3D.light_color = change_torch_color	
+	sconce.light_color = default_sconce_color
+	sconce.visible = false
 	
-#Sent following signals from sconce script to palyer script
+func _physics_process(delta: float) -> void:
+	sconce_controller()
+	
 func _on_sconce_body_entered(body: Node3D) -> void:
-	variables.emit(sconce_color, sconce_light)
-	EnterCheck.emit()
+	near_sconce = true
+	print("player near sconce")
 	
 func _on_sconce_body_exited(body: Node3D) -> void:
-	ExitCheck.emit()
-
+	near_sconce = false
+	
+func sconce_controller():
+	if near_sconce == true && sconce.visible == false:
+		if player.torch.light_color != player.default_torch_color:
+			if Input.is_action_just_pressed("interact"):
+				player.is_lighting = true
+				sconce.visible = true
+				sconce.light_color = player.torch.light_color
+				player.animation_player.play("Light")
+				player.animation_timer.start()
+		
 
