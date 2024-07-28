@@ -36,11 +36,14 @@ signal deposit_sconce_color
 
 #Door Variables
 var current_door_color 
+var current_door_animation :AnimationPlayer
+var door_open := false
 var near_door = false
 signal pass_torch_color
 
 func _ready():
 	torch.light_color = default_torch_color
+	door_open = false
 	
 func _physics_process(_delta):
 	player_controller()
@@ -87,29 +90,29 @@ func torch_controller():
 	#If player presses Q, play Douse animation	
 	if Input.is_action_just_pressed("douseTorch"):
 		is_dousing = true
-		$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = default_torch_color
+		torch.light_color = default_torch_color
 		animation_player.play("Douse")
 		animation_timer.start()
 		
 	#Paramters for interacting with sconce
 	#Deposit color from to torch to sconce 
-	if $Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color != default_torch_color:
+	if torch.light_color != default_torch_color:
 		if near_sconce == true && sconce_visibility.visible == false && Input.is_action_just_pressed("interact"):
 			is_lighting = true
 			sconce_visibility.visible = true
-			$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = default_torch_color
+			torch.light_color = default_torch_color
 			animation_player.play("Light")
 			animation_timer.start()	
 			#$SconceTimer.start()
 			#Emit signals from player script to sconce script
 			deposit_sconce_color.emit(change_torch_color)	
 	#Withdraw color from sconce
-	elif $Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color == default_torch_color: 
+	elif torch.light_color == default_torch_color: 
 		if near_sconce == true && sconce_visibility.visible == true && Input.is_action_just_pressed("interact"):
 			is_lighting = true
 			torch.visible = true
 			sconce_visibility.visible = false
-			$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = change_torch_color
+			torch.light_color = change_torch_color
 			animation_player.play("Light")
 			animation_timer.start()	
 			
@@ -154,22 +157,20 @@ func _input(event):
 		
 
 func door_controller():
-	if current_door_color == null:
-		pass
-	else:
-		if change_torch_color.is_equal_approx(Color(current_door_color.x, current_door_color.y, current_door_color.z, current_door_color.w)):
-			print("open door")
+	if near_door == true && door_open == false:
+		if current_door_color == null:
+			pass
+		else:
+			if torch.light_color.is_equal_approx(Color(current_door_color.x, current_door_color.y, current_door_color.z, current_door_color.w)):
+				current_door_animation.play("DoorOpen")
+				animation_timer.start()
+				door_open = true
+
 				
-
-
-func _on_maze_door_enter_check() -> void:
+func _on_door_enter_check() -> void:
 	near_door = true
-
-
-func _on_maze_door_exit_check() -> void:
+func _on_door_exit_check() -> void:
 	near_door = false
-
-
-func _on_maze_door_4_variables(door_color) -> void:
+func _on_door_variables(door_color, door_animation_player) -> void:
 	current_door_color = door_color
-	
+	current_door_animation = door_animation_player

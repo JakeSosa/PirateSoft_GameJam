@@ -3,7 +3,7 @@ extends StaticBody3D
 #Set public variable to assign eacg door's color in level_1 scene
 @export var matoverride : Material
 #Set public variable to easily assign door's animation player
-@export var animation_player: AnimationPlayer
+@export var door_animation_player: AnimationPlayer
 
 var door_color
 signal variables
@@ -22,7 +22,7 @@ func _on_player_pass_torch_color(change_torch_color) -> void:
 	pass
 	
 func _on_door_body_entered(body: Node3D) -> void:
-	variables.emit(door_color)
+	variables.emit(door_color, door_animation_player)
 	EnterCheck.emit()
 	
 func _on_door_body_exited(body: Node3D) -> void:
