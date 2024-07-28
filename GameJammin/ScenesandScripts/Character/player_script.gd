@@ -19,7 +19,6 @@ var is_dousing = false
 @export var lever_audio_player: AudioStreamPlayer3D
 
 #Torch Controller Variables
-var near_brazier : bool = false
 var near_lever : bool = false
 var near_sconce : bool = false
 var change_torch_color : Color
@@ -43,13 +42,11 @@ signal pass_torch_color
 
 func _ready():
 	torch.light_color = default_torch_color
-	door_open = false
 	
 func _physics_process(_delta):
 	player_controller()
 	player_camera()
 	torch_controller()
-	door_controller()
 	
 func player_controller():
 	if is_dousing == false && is_lighting == false:
@@ -156,21 +153,4 @@ func _input(event):
 			
 		
 
-func door_controller():
-	if near_door == true && door_open == false:
-		if current_door_color == null:
-			pass
-		else:
-			if torch.light_color.is_equal_approx(Color(current_door_color.x, current_door_color.y, current_door_color.z, current_door_color.w)):
-				current_door_animation.play("DoorOpen")
-				animation_timer.start()
-				door_open = true
 
-				
-func _on_door_enter_check() -> void:
-	near_door = true
-func _on_door_exit_check() -> void:
-	near_door = false
-func _on_door_variables(door_color, door_animation_player) -> void:
-	current_door_color = door_color
-	current_door_animation = door_animation_player
