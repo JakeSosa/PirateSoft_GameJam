@@ -37,3 +37,4 @@ func door_controller():
 			if player.torch.light_color.is_equal_approx(Color(door_color.x, door_color.y, door_color.z, door_color.w)):
 				animation_player.play("DoorOpen")
 				door_open = true
+				player.animation_timer.start()
