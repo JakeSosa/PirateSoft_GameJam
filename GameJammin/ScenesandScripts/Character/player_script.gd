@@ -7,25 +7,23 @@ const Speed = 5.0
 var is_running = false
 var is_lighting = false
 var is_dousing = false
+#Animation Variables
 @onready var animation_player = $Char2/AnimationPlayer
 @onready var character_model = $Char2
-@onready var torch = $Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D
 @onready var animation_timer = $AnimationTimer
+#Torch Variables
+@onready var torch = $Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D
+#var change_torch_color : Color
+var default_torch_color = Color.WHITE
+#var near_sconce : bool = false
 #Camera Controller Variables
 @onready var camera_controller = $CameraController
-
-#Lever Animation Variables
+#Lever Variables
 @export var lever_animation_player : AnimationPlayer
 @export var lever_audio_player: AudioStreamPlayer3D
-
-#Torch Controller Variables
 var near_lever : bool = false
-var near_sconce : bool = false
-var change_torch_color : Color
-var default_torch_color = Color.WHITE
 
 #Waterfall variables
-var under_waterfall : = false
 signal kill_waterfall
 
 #Sconce Variables
@@ -33,12 +31,6 @@ var withdraw_sconce_color : Color #Don't think we need this anymore?
 var sconce_visibility : OmniLight3D 
 signal deposit_sconce_color
 
-#Door Variables
-var current_door_color 
-var current_door_animation :AnimationPlayer
-var door_open := false
-var near_door = false
-signal pass_torch_color
 
 func _ready():
 	torch.light_color = default_torch_color
@@ -91,50 +83,60 @@ func torch_controller():
 		animation_player.play("Douse")
 		animation_timer.start()
 		
-	#Paramters for interacting with sconce
-	#Deposit color from to torch to sconce 
-	if torch.light_color != default_torch_color:
-		if near_sconce == true && sconce_visibility.visible == false && Input.is_action_just_pressed("interact"):
-			is_lighting = true
-			sconce_visibility.visible = true
-			torch.light_color = default_torch_color
-			animation_player.play("Light")
-			animation_timer.start()	
-			#$SconceTimer.start()
-			#Emit signals from player script to sconce script
-			deposit_sconce_color.emit(change_torch_color)	
-	#Withdraw color from sconce
-	elif torch.light_color == default_torch_color: 
-		if near_sconce == true && sconce_visibility.visible == true && Input.is_action_just_pressed("interact"):
-			is_lighting = true
-			torch.visible = true
-			sconce_visibility.visible = false
-			torch.light_color = change_torch_color
-			animation_player.play("Light")
-			animation_timer.start()	
+	##Paramters for interacting with sconce
+	##Deposit color from to torch to sconce 
+	#if torch.light_color != default_torch_color:
+		#if near_sconce == true && sconce_visibility.visible == false && Input.is_action_just_pressed("interact"):
+			#is_lighting = true
+			#sconce_visibility.visible = true
+			#torch.light_color = default_torch_color
+			#animation_player.play("Light")
+			#animation_timer.start()	
+			##$SconceTimer.start()
+			##Emit signals from player script to sconce script
+			##deposit_sconce_color.emit(change_torch_color)	
+	##Withdraw color from sconce
+	#elif torch.light_color == default_torch_color: 
+		#if near_sconce == true && sconce_visibility.visible == true && Input.is_action_just_pressed("interact"):
+			#is_lighting = true
+			#torch.visible = true
+			#sconce_visibility.visible = false
+			#torch.light_color = change_torch_color
+			#animation_player.play("Light")
+			#animation_timer.start()	
 			
-	#Emit torch color to door script
-	pass_torch_color.emit(change_torch_color)	
+
 		
 #Set Animation timer on player scene to make sure animation finishes before player moves
 func _on_animation_timer_timeout() -> void:
 	is_dousing = false
 	is_lighting = false	
 	
-#Set Sconce timer to put out sconce light after 10 seconds
-func _on_sconce_timer_timeout() -> void:
-	sconce_visibility.visible = false	
+##Set Sconce timer to put out sconce light after 10 seconds
+#func _on_sconce_timer_timeout() -> void:
+	#sconce_visibility.visible = false	
 	
-
 	
-#Recieved emiited signals from sconce scene if player is near sconce
-func _on_sconce_variables(sconce_color, sconce_light) -> void:
-	withdraw_sconce_color = sconce_color #Don't think we need this anymore?
-	sconce_visibility = sconce_light
-func _on_sconce_enter_check() -> void:
-	near_sconce = true
-func _on_sconce_exit_check() -> void:
-	near_sconce = false
+##Recieved emiited signals from sconce scene if player is near sconce
+#func _on_sconce_variables(sconce_color, sconce_light) -> void:
+	#withdraw_sconce_color = sconce_color #Don't think we need this anymore?
+	#sconce_visibility = sconce_light
+#func _on_sconce_enter_check() -> void:
+	#near_sconce = true
+#func _on_sconce_exit_check() -> void:
+	#near_sconce = false
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 #Recieved emiited signals from lever scene if player is near lever
 func _on_lever_enter_check() -> void:
