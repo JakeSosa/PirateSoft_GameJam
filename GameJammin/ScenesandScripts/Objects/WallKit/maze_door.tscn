@@ -2,14 +2,6 @@
 
 [ext_resource type="Script" path="res://ScenesandScripts/Objects/WallKit/door_script.gd" id="1_de2kj"]
 [ext_resource type="ArrayMesh" uid="uid://bnyi1n8ikmx0n" path="res://Art/Meshes/Objects/Construction/DoorOBJFrame.obj" id="1_elj2r"]
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-[ext_resource type="Script" path="res://ScenesandScripts/Objects/WallKit/maze_door.gd" id="1_hc1jc"]
-=======
-[ext_resource type="Material" uid="uid://cj1gn2ser6l3r" path="res://Art/Materials/DoorColor/DoorGreen.tres" id="2_aww1b"]
->>>>>>> Stashed changes
->>>>>>> parent of 1039744 (Revert "merge")
 [ext_resource type="Material" uid="uid://dk5qyy862clr3" path="res://Art/Materials/brick.tres" id="2_y6ai0"]
 [ext_resource type="Material" uid="uid://bpeeoeo46wdvp" path="res://Art/Materials/stone.tres" id="3_a1i1t"]
 [ext_resource type="ArrayMesh" uid="uid://bka3pofer6t1h" path="res://Art/Meshes/Objects/Construction/DoorOBJ.obj" id="3_rsqwm"]
@@ -111,18 +103,8 @@ size = Vector3(1.45587, 2.18835, 0.229736)
 size = Vector3(2.35919, 1.70117, 1.29218)
 
 [node name="MazeDoor" type="StaticBody3D"]
-<<<<<<< HEAD
 script = ExtResource("1_de2kj")
 matoverride = ExtResource("8_2ci6g")
-=======
-<<<<<<< Updated upstream
-script = ExtResource("1_hc1jc")
-matoverride = ExtResource("7_xoi1m")
-=======
-script = ExtResource("1_de2kj")
-matoverride = ExtResource("2_aww1b")
->>>>>>> Stashed changes
->>>>>>> parent of 1039744 (Revert "merge")
 
 [node name="DoorObjFrame" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_elj2r")
@@ -137,10 +119,12 @@ libraries = {
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.131149, 1.10221, 0.515131)
+visible = false
 shape = SubResource("BoxShape3D_tiycb")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85964, 1.10221, 0.515131)
+visible = false
 shape = SubResource("BoxShape3D_tiycb")
 
 [node name="SlidingDoor" type="StaticBody3D" parent="."]
@@ -152,6 +136,7 @@ surface_material_override/0 = ExtResource("8_2ci6g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SlidingDoor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01203, 1.10327, 0.497082)
+visible = false
 shape = SubResource("BoxShape3D_7dra3")
 disabled = true
 
