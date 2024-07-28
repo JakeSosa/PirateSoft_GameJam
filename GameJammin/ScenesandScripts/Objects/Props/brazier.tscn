@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cug6kjou6ccef"]
 
 [ext_resource type="ArrayMesh" uid="uid://p7joiyfir4x" path="res://Art/Meshes/Objects/Props/PropPack1/Brazier.obj" id="1_hyo2a"]
-[ext_resource type="Script" path="res://ScenesandScripts/Objects/Props/brazier_script.gd" id="1_ph8db"]
+[ext_resource type="Script" path="res://ScenesandScripts/Objects/Props/brazier_script_v2.gd" id="1_kf15r"]
 [ext_resource type="Shader" uid="uid://d2cm7x8ippg05" path="res://Art/Shaders/PBR.tres" id="2_8cl88"]
 [ext_resource type="Texture2D" uid="uid://rnbgh7va5t1u" path="res://Art/Textures/PropTexture/M_Props01_Mixed_AO.png" id="3_2vwdk"]
 [ext_resource type="Texture2D" uid="uid://cuxb6oeo6dshp" path="res://Art/Textures/PropTexture/M_Props01_Base_color.png" id="4_42vy0"]
@@ -28,7 +28,7 @@ radius = 0.972095
 
 [node name="Brazier" type="StaticBody3D"]
 transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, 0, 0, 0)
-script = ExtResource("1_ph8db")
+script = ExtResource("1_kf15r")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(6.98956, 0, 0, 0, 6.98956, 0, 0, 0, 6.98956, 0, 0, 0)
@@ -44,7 +44,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.776666, 0)
 distance_fade_enabled = true
 
 [node name="Area3D" type="Area3D" parent="."]
-collision_layer = 2
+collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
