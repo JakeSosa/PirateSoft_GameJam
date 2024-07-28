@@ -119,6 +119,7 @@ libraries = {
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.131149, 1.10221, 0.515131)
+visible = false
 shape = SubResource("BoxShape3D_tiycb")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
