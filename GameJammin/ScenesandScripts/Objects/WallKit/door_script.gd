@@ -1,15 +1,20 @@
 extends StaticBody3D
+#NOTE - Door's Area3D Collision is assigned to 1 (aka environment)
+#NOTE - Door's Area3D Mask is assigned to 2 (aka player) & 3 (aka props: sconce & brazier)
 
 #Set public variable to assign eacg door's color in level_1 scene
 @export var matoverride : Material
 #Set public variable that will act as a pointer to the player in level 1 scene
 @export var player : CharacterBody3D
+#Set public variable that will act as a pointer to nearby sconce in level 1 scene
+@export var nearby_sconce : OmniLight3D
 #Set public variable to easily assign door's animation player
 @onready var animation_player = $AnimationPlayer
 
 var door_color
 var near_door := false
 var door_open := false
+
 
 func _ready() -> void:
 	door_open = false
@@ -21,16 +26,19 @@ func _process(delta: float) -> void :
 	door_color = matoverride.get("shader_parameter/Color")
 	#print(door_color)
 func _physics_process(delta: float) -> void:
-	door_controller()
+	torch_open_door()
+	sconce_open_door()
 	
 func _on_door_body_entered(body: Node3D) -> void:
 	near_door = true
+	print("sconce near door")
 	
 func _on_door_body_exited(body: Node3D) -> void:
 	near_door = false
 	
-func door_controller():
+func torch_open_door():
 	if near_door == true && door_open == false:
+		#If Material like "DoorBlue.tres" is not assigned to door in level_1_scene, then pass
 		if door_color == null:
 			pass
 		else:
@@ -38,3 +46,17 @@ func door_controller():
 				animation_player.play("DoorOpen")
 				door_open = true
 				player.animation_timer.start()
+				
+func sconce_open_door():
+	#If sconce OmniLight3D is not assigned to door in level_1_scene, then pass			
+	if nearby_sconce == null:
+		pass
+	else:
+		if nearby_sconce.visible == true && door_open == false:
+			if nearby_sconce.light_color == null:
+				pass
+			else:
+				if nearby_sconce.light_color.is_equal_approx(Color(door_color.x, door_color.y, door_color.z, door_color.w)):
+					animation_player.play("DoorOpen")
+					door_open = true
+					player.animation_timer.start()	

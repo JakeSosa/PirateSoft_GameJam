@@ -100,7 +100,7 @@ size = Vector3(0.272491, 2.20056, 0.400024)
 size = Vector3(1.45587, 2.18835, 0.229736)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hsvff"]
-size = Vector3(2.35919, 1.70117, 1.29218)
+size = Vector3(2.0611, 2.26709, 1.29218)
 
 [node name="MazeDoor" type="StaticBody3D"]
 script = ExtResource("1_de2kj")
@@ -146,7 +146,7 @@ bus = &"SFX"
 collision_mask = 6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.982819, 0.858507, 0.537444)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00821, 1.13254, 0.537444)
 shape = SubResource("BoxShape3D_hsvff")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_door_body_entered"]

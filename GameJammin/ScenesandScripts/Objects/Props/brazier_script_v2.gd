@@ -1,4 +1,6 @@
 extends StaticBody3D
+#NOTE - Brazier's Area3D Collision is assigned to 3 (aka props: sconce & brazier)
+#NOTE - Brazier's Area3D Mask is assigned to 2 (aka player) 
 
 #Brazier variables
 #Make brazier_color public to assign unique color to each brazier in level_1 scene
