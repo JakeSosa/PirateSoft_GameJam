@@ -83,18 +83,7 @@ func torch_controller():
 		animation_player.play("Douse")
 		animation_timer.start()
 		
-	##Paramters for interacting with sconce
-	##Deposit color from to torch to sconce 
-	#if torch.light_color != default_torch_color:
-		#if near_sconce == true && sconce_visibility.visible == false && Input.is_action_just_pressed("interact"):
-			#is_lighting = true
-			#sconce_visibility.visible = true
-			#torch.light_color = default_torch_color
-			#animation_player.play("Light")
-			#animation_timer.start()	
-			##$SconceTimer.start()
-			##Emit signals from player script to sconce script
-			##deposit_sconce_color.emit(change_torch_color)	
+	
 	##Withdraw color from sconce
 	#elif torch.light_color == default_torch_color: 
 		#if near_sconce == true && sconce_visibility.visible == true && Input.is_action_just_pressed("interact"):
