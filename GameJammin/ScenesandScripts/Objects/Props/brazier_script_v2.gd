@@ -26,7 +26,13 @@ func brazier_controller():
 	if near_brazier == true && Input.is_action_just_pressed("interact"):
 		player.is_lighting = true
 		player.torch.visible = true
-		player.torch.light_color = brazier_color
-		player.animation_player.play("Light")
-		player.animation_timer.start()
+		if player.torch.light_color == player.default_torch_color:
+			player.torch.light_color = brazier_color
+			player.animation_player.play("Light")
+			player.animation_timer.start()
+		elif player.torch.light_color == Color.RED:
+			player.torch.light_color = Color.PURPLE
+			player.animation_player.play("Light")
+			player.animation_timer.start()
+			print(player.torch.light_color)
 	
