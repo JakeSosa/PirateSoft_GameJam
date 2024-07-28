@@ -1,12 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://cwgpe75u0j5rt"]
+[gd_scene load_steps=15 format=3 uid="uid://cwgpe75u0j5rt"]
 
+[ext_resource type="Script" path="res://ScenesandScripts/Objects/WallKit/door_script.gd" id="1_de2kj"]
 [ext_resource type="ArrayMesh" uid="uid://bnyi1n8ikmx0n" path="res://Art/Meshes/Objects/Construction/DoorOBJFrame.obj" id="1_elj2r"]
-[ext_resource type="Script" path="res://ScenesandScripts/Objects/WallKit/maze_door.gd" id="1_hc1jc"]
 [ext_resource type="Material" uid="uid://dk5qyy862clr3" path="res://Art/Materials/brick.tres" id="2_y6ai0"]
 [ext_resource type="Material" uid="uid://bpeeoeo46wdvp" path="res://Art/Materials/stone.tres" id="3_a1i1t"]
 [ext_resource type="ArrayMesh" uid="uid://bka3pofer6t1h" path="res://Art/Meshes/Objects/Construction/DoorOBJ.obj" id="3_rsqwm"]
 [ext_resource type="AudioStream" uid="uid://cyyuudho6egcf" path="res://Art/Sounds/SFX/DoorSFX.wav" id="4_chyei"]
-[ext_resource type="Material" uid="uid://gd1kswgvutdb" path="res://Art/Materials/DoorColor/DoorBlue.tres" id="7_xoi1m"]
 [ext_resource type="Material" uid="uid://ba54quher52ps" path="res://Art/Materials/DoorColor/DoorWhite.tres" id="8_2ci6g"]
 
 [sub_resource type="Animation" id="Animation_3dmec"]
@@ -104,8 +103,7 @@ size = Vector3(1.45587, 2.18835, 0.229736)
 size = Vector3(2.35919, 1.70117, 1.29218)
 
 [node name="MazeDoor" type="StaticBody3D"]
-script = ExtResource("1_hc1jc")
-matoverride = ExtResource("7_xoi1m")
+script = ExtResource("1_de2kj")
 
 [node name="DoorObjFrame" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_elj2r")
@@ -147,6 +145,7 @@ visible = false
 bus = &"SFX"
 
 [node name="Area3D" type="Area3D" parent="."]
+collision_mask = 6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.982819, 0.858507, 0.537444)
