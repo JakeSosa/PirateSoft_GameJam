@@ -25,7 +25,7 @@ func _process(delta: float) -> void :
 	$SlidingDoor/DoorObj.set_surface_override_material(0,matoverride)
 	#Following line gets the color (1,1,1,1) of the decal, will use to match to torch.light_color
 	door_color = matoverride.get("shader_parameter/Color")
-	#print(door_color)
+	
 func _physics_process(delta: float) -> void:
 	torch_open_door()
 	sconce_open_door()
@@ -56,7 +56,6 @@ func sconce_open_door():
 	elif nearby_sconce.visible == true && door_open == false:
 		#If nearby sconce color matches the color of the door, open door
 		if nearby_sconce.light_color.is_equal_approx(Color(door_color.x, door_color.y, door_color.z, door_color.w)):
-			print(nearby_sconce.light_color)
 			animation_player.play("DoorOpen")
 			door_open = true
 			player.animation_timer.start()
@@ -72,23 +71,36 @@ func sconce_open_door():
 			animation_player.play("DoorOpen")
 			door_open = true
 			player.animation_timer.start()	
+	
+	
 			
 	#NOTE - COMBINED_SCONCE
-	elif nearby_sconce != null && second_nearby_sconce != null:
+	if nearby_sconce != null && second_nearby_sconce != null && door_open == false:
 		#If nearby_sconce is RED & secondary_nearby_sconce is BLUE
 		#Then set combined_sconce_color to PURPLE 
 		if nearby_sconce.light_color == Color(1, 0, 0, 1) && second_nearby_sconce.light_color == Color(0, 0, 1, 1):
 			combined_sconce_color = Color(1, 0, 1, 1)
 			print(combined_sconce_color)
-			#If nearby_sconce is BLUE & secondary_nearby_sconce is RED
-			#Then set combined_sconce_color to PURPLE 
-		if nearby_sconce.light_color == Color(0, 0, 1, 1) && second_nearby_sconce.light_color == Color(1, 0, 0, 1):
-			combined_sconce_color = Color(1, 0, 1, 1)
-			print(combined_sconce_color)
-			#NOTE - will add logic for other colors later
-
-			#If combined_sconce_color matches the color of the door, open door
-			if combined_sconce_color.is_equal_approx(Color(door_color.x, door_color.y, door_color.z, door_color.w)):
+			if combined_sconce_color == Color(1, 0, 1, 1):
 				animation_player.play("DoorOpen")
 				door_open = true
-				player.animation_timer.start()
+				#player.animation_timer.start()
+			#If nearby_sconce is BLUE & secondary_nearby_sconce is RED
+			#Then set combined_sconce_color to PURPLE 
+		elif nearby_sconce.light_color == Color(0, 0, 1, 1) && second_nearby_sconce.light_color == Color(1, 0, 0, 1):
+			combined_sconce_color = Color(1, 0, 1, 1)
+			print(combined_sconce_color)
+			if combined_sconce_color == Color(1, 0, 1, 1):
+				animation_player.play("DoorOpen")
+				door_open = true
+				#player.animation_timer.start()
+			
+			
+			
+			##NOTE - will add logic for other colors later
+#
+			##If combined_sconce_color matches the color of the door, open door
+			#if combined_sconce_color.is_equal_approx(Color(door_color.x, door_color.y, door_color.z, door_color.w)):
+				#animation_player.play("DoorOpen")
+				#door_open = true
+				#player.animation_timer.start()

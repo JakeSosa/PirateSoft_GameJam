@@ -104,7 +104,6 @@ size = Vector3(2.0611, 2.26709, 1.29218)
 
 [node name="MazeDoor" type="StaticBody3D"]
 script = ExtResource("1_de2kj")
-matoverride = ExtResource("8_2ci6g")
 
 [node name="DoorObjFrame" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_elj2r")
