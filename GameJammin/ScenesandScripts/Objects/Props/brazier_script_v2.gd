@@ -23,7 +23,7 @@ func _on_brazier_body_exited(body: Node3D) -> void:
 	near_brazier = false
 	
 func brazier_controller():
-	#If player torch is WHITE & brazier assigned color is BLUE
+	#If player torch is WHITE & brazier assigned color is brazier_color
 	#Then set player torch color to BLUE
 	if near_brazier == true && Input.is_action_just_pressed("interact"):
 		player.is_lighting = true
@@ -35,57 +35,57 @@ func brazier_controller():
 			
 		#If player torch is RED & brazier assigned color is BLUE
 		#Then set player torch color to PURPLE (WORKS)
-		if player.torch.light_color == Color(1, 0, 0, 1) && brazier_color == Color(0, 0, 1, 1) :
+		elif player.torch.light_color == Color(1, 0, 0, 1) && brazier_color == Color(0, 0, 1, 1):
 			player.torch.light_color = Color(1, 0, 1, 1)
 			player.animation_player.play("Light")
 			player.animation_timer.start()
 		#If player torch is RED & brazier assigned color is RED
 		#Then set player torch color to brazier_color (WORKS)
-		if player.torch.light_color == Color(1, 0, 0, 1) && brazier_color == Color(1, 0, 0, 1):
+		elif player.torch.light_color == Color(1, 0, 0, 1) && brazier_color == Color(1, 0, 0, 1):
 			player.torch.light_color = brazier_color
 			player.animation_player.play("Light")
 			player.animation_timer.start()
 		#If player torch is RED & brazier assigned color is GREEN (WORKS)
 		#Then set player torch color to YELLOW
-		if player.torch.light_color == Color(1, 0, 0, 1) && brazier_color == Color(0, 1, 0, 1):
+		elif player.torch.light_color == Color(1, 0, 0, 1) && brazier_color == Color(0, 1, 0, 1):
 			player.torch.light_color = Color(1, 1, 0, 1)
 			player.animation_player.play("Light")
 			player.animation_timer.start()
 			
 		#If player torch is BLUE & brazier assigned color is BLUE
 		#Then set player torch color to brazier_color (WORKS)
-		if player.torch.light_color == Color(0, 0, 1, 1) && brazier_color == Color(0, 0, 1, 1):
-			player.torch.light_color = brazier_color
+		elif player.torch.light_color == Color(0, 0, 1, 1) && brazier_color == Color(0, 0, 1, 1):
+			player.torch.light_color = Color(0, 0, 1, 1)
 			player.animation_player.play("Light")
 			player.animation_timer.start()
 		#If player torch is BLUE & brazier assigned color is RED
 		#Then set player torch color to PURPLE (WORKS)
-		if player.torch.light_color == Color(0, 0, 1, 1) && brazier_color == Color(1, 0, 0, 1):
+		elif player.torch.light_color == Color(0, 0, 1, 1) && brazier_color == Color(1, 0, 0, 1):
 			player.torch.light_color = Color(1, 0, 1, 1)
 			player.animation_player.play("Light")
 			player.animation_timer.start()
 		#If player torch is BLUE & brazier assigned color is GREEN
 		#Then set player torch color to CYAN (WORKS)
-		if player.torch.light_color == Color(0, 0, 1, 1) && brazier_color == Color(0, 1, 0, 1):
+		elif player.torch.light_color == Color(0, 0, 1, 1) && brazier_color == Color(0, 1, 0, 1):
 			player.torch.light_color = Color(0, 1, 1, 1)
 			player.animation_player.play("Light")
 			player.animation_timer.start()
 			
 		#If player torch is GREEN & brazier assigned color is GREEN
 		#Then set player torch color to brazier_color (WORKS)
-		if player.torch.light_color == Color(0, 1, 0, 1) && brazier_color == Color(0, 1, 0, 1):
+		elif player.torch.light_color == Color(0, 1, 0, 1) && brazier_color == Color(0, 1, 0, 1):
 			player.torch.light_color = brazier_color
 			player.animation_player.play("Light")
 			player.animation_timer.start()	
 		#If player torch is GREEN & brazier assigned color is RED
 		#Then set player torch color to YELLOW (WORKS)
-		if player.torch.light_color == Color(0, 1, 0, 1) && brazier_color == Color(1, 0, 0, 1):
+		elif player.torch.light_color == Color(0, 1, 0, 1) && brazier_color == Color(1, 0, 0, 1):
 			player.torch.light_color = Color(1, 1, 0, 1)
 			player.animation_player.play("Light")
 			player.animation_timer.start()	
 		#If player torch is GREEN & brazier assigned color is BLUE
 		#Then set player torch color to CYAN (WORKS)
-		if player.torch.light_color == Color(0, 1, 0, 1) && brazier_color == Color(0, 0, 1, 1):
+		elif player.torch.light_color == Color(0, 1, 0, 1) && brazier_color == Color(0, 0, 1, 1):
 			player.torch.light_color = Color(0, 1, 1, 1)
 			player.animation_player.play("Light")
 			player.animation_timer.start()		

@@ -16,7 +16,6 @@ var door_color
 var near_door := false
 var door_open := false
 
-
 func _ready() -> void:
 	door_open = false
 	
