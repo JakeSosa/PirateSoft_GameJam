@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=17 format=3 uid="uid://d2cm7x8ippg05"]
+[gd_resource type="VisualShader" load_steps=19 format=3 uid="uid://d2cm7x8ippg05"]
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_src1e"]
 expanded_output_ports = [0]
@@ -44,6 +44,13 @@ max = 500.0
 default_value_enabled = true
 default_value = 100.0
 
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_81xom"]
+source = 5
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_kyp2q"]
+parameter_name = "Metallic"
+color_default = 1
+
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_h5r7t"]
 source = 5
 
@@ -76,6 +83,7 @@ uniform float TexPix : hint_range(2, 500, 0.10000000149012) = 100;
 uniform float UV_Tile = 1;
 uniform sampler2D BC : source_color;
 uniform sampler2D AmbientOcclusion;
+uniform sampler2D Metallic : hint_default_black;
 uniform sampler2D Rough : hint_default_black;
 uniform sampler2D NRM : hint_normal;
 
@@ -125,6 +133,11 @@ void fragment() {
 	vec3 n_out12p0 = mix(n_in12p0, vec3(n_out2p0.xyz), vec3(n_out13p0.xyz));
 
 
+	vec4 n_out22p0;
+// Texture2D:22
+	n_out22p0 = texture(Metallic, UV);
+
+
 	vec4 n_out10p0;
 // Texture2D:10
 	n_out10p0 = texture(Rough, n_out9p0);
@@ -138,6 +151,7 @@ void fragment() {
 
 // Output:0
 	ALBEDO = n_out12p0;
+	METALLIC = n_out22p0.x;
 	ROUGHNESS = n_out10p2;
 	NORMAL_MAP = vec3(n_out3p0.xyz);
 
@@ -177,4 +191,8 @@ nodes/fragment/20/node = SubResource("VisualShaderNodeVectorOp_if1vm")
 nodes/fragment/20/position = Vector2(-1020, 820)
 nodes/fragment/21/node = SubResource("VisualShaderNodeFloatParameter_34ldj")
 nodes/fragment/21/position = Vector2(-1700, 960)
-nodes/fragment/connections = PackedInt32Array(5, 0, 2, 2, 6, 0, 3, 2, 8, 0, 9, 1, 9, 0, 3, 0, 9, 0, 2, 0, 9, 0, 10, 0, 11, 0, 10, 2, 10, 2, 0, 3, 13, 0, 12, 2, 2, 0, 12, 1, 3, 0, 0, 9, 9, 0, 13, 0, 17, 0, 13, 2, 12, 0, 0, 0, 18, 0, 19, 0, 19, 0, 20, 0, 4, 0, 18, 0, 20, 0, 9, 0, 21, 0, 18, 1, 21, 0, 20, 1)
+nodes/fragment/22/node = SubResource("VisualShaderNodeTexture_81xom")
+nodes/fragment/22/position = Vector2(-580, -540)
+nodes/fragment/23/node = SubResource("VisualShaderNodeTexture2DParameter_kyp2q")
+nodes/fragment/23/position = Vector2(-1160, -720)
+nodes/fragment/connections = PackedInt32Array(5, 0, 2, 2, 6, 0, 3, 2, 8, 0, 9, 1, 9, 0, 3, 0, 9, 0, 2, 0, 9, 0, 10, 0, 11, 0, 10, 2, 10, 2, 0, 3, 13, 0, 12, 2, 2, 0, 12, 1, 3, 0, 0, 9, 9, 0, 13, 0, 17, 0, 13, 2, 12, 0, 0, 0, 18, 0, 19, 0, 19, 0, 20, 0, 4, 0, 18, 0, 20, 0, 9, 0, 21, 0, 18, 1, 21, 0, 20, 1, 23, 0, 22, 2, 22, 0, 0, 2)
