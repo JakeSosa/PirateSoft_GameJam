@@ -1,5 +1,5 @@
 extends StaticBody3D
-#NOTE - Sconce's Area3D Collision is assigned to 3 (aka props: sconce & brazier)
+#NOTE - Sconce's Area3D Collision is assigned to 3 (aka props: sconce & brazier & lever)
 #NOTE - Sconce's Area3D Mask is assigned to 2 (aka player) 
 
 #Set public variable that will act as a pointer to the player in level 1 scene
@@ -130,6 +130,7 @@ func interact_sconce():
 					player.torch.light_color = sconce.light_color
 					player.animation_player.play("Light")
 					player.animation_timer.start()
+					sconce.light_color = Color.WHITE
 				
 				else:
 					print("Can't Mix This Color")

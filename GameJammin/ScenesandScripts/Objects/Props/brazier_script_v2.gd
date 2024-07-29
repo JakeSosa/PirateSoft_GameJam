@@ -1,5 +1,5 @@
 extends StaticBody3D
-#NOTE - Brazier's Area3D Collision is assigned to 3 (aka props: sconce & brazier)
+#NOTE - Brazier's Area3D Collision is assigned to 3 (aka props: sconce & brazier & lever)
 #NOTE - Brazier's Area3D Mask is assigned to 2 (aka player) 
 
 #Brazier variables

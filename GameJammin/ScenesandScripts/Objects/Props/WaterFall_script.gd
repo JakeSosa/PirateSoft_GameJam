@@ -13,5 +13,5 @@ func _on_waterfall_body_entered(body: Node3D) -> void:
 func _on_waterfall_body_exited(body: Node3D) -> void:
 	under_waterfall = false
 	
-func _on_test_character_camera_kill_waterfall():
+func _on_lever_kill_waterfall() -> void:
 	$".".queue_free()

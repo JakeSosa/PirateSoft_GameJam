@@ -2,7 +2,7 @@ extends CharacterBody3D
 #Player Controller reference video (https://www.youtube.com/watch?v=0T-FMkSru64)
 #Camera Controller reference video (https://www.youtube.com/watch?v=yVde3I3K7oo)
 #NOTE - Player's Collision is assigned to 2 (player)
-#NOTE - Player's Mask is assigned to 1 (aka environment: doors & 3 (aka props: sconce & brazier) 
+#NOTE - Player's Mask is assigned to 1 (aka environment: doors & 3 (aka props: sconce & brazier & lever) 
 
 #Player Controller Variables
 const Speed = 5.0
@@ -18,12 +18,7 @@ var is_dousing = false
 var default_torch_color = Color.WHITE
 #Camera Controller Variables
 @onready var camera_controller = $CameraController
-#Lever Variables
-@export var lever_animation_player : AnimationPlayer
-@export var lever_audio_player: AudioStreamPlayer3D
-var near_lever : bool = false
-#Waterfall variables
-signal kill_waterfall
+
 
 func _ready():
 	$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = default_torch_color
@@ -79,27 +74,7 @@ func torch_controller():
 func _on_animation_timer_timeout() -> void:
 	is_dousing = false
 	is_lighting = false	
-	
-	
-	
-	
-	
-	
-	
-#Recieved emiited signals from lever scene if player is near lever
-func _on_lever_enter_check() -> void:
-	near_lever = true
-func _on_lever_exit_check() -> void:
-	near_lever = false
-	
-#Emit signals from player script to waterfall script
-func _input(event):
-	#If player is near lever & presses E, play Pull animation
-	if Input.is_action_just_pressed("interact") && near_lever == true:
-		lever_animation_player.play("Pull")
-		lever_audio_player.play()
-		#Emit signal from player script to waterfall script
-		kill_waterfall.emit()	
+
 			
 		
 
