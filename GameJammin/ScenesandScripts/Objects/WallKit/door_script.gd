@@ -32,7 +32,6 @@ func _physics_process(delta: float) -> void:
 	
 func _on_door_body_entered(body: Node3D) -> void:
 	near_door = true
-	print("sconce near door")
 	
 func _on_door_body_exited(body: Node3D) -> void:
 	near_door = false
