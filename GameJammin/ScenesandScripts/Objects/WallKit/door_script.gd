@@ -8,6 +8,7 @@ extends StaticBody3D
 @export var player : CharacterBody3D
 #Set public variable that will act as a pointer to nearby sconce in level 1 scene
 @export var nearby_sconce : OmniLight3D
+@export var second_nearby_sconce : OmniLight3D
 #Set public variable to easily assign door's animation player
 @onready var animation_player = $AnimationPlayer
 
