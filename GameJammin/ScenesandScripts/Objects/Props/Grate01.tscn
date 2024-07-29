@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://ciwenlhvcbd7s"]
+
+[ext_resource type="ArrayMesh" uid="uid://qlxbolghx05q" path="res://Art/Meshes/Objects/Props/PropsPack5/Grate.obj" id="1_xco43"]
+[ext_resource type="Texture2D" uid="uid://dua7mxysuvnwc" path="res://Art/Textures/Props05Textures/M_Props05_Base_color.png" id="2_f1v0j"]
+[ext_resource type="Texture2D" uid="uid://cx4a3b04t8sw" path="res://Art/Textures/Props05Textures/M_Props05_Normal.png" id="3_a1nei"]
+[ext_resource type="Texture2D" uid="uid://5knayyphbvet" path="res://Art/Textures/Props05Textures/M_Props05_Roughness.png" id="4_wmubj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jo2ms"]
+albedo_texture = ExtResource("2_f1v0j")
+roughness_texture = ExtResource("4_wmubj")
+normal_enabled = true
+normal_texture = ExtResource("3_a1nei")
+
+[node name="Grate01" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.1, 0, 0, 0, 2.1, 0, 0, 0, 2.1, -0.00522085, 0.0905327, 0)
+mesh = ExtResource("1_xco43")
+surface_material_override/0 = SubResource("StandardMaterial3D_jo2ms")

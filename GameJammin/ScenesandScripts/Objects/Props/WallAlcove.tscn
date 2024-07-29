@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://201vmdjlnuav"]
+
+[ext_resource type="ArrayMesh" uid="uid://ba2r1qc72x023" path="res://Art/Meshes/Objects/Props/PropsPack5/Wallalcove.obj" id="1_8lx1r"]
+[ext_resource type="Texture2D" uid="uid://dua7mxysuvnwc" path="res://Art/Textures/Props05Textures/M_Props05_Base_color.png" id="2_ykojs"]
+[ext_resource type="Texture2D" uid="uid://cx4a3b04t8sw" path="res://Art/Textures/Props05Textures/M_Props05_Normal.png" id="3_vwdi8"]
+[ext_resource type="Texture2D" uid="uid://5knayyphbvet" path="res://Art/Textures/Props05Textures/M_Props05_Roughness.png" id="4_b043d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jo2ms"]
+albedo_texture = ExtResource("2_ykojs")
+roughness_texture = ExtResource("4_b043d")
+normal_enabled = true
+normal_texture = ExtResource("3_vwdi8")
+
+[node name="WallAlcove" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.1, 0, 0, 0, 2.1, 0, 0, 0, 2.1, -0.00522085, 0.642066, 0)
+mesh = ExtResource("1_8lx1r")
+surface_material_override/0 = SubResource("StandardMaterial3D_jo2ms")

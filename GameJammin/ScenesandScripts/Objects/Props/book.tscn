@@ -3,7 +3,7 @@
 [ext_resource type="ArrayMesh" uid="uid://ib52uhq5ta4a" path="res://Art/Meshes/Objects/Props/PropPack3/Book.obj" id="1_rt4bd"]
 [ext_resource type="Material" uid="uid://d0s534rwxfuu2" path="res://Art/Materials/propPack3.tres" id="2_rb5d8"]
 
-[node name="Book" type="StaticBody3D"]
+[node name="Rug" type="StaticBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.1, 0, 0, 0, 2.1, 0, 0, 0, 2.1, -0.235429, 0, 0)

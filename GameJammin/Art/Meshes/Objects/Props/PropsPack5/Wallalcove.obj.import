@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ba2r1qc72x023"
+path="res://.godot/imported/Wallalcove.obj-6b1173d84489bb2bfb3782e6c9fa5958.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Wallalcove.obj-6b1173d84489bb2bfb3782e6c9fa5958.mesh"]
+
+source_file="res://Art/Meshes/Objects/Props/PropsPack5/Wallalcove.obj"
+dest_files=["res://.godot/imported/Wallalcove.obj-6b1173d84489bb2bfb3782e6c9fa5958.mesh", "res://.godot/imported/Wallalcove.obj-6b1173d84489bb2bfb3782e6c9fa5958.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

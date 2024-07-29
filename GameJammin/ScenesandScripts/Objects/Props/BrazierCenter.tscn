@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://dp18w64g3858v"]
+
+[ext_resource type="ArrayMesh" uid="uid://uuduhhne338m" path="res://Art/Meshes/Objects/Props/PropsPack5/BrazierCenterWhite.obj" id="1_4syqo"]
+[ext_resource type="Texture2D" uid="uid://dua7mxysuvnwc" path="res://Art/Textures/Props05Textures/M_Props05_Base_color.png" id="2_c72nl"]
+[ext_resource type="Texture2D" uid="uid://cx4a3b04t8sw" path="res://Art/Textures/Props05Textures/M_Props05_Normal.png" id="3_uoyr7"]
+[ext_resource type="Texture2D" uid="uid://5knayyphbvet" path="res://Art/Textures/Props05Textures/M_Props05_Roughness.png" id="4_nxyuj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jo2ms"]
+albedo_texture = ExtResource("2_c72nl")
+roughness_texture = ExtResource("4_nxyuj")
+normal_enabled = true
+normal_texture = ExtResource("3_uoyr7")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iqp41"]
+size = Vector3(1.78125, 1.17383, 1.62012)
+
+[node name="BrazierCenter" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.1, 0, 0, 0, 2.1, 0, 0, 0, 2.1, -0.00522085, 0.53643, 0)
+mesh = ExtResource("1_4syqo")
+surface_material_override/0 = SubResource("StandardMaterial3D_jo2ms")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.606095, 0.00941467)
+shape = SubResource("BoxShape3D_iqp41")

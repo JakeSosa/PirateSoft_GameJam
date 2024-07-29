@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cvmg531q6bldf"
+path="res://.godot/imported/Rug.obj-951fb7d8e938bf5c23e0e957d5c97015.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Rug.obj-951fb7d8e938bf5c23e0e957d5c97015.mesh"]
+
+source_file="res://Art/Meshes/Objects/Props/PropsPack5/Rug.obj"
+dest_files=["res://.godot/imported/Rug.obj-951fb7d8e938bf5c23e0e957d5c97015.mesh", "res://.godot/imported/Rug.obj-951fb7d8e938bf5c23e0e957d5c97015.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
