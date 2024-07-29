@@ -7,7 +7,9 @@ extends Control
 @export var creditunselected : Texture 
 @export var creditselected : Texture 
 
+
 func _on_start_button_pressed():
+	MainMenuMusic.stop_menu_music()
 	get_tree().change_scene_to_file("res://ScenesandScripts/UserInterface/loading_screen.tscn")
 
 func _on_button_mouse_entered_start():
