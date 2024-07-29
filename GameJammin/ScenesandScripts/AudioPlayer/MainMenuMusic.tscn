@@ -6,6 +6,5 @@
 [node name="MainMenuMusic" type="AudioStreamPlayer"]
 stream = ExtResource("1_ptdw0")
 volume_db = -12.0
-autoplay = true
 bus = &"Music"
 script = ExtResource("1_jx1an")

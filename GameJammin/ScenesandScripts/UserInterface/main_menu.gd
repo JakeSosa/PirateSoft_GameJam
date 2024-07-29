@@ -7,6 +7,9 @@ extends Control
 @export var creditunselected : Texture 
 @export var creditselected : Texture 
 
+func _ready():
+	if MainMenuMusic.playing == false:
+		MainMenuMusic.playing = true
 
 func _on_start_button_pressed():
 	MainMenuMusic.stop_menu_music()

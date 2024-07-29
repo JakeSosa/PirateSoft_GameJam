@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cug6kjou6ccef"]
+[gd_scene load_steps=17 format=3 uid="uid://cug6kjou6ccef"]
 
 [ext_resource type="ArrayMesh" uid="uid://p7joiyfir4x" path="res://Art/Meshes/Objects/Props/PropPack1/Brazier.obj" id="1_hyo2a"]
 [ext_resource type="Script" path="res://ScenesandScripts/Objects/Props/brazier_script_v2.gd" id="1_kf15r"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cuxb6oeo6dshp" path="res://Art/Textures/PropTexture/M_Props01_Base_color.png" id="4_42vy0"]
 [ext_resource type="Texture2D" uid="uid://gjlm3h0g6q1" path="res://Art/Textures/PropTexture/M_Props01_Normal.png" id="5_ecdvm"]
 [ext_resource type="Texture2D" uid="uid://mc8pavqrnelh" path="res://Art/Textures/PropTexture/M_Props01_Roughness.png" id="6_rsxq6"]
+[ext_resource type="Texture2D" uid="uid://dvj2k5sakvjq" path="res://Art/Textures/WaterFallTex/WaterFallParticle.png" id="8_1ghp3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ged1f"]
 render_priority = 0
@@ -21,6 +22,46 @@ shader_parameter/NRM = ExtResource("5_ecdvm")
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_jmwbp"]
 height = 0.450695
 radius = 0.544265
+
+[sub_resource type="Curve" id="Curve_qpqli"]
+_data = [Vector2(0, 0), 0.0, 10.8262, 0, 0, Vector2(0.159091, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -4.19016, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_34x13"]
+curve = SubResource("Curve_qpqli")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6rq1a"]
+emission_shape_scale = Vector3(0.2, 0.2, 0.2)
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 2.425, 0)
+tangential_accel_min = -1.0
+tangential_accel_max = 1.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_34x13")
+turbulence_enabled = true
+turbulence_noise_strength = 7.9
+turbulence_noise_scale = 3.538
+turbulence_noise_speed_random = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aimyj"]
+transparency = 2
+alpha_scissor_threshold = 0.563
+alpha_antialiasing_mode = 0
+shading_mode = 2
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("8_1ghp3")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cf6xr"]
+material = SubResource("StandardMaterial3D_aimyj")
+size = Vector2(0.1, 0.1)
+orientation = 2
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_q4ufa"]
 height = 0.4219
@@ -42,6 +83,14 @@ shape = SubResource("CylinderShape3D_jmwbp")
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.776666, 0)
 distance_fade_enabled = true
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="OmniLight3D"]
+editor_description = "ADD A SCRIPT TO LOWER PARTICLE TIME WHEN PLAYER MOVING"
+transform = Transform3D(0.716893, -5.34127e-09, 0, 0, 0.716893, 0, -1.06826e-08, 0, 0.716893, 0, -0.556786, 0)
+cast_shadow = 0
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_6rq1a")
+draw_pass_1 = SubResource("PlaneMesh_cf6xr")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 4
