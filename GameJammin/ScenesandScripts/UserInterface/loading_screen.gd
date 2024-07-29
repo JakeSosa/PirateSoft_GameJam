@@ -5,7 +5,7 @@ var sceneName
 var sceneloadstatus = 0
 
 func _ready():
-	sceneName = "res://ScenesandScripts/Levels/level_1.tscn"
+	sceneName = "res://ScenesandScripts/Levels/level_1_scene.tscn"
 	ResourceLoader.load_threaded_request(sceneName)
 
 
