@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b4eidld3pytq1"
+path="res://.godot/imported/PlayerTorch.obj-de7dbea59b8f4e7c05cb2550c74d0f48.mesh"
+
+[deps]
+
+files=["res://.godot/imported/PlayerTorch.obj-de7dbea59b8f4e7c05cb2550c74d0f48.mesh"]
+
+source_file="res://Art/Meshes/Objects/Props/PropsPack5/PlayerTorch.obj"
+dest_files=["res://.godot/imported/PlayerTorch.obj-de7dbea59b8f4e7c05cb2550c74d0f48.mesh", "res://.godot/imported/PlayerTorch.obj-de7dbea59b8f4e7c05cb2550c74d0f48.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
