@@ -32,7 +32,6 @@ func _physics_process(_delta):
 	player_controller()
 	player_camera()
 	torch_controller()
-	print($Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color)
 	
 func player_controller():
 	if is_dousing == false && is_lighting == false:
