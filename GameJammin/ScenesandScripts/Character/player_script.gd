@@ -100,7 +100,3 @@ func _input(event):
 		lever_audio_player.play()
 		#Emit signal from player script to waterfall script
 		kill_waterfall.emit()	
-			
-		
-
-
