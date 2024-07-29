@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cwgpe75u0j5rt"]
+[gd_scene load_steps=20 format=3 uid="uid://cwgpe75u0j5rt"]
 
 [ext_resource type="Script" path="res://ScenesandScripts/Objects/WallKit/door_script.gd" id="1_de2kj"]
 [ext_resource type="ArrayMesh" uid="uid://bnyi1n8ikmx0n" path="res://Art/Meshes/Objects/Construction/DoorOBJFrame.obj" id="1_elj2r"]
@@ -7,6 +7,10 @@
 [ext_resource type="ArrayMesh" uid="uid://bka3pofer6t1h" path="res://Art/Meshes/Objects/Construction/DoorOBJ.obj" id="3_rsqwm"]
 [ext_resource type="AudioStream" uid="uid://cyyuudho6egcf" path="res://Art/Sounds/SFX/DoorSFX.wav" id="4_chyei"]
 [ext_resource type="Material" uid="uid://ba54quher52ps" path="res://Art/Materials/DoorColor/DoorWhite.tres" id="8_2ci6g"]
+[ext_resource type="ArrayMesh" uid="uid://d2cja60fbds4e" path="res://Art/Meshes/Objects/Props/PropsPack5/DoorBase.obj" id="8_ffpqu"]
+[ext_resource type="Texture2D" uid="uid://dua7mxysuvnwc" path="res://Art/Textures/Props05Textures/M_Props05_Base_color.png" id="9_eb5s4"]
+[ext_resource type="Texture2D" uid="uid://cx4a3b04t8sw" path="res://Art/Textures/Props05Textures/M_Props05_Normal.png" id="10_qnohn"]
+[ext_resource type="Texture2D" uid="uid://5knayyphbvet" path="res://Art/Textures/Props05Textures/M_Props05_Roughness.png" id="11_acmwt"]
 
 [sub_resource type="Animation" id="Animation_3dmec"]
 resource_name = "DoorClose"
@@ -102,6 +106,12 @@ size = Vector3(1.45587, 2.18835, 0.229736)
 [sub_resource type="BoxShape3D" id="BoxShape3D_hsvff"]
 size = Vector3(2.0611, 2.26709, 1.29218)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w7fuo"]
+albedo_texture = ExtResource("9_eb5s4")
+roughness_texture = ExtResource("11_acmwt")
+normal_enabled = true
+normal_texture = ExtResource("10_qnohn")
+
 [node name="MazeDoor" type="StaticBody3D"]
 script = ExtResource("1_de2kj")
 
@@ -146,6 +156,11 @@ collision_mask = 6
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00821, 1.13254, 0.537444)
 shape = SubResource("BoxShape3D_hsvff")
+
+[node name="DoorBase" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0118729, 0, 0, 0, 0.011, 0, 0, 0, 0.00672934, 0.974227, 0.0272336, 0.462508)
+mesh = ExtResource("8_ffpqu")
+surface_material_override/0 = SubResource("StandardMaterial3D_w7fuo")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_door_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_door_body_exited"]
