@@ -3,6 +3,8 @@ extends Control
 @export var backSelected: Texture
 @export var backUnselected: Texture
 
+var menu_sound = preload("res://Art/Sounds/SFX/MenuSounds/MenuButtonSound.mp3")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -20,6 +22,7 @@ func _on_button_pressed():
 
 func _on_button_mouse_entered():
 	$ColorRect/PanelContainer/TextureRect.texture = backSelected
+	MainMenuMusic.play_SFX(menu_sound)
 
 
 func _on_button_mouse_exited():
