@@ -20,4 +20,23 @@ extends StaticBody3D
 var near_brazier_center = false
 
 func _ready() -> void:
-	pass
+	white_brazier.visible = false
+
+func _process(delta: float) -> void:
+	turn_on()
+
+func _on_center_brazier_body_entered(body: Node3D) -> void:
+	near_brazier_center = true
+	
+func _on_center_brazier_body_exited(body: Node3D) -> void:
+	near_brazier_center = false
+	
+func turn_on():
+	if near_brazier_center == true && white_brazier.visible == false:
+		if red_brazier.visible == true:
+			if blue_brazier.visible == true:
+				if green_brazier.visible == true:
+					if cyan_brazier.visible == true:
+						if purple_brazier.visible == true:
+							if yellow_brazier.visible == true:
+								white_brazier.visible = true

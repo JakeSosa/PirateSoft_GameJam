@@ -45,3 +45,6 @@ collision_mask = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00742, 0)
 shape = SubResource("CylinderShape3D_p6v2j")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_center_brazier_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_center_brazier_body_exited"]
