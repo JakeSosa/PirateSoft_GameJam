@@ -40,8 +40,8 @@ func turn_on():
 	if near_brazier_center == true && $OmniLight3D.visible == false:
 		if red_brazier.visible == true && blue_brazier.visible == true && green_brazier.visible == true && cyan_brazier.visible == true && purple_brazier.visible == true && yellow_brazier.visible == true:
 			$OmniLight3D.visible = true
-			var winner_text = "CONGRATULATIONS - YOU WIN"
+			var pop_up_text = "CONGRATULATIONS - YOU WIN"
 			var text = floating_text.instantiate()
-			text.winner_text = winner_text
+			text.pop_up_text = pop_up_text
 			add_child(text)
 			MainMenuMusic.play_SFX(winSound)

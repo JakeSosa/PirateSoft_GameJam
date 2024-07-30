@@ -97,11 +97,10 @@ func brazier_controller():
 			player.animation_player.play("Light")
 			player.animation_timer.start()		
 		else:
-			MainMenuMusic.play_SFX(BadMixSFX)
 			var pop_up_text = "Hmmm...doesn't work."
 			var text = floating_text.instantiate()
 			text.pop_up_text = pop_up_text
 			add_child(text)
-			
+			MainMenuMusic.play_SFX(BadMixSFX)
 			
 			
