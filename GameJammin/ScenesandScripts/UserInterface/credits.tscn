@@ -1,6 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://hweu1ymh7tby"]
+[gd_scene load_steps=10 format=3 uid="uid://hweu1ymh7tby"]
 
 [ext_resource type="Script" path="res://ScenesandScripts/UserInterface/credits.gd" id="1_fl0n4"]
+[ext_resource type="Texture2D" uid="uid://rebq5jl7kbmf" path="res://Art/UI/BackSelected.png" id="2_6sgfy"]
+[ext_resource type="Texture2D" uid="uid://cvxgor1to65vf" path="res://Art/UI/BackUnselected.png" id="3_iwtnb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_clsvd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_op0nf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gf6tm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_04i2q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_apnub"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uq1ai"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -10,6 +24,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fl0n4")
+backSelected = ExtResource("2_6sgfy")
+backUnselected = ExtResource("3_iwtnb")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -72,7 +88,7 @@ vertical_alignment = 1
 [node name="Colleen" type="Label" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Colleen Romeo.......................Lead Artist"
+text = "Colleen Romeo.......................Programmer"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -85,7 +101,7 @@ vertical_alignment = 1
 [node name="Eddie" type="Label" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Eddie.......................Lead Artist"
+text = "Eddie.......................Programmer"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -105,12 +121,20 @@ offset_top = -107.0
 offset_right = 239.0
 offset_bottom = -42.0
 grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_clsvd")
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/PanelContainer"]
+layout_mode = 2
+texture = ExtResource("3_iwtnb")
 
 [node name="Button" type="Button" parent="ColorRect/PanelContainer"]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_op0nf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gf6tm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_04i2q")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_apnub")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uq1ai")
 
-[node name="Label" type="Label" parent="ColorRect/PanelContainer"]
-layout_mode = 2
-text = "BACK"
-
+[connection signal="mouse_entered" from="ColorRect/PanelContainer/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="ColorRect/PanelContainer/Button" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="ColorRect/PanelContainer/Button" to="." method="_on_button_pressed"]
