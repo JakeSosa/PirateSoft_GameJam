@@ -92,8 +92,8 @@ process_material = SubResource("ParticleProcessMaterial_1k37l")
 draw_pass_1 = SubResource("PlaneMesh_18x38")
 
 [node name="Area3D" type="Area3D" parent="."]
-collision_layer = 4
-collision_mask = 4
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00742, 0)
