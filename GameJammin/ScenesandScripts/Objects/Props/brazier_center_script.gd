@@ -16,8 +16,10 @@ extends StaticBody3D
 @export var purple_brazier : OmniLight3D
 
 @export var center_brazier_color : Color
-
 var near_brazier_center = false
+
+#Pop Up Dialouge Variables
+@onready var floating_text = preload("res://ScenesandScripts/PopUpDialouge/PopUp.tscn")
 
 func _ready() -> void:
 	$OmniLight3D.visible = false
@@ -36,3 +38,7 @@ func turn_on():
 	if near_brazier_center == true && $OmniLight3D.visible == false:
 		if red_brazier.visible == true && blue_brazier.visible == true && green_brazier.visible == true && cyan_brazier.visible == true && purple_brazier.visible == true && yellow_brazier.visible == true:
 			$OmniLight3D.visible = true
+			var winner_text = "CONGRATULATIONS - YOU WIN"
+			var text = floating_text.instantiate()
+			text.winner_text = winner_text
+			add_child(text)
