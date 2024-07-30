@@ -11,6 +11,11 @@ extends StaticBody3D
 var near_brazier := false
 @export var particle_color : Color
 
+#Pop Up Dialouge Variables
+var display_time : float = 1
+var text_to_show : String
+@onready var pop_up_scene = load("res://ScenesandScripts/PopUpDialouge/PopUp.tscn")
+
 func _ready():
 	$OmniLight3D.light_color = brazier_color
 	
@@ -22,6 +27,12 @@ func _on_brazier_body_entered(body: Node3D) -> void:
 
 func _on_brazier_body_exited(body: Node3D) -> void:
 	near_brazier = false
+	
+func show_dialouge():
+		var new_pop_up = pop_up_scene.instantiate()
+		new_pop_up.show_time = display_time
+		new_pop_up.text_to_show = text_to_show
+		add_child(new_pop_up)
 	
 func brazier_controller():
 	#If player torch is WHITE & brazier assigned color is brazier_color
@@ -91,5 +102,6 @@ func brazier_controller():
 			player.animation_player.play("Light")
 			player.animation_timer.start()		
 		else:
+			show_dialouge()
 			print("Can't Mix This Color")
 			

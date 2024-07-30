@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://epxgdox0in1w"]
+
+[ext_resource type="Script" path="res://ScenesandScripts/PopUpDialouge/PopUp_Script.gd" id="1_p6dtx"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p6dtx")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 250.0
+offset_right = 792.0
+offset_bottom = 446.0
+color = Color(0, 0, 1, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 22.0
+offset_right = 322.0
+offset_bottom = 175.0
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
