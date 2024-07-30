@@ -53,14 +53,14 @@ radius = 0.661348
 script = ExtResource("1_37wke")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.1, 0, 0, 0, 2.1, 0, 0, 0, 2.1, -0.235429, 0, 0)
+transform = Transform3D(2.6, 0, 0, 0, 2.6, 0, 0, 0, 2.6, -0.348042, 0, 0)
 mesh = ExtResource("1_irbxo")
 surface_material_override/0 = ExtResource("2_pg655")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.338475, 0.219294, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.490135, 0.282827, 0)
 visible = false
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="OmniLight3D"]
