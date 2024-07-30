@@ -5,8 +5,10 @@ extends StaticBody3D
 #Brazier variables
 #Make brazier_color public to assign unique color to each brazier in level_1 scene
 @export var brazier_color : Color
+
 #Set public variable that will act as a pointer to the player in level 1 scene
 @export var player : CharacterBody3D
+
 #Set variable to define when player is near brazier
 var near_brazier := false
 @export var particle_color : Color
