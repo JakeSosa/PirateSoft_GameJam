@@ -5,7 +5,7 @@ extends Node3D
 
 var under_waterfall := false
 
-var sizzle = preload("res://Art/Sounds/SFX/PlayerSFX/Douse.wav")
+var sizzle = preload("res://Art/Sounds/SFX/PlayerSFX/Sizzle.mp3")
 
 func _on_waterfall_body_entered(body: Node3D) -> void:
 	if player.torch.visible == true:

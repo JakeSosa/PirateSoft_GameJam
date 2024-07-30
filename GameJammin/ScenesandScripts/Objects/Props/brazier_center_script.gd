@@ -21,6 +21,8 @@ var near_brazier_center = false
 #Pop Up Dialouge Variables
 @onready var floating_text = preload("res://ScenesandScripts/PopUpDialouge/PopUp.tscn")
 
+var winSound = preload("res://Art/Sounds/SFX/MenuSounds/BigWin2.mp3")
+
 func _ready() -> void:
 	$OmniLight3D.visible = false
 	
@@ -42,3 +44,4 @@ func turn_on():
 			var text = floating_text.instantiate()
 			text.winner_text = winner_text
 			add_child(text)
+			MainMenuMusic.play_SFX(winSound)
