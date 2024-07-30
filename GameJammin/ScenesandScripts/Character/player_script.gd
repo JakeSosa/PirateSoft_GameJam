@@ -14,7 +14,7 @@ var is_dousing = false
 @onready var character_model = $Char2
 @onready var animation_timer = $AnimationTimer
 #Torch Variables
-@onready var torch = $Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D
+@onready var torch = $Char2/Armature/Skeleton3D/BoneAttachment3D/playertorch/OmniLight3D
 var default_torch_color = Color.WHITE
 #Camera Controller Variables
 @onready var camera_controller = $CameraController
@@ -26,7 +26,7 @@ var near_lever : bool = false
 signal kill_waterfall
 
 func _ready():
-	$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = default_torch_color
+	$Char2/Armature/Skeleton3D/BoneAttachment3D/playertorch/OmniLight3D.light_color = default_torch_color
 	
 func _physics_process(_delta):
 	player_controller()
@@ -71,7 +71,7 @@ func torch_controller():
 	#If player presses Q, play Douse animation	
 	if Input.is_action_just_pressed("douseTorch"):
 		is_dousing = true
-		$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = default_torch_color
+		$Char2/Armature/Skeleton3D/BoneAttachment3D/playertorch/OmniLight3D.light_color = default_torch_color
 		animation_player.play("Douse")
 		animation_timer.start()
 		

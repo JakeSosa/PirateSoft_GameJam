@@ -14,9 +14,7 @@ var near_brazier := false
 @export var particle_color : Color
 
 #Pop Up Dialouge Variables
-@export var display_time : float = 1
-@export var text_to_show : String
-@onready var pop_up_scene = load("res://ScenesandScripts/PopUpDialouge/PopUp.tscn")
+@onready var floating_text = preload("res://ScenesandScripts/PopUpDialouge/PopUp.tscn")
 
 func _ready():
 	$OmniLight3D.light_color = brazier_color
@@ -31,12 +29,6 @@ func _on_brazier_body_entered(body: Node3D) -> void:
 func _on_brazier_body_exited(body: Node3D) -> void:
 	near_brazier = false
 	
-func show_dialouge():
-		var new_pop_up = pop_up_scene.instantiate()
-		new_pop_up.show_time = display_time
-		new_pop_up.text_to_show = text_to_show
-		add_child(new_pop_up)
-	
 func brazier_controller():
 	#If player torch does NOT match assigned brazier_color 
 	#Then keep visibilty for brazier's OmniLight3D turned OFF
@@ -46,8 +38,10 @@ func brazier_controller():
 			$OmniLight3D.visible = false
 			player.animation_player.play("Light")
 			player.animation_timer.start()
-			show_dialouge()
-			print("Hmmm....doesn't work.")
+			var pop_up_text = "Hmmm...doesn't work."
+			var text = floating_text.instantiate()
+			text.pop_up_text = pop_up_text
+			add_child(text)
 			
 		#If player torch is RED & brazier assigned color is RED
 		#Then turn visibility for brazier's OmniLight3D turned ON
@@ -98,5 +92,8 @@ func brazier_controller():
 			player.torch.light_color = Color.WHITE	
 			
 		else:
-			print("hmmm....this isn't the right color")
+			var pop_up_text = "Hmmm...doesn't work."
+			var text = floating_text.instantiate()
+			text.pop_up_text = pop_up_text
+			add_child(text)
 			
