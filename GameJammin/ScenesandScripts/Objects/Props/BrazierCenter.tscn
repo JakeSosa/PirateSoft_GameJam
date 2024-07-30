@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dp18w64g3858v"]
+[gd_scene load_steps=11 format=3 uid="uid://dp18w64g3858v"]
 
 [ext_resource type="ArrayMesh" uid="uid://uuduhhne338m" path="res://Art/Meshes/Objects/Props/PropsPack5/BrazierCenterWhite.obj" id="1_4syqo"]
 [ext_resource type="Script" path="res://ScenesandScripts/Objects/Props/BrazierCenter_script.gd" id="1_jc0l5"]
@@ -23,9 +23,6 @@ shader_parameter/NRM = ExtResource("3_uoyr7")
 [sub_resource type="BoxShape3D" id="BoxShape3D_iqp41"]
 size = Vector3(1.78125, 1.17383, 1.62012)
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_22m2q"]
-radius = 7.89325
-
 [node name="BrazierCenter" type="StaticBody3D"]
 script = ExtResource("1_jc0l5")
 
@@ -37,16 +34,3 @@ surface_material_override/0 = SubResource("ShaderMaterial_6uayr")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.606095, 0.00941467)
 shape = SubResource("BoxShape3D_iqp41")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.23374, 0)
-light_energy = 2.0
-
-[node name="Area3D" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00863, 0)
-shape = SubResource("CylinderShape3D_22m2q")
-
-[connection signal="body_entered" from="Area3D" to="." method="_on_brazier_center_body_entered"]
-[connection signal="body_exited" from="Area3D" to="." method="_on_brazier_center_body_exited"]
