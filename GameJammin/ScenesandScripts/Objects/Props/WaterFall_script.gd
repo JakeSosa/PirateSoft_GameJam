@@ -5,10 +5,15 @@ extends Node3D
 
 var under_waterfall := false
 
+var sizzle = preload("res://Art/Sounds/SFX/PlayerSFX/Sizzle.mp3")
+
 func _on_waterfall_body_entered(body: Node3D) -> void:
+	if player.torch.visible == true:
+		MainMenuMusic.play_SFX(sizzle)
 	under_waterfall = true
 	player.torch.visible = false
 	player.torch.light_color = Color.WHITE
+	
 	
 func _on_waterfall_body_exited(body: Node3D) -> void:
 	under_waterfall = false

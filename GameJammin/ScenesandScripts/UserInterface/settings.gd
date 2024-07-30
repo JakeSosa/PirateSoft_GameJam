@@ -3,6 +3,8 @@ extends Control
 @export var backSelected : Texture
 @export var backUnselected : Texture
 
+var menu_sound = preload("res://Art/Sounds/SFX/MenuSounds/MenuButtonSound.mp3")
+
 func _process(delta):
 	AudioServer.set_bus_volume_db(2,linear_to_db($MarginContainer/VBoxContainer/MusicVolume.value))
 	AudioServer.set_bus_volume_db(1,linear_to_db($MarginContainer/VBoxContainer/SFXVolume.value))
@@ -14,6 +16,7 @@ func _on_back_button_pressed():
 
 func _on_button_mouse_entered():
 	$PanelContainer/BackText.texture = backSelected
+	MainMenuMusic.play_SFX(menu_sound)
 
 
 func _on_button_mouse_exited():

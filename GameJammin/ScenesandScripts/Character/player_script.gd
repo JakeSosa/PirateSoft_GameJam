@@ -78,6 +78,6 @@ func torch_controller():
 #Set Animation timer on player scene to make sure animation finishes before player moves
 func _on_animation_timer_timeout() -> void:
 	is_dousing = false
-	is_lighting = false	
+	is_lighting = false
 	
 

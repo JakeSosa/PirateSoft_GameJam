@@ -14,6 +14,9 @@ var near_brazier := false
 #Pop Up Dialouge Variables
 @onready var floating_text = preload("res://ScenesandScripts/PopUpDialouge/PopUp.tscn")
 
+#Preload SFX
+var BadMixSFX = preload("res://Art/Sounds/SFX/MenuSounds/BadMix.mp3")
+
 func _ready():
 	$OmniLight3D.light_color = brazier_color
 	
@@ -94,9 +97,11 @@ func brazier_controller():
 			player.animation_player.play("Light")
 			player.animation_timer.start()		
 		else:
+			MainMenuMusic.play_SFX(BadMixSFX)
 			var pop_up_text = "Hmmm...doesn't work."
 			var text = floating_text.instantiate()
 			text.pop_up_text = pop_up_text
 			add_child(text)
+			
 			
 			
