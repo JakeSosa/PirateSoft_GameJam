@@ -69,7 +69,7 @@ func player_camera():
 	
 func torch_controller():
 	#If player presses Q, play Douse animation	
-	if Input.is_action_just_pressed("douseTorch"):
+	if Input.is_action_just_pressed("douseTorch") && torch.visible == true:
 		is_dousing = true
 		$Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D.light_color = default_torch_color
 		animation_player.play("Douse")
