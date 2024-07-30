@@ -1,8 +1,49 @@
-[gd_scene load_steps=5 format=3 uid="uid://cucpsroek1jxt"]
+[gd_scene load_steps=11 format=3 uid="uid://cucpsroek1jxt"]
 
 [ext_resource type="Script" path="res://ScenesandScripts/Objects/Props/sconce_script_v2.gd" id="1_37wke"]
 [ext_resource type="ArrayMesh" uid="uid://dfb5ff0bpe22t" path="res://Art/Meshes/Objects/Props/PropPack1/Sconce.obj" id="1_irbxo"]
 [ext_resource type="Material" uid="uid://sid86jvq7qpj" path="res://Art/Materials/propPack1.tres" id="2_pg655"]
+[ext_resource type="Texture2D" uid="uid://dvj2k5sakvjq" path="res://Art/Textures/WaterFallTex/WaterFallParticle.png" id="4_oj7il"]
+
+[sub_resource type="Curve" id="Curve_pnv52"]
+_data = [Vector2(0, 0), 0.0, 10.8262, 0, 0, Vector2(0.159091, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -4.19016, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_34x13"]
+curve = SubResource("Curve_pnv52")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bsbov"]
+emission_shape_scale = Vector3(0.2, 0.2, 0.2)
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 2.425, 0)
+tangential_accel_min = -1.0
+tangential_accel_max = 1.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_34x13")
+turbulence_enabled = true
+turbulence_noise_strength = 7.9
+turbulence_noise_scale = 3.538
+turbulence_noise_speed_random = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aimyj"]
+transparency = 2
+alpha_scissor_threshold = 0.563
+alpha_antialiasing_mode = 0
+shading_mode = 2
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("4_oj7il")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qr17e"]
+material = SubResource("StandardMaterial3D_aimyj")
+size = Vector2(0.1, 0.1)
+orientation = 2
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_6s4h2"]
 height = 4.00103
@@ -21,6 +62,14 @@ surface_material_override/0 = ExtResource("2_pg655")
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.338475, 0.219294, 0)
 visible = false
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="OmniLight3D"]
+editor_description = "ADD A SCRIPT TO LOWER PARTICLE TIME WHEN PLAYER MOVING"
+transform = Transform3D(0.716893, -5.34127e-09, 0, 0, 0.716893, 0, -1.06826e-08, 0, 0.716893, 0, -0.00707798, 0)
+cast_shadow = 0
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_bsbov")
+draw_pass_1 = SubResource("PlaneMesh_qr17e")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 4

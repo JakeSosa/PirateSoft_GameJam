@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dp18w64g3858v"]
+[gd_scene load_steps=18 format=3 uid="uid://dp18w64g3858v"]
 
 [ext_resource type="ArrayMesh" uid="uid://uuduhhne338m" path="res://Art/Meshes/Objects/Props/PropsPack5/BrazierCenterWhite.obj" id="1_4syqo"]
 [ext_resource type="Script" path="res://ScenesandScripts/Objects/Props/brazier_center_script.gd" id="1_a1u5d"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dcdorn2gqncd7" path="res://Art/Textures/Props05Textures/M_Props05_Mixed_AO.png" id="3_ylg0v"]
 [ext_resource type="Texture2D" uid="uid://5knayyphbvet" path="res://Art/Textures/Props05Textures/M_Props05_Roughness.png" id="4_nxyuj"]
 [ext_resource type="Texture2D" uid="uid://cyg72fa0xok3v" path="res://Art/Textures/Props05Textures/M_Props05_Metallic.png" id="5_6vu3n"]
+[ext_resource type="Texture2D" uid="uid://dvj2k5sakvjq" path="res://Art/Textures/WaterFallTex/WaterFallParticle.png" id="9_pliqa"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6uayr"]
 render_priority = 0
@@ -22,6 +23,47 @@ shader_parameter/NRM = ExtResource("3_uoyr7")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iqp41"]
 size = Vector3(1.78125, 1.17383, 1.62012)
+
+[sub_resource type="Curve" id="Curve_x8xor"]
+_data = [Vector2(0, 0), 0.0, 10.8262, 0, 0, Vector2(0.159091, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -4.19016, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_u02b5"]
+curve = SubResource("Curve_x8xor")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1k37l"]
+emission_shape_scale = Vector3(0.2, 0.2, 0.2)
+emission_shape = 1
+emission_sphere_radius = 6.0
+gravity = Vector3(0, 2.425, 0)
+tangential_accel_min = -1.0
+tangential_accel_max = 1.0
+scale_min = 2.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_u02b5")
+turbulence_enabled = true
+turbulence_noise_strength = 7.9
+turbulence_noise_scale = 3.538
+turbulence_noise_speed_random = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nev0e"]
+transparency = 2
+alpha_scissor_threshold = 0.563
+alpha_antialiasing_mode = 0
+shading_mode = 2
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("9_pliqa")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_18x38"]
+material = SubResource("StandardMaterial3D_nev0e")
+size = Vector2(0.1, 0.1)
+orientation = 2
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_p6v2j"]
 radius = 7.17785
@@ -40,6 +82,14 @@ shape = SubResource("BoxShape3D_iqp41")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11125, 0)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="OmniLight3D"]
+editor_description = "ADD A SCRIPT TO LOWER PARTICLE TIME WHEN PLAYER MOVING"
+transform = Transform3D(0.716893, -5.34127e-09, 0, 0, 0.716893, 0, -1.06826e-08, 0, 0.716893, 0, 0.057192, 0)
+cast_shadow = 0
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_1k37l")
+draw_pass_1 = SubResource("PlaneMesh_18x38")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 4
