@@ -144,7 +144,6 @@ surface_material_override/0 = ExtResource("8_2ci6g")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SlidingDoor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01203, 1.10327, 0.497082)
 shape = SubResource("BoxShape3D_7dra3")
-disabled = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SlidingDoor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.979428, 1.19207, 0.536967)
