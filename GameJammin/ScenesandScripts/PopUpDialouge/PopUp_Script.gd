@@ -1,12 +1,13 @@
 extends Control
+# Reference video (https://www.youtube.com/watch?v=UlvBqz8bhCo)
 
-var text_to_show = "Hmmm....doesn't work."
-var show_time = 1
+@onready var label = $ColorRect/Label
+
+var pop_up_text
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$ColorRect/Label.text = text_to_show
-	$Timer.start(show_time)
+	label.set_text(str(pop_up_text))
 
 
 func _on_timer_timeout() -> void:
