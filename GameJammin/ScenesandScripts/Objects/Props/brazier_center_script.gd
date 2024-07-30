@@ -15,12 +15,13 @@ extends StaticBody3D
 @export var yellow_brazier : OmniLight3D
 @export var purple_brazier : OmniLight3D
 
-@onready var white_brazier = $OmniLight3D
+@export var center_brazier_color : Color
 
 var near_brazier_center = false
 
 func _ready() -> void:
-	white_brazier.visible = false
+	$OmniLight3D.visible = false
+	
 
 func _process(delta: float) -> void:
 	turn_on()
@@ -32,11 +33,6 @@ func _on_center_brazier_body_exited(body: Node3D) -> void:
 	near_brazier_center = false
 	
 func turn_on():
-	if near_brazier_center == true && white_brazier.visible == false:
-		if red_brazier.visible == true:
-			if blue_brazier.visible == true:
-				if green_brazier.visible == true:
-					if cyan_brazier.visible == true:
-						if purple_brazier.visible == true:
-							if yellow_brazier.visible == true:
-								white_brazier.visible = true
+	if near_brazier_center == true && $OmniLight3D.visible == false:
+		if red_brazier.visible == true && blue_brazier.visible == true && green_brazier.visible == true && cyan_brazier.visible == true && purple_brazier.visible == true && yellow_brazier.visible == true:
+			$OmniLight3D.visible = true

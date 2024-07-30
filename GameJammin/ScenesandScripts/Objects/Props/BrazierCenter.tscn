@@ -24,7 +24,7 @@ shader_parameter/NRM = ExtResource("3_uoyr7")
 size = Vector3(1.78125, 1.17383, 1.62012)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_p6v2j"]
-radius = 5.63792
+radius = 7.17785
 
 [node name="BrazierCenter" type="StaticBody3D"]
 script = ExtResource("1_a1u5d")
@@ -39,7 +39,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.606095, 0.00941467)
 shape = SubResource("BoxShape3D_iqp41")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-light_energy = 2.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11125, 0)
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 4
