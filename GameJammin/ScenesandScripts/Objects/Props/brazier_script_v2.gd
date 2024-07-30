@@ -13,10 +13,6 @@ var near_brazier := false
 
 func _ready():
 	$OmniLight3D.light_color = brazier_color
-	#print(brazier_color)
-	#$OmniLight3D/GPUParticles3D.process_material.resource_local_to_scene = true
-	#$OmniLight3D/GPUParticles3D.process_material.color = Color(1,0,0,1)
-	#print("PaticleColor ",$OmniLight3D/GPUParticles3D.process_material.color)
 	
 func _physics_process(delta: float) -> void:
 	brazier_controller()
