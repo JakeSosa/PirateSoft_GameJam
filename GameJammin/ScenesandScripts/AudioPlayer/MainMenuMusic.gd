@@ -1,7 +1,8 @@
 extends AudioStreamPlayer
 
 const MainMenuMusic = preload("res://Art/Sounds/Music/TRACK1_mixdown.mp3")
-
+var sfxVolumeSave : float = .5
+var musicVolumeSave : float = .5
 
 func stop_menu_music():
 	$".".playing = false
