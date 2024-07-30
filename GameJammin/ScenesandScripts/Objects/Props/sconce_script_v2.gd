@@ -9,6 +9,12 @@ extends StaticBody3D
 var default_sconce_color = Color.WHITE
 var near_sconce := false
 
+#Pop Up Dialouge Variables
+@onready var floating_text = preload("res://ScenesandScripts/PopUpDialouge/PopUp.tscn")
+
+#Preload SFX
+var BadMixSFX = preload("res://Art/Sounds/SFX/MenuSounds/BadMix.mp3")
+
 func _ready():
 	sconce.light_color = default_sconce_color
 	sconce.visible = false
@@ -130,8 +136,11 @@ func interact_sconce():
 					player.torch.light_color = sconce.light_color
 					player.animation_player.play("Light")
 					player.animation_timer.start()
-				
 				else:
-					print("Can't Mix This Color")
+					var pop_up_text = "Hmmm...doesn't work."
+					var text = floating_text.instantiate()
+					text.pop_up_text = pop_up_text
+					add_child(text)
+					MainMenuMusic.play_SFX(BadMixSFX)
 		
 
