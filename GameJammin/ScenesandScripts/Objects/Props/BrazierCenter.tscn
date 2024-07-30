@@ -38,6 +38,9 @@ surface_material_override/0 = SubResource("ShaderMaterial_6uayr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.606095, 0.00941467)
 shape = SubResource("BoxShape3D_iqp41")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_energy = 2.0
+
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 4
 collision_mask = 4
