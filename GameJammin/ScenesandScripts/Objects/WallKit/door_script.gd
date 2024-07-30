@@ -11,6 +11,9 @@ extends StaticBody3D
 @export var second_nearby_sconce : OmniLight3D
 #Set public variable to easily assign door's animation player
 @onready var animation_player = $AnimationPlayer
+#Variable used to determine if the door is a victory door
+@export var victoryDoor : bool = false
+var victoryDoorSound = preload("res://Art/Sounds/SFX/MenuSounds/MiniWin.mp3")
 
 var door_color
 var near_door := false
@@ -46,6 +49,8 @@ func torch_open_door():
 				animation_player.play("DoorOpen")
 				door_open = true
 				player.animation_timer.start()
+				if victoryDoor == true:
+					MainMenuMusic.play_SFX(victoryDoorSound)
 				
 func sconce_open_door():
 	#NOTE - NEARBY_SCONCE
