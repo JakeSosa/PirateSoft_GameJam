@@ -178,7 +178,7 @@ script = ExtResource("1_1q0qe")
 metadata/_edit_group_ = true
 
 [node name="Char2" type="Node3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.115829, 0, 5.06306e-09)
 
 [node name="Armature" type="Node3D" parent="Char2"]
 transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0, 0)
@@ -380,13 +380,13 @@ transform = Transform3D(0.980672, 0.17591, 0.085658, 0.110475, -0.136505, -0.984
 mesh = SubResource("CapsuleMesh_j2joe")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D"]
-transform = Transform3D(24.5839, 1.73748e-05, 1.2517e-05, -6.09457e-06, 24.5839, -2.86102e-06, -3.21865e-06, -1.19209e-06, 24.5839, -0.0161943, -4.38647, 0.0855465)
+transform = Transform3D(50, 1.85072e-05, 2.88486e-05, 9.46224e-06, 50, -1.38283e-05, -5.00679e-06, -9.53674e-07, 50, 0.102105, -4.94049, 0.0516806)
 layers = 3
 shadow_enabled = true
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Char2/Armature/Skeleton3D/BoneAttachment3D/MeshInstance3D/OmniLight3D"]
 editor_description = "ADD A SCRIPT TO LOWER PARTICLE TIME WHEN PLAYER MOVING"
-transform = Transform3D(1, -7.45058e-09, 0, 0, 1, 0, -1.49012e-08, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 2.79397e-09, 0, -1.16415e-08, 1, 0, -1.49012e-08, 0, 1, 0, 0, 0)
 cast_shadow = 0
 amount = 16
 lifetime = 0.85
