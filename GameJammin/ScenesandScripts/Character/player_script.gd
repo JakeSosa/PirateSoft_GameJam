@@ -80,23 +80,4 @@ func _on_animation_timer_timeout() -> void:
 	is_dousing = false
 	is_lighting = false	
 	
-	
-	
-	
-	
-	
-	
-#Recieved emiited signals from lever scene if player is near lever
-func _on_lever_enter_check() -> void:
-	near_lever = true
-func _on_lever_exit_check() -> void:
-	near_lever = false
-	
-#Emit signals from player script to waterfall script
-func _input(event):
-	#If player is near lever & presses E, play Pull animation
-	if Input.is_action_just_pressed("interact") && near_lever == true:
-		lever_animation_player.play("Pull")
-		lever_audio_player.play()
-		#Emit signal from player script to waterfall script
-		kill_waterfall.emit()	
+

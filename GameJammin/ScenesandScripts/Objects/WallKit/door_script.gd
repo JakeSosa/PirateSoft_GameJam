@@ -71,8 +71,6 @@ func sconce_open_door():
 			animation_player.play("DoorOpen")
 			door_open = true
 			player.animation_timer.start()	
-	
-	
 			
 	#NOTE - COMBINED_SCONCE
 	if nearby_sconce != null && second_nearby_sconce != null && door_open == false:
@@ -81,58 +79,54 @@ func sconce_open_door():
 		if nearby_sconce.light_color == Color(1, 0, 0, 1) && second_nearby_sconce.light_color == Color(0, 0, 1, 1):
 			combined_sconce_color = Color(1, 0, 1, 1)
 			print(combined_sconce_color)
-			if combined_sconce_color == Color(1, 0, 1, 1):
+			if combined_sconce_color.is_equal_approx(Color(door_color.x, door_color.y, door_color.z, door_color.w)):
 				animation_player.play("DoorOpen")
 				door_open = true
-				#player.animation_timer.start()
-			#If nearby_sconce is BLUE & secondary_nearby_sconce is RED
-			#Then set combined_sconce_color to PURPLE 
+		#If nearby_sconce is BLUE & secondary_nearby_sconce is RED
+		#Then set combined_sconce_color to PURPLE 
 		elif nearby_sconce.light_color == Color(0, 0, 1, 1) && second_nearby_sconce.light_color == Color(1, 0, 0, 1):
 			combined_sconce_color = Color(1, 0, 1, 1)
 			print(combined_sconce_color)
-			if combined_sconce_color == Color(1, 0, 1, 1):
+			if combined_sconce_color.is_equal_approx(Color(door_color.x, door_color.y, door_color.z, door_color.w)):
 				animation_player.play("DoorOpen")
 				door_open = true
-				#player.animation_timer.start()
-				
-		#If nearby_sconce is BLUE & secondary_nearby_sconce is GREEN
-		#Then set combined_sconce_color to YELLOW 
-		elif nearby_sconce.light_color == Color(0, 0, 1, 1) && second_nearby_sconce.light_color == Color(0, 1, 0, 1):
-			combined_sconce_color = Color(1, 0, 1, 1)
-			print(combined_sconce_color)
-			if combined_sconce_color == Color(1, 0, 1, 1):
-				animation_player.play("DoorOpen")
-				door_open = true
-				#player.animation_timer.start()
-		#If nearby_sconce is GREEN & secondary_nearby_sconce is BLUE
-		#Then set combined_sconce_color to YELLOW 
-		elif nearby_sconce.light_color == Color(0, 1, 0, 1) && second_nearby_sconce.light_color == Color(0, 0, 1, 1):
-			combined_sconce_color = Color(1, 0, 1, 1)
-			print(combined_sconce_color)
-			if combined_sconce_color == Color(1, 0, 1, 1):
-				animation_player.play("DoorOpen")
-				door_open = true
-				#player.animation_timer.start()
 				
 		#If nearby_sconce is RED & secondary_nearby_sconce is GREEN
-		#Then set combined_sconce_color to CYAN 
+		#Then set combined_sconce_color to YELLOW 
 		elif nearby_sconce.light_color == Color(1, 0, 0, 1) && second_nearby_sconce.light_color == Color(0, 1, 0, 1):
-			combined_sconce_color = Color(0, 1, 1, 1)
+			combined_sconce_color = Color(1, 1, 0, 1)
 			print(combined_sconce_color)
-			if combined_sconce_color == Color(0, 1, 1, 1):
+			if combined_sconce_color.is_equal_approx(Color(door_color.x, door_color.y, door_color.z, door_color.w)):
 				animation_player.play("DoorOpen")
 				door_open = true
-				#player.animation_timer.start()
 		#If nearby_sconce is GREEN & secondary_nearby_sconce is RED
-		#Then set combined_sconce_color to CYAN 
+		#Then set combined_sconce_color to YELLOW 
 		elif nearby_sconce.light_color == Color(0, 1, 0, 1) && second_nearby_sconce.light_color == Color(1, 0, 0, 1):
-			combined_sconce_color = Color(0, 1, 1, 1)
+			combined_sconce_color = Color(1, 1, 0, 1)
 			print(combined_sconce_color)
-			if combined_sconce_color == Color(0, 1, 1, 1):
+			if combined_sconce_color.is_equal_approx(Color(door_color.x, door_color.y, door_color.z, door_color.w)):
 				animation_player.play("DoorOpen")
 				door_open = true
-				#player.animation_timer.start()
+				
+		#If nearby_sconce is BLUE & secondary_nearby_sconce is GREEN
+		#Then set combined_sconce_color to CYAN 
+		elif nearby_sconce.light_color == Color(0, 0, 1, 1) && second_nearby_sconce.light_color == Color(0, 1, 0, 1):
+			combined_sconce_color = Color(0, 1, 1, 1)
+			print(combined_sconce_color)
+			if combined_sconce_color.is_equal_approx(Color(door_color.x, door_color.y, door_color.z, door_color.w)):
+				animation_player.play("DoorOpen")
+				door_open = true
+		#If nearby_sconce is GREEN & secondary_nearby_sconce is BLUE
+		#Then set combined_sconce_color to CYAN 
+		elif nearby_sconce.light_color == Color(0, 1, 0, 1) && second_nearby_sconce.light_color == Color(0, 0, 1, 1):
+			combined_sconce_color = Color(0, 1, 1, 1)
+			print(combined_sconce_color)
+			if combined_sconce_color.is_equal_approx(Color(door_color.x, door_color.y, door_color.z, door_color.w)):
+				animation_player.play("DoorOpen")
+				door_open = true
+		
 			
 			
+		
 			
 		
