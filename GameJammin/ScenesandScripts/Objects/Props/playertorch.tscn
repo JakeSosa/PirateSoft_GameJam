@@ -15,5 +15,6 @@ normal_texture = ExtResource("3_wm72s")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.1, 0, 0, 0, 2.1, 0, 0, 0, 2.1, -0.00199682, 0.00440633, -0.00254822)
+cast_shadow = 0
 mesh = ExtResource("1_a2fp3")
 surface_material_override/0 = SubResource("StandardMaterial3D_jo2ms")
