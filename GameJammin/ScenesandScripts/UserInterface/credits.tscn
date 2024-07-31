@@ -42,8 +42,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -502.5
+offset_top = 73.525
 offset_right = 502.5
-offset_bottom = 55.0
+offset_bottom = 529.525
 grow_horizontal = 2
 
 [node name="Sky" type="Label" parent="ColorRect/VBoxContainer"]
@@ -75,7 +76,7 @@ vertical_alignment = 1
 [node name="Israel" type="Label" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Israel K.......................Lead Artist"
+text = "Israel Krzys.......................Lead Artist"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -101,7 +102,7 @@ vertical_alignment = 1
 [node name="Eddie" type="Label" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Eddie.......................Programmer"
+text = "Eddie Casey.......................Programmer"
 horizontal_alignment = 1
 vertical_alignment = 1
 
