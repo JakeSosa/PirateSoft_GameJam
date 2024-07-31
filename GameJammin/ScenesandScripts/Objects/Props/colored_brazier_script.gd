@@ -11,6 +11,7 @@ extends StaticBody3D
 
 #Set variable to define when player is near brazier
 var near_brazier := false
+
 @export var particle_color : Color
 
 #Pop Up Dialouge Variables
@@ -96,12 +97,77 @@ func brazier_controller():
 			player.torch.light_color = Color.WHITE	
 
 	#Withdraw color from brazier to torch		
-	#NOTE - Brazier light is turned ON	
+	#NOTE - Brazier light is turned ON
 	elif near_brazier == true && $OmniLight3D.visible == true && Input.is_action_just_pressed("interact"):
-		#if player.torch.light_color == player.default_torch_color:
 		player.is_lighting = true
 		player.torch.visible = true
-		player.torch.light_color = brazier_color
-		player.animation_player.play("Light")
-		player.animation_timer.start()	
+		#If player torch is WHITE 
+		#Then set player torch color to brazier_color
+		if player.torch.light_color == player.default_torch_color:
+			player.torch.light_color = brazier_color
+			player.animation_player.play("Light")
+			player.animation_timer.start()	
+			
+		#If player torch is RED & brazier assigned color is BLUE
+		#Then set player torch color to PURPLE (WORKS)
+		elif player.torch.light_color == Color(1, 0, 0, 1) && brazier_color == Color(0, 0, 1, 1):
+			player.torch.light_color = Color(1, 0, 1, 1)
+			player.animation_player.play("Light")
+			player.animation_timer.start()
+		#If player torch is RED & brazier assigned color is RED
+		#Then set player torch color to brazier_color (WORKS)
+		elif player.torch.light_color == Color(1, 0, 0, 1) && brazier_color == Color(1, 0, 0, 1):
+			player.torch.light_color = brazier_color
+			player.animation_player.play("Light")
+			player.animation_timer.start()
+		#If player torch is RED & brazier assigned color is GREEN (WORKS)
+		#Then set player torch color to YELLOW
+		elif player.torch.light_color == Color(1, 0, 0, 1) && brazier_color == Color(0, 1, 0, 1):
+			player.torch.light_color = Color(1, 1, 0, 1)
+			player.animation_player.play("Light")
+			player.animation_timer.start()
+			
+		#If player torch is BLUE & brazier assigned color is BLUE
+		#Then set player torch color to brazier_color (WORKS)
+		elif player.torch.light_color == Color(0, 0, 1, 1) && brazier_color == Color(0, 0, 1, 1):
+			player.torch.light_color = Color(0, 0, 1, 1)
+			player.animation_player.play("Light")
+			player.animation_timer.start()
+		#If player torch is BLUE & brazier assigned color is RED
+		#Then set player torch color to PURPLE (WORKS)
+		elif player.torch.light_color == Color(0, 0, 1, 1) && brazier_color == Color(1, 0, 0, 1):
+			player.torch.light_color = Color(1, 0, 1, 1)
+			player.animation_player.play("Light")
+			player.animation_timer.start()
+		#If player torch is BLUE & brazier assigned color is GREEN
+		#Then set player torch color to CYAN (WORKS)
+		elif player.torch.light_color == Color(0, 0, 1, 1) && brazier_color == Color(0, 1, 0, 1):
+			player.torch.light_color = Color(0, 1, 1, 1)
+			player.animation_player.play("Light")
+			player.animation_timer.start()
+			
+		#If player torch is GREEN & brazier assigned color is GREEN
+		#Then set player torch color to brazier_color (WORKS)
+		elif player.torch.light_color == Color(0, 1, 0, 1) && brazier_color == Color(0, 1, 0, 1):
+			player.torch.light_color = brazier_color
+			player.animation_player.play("Light")
+			player.animation_timer.start()	
+		#If player torch is GREEN & brazier assigned color is RED
+		#Then set player torch color to YELLOW (WORKS)
+		elif player.torch.light_color == Color(0, 1, 0, 1) && brazier_color == Color(1, 0, 0, 1):
+			player.torch.light_color = Color(1, 1, 0, 1)
+			player.animation_player.play("Light")
+			player.animation_timer.start()	
+		#If player torch is GREEN & brazier assigned color is BLUE
+		#Then set player torch color to CYAN (WORKS)
+		elif player.torch.light_color == Color(0, 1, 0, 1) && brazier_color == Color(0, 0, 1, 1):
+			player.torch.light_color = Color(0, 1, 1, 1)
+			player.animation_player.play("Light")
+			player.animation_timer.start()		
+		else:
+			var pop_up_text = "Hmmm...doesn't work."
+			var text = floating_text.instantiate()
+			text.pop_up_text = pop_up_text
+			add_child(text)
+			MainMenuMusic.play_SFX(BadMixSFX)
 			
