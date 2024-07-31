@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="PirateSoftwareGameJam"
+config/name="IRIDIA"
 run/main_scene="res://ScenesandScripts/UserInterface/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://IRIDIA Icon.png"
 
 [autoload]
 
