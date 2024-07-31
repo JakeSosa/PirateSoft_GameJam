@@ -164,6 +164,24 @@ func brazier_controller():
 			player.torch.light_color = Color(0, 1, 1, 1)
 			player.animation_player.play("Light")
 			player.animation_timer.start()		
+		#If player torch is CYAN & brazier assigned color is CYAN
+		#Then set player torch color to CYAN (WORKS)
+		elif player.torch.light_color == Color(0, 1, 1, 1) && brazier_color == Color(0, 1, 1, 1):
+			player.torch.light_color = Color(0, 1, 1, 1)
+			player.animation_player.play("Light")
+			player.animation_timer.start()	
+		#If player torch is YELLOW & brazier assigned color is YELLOW
+		#Then set player torch color to YELLOW (WORKS)
+		elif player.torch.light_color == Color(1, 1, 0, 1) && brazier_color == Color(1, 1, 0, 1):
+			player.torch.light_color = Color(1, 1, 0, 1)
+			player.animation_player.play("Light")
+			player.animation_timer.start()		
+		#If player torch is PURPLE & brazier assigned color is PURPLE
+		#Then set player torch color to PURPLE (WORKS)
+		elif player.torch.light_color == Color(1, 0, 1, 1) && brazier_color == Color(1, 0, 1, 1):
+			player.torch.light_color = Color(1, 0, 1, 1)
+			player.animation_player.play("Light")
+			player.animation_timer.start()
 		else:
 			var pop_up_text = "Hmmm...doesn't work."
 			var text = floating_text.instantiate()
