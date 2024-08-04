@@ -25,7 +25,9 @@ func player_controller():
 	move_and_slide()
 	
 func player_camera():
+	#NOTE: Reference video (https://www.youtube.com/watch?v=yVde3I3K7oo)
+	
 	#Make CameraController node position match player's position
-	camera_controller.position = position
+	camera_controller.position = lerp(camera_controller.position, position, 0.10)
 	
 	
