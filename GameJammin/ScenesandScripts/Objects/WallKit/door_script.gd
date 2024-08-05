@@ -45,7 +45,7 @@ func torch_open_door():
 		if door_color == null:
 			pass
 		else:
-			if player.torcdh.light_color.is_equal_approx(Color(door_color.x, door_color.y, door_color.z, door_color.w)):
+			if player.torch.light_color.is_equal_approx(Color(door_color.x, door_color.y, door_color.z, door_color.w)):
 				animation_player.play("DoorOpen")
 				door_open = true
 				player.animation_timer.start()
