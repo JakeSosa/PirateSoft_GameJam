@@ -1,6 +1,6 @@
 [gd_scene load_steps=87 format=3 uid="uid://samyftw2fbk5"]
 
-[ext_resource type="PackedScene" uid="uid://538fnpxacxpf" path="res://ScenesandScripts/Character/test_character.tscn" id="1_2uo0f"]
+[ext_resource type="PackedScene" uid="uid://538fnpxacxpf" path="res://ScenesandScripts/RETIRED/test_character.tscn" id="1_2uo0f"]
 [ext_resource type="Shader" path="res://Art/Shaders/PPShaderGLSL.gdshader" id="2_d10ar"]
 [ext_resource type="PackedScene" uid="uid://cpsau6s0g741l" path="res://ScenesandScripts/Objects/WallKit/wall_1m.tscn" id="3_xs2ks"]
 [ext_resource type="PackedScene" uid="uid://cj3iw4sipgygu" path="res://ScenesandScripts/Objects/WallKit/wall_2m.tscn" id="4_ff3s3"]

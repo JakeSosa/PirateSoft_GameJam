@@ -71,17 +71,18 @@ func player_camera():
 	camera_controller.position = lerp(camera_controller.position, position, 0.10)
 	
 func torch_controller():
-	#If player presses Q
-	if Input.is_action_just_pressed("douseTorch"):
-		#Set interacting to true
-		interacting = true
-		#And reset player torch color to white
-		torch.light_color = default_torch_color
-		#Set following animation parameters for animation tree
-		animation_tree["parameters/conditions/is_dousing"] = true
-	else:
-		#Set following animation parameters for animation tree
-		animation_tree["parameters/conditions/is_dousing"] = false
+	if moving == false:
+		#If player presses Q
+		if Input.is_action_just_pressed("douseTorch"):
+			#Set interacting to true
+			interacting = true
+			#And reset player torch color to white
+			torch.light_color = default_torch_color
+			#Set following animation parameters for animation tree
+			animation_tree["parameters/conditions/is_dousing"] = true
+		else:
+			#Set following animation parameters for animation tree
+			animation_tree["parameters/conditions/is_dousing"] = false
 	
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	print("Finished")
