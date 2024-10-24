@@ -28,7 +28,7 @@ turbulence_noise_speed_random = 4.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aimyj"]
 transparency = 2
-alpha_scissor_threshold = 0.563
+alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 shading_mode = 2
 vertex_color_use_as_albedo = true
@@ -61,13 +61,13 @@ surface_material_override/0 = ExtResource("2_pg655")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.490135, 0.282827, 0)
-visible = false
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="OmniLight3D"]
 editor_description = "ADD A SCRIPT TO LOWER PARTICLE TIME WHEN PLAYER MOVING"
 transform = Transform3D(0.716893, -5.34127e-09, 0, 0, 0.716893, 0, -1.06826e-08, 0, 0.716893, 0, -0.00707798, 0)
 cast_shadow = 0
 amount = 16
+local_coords = true
 process_material = SubResource("ParticleProcessMaterial_bsbov")
 draw_pass_1 = SubResource("PlaneMesh_qr17e")
 

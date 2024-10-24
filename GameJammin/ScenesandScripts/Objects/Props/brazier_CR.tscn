@@ -1,0 +1,112 @@
+[gd_scene load_steps=19 format=3 uid="uid://dbwmvt4wrvnjo"]
+
+[ext_resource type="Script" path="res://ScenesandScripts/Objects/Props/brazier_script_CR.gd" id="1_vrg6w"]
+[ext_resource type="ArrayMesh" uid="uid://p7joiyfir4x" path="res://Art/Meshes/Objects/Props/PropPack1/Brazier.obj" id="2_8qni2"]
+[ext_resource type="Shader" uid="uid://d2cm7x8ippg05" path="res://Art/Shaders/PBR.tres" id="3_g24eq"]
+[ext_resource type="Texture2D" uid="uid://rnbgh7va5t1u" path="res://Art/Textures/PropTexture/M_Props01_Mixed_AO.png" id="4_yegim"]
+[ext_resource type="Texture2D" uid="uid://cuxb6oeo6dshp" path="res://Art/Textures/PropTexture/M_Props01_Base_color.png" id="5_4a67y"]
+[ext_resource type="Texture2D" uid="uid://gjlm3h0g6q1" path="res://Art/Textures/PropTexture/M_Props01_Normal.png" id="6_gf4gn"]
+[ext_resource type="Texture2D" uid="uid://mc8pavqrnelh" path="res://Art/Textures/PropTexture/M_Props01_Roughness.png" id="7_jdxia"]
+[ext_resource type="Texture2D" uid="uid://dvj2k5sakvjq" path="res://Art/Textures/WaterFallTex/WaterFallParticle.png" id="8_v7p2y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ged1f"]
+render_priority = 0
+shader = ExtResource("3_g24eq")
+shader_parameter/TexPix = 100.0
+shader_parameter/UV_Tile = 1.0
+shader_parameter/BC = ExtResource("5_4a67y")
+shader_parameter/AmbientOcclusion = ExtResource("4_yegim")
+shader_parameter/Rough = ExtResource("7_jdxia")
+shader_parameter/NRM = ExtResource("6_gf4gn")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jmwbp"]
+height = 0.450695
+radius = 0.544265
+
+[sub_resource type="Gradient" id="Gradient_h66p2"]
+offsets = PackedFloat32Array(0.0202703, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5p66j"]
+gradient = SubResource("Gradient_h66p2")
+
+[sub_resource type="Curve" id="Curve_qpqli"]
+_data = [Vector2(0, 0), 0.0, 10.8262, 0, 0, Vector2(0.159091, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -4.19016, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_34x13"]
+curve = SubResource("Curve_qpqli")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6rq1a"]
+emission_shape_scale = Vector3(0.2, 0.2, 0.2)
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 2.425, 0)
+tangential_accel_min = -1.0
+tangential_accel_max = 1.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_34x13")
+color_ramp = SubResource("GradientTexture1D_5p66j")
+turbulence_enabled = true
+turbulence_noise_strength = 7.9
+turbulence_noise_scale = 3.538
+turbulence_noise_speed_random = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aimyj"]
+transparency = 2
+alpha_scissor_threshold = 0.563
+alpha_antialiasing_mode = 0
+shading_mode = 2
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("8_v7p2y")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cf6xr"]
+material = SubResource("StandardMaterial3D_aimyj")
+size = Vector2(0.1, 0.1)
+orientation = 2
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_q4ufa"]
+height = 0.4219
+radius = 0.972095
+
+[node name="BrazierCR" type="StaticBody3D"]
+transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, 0, 0, 0)
+script = ExtResource("1_vrg6w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(6.98956, 0, 0, 0, 6.98956, 0, 0, 0, 6.98956, 0, 0, 0)
+mesh = ExtResource("2_8qni2")
+surface_material_override/0 = SubResource("ShaderMaterial_ged1f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0450693, 0)
+shape = SubResource("CylinderShape3D_jmwbp")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.776666, 0)
+light_energy = 1.5
+distance_fade_enabled = true
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+editor_description = "ADD A SCRIPT TO LOWER PARTICLE TIME WHEN PLAYER MOVING"
+transform = Transform3D(1, -7.45058e-09, 0, 0, 1, 0, -1.49012e-08, 0, 1, 0, 5.82001e-07, 0)
+cast_shadow = 0
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_6rq1a")
+draw_pass_1 = SubResource("PlaneMesh_cf6xr")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0523928, 0)
+shape = SubResource("CylinderShape3D_q4ufa")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_brazier_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_brazier_body_exited"]

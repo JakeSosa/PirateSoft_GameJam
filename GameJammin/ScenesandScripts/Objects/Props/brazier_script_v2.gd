@@ -9,7 +9,6 @@ extends StaticBody3D
 @export var player : CharacterBody3D
 #Set variable to define when player is near brazier
 var near_brazier := false
-@export var particle_color : Color
 
 #Pop Up Dialouge Variables
 @onready var floating_text = preload("res://ScenesandScripts/PopUpDialouge/PopUp.tscn")

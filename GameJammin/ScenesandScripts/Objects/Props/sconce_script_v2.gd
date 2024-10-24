@@ -9,6 +9,7 @@ extends StaticBody3D
 var default_sconce_color = Color.WHITE
 var near_sconce := false
 
+
 #Pop Up Dialouge Variables
 @onready var floating_text = preload("res://ScenesandScripts/PopUpDialouge/PopUp.tscn")
 
@@ -18,7 +19,6 @@ var BadMixSFX = preload("res://Art/Sounds/SFX/MenuSounds/BadMix.mp3")
 func _ready():
 	sconce.light_color = default_sconce_color
 	sconce.visible = false
-	
 	
 func _physics_process(delta: float) -> void:
 	interact_sconce()

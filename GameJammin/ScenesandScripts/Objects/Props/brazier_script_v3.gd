@@ -3,13 +3,12 @@ extends StaticBody3D
 #NOTE - Brazier's Area3D Mask is assigned to 2 (aka player) 
 
 #Brazier variables
-#Make brazier_color public to assign unique color to each brazier in level_1 scene
+#Make brazier_color public to assign unique color to each brazier in scene
 @export var brazier_color : Color
-#Set public variable that will act as a pointer to the player in level 1 scene
+#Set public variable that will act as a pointer to the player in scene
 @export var player : CharacterBody3D
 #Set variable to define when player is near brazier
 var near_brazier := false
-@export var particle_color : Color
 
 #Pop Up Dialouge Variables
 @onready var floating_text = preload("res://ScenesandScripts/PopUpDialouge/PopUp.tscn")

@@ -19,7 +19,6 @@ func _ready():
 	sconce.light_color = default_sconce_color
 	sconce.visible = false
 	
-	
 func _physics_process(delta: float) -> void:
 	if near_sconce == true:
 		interact_sconce()

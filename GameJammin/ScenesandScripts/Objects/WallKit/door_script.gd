@@ -2,11 +2,11 @@ extends StaticBody3D
 #NOTE - Door's Area3D Collision is assigned to 1 (aka environment)
 #NOTE - Door's Area3D Mask is assigned to 2 (aka player) & 3 (aka props: sconce & brazier)
 
-#Set public variable to assign eacg door's color in level_1 scene
+#Set public variable to assign each door's color in scene
 @export var matoverride : Material
-#Set public variable that will act as a pointer to the player in level 1 scene
+#Set public variable that will act as a pointer to the player in scene
 @export var player : CharacterBody3D
-#Set public variable that will act as a pointer to nearby sconce in level 1 scene
+#Set public variable that will act as a pointer to nearby sconce in scene
 @export var nearby_sconce : OmniLight3D
 @export var second_nearby_sconce : OmniLight3D
 #Set public variable to easily assign door's animation player
@@ -24,7 +24,7 @@ func _ready() -> void:
 	door_open = false
 	
 func _process(delta: float) -> void :
-	#Following line allows us to set unique decals (blue, red, etc.) to each door in level_1_scene
+	#Following line allows us to set unique decals (blue, red, etc.) to each door in scene
 	$SlidingDoor/DoorObj.set_surface_override_material(0,matoverride)
 	#Following line gets the color (1,1,1,1) of the decal, will use to match to torch.light_color
 	door_color = matoverride.get("shader_parameter/Color")
@@ -67,15 +67,15 @@ func sconce_open_door():
 			
 	#NOTE - SECONDARY_NEARBY_SCONCE
 	#If second sconce OmniLight3D is not assigned to door in level_1_scene, then pass		
-	if second_nearby_sconce == null:
-		pass
+	#if second_nearby_sconce == null:
+		#pass
 	#Otherwise read following code
-	elif  second_nearby_sconce.visible == true && door_open == false:
+	#elif second_nearby_sconce.visible == true && door_open == false:
 		#If second nearby sconce color matches the color of the door, open door
-		if second_nearby_sconce.light_color.is_equal_approx(Color(door_color.x, door_color.y, door_color.z, door_color.w)):
-			animation_player.play("DoorOpen")
-			door_open = true
-			player.animation_timer.start()	
+		#if second_nearby_sconce.light_color.is_equal_approx(Color(door_color.x, door_color.y, door_color.z, door_color.w)):
+			#animation_player.play("DoorOpen")
+			#door_open = true
+			#player.animation_timer.start()	
 			
 	#NOTE - COMBINED_SCONCE
 	if nearby_sconce != null && second_nearby_sconce != null && door_open == false:
