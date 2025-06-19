@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bty4b8wayb7a7"]
+[gd_scene load_steps=5 format=3 uid="uid://dbmv8bj32u14a"]
 
 [ext_resource type="ArrayMesh" uid="uid://dycqsu3de8iyc" path="res://Art/Meshes/Objects/Construction/PillarBroken.obj" id="1_82rqj"]
 [ext_resource type="Material" uid="uid://dk5qyy862clr3" path="res://Art/Materials/brick.tres" id="2_38jmm"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=87 format=3 uid="uid://samyftw2fbk5"]
 
 [ext_resource type="PackedScene" uid="uid://538fnpxacxpf" path="res://ScenesandScripts/RETIRED/test_character.tscn" id="1_2uo0f"]
-[ext_resource type="Shader" path="res://Art/Shaders/PPShaderGLSL.gdshader" id="2_d10ar"]
+[ext_resource type="Shader" uid="uid://cutue5s6mjjqn" path="res://Art/Shaders/PPShaderGLSL.gdshader" id="2_d10ar"]
 [ext_resource type="PackedScene" uid="uid://cpsau6s0g741l" path="res://ScenesandScripts/Objects/WallKit/wall_1m.tscn" id="3_xs2ks"]
 [ext_resource type="PackedScene" uid="uid://cj3iw4sipgygu" path="res://ScenesandScripts/Objects/WallKit/wall_2m.tscn" id="4_ff3s3"]
 [ext_resource type="PackedScene" uid="uid://0l8xsyxymvjb" path="res://ScenesandScripts/Objects/WallKit/wall_4m.tscn" id="5_3m1c5"]
@@ -59,10 +59,10 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("8_he7na")
 shader_parameter/TilingScale = 1.0
-shader_parameter/Color = Vector4(0, 0, 1, 1)
-shader_parameter/GlowSTR = 1.0
 shader_parameter/BC = ExtResource("9_kquoh")
+shader_parameter/Color = Vector4(0, 0, 1, 1)
 shader_parameter/GlowDecal = ExtResource("10_xw5kb")
+shader_parameter/GlowSTR = 1.0
 shader_parameter/NRM = ExtResource("11_4c5ql")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_inreb"]
@@ -70,10 +70,10 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("8_he7na")
 shader_parameter/TilingScale = 1.0
-shader_parameter/Color = Vector4(0, 0, 1, 1)
-shader_parameter/GlowSTR = 1.0
 shader_parameter/BC = ExtResource("9_kquoh")
+shader_parameter/Color = Vector4(0, 0, 1, 1)
 shader_parameter/GlowDecal = ExtResource("10_xw5kb")
+shader_parameter/GlowSTR = 1.0
 shader_parameter/NRM = ExtResource("11_4c5ql")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vve1n"]
@@ -81,10 +81,10 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("8_he7na")
 shader_parameter/TilingScale = 1.0
-shader_parameter/Color = Vector4(0, 0, 1, 1)
-shader_parameter/GlowSTR = 1.0
 shader_parameter/BC = ExtResource("9_kquoh")
+shader_parameter/Color = Vector4(0, 0, 1, 1)
 shader_parameter/GlowDecal = ExtResource("10_xw5kb")
+shader_parameter/GlowSTR = 1.0
 shader_parameter/NRM = ExtResource("11_4c5ql")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n2yqc"]
@@ -92,10 +92,10 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("8_he7na")
 shader_parameter/TilingScale = 1.0
-shader_parameter/Color = Vector4(0, 0, 1, 1)
-shader_parameter/GlowSTR = 1.0
 shader_parameter/BC = ExtResource("9_kquoh")
+shader_parameter/Color = Vector4(0, 0, 1, 1)
 shader_parameter/GlowDecal = ExtResource("10_xw5kb")
+shader_parameter/GlowSTR = 1.0
 shader_parameter/NRM = ExtResource("11_4c5ql")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sd3m5"]
@@ -103,10 +103,10 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("8_he7na")
 shader_parameter/TilingScale = 1.0
-shader_parameter/Color = Vector4(0, 0, 1, 1)
-shader_parameter/GlowSTR = 1.0
 shader_parameter/BC = ExtResource("9_kquoh")
+shader_parameter/Color = Vector4(0, 0, 1, 1)
 shader_parameter/GlowDecal = ExtResource("10_xw5kb")
+shader_parameter/GlowSTR = 1.0
 shader_parameter/NRM = ExtResource("11_4c5ql")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w0nxu"]
@@ -114,10 +114,10 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("8_he7na")
 shader_parameter/TilingScale = 1.0
-shader_parameter/Color = Vector4(0, 0, 1, 1)
-shader_parameter/GlowSTR = 1.0
 shader_parameter/BC = ExtResource("9_kquoh")
+shader_parameter/Color = Vector4(0, 0, 1, 1)
 shader_parameter/GlowDecal = ExtResource("10_xw5kb")
+shader_parameter/GlowSTR = 1.0
 shader_parameter/NRM = ExtResource("11_4c5ql")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2ywov"]
@@ -125,10 +125,10 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("8_he7na")
 shader_parameter/TilingScale = 1.0
-shader_parameter/Color = Vector4(0, 0, 1, 1)
-shader_parameter/GlowSTR = 1.0
 shader_parameter/BC = ExtResource("9_kquoh")
+shader_parameter/Color = Vector4(0, 0, 1, 1)
 shader_parameter/GlowDecal = ExtResource("10_xw5kb")
+shader_parameter/GlowSTR = 1.0
 shader_parameter/NRM = ExtResource("11_4c5ql")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_00ml3"]
@@ -136,10 +136,10 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("8_he7na")
 shader_parameter/TilingScale = 1.0
-shader_parameter/Color = Vector4(0, 0, 1, 1)
-shader_parameter/GlowSTR = 1.0
 shader_parameter/BC = ExtResource("9_kquoh")
+shader_parameter/Color = Vector4(0, 0, 1, 1)
 shader_parameter/GlowDecal = ExtResource("10_xw5kb")
+shader_parameter/GlowSTR = 1.0
 shader_parameter/NRM = ExtResource("11_4c5ql")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8bsiw"]
@@ -147,10 +147,10 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("8_he7na")
 shader_parameter/TilingScale = 1.0
-shader_parameter/Color = Vector4(0, 0, 1, 1)
-shader_parameter/GlowSTR = 1.0
 shader_parameter/BC = ExtResource("9_kquoh")
+shader_parameter/Color = Vector4(0, 0, 1, 1)
 shader_parameter/GlowDecal = ExtResource("10_xw5kb")
+shader_parameter/GlowSTR = 1.0
 shader_parameter/NRM = ExtResource("11_4c5ql")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ss6ef"]
@@ -158,10 +158,10 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("8_he7na")
 shader_parameter/TilingScale = 1.0
-shader_parameter/Color = Vector4(0, 0, 1, 1)
-shader_parameter/GlowSTR = 1.0
 shader_parameter/BC = ExtResource("9_kquoh")
+shader_parameter/Color = Vector4(0, 0, 1, 1)
 shader_parameter/GlowDecal = ExtResource("10_xw5kb")
+shader_parameter/GlowSTR = 1.0
 shader_parameter/NRM = ExtResource("11_4c5ql")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ab8l0"]
@@ -169,10 +169,10 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("8_he7na")
 shader_parameter/TilingScale = 1.0
-shader_parameter/Color = Vector4(0, 0, 1, 1)
-shader_parameter/GlowSTR = 1.0
 shader_parameter/BC = ExtResource("9_kquoh")
+shader_parameter/Color = Vector4(0, 0, 1, 1)
 shader_parameter/GlowDecal = ExtResource("10_xw5kb")
+shader_parameter/GlowSTR = 1.0
 shader_parameter/NRM = ExtResource("11_4c5ql")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ndeqx"]
@@ -180,10 +180,10 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("8_he7na")
 shader_parameter/TilingScale = 1.0
-shader_parameter/Color = Vector4(0, 0, 1, 1)
-shader_parameter/GlowSTR = 1.0
 shader_parameter/BC = ExtResource("9_kquoh")
+shader_parameter/Color = Vector4(0, 0, 1, 1)
 shader_parameter/GlowDecal = ExtResource("10_xw5kb")
+shader_parameter/GlowSTR = 1.0
 shader_parameter/NRM = ExtResource("11_4c5ql")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oa78i"]
@@ -191,10 +191,10 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("8_he7na")
 shader_parameter/TilingScale = 1.0
-shader_parameter/Color = Vector4(0, 0, 1, 1)
-shader_parameter/GlowSTR = 1.0
 shader_parameter/BC = ExtResource("9_kquoh")
+shader_parameter/Color = Vector4(0, 0, 1, 1)
 shader_parameter/GlowDecal = ExtResource("10_xw5kb")
+shader_parameter/GlowSTR = 1.0
 shader_parameter/NRM = ExtResource("11_4c5ql")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xrere"]
@@ -202,10 +202,10 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("8_he7na")
 shader_parameter/TilingScale = 1.0
-shader_parameter/Color = Vector4(0, 0, 1, 1)
-shader_parameter/GlowSTR = 1.0
 shader_parameter/BC = ExtResource("9_kquoh")
+shader_parameter/Color = Vector4(0, 0, 1, 1)
 shader_parameter/GlowDecal = ExtResource("10_xw5kb")
+shader_parameter/GlowSTR = 1.0
 shader_parameter/NRM = ExtResource("11_4c5ql")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e3x1l"]
@@ -213,10 +213,10 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("8_he7na")
 shader_parameter/TilingScale = 1.0
-shader_parameter/Color = Vector4(0, 0, 1, 1)
-shader_parameter/GlowSTR = 1.0
 shader_parameter/BC = ExtResource("9_kquoh")
+shader_parameter/Color = Vector4(0, 0, 1, 1)
 shader_parameter/GlowDecal = ExtResource("10_xw5kb")
+shader_parameter/GlowSTR = 1.0
 shader_parameter/NRM = ExtResource("11_4c5ql")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pow45"]
@@ -224,10 +224,10 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("8_he7na")
 shader_parameter/TilingScale = 1.0
-shader_parameter/Color = Vector4(0, 0, 1, 1)
-shader_parameter/GlowSTR = 1.0
 shader_parameter/BC = ExtResource("9_kquoh")
+shader_parameter/Color = Vector4(0, 0, 1, 1)
 shader_parameter/GlowDecal = ExtResource("10_xw5kb")
+shader_parameter/GlowSTR = 1.0
 shader_parameter/NRM = ExtResource("11_4c5ql")
 
 [sub_resource type="QuadMesh" id="QuadMesh_k6j7g"]
@@ -341,10 +341,10 @@ color = Color(1, 0.807843, 0.505882, 0.301961)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7qksi"]
 render_priority = 0
 shader = ExtResource("20_cnoy3")
+shader_parameter/Texture2DParameter = ExtResource("21_uhdq8")
 shader_parameter/DisolveTiling = Vector2(1, 1)
 shader_parameter/DisolveSpeed = Vector2(0, 0)
-shader_parameter/DissolveValue = null
-shader_parameter/Texture2DParameter = ExtResource("21_uhdq8")
+shader_parameter/DissolveValue = 0.0
 
 [sub_resource type="Gradient" id="Gradient_vhyty"]
 offsets = PackedFloat32Array(0, 0.172727, 0.990909)

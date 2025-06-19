@@ -1,6 +1,6 @@
 [gd_resource type="VisualShader" load_steps=32 format=3 uid="uid://bossd6vdywrx5"]
 
-[ext_resource type="Script" path="res://Art/Shaders/Perlin3D.gd" id="1_pmt44"]
+[ext_resource type="Script" uid="uid://de2v0ti3o85h1" path="res://Art/Shaders/Perlin3D.gd" id="1_pmt44"]
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_ro4wt"]
 input_name = "time"
@@ -127,10 +127,10 @@ render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_s
 
 uniform vec4 ColorParameter2 : source_color;
 uniform vec4 ColorParameter : source_color;
-uniform float PixelCount : hint_range(0, 100, 1) = 100;
+uniform float PixelCount : hint_range(0.0, 100.0, 1.0) = 100.0;
 uniform vec2 WaterBaseTile = vec2(1.000000, 1.000000);
-uniform float FlowSpeed = 0;
-uniform float WiggleSTR = 0;
+uniform float FlowSpeed = 0.0;
+uniform float WiggleSTR = 0.0;
 uniform sampler2D WaterBase;
 uniform sampler2D WaterFallBits : hint_default_black, filter_nearest;
 

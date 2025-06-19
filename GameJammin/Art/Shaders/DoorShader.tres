@@ -64,11 +64,11 @@ operator = 2
 code = "shader_type spatial;
 render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
 
-uniform float TilingScale = 1;
+uniform float TilingScale = 1.0;
 uniform sampler2D BC : source_color;
 uniform vec4 Color = vec4(1.000000, 1.000000, 1.000000, 1.000000);
 uniform sampler2D GlowDecal : repeat_disable;
-uniform float GlowSTR = 1;
+uniform float GlowSTR = 1.0;
 uniform sampler2D NRM : hint_normal;
 
 

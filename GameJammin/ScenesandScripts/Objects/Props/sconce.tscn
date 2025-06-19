@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cucpsroek1jxt"]
 
-[ext_resource type="Script" path="res://ScenesandScripts/Objects/Props/sconce_script_v2.gd" id="1_37wke"]
+[ext_resource type="Script" uid="uid://datdbhrbcj84f" path="res://ScenesandScripts/Objects/Props/sconce_script_v2.gd" id="1_37wke"]
 [ext_resource type="ArrayMesh" uid="uid://dfb5ff0bpe22t" path="res://Art/Meshes/Objects/Props/PropPack1/Sconce.obj" id="1_irbxo"]
 [ext_resource type="Material" uid="uid://sid86jvq7qpj" path="res://Art/Materials/propPack1.tres" id="2_pg655"]
 [ext_resource type="Texture2D" uid="uid://dvj2k5sakvjq" path="res://Art/Textures/WaterFallTex/WaterFallParticle.png" id="4_oj7il"]

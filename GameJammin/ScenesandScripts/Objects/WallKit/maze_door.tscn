@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://cwgpe75u0j5rt"]
 
-[ext_resource type="Script" path="res://ScenesandScripts/Objects/WallKit/door_script.gd" id="1_de2kj"]
+[ext_resource type="Script" uid="uid://ct8pox24sipop" path="res://ScenesandScripts/Objects/WallKit/door_script.gd" id="1_de2kj"]
 [ext_resource type="ArrayMesh" uid="uid://bnyi1n8ikmx0n" path="res://Art/Meshes/Objects/Construction/DoorOBJFrame.obj" id="1_elj2r"]
 [ext_resource type="Material" uid="uid://dk5qyy862clr3" path="res://Art/Materials/brick.tres" id="2_y6ai0"]
 [ext_resource type="Material" uid="uid://bpeeoeo46wdvp" path="res://Art/Materials/stone.tres" id="3_a1i1t"]
@@ -92,9 +92,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sxj7c"]
 _data = {
-"DoorClose": SubResource("Animation_3dmec"),
-"DoorOpen": SubResource("Animation_b2d8j"),
-"RESET": SubResource("Animation_q8fhm")
+&"DoorClose": SubResource("Animation_3dmec"),
+&"DoorOpen": SubResource("Animation_b2d8j"),
+&"RESET": SubResource("Animation_q8fhm")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tiycb"]

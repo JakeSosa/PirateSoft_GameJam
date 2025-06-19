@@ -44,7 +44,6 @@ func torch_open_door():
 		#If Material like "DoorBlue.tres" is not assigned to door in level_1_scene, then pass
 		if door_color == null:
 			pass
-		else:
 			if player.torch.light_color.is_equal_approx(Color(door_color.x, door_color.y, door_color.z, door_color.w)):
 				animation_player.play("DoorOpen")
 				door_open = true
