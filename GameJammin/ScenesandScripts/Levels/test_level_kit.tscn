@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bkjhwoncob1ws"]
+[gd_scene load_steps=61 format=3 uid="uid://bkjhwoncob1ws"]
 
 [ext_resource type="Shader" uid="uid://d2cm7x8ippg05" path="res://Art/Shaders/PBR.tres" id="1_ilqub"]
 [ext_resource type="Texture2D" uid="uid://gdnkc5gcdkrn" path="res://Art/Textures/FloorTexture/M_Floor_Mixed_AO.png" id="2_oyhu1"]
@@ -15,6 +15,32 @@
 [ext_resource type="ArrayMesh" uid="uid://dycqsu3de8iyc" path="res://Art/Meshes/Objects/Construction/PillarBroken.obj" id="13_st0bx"]
 [ext_resource type="ArrayMesh" uid="uid://cbx8jlbn4byk6" path="res://Art/Meshes/Objects/Construction/Arch.obj" id="14_47vo4"]
 [ext_resource type="ArrayMesh" uid="uid://is6kn3qpq6fr" path="res://Art/Meshes/Objects/Construction/Pillar.obj" id="15_fj7fu"]
+[ext_resource type="ArrayMesh" uid="uid://0c1qarua1gqb" path="res://Art/Meshes/Objects/Props/PropPack3/Banner.obj" id="16_bq1i1"]
+[ext_resource type="Material" uid="uid://d0s534rwxfuu2" path="res://Art/Materials/propPack3.tres" id="17_rbhba"]
+[ext_resource type="ArrayMesh" uid="uid://tsick8yxlmsq" path="res://Art/Meshes/Objects/Props/PropsPack5/Grate02.obj" id="18_3cf7m"]
+[ext_resource type="Texture2D" uid="uid://dcdorn2gqncd7" path="res://Art/Textures/Props05Textures/M_Props05_Mixed_AO.png" id="19_yeumv"]
+[ext_resource type="Texture2D" uid="uid://dua7mxysuvnwc" path="res://Art/Textures/Props05Textures/M_Props05_Base_color.png" id="20_q2uv2"]
+[ext_resource type="Texture2D" uid="uid://cyg72fa0xok3v" path="res://Art/Textures/Props05Textures/M_Props05_Metallic.png" id="21_4qqvm"]
+[ext_resource type="Texture2D" uid="uid://cx4a3b04t8sw" path="res://Art/Textures/Props05Textures/M_Props05_Normal.png" id="22_i7aln"]
+[ext_resource type="Texture2D" uid="uid://5knayyphbvet" path="res://Art/Textures/Props05Textures/M_Props05_Roughness.png" id="23_ullat"]
+[ext_resource type="ArrayMesh" uid="uid://cf6wu82iyj118" path="res://Art/Meshes/Objects/Props/PropPack2/Pot.obj" id="24_2pna5"]
+[ext_resource type="Material" uid="uid://6myhals0kp80" path="res://Art/Materials/propPack2.tres" id="25_lmrw5"]
+[ext_resource type="ArrayMesh" uid="uid://ib52uhq5ta4a" path="res://Art/Meshes/Objects/Props/PropPack3/Book.obj" id="26_k102g"]
+[ext_resource type="ArrayMesh" uid="uid://c2nyi7yxr0sja" path="res://Art/Meshes/Objects/Props/PropPack2/Shelf.obj" id="27_5epl7"]
+[ext_resource type="ArrayMesh" uid="uid://dat6g2pqmxbm" path="res://Art/Meshes/Objects/Props/PropPack2/Bench.obj" id="27_v1kkw"]
+[ext_resource type="ArrayMesh" uid="uid://c78pd0l3qb8af" path="res://Art/Meshes/Objects/Props/PropPack2/Crate.obj" id="29_s1qa2"]
+[ext_resource type="ArrayMesh" uid="uid://bb4pqhak00x6f" path="res://Art/Meshes/Objects/Props/PropsPack4/Dirt03.obj" id="30_e1bhu"]
+[ext_resource type="Texture2D" uid="uid://k0e18j37aws0" path="res://Art/Textures/PropTexture04/M_Props04_Mixed_AO.png" id="31_vv6c1"]
+[ext_resource type="Texture2D" uid="uid://t36e6rxvmfcq" path="res://Art/Textures/PropTexture04/M_Props04_Base_color.png" id="32_mxfyo"]
+[ext_resource type="Texture2D" uid="uid://dccbw7gfuiwq8" path="res://Art/Textures/PropTexture04/M_Props04_Normal_DirectX.png" id="33_pe4ab"]
+[ext_resource type="Texture2D" uid="uid://4f435lspfoua" path="res://Art/Textures/PropTexture04/M_Props04_Roughness.png" id="34_nltou"]
+[ext_resource type="ArrayMesh" uid="uid://ubbxnwbl2krs" path="res://Art/Meshes/Objects/Props/PropsPack4/Dirt02.obj" id="35_bj0la"]
+[ext_resource type="ArrayMesh" uid="uid://2dbn478vn6ia" path="res://Art/Meshes/Objects/Props/PropsPack4/Dirt01.obj" id="36_xsfxo"]
+[ext_resource type="ArrayMesh" uid="uid://b22umtgpe28x2" path="res://Art/Meshes/Objects/Props/PropsPack4/Rocks.obj" id="37_tqkjk"]
+[ext_resource type="ArrayMesh" uid="uid://s4uk3ind7l1j" path="res://Art/Meshes/Objects/Props/PropsPack4/Flower.obj" id="38_fcwr6"]
+[ext_resource type="ArrayMesh" uid="uid://cd5fwof2rmnur" path="res://Art/Meshes/Objects/Props/PropPack3/ChainFloor01.obj" id="39_slmc3"]
+[ext_resource type="ArrayMesh" uid="uid://b0w5la701kmdj" path="res://Art/Meshes/Objects/Props/PropPack3/ChainFloor02.obj" id="40_c4367"]
+[ext_resource type="ArrayMesh" uid="uid://dgs5ifmilvfip" path="res://Art/Meshes/Objects/Props/PropPack3/ChainWall.obj" id="41_vnhkc"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_tt5hb"]
 size = Vector2(8, 8)
@@ -54,6 +80,76 @@ size = Vector3(2.00031, 0.660126, 0.676773)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_igd5j"]
 size = Vector3(0.272461, 2.58238, 0.272583)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_foit7"]
+render_priority = 0
+shader = ExtResource("1_ilqub")
+shader_parameter/TexPix = 100.0
+shader_parameter/UV_Tile = 1.0
+shader_parameter/BC = ExtResource("20_q2uv2")
+shader_parameter/AmbientOcclusion = ExtResource("19_yeumv")
+shader_parameter/Metallic = ExtResource("21_4qqvm")
+shader_parameter/Rough = ExtResource("23_ullat")
+shader_parameter/NRM = ExtResource("22_i7aln")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pos0e"]
+size = Vector3(1, 0.34259, 0.274994)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q3v13"]
+size = Vector3(0.336853, 0.334045, 1.23492)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eh8hl"]
+size = Vector3(0.547424, 0.547913, 0.559021)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g2iuo"]
+render_priority = 0
+shader = ExtResource("1_ilqub")
+shader_parameter/TexPix = 100.0
+shader_parameter/UV_Tile = 1.0
+shader_parameter/BC = ExtResource("32_mxfyo")
+shader_parameter/AmbientOcclusion = ExtResource("31_vv6c1")
+shader_parameter/Rough = ExtResource("34_nltou")
+shader_parameter/NRM = ExtResource("33_pe4ab")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_feo6h"]
+render_priority = 0
+shader = ExtResource("1_ilqub")
+shader_parameter/TexPix = 100.0
+shader_parameter/UV_Tile = 1.0
+shader_parameter/BC = ExtResource("32_mxfyo")
+shader_parameter/AmbientOcclusion = ExtResource("31_vv6c1")
+shader_parameter/Rough = ExtResource("34_nltou")
+shader_parameter/NRM = ExtResource("33_pe4ab")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4i71o"]
+render_priority = 0
+shader = ExtResource("1_ilqub")
+shader_parameter/TexPix = 115.2
+shader_parameter/UV_Tile = 1.0
+shader_parameter/BC = ExtResource("32_mxfyo")
+shader_parameter/AmbientOcclusion = ExtResource("31_vv6c1")
+shader_parameter/Rough = ExtResource("34_nltou")
+shader_parameter/NRM = ExtResource("33_pe4ab")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7b4fh"]
+render_priority = 0
+shader = ExtResource("1_ilqub")
+shader_parameter/TexPix = 58.7
+shader_parameter/UV_Tile = 1.0
+shader_parameter/BC = ExtResource("32_mxfyo")
+shader_parameter/AmbientOcclusion = ExtResource("31_vv6c1")
+shader_parameter/Rough = ExtResource("33_pe4ab")
+shader_parameter/NRM = ExtResource("34_nltou")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ydgxg"]
+render_priority = 0
+shader = ExtResource("1_ilqub")
+shader_parameter/TexPix = 39.1
+shader_parameter/UV_Tile = 1.0
+shader_parameter/BC = ExtResource("32_mxfyo")
+shader_parameter/AmbientOcclusion = ExtResource("31_vv6c1")
+shader_parameter/Rough = ExtResource("34_nltou")
+shader_parameter/NRM = ExtResource("33_pe4ab")
 
 [node name="TestLevelKit" type="Node3D"]
 
@@ -142,3 +238,101 @@ surface_material_override/1 = ExtResource("9_vqvm8")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pillar/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00415044, 1.29713, 0.00103756)
 shape = SubResource("BoxShape3D_igd5j")
+
+[node name="Banner" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.685987, 1.29451, 1.0861)
+visible = false
+mesh = ExtResource("16_bq1i1")
+surface_material_override/0 = ExtResource("17_rbhba")
+
+[node name="Grate" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.65676, 0.31996, 1.10583)
+visible = false
+mesh = ExtResource("18_3cf7m")
+surface_material_override/0 = SubResource("ShaderMaterial_foit7")
+
+[node name="Pot" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.735346, 1.91175, 1.16492)
+mesh = ExtResource("24_2pna5")
+skeleton = NodePath("../GreenBook")
+surface_material_override/0 = ExtResource("25_lmrw5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pot"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pot/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.162567, 0.540787)
+shape = SubResource("BoxShape3D_pos0e")
+
+[node name="GreenBook" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.735346, 2.08816, 1.14247)
+mesh = ExtResource("26_k102g")
+skeleton = NodePath("../Grate")
+surface_material_override/0 = ExtResource("17_rbhba")
+
+[node name="Bench" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.27613, 0.0366843, 1.40035)
+mesh = ExtResource("27_v1kkw")
+skeleton = NodePath("../Pot/StaticBody3D/CollisionShape3D")
+surface_material_override/0 = ExtResource("25_lmrw5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bench"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bench/StaticBody3D"]
+transform = Transform3D(1, 0, -1.55964e-12, 0, 1, 0, 1.55964e-12, 0, 1, 0.00820923, 0.155121, 0.00668323)
+shape = SubResource("BoxShape3D_q3v13")
+
+[node name="Shelf" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.922648, 1.74225, 1.18035)
+mesh = ExtResource("27_5epl7")
+surface_material_override/0 = ExtResource("25_lmrw5")
+
+[node name="Crate" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.235429, 0.0272943, 1.71768)
+mesh = ExtResource("29_s1qa2")
+surface_material_override/0 = ExtResource("25_lmrw5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Crate"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Crate/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0206604, 0.263275, 0.00259399)
+shape = SubResource("BoxShape3D_eh8hl")
+
+[node name="Dirt1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.235429, 0.0242617, 2.94881)
+mesh = ExtResource("30_e1bhu")
+surface_material_override/0 = SubResource("ShaderMaterial_g2iuo")
+
+[node name="Dirt2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.21076, 0, 1.95936)
+mesh = ExtResource("35_bj0la")
+surface_material_override/0 = SubResource("ShaderMaterial_feo6h")
+
+[node name="Dirt3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85494, 0, 2.78831)
+mesh = ExtResource("36_xsfxo")
+surface_material_override/0 = SubResource("ShaderMaterial_4i71o")
+
+[node name="Rock" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.20475, 0, 3.34589)
+mesh = ExtResource("37_tqkjk")
+surface_material_override/0 = SubResource("ShaderMaterial_7b4fh")
+
+[node name="VioletFlower" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.22963, 0, 2.30744)
+mesh = ExtResource("38_fcwr6")
+surface_material_override/0 = SubResource("ShaderMaterial_ydgxg")
+
+[node name="ChainFloor1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60281, 0.0514348, 0.587863)
+mesh = ExtResource("39_slmc3")
+surface_material_override/0 = ExtResource("17_rbhba")
+
+[node name="ChainFloor2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1814, 0.047866, 0)
+mesh = ExtResource("40_c4367")
+surface_material_override/0 = ExtResource("17_rbhba")
+
+[node name="ChainWall" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.75601, 0.947922, 1.08957)
+mesh = ExtResource("41_vnhkc")
+surface_material_override/0 = ExtResource("17_rbhba")

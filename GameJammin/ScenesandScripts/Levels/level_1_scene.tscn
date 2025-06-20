@@ -410,6 +410,7 @@ data = PackedByteArray("SUQzAwAAAAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/++BEAAAAAAAA
 loop = true
 
 [node name="Level1" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00123882, -0.00181246, 0.00154972)
 
 [node name="Player" parent="." node_paths=PackedStringArray("lever_animation_player", "lever_audio_player") instance=ExtResource("1_c7lrc")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.74713, -0.343523, 8.00181)
@@ -1037,7 +1038,7 @@ transform = Transform3D(0.5, 0, 8.74223e-08, 0, 0.5, 0, -8.74223e-08, 0, 0.5, 15
 transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, -13.9497, 1.20082, 12.2627)
 
 [node name="Book5" parent="Deco" instance=ExtResource("13_u6vn2")]
-transform = Transform3D(-1.74846e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.74846e-08, 6.33198, 1.52758, -2.22457)
+transform = Transform3D(-1.74846e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.74846e-08, 6.32568, 1.52758, -2.22472)
 
 [node name="Book6" parent="Deco" instance=ExtResource("13_u6vn2")]
 transform = Transform3D(0.103528, 0, -0.38637, 0, 0.4, 0, 0.38637, 0, 0.103528, 6.17428, 1.52573, -2.03297)
