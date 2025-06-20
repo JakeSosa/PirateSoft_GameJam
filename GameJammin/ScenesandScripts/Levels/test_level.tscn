@@ -1,48 +1,77 @@
-[gd_scene load_steps=14 format=3 uid="uid://chi7duimobj03"]
+[gd_scene load_steps=23 format=3 uid="uid://chi7duimobj03"]
 
 [ext_resource type="PackedScene" uid="uid://cknayyh8s67ug" path="res://ScenesandScripts/Character/test_player_ANIMATIONTREE.tscn" id="1_1ixuh"]
 [ext_resource type="PackedScene" uid="uid://cwgpe75u0j5rt" path="res://ScenesandScripts/Objects/WallKit/maze_door.tscn" id="2_aulnf"]
 [ext_resource type="Shader" uid="uid://cutue5s6mjjqn" path="res://Art/Shaders/PPShaderGLSL.gdshader" id="2_c7uvb"]
-[ext_resource type="MeshLibrary" uid="uid://daij83a2pa4f8" path="res://resources/LevelKit.tres" id="3_1ixuh"]
+[ext_resource type="MeshLibrary" uid="uid://daij83a2pa4f8" path="res://Resources/LevelKit.tres" id="3_1ixuh"]
+[ext_resource type="Script" uid="uid://d3eimegpm7lwf" path="res://ScenesandScripts/Objects/Props/brazier_script_v3.gd" id="4_c7uvb"]
+[ext_resource type="Shader" uid="uid://bj3q3fxm0e45v" path="res://Art/Shaders/DoorShader.tres" id="4_f0qfn"]
+[ext_resource type="Texture2D" uid="uid://b2nlnhsxd67m3" path="res://Art/Textures/TrimTexture/M_Trim_Base_color.png" id="5_c7uvb"]
+[ext_resource type="Texture2D" uid="uid://optp5pg471n3" path="res://Art/Textures/Spiral3.png" id="6_bctua"]
+[ext_resource type="Texture2D" uid="uid://bhqabd88sjece" path="res://Art/Textures/TrimTexture/M_Trim_Normal.png" id="7_1yh1n"]
+[ext_resource type="PackedScene" uid="uid://cug6kjou6ccef" path="res://ScenesandScripts/Objects/Props/brazier.tscn" id="8_0rkwn"]
+[ext_resource type="PackedScene" uid="uid://b82tvavmk75tg" path="res://ScenesandScripts/Objects/Props/WaterFall.tscn" id="10_bctua"]
 
 [sub_resource type="Environment" id="Environment_fc36d"]
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.0
 
-[sub_resource type="QuadMesh" id="QuadMesh_pcw7u"]
+[sub_resource type="QuadMesh" id="QuadMesh_bctua"]
 flip_faces = true
 size = Vector2(2, 2)
 
-[sub_resource type="Curve" id="Curve_aulnf"]
+[sub_resource type="Curve" id="Curve_1yh1n"]
 _data = [Vector2(0, 0), 0.0, 1.01053, 0, 1, Vector2(0.424107, 0.428571), 1.08208, 1.08208, 0, 0, Vector2(0.544643, 0.648352), 0.779097, 0.779097, 0, 0, Vector2(1, 1), 0.772248, 0.0, 1, 0]
 point_count = 4
 
-[sub_resource type="Curve" id="Curve_guyaj"]
+[sub_resource type="Curve" id="Curve_0rkwn"]
 _data = [Vector2(0, 0), 0.0, 0.776161, 0, 1, Vector2(0.495536, 0.384615), 0.747932, 0.747932, 0, 0, Vector2(0.763285, 0.695136), 0.905926, 0.905926, 0, 0, Vector2(1, 1), 1.28789, 0.0, 1, 0]
 point_count = 4
 
-[sub_resource type="Curve" id="Curve_u3e2v"]
+[sub_resource type="Curve" id="Curve_rum27"]
 _data = [Vector2(0, 0), 0.0, 1.38941, 0, 1, Vector2(0.118357, 0.164447), 0.991578, 0.991578, 0, 0, Vector2(0.608696, 0.394036), 0.795674, 0.795674, 0, 0, Vector2(1, 1), 1.54858, 0.0, 1, 0]
 point_count = 4
 
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_5impl"]
-curve_x = SubResource("Curve_aulnf")
-curve_y = SubResource("Curve_guyaj")
-curve_z = SubResource("Curve_u3e2v")
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_p580u"]
+curve_x = SubResource("Curve_1yh1n")
+curve_y = SubResource("Curve_0rkwn")
+curve_z = SubResource("Curve_rum27")
 
-[sub_resource type="Curve" id="Curve_f0qfn"]
+[sub_resource type="Curve" id="Curve_ypqxu"]
 _data = [Vector2(0.161836, 1), 0.0, -0.0697699, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_2urd2"]
-curve = SubResource("Curve_f0qfn")
+[sub_resource type="CurveTexture" id="CurveTexture_rcqk1"]
+curve = SubResource("Curve_ypqxu")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_c7uvb"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pg4ln"]
 render_priority = 0
 shader = ExtResource("2_c7uvb")
 shader_parameter/PixelSize = 37.75
-shader_parameter/vignetteCurve = SubResource("CurveTexture_2urd2")
-shader_parameter/ColorsCurve = SubResource("CurveXYZTexture_5impl")
+shader_parameter/vignetteCurve = SubResource("CurveTexture_rcqk1")
+shader_parameter/ColorsCurve = SubResource("CurveXYZTexture_p580u")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bctua"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_f0qfn")
+shader_parameter/TilingScale = 1.0
+shader_parameter/BC = ExtResource("5_c7uvb")
+shader_parameter/Color = Vector4(0, 0, 1, 1)
+shader_parameter/GlowDecal = ExtResource("6_bctua")
+shader_parameter/GlowSTR = 1.0
+shader_parameter/NRM = ExtResource("7_1yh1n")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1yh1n"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_f0qfn")
+shader_parameter/TilingScale = 1.0
+shader_parameter/BC = ExtResource("5_c7uvb")
+shader_parameter/Color = Vector4(1, 0, 0, 1)
+shader_parameter/GlowDecal = ExtResource("6_bctua")
+shader_parameter/GlowSTR = 1.0
+shader_parameter/NRM = ExtResource("7_1yh1n")
 
 [node name="TestLevel" type="Node3D"]
 
@@ -50,24 +79,70 @@ shader_parameter/ColorsCurve = SubResource("CurveXYZTexture_5impl")
 environment = SubResource("Environment_fc36d")
 
 [node name="Player" parent="." instance=ExtResource("1_1ixuh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.25, 0.497527, 8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.25, 0.495, 8)
 
 [node name="PostProcess" type="MeshInstance3D" parent="Player"]
 transform = Transform3D(4.37114e-08, 1, -1.74846e-07, 1, -4.37114e-08, 8.74227e-08, 8.74227e-08, -1.74846e-07, -1, 13.1759, 0.503351, -2.73592)
 visible = false
-mesh = SubResource("QuadMesh_pcw7u")
+mesh = SubResource("QuadMesh_bctua")
 skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_c7uvb")
+surface_material_override/0 = SubResource("ShaderMaterial_pg4ln")
+
+[node name="Braziers" type="Node3D" parent="."]
+
+[node name="Brazier1" parent="Braziers" node_paths=PackedStringArray("player") instance=ExtResource("8_0rkwn")]
+transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -8.68394, 0.65, 8)
+script = ExtResource("4_c7uvb")
+brazier_color = Color(0, 0, 1, 1)
+player = NodePath("../../Player")
+
+[node name="Brazier2" parent="Braziers" node_paths=PackedStringArray("player") instance=ExtResource("8_0rkwn")]
+transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -10.8045, 0.65, 8)
+script = ExtResource("4_c7uvb")
+brazier_color = Color(1, 0, 0, 1)
+player = NodePath("../../Player")
+
+[node name="Brazier3" parent="Braziers" node_paths=PackedStringArray("player") instance=ExtResource("8_0rkwn")]
+transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -9.35869, 0.65, 10.2351)
+script = ExtResource("4_c7uvb")
+brazier_color = Color(1, 1, 0, 1)
+player = NodePath("../../Player")
+
+[node name="Brazier4" parent="Braziers" node_paths=PackedStringArray("player") instance=ExtResource("8_0rkwn")]
+transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -9.36546, 0.65, 5.33372)
+script = ExtResource("4_c7uvb")
+brazier_color = Color(1, 0, 1, 1)
+player = NodePath("../../Player")
+
+[node name="Brazier5" parent="Braziers" node_paths=PackedStringArray("player") instance=ExtResource("8_0rkwn")]
+transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -7.52148, 0.65, 11.7522)
+script = ExtResource("4_c7uvb")
+brazier_color = Color(0, 1, 1, 1)
+player = NodePath("../../Player")
+
+[node name="Brazier6" parent="Braziers" node_paths=PackedStringArray("player") instance=ExtResource("8_0rkwn")]
+transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -7.28103, 0.65, 3.01936)
+script = ExtResource("4_c7uvb")
+brazier_color = Color(0, 1, 0, 1)
+player = NodePath("../../Player")
 
 [node name="Doors" type="Node3D" parent="."]
 
-[node name="MazeDoor_2" parent="Doors" instance=ExtResource("2_aulnf")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21.6231, 0.391146, 14.4668)
-script = null
+[node name="MazeDoor1" parent="Doors" node_paths=PackedStringArray("player") instance=ExtResource("2_aulnf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.501, 0.485, 10.506)
+matoverride = SubResource("ShaderMaterial_bctua")
+player = NodePath("../../Player")
 
-[node name="MazeDoor_1" parent="Doors" instance=ExtResource("2_aulnf")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.675, 0.391146, 10.5308)
-script = null
+[node name="MazeDoor2" parent="Doors" node_paths=PackedStringArray("player") instance=ExtResource("2_aulnf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.48, 0.485, 10)
+matoverride = SubResource("ShaderMaterial_1yh1n")
+player = NodePath("../../Player")
+
+[node name="Waterfalls" type="Node3D" parent="."]
+
+[node name="WaterFall_1" parent="Waterfalls" node_paths=PackedStringArray("player") instance=ExtResource("10_bctua")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.920531, -12.431, 0.485, 5.628)
+player = NodePath("../../Player")
 
 [node name="GridMapFloor" type="GridMap" parent="."]
 mesh_library = ExtResource("3_1ixuh")

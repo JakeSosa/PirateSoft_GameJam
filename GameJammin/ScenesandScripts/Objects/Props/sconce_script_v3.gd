@@ -145,4 +145,3 @@ func interact_sconce():
 			else:
 				player.animation_tree["parameters/conditions/is_lighting"] = false
 				
-
