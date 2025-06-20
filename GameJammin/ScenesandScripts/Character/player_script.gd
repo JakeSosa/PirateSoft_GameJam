@@ -80,4 +80,3 @@ func _on_animation_timer_timeout() -> void:
 	is_dousing = false
 	is_lighting = false
 	
-

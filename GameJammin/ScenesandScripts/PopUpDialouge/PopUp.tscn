@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://epxgdox0in1w"]
 
-[ext_resource type="Script" path="res://ScenesandScripts/PopUpDialouge/PopUp_Script.gd" id="1_p6dtx"]
+[ext_resource type="Script" uid="uid://c17hg84c6uxkl" path="res://ScenesandScripts/PopUpDialouge/PopUp_Script.gd" id="1_p6dtx"]
 [ext_resource type="FontFile" uid="uid://c4m71008qwgd5" path="res://ScenesandScripts/PopUpDialouge/ChakraPetch-SemiBold.ttf" id="2_it4lm"]
 
 [node name="Control" type="Control"]

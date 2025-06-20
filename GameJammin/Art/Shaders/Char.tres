@@ -43,7 +43,7 @@ uniform sampler2D tex_frg_2;
 uniform sampler2D tex_frg_4;
 uniform sampler2D tex_frg_3;
 uniform sampler2D tex_frg_6;
-uniform float EmitSTR : hint_range(0, 1) = 0;
+uniform float EmitSTR : hint_range(0.0, 1.0) = 0.0;
 uniform sampler2D tex_frg_5;
 
 

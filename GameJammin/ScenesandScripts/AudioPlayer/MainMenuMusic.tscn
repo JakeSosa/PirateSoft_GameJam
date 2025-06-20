@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://7rrg8bd5ivat"]
 
-[ext_resource type="Script" path="res://ScenesandScripts/AudioPlayer/MainMenuMusic.gd" id="1_jx1an"]
+[ext_resource type="Script" uid="uid://btue72icm0ift" path="res://ScenesandScripts/AudioPlayer/MainMenuMusic.gd" id="1_jx1an"]
 [ext_resource type="AudioStream" uid="uid://c572che5rqg0i" path="res://Art/Sounds/Music/TRACK1_mixdown.mp3" id="1_ptdw0"]
 
 [node name="MainMenuMusic" type="AudioStreamPlayer"]

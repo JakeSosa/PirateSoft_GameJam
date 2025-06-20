@@ -75,8 +75,8 @@ uniform vec4 WhiteCol : source_color = vec4(1.000000, 1.000000, 1.000000, 1.0000
 uniform vec2 TopLeft = vec2(0.000000, 0.000000);
 uniform vec2 BottomRight = vec2(1.000000, 1.000000);
 uniform sampler2D Tex : filter_nearest;
-uniform float BlackPoint = 0;
-uniform float EmitSTR = 0;
+uniform float BlackPoint = 0.0;
+uniform float EmitSTR = 0.0;
 
 
 
