@@ -41,15 +41,12 @@ func _on_door_body_exited(body: Node3D) -> void:
 	
 func torch_open_door():
 	if near_door == true && door_open == false:
-		#If Material like "DoorBlue.tres" is not assigned to door in level scene, then pass
-		if door_color == null:
-			pass
-			if player.torch.light_color.is_equal_approx(Color(door_color.x, door_color.y, door_color.z, door_color.w)):
-				animation_player.play("DoorOpen")
-				door_open = true
-				player.animation_timer.start()
-				if victoryDoor == true:
-					MainMenuMusic.play_SFX(victoryDoorSound)
+		if player.torch.light_color.is_equal_approx(Color(door_color.x, door_color.y, door_color.z, door_color.w)):
+			animation_player.play("DoorOpen")
+			door_open = true
+			player.animation_timer.start()
+			if victoryDoor == true:
+				MainMenuMusic.play_SFX(victoryDoorSound)
 				
 func sconce_open_door():
 	#NOTE - NEARBY_SCONCE

@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cucpsroek1jxt"]
+[gd_scene load_steps=12 format=3 uid="uid://bc8fo4e0r5nos"]
 
-[ext_resource type="Script" uid="uid://datdbhrbcj84f" path="res://ScenesandScripts/RETIRED/sconce_script_v2.gd" id="1_37wke"]
-[ext_resource type="ArrayMesh" uid="uid://dfb5ff0bpe22t" path="res://Art/Meshes/Objects/Props/PropPack1/Sconce.obj" id="1_irbxo"]
-[ext_resource type="Material" uid="uid://sid86jvq7qpj" path="res://Art/Materials/propPack1.tres" id="2_pg655"]
-[ext_resource type="Texture2D" uid="uid://dvj2k5sakvjq" path="res://Art/Textures/WaterFallTex/WaterFallParticle.png" id="4_oj7il"]
+[ext_resource type="Script" uid="uid://dhajuin82ybvu" path="res://ScenesandScripts/Objects/Props/sconce_script_tutorial.gd" id="1_sn1gm"]
+[ext_resource type="ArrayMesh" uid="uid://dfb5ff0bpe22t" path="res://Art/Meshes/Objects/Props/PropPack1/Sconce.obj" id="2_sn1gm"]
+[ext_resource type="Material" uid="uid://sid86jvq7qpj" path="res://Art/Materials/propPack1.tres" id="3_q00sv"]
+[ext_resource type="Texture2D" uid="uid://dvj2k5sakvjq" path="res://Art/Textures/WaterFallTex/WaterFallParticle.png" id="4_0i8be"]
+[ext_resource type="FontFile" uid="uid://c4m71008qwgd5" path="res://ScenesandScripts/PopUpDialouge/ChakraPetch-SemiBold.ttf" id="5_sn1gm"]
 
 [sub_resource type="Curve" id="Curve_pnv52"]
 _data = [Vector2(0, 0), 0.0, 10.8262, 0, 0, Vector2(0.159091, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -4.19016, 0.0, 0, 0]
@@ -33,7 +34,7 @@ alpha_antialiasing_mode = 0
 shading_mode = 2
 vertex_color_use_as_albedo = true
 vertex_color_is_srgb = true
-albedo_texture = ExtResource("4_oj7il")
+albedo_texture = ExtResource("4_0i8be")
 billboard_mode = 3
 billboard_keep_scale = true
 particles_anim_h_frames = 1
@@ -49,13 +50,13 @@ orientation = 2
 height = 4.00103
 radius = 0.661348
 
-[node name="Sconce" type="StaticBody3D"]
-script = ExtResource("1_37wke")
+[node name="SconceTutorial" type="StaticBody3D"]
+script = ExtResource("1_sn1gm")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.6, 0, 0, 0, 2.6, 0, 0, 0, 2.6, -0.348042, 0, 0)
-mesh = ExtResource("1_irbxo")
-surface_material_override/0 = ExtResource("2_pg655")
+mesh = ExtResource("2_sn1gm")
+surface_material_override/0 = ExtResource("3_q00sv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 
@@ -80,6 +81,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.322511, -0.327175, 0)
 shape = SubResource("CylinderShape3D_6s4h2")
 
 [node name="SconceTimer" type="Timer" parent="."]
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.766043, 0.642789, 0, -0.642789, 0.766043, -0.669521, 0.54031, 0)
+visible = false
+pixel_size = 0.01
+text = "Press \"E\""
+font = ExtResource("5_sn1gm")
+font_size = 20
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_sconce_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_sconce_body_exited"]

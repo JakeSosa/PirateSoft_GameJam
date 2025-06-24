@@ -2,6 +2,10 @@ extends StaticBody3D
 #NOTE - Brazier's Area3D Collision is assigned to 3 (aka props: sconce & brazier)
 #NOTE - Brazier's Area3D Mask is assigned to 2 (aka player) 
 
+#TUTORIAL ONLY VARIABLES 
+#Set variable to define brazier's label in scene
+@onready var interact_label = $Label3D
+
 #Brazier variables
 #Make brazier_color public to assign unique color to each brazier in level_1 scene
 @export var brazier_color : Color
@@ -25,9 +29,11 @@ func _physics_process(delta: float) -> void:
 	
 func _on_brazier_body_entered(body: Node3D) -> void:
 	near_brazier = true
+	interact_label.visible = true
 
 func _on_brazier_body_exited(body: Node3D) -> void:
 	near_brazier = false
+	interact_label.visible = false
 	
 func interact_brazier():
 	if near_brazier == true && player.moving == false:
@@ -36,6 +42,7 @@ func interact_brazier():
 		if Input.is_action_just_pressed("interact"):
 			player.interacting = true
 			player.torch.visible = true
+			interact_label.visible = false
 			player.animation_tree["parameters/conditions/is_lighting"] = true
 			if player.torch.light_color == player.default_torch_color:
 				player.torch.light_color = brazier_color
