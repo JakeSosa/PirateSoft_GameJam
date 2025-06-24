@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://b2nlnhsxd67m3" path="res://Art/Textures/TrimTexture/M_Trim_Base_color.png" id="11_mw632"]
 [ext_resource type="Texture2D" uid="uid://optp5pg471n3" path="res://Art/Textures/Spiral3.png" id="12_kqlog"]
 [ext_resource type="Texture2D" uid="uid://bhqabd88sjece" path="res://Art/Textures/TrimTexture/M_Trim_Normal.png" id="13_nahgb"]
-[ext_resource type="Material" uid="uid://bdiqi5t1ogb82" path="res://Art/Materials/DoorColor/DoorPurple.tres" id="14_pg4ln"]
 
 [sub_resource type="Environment" id="Environment_fc36d"]
 ambient_light_color = Color(1, 1, 1, 1)
@@ -56,7 +55,7 @@ shader_parameter/PixelSize = 37.75
 shader_parameter/vignetteCurve = SubResource("CurveTexture_rcqk1")
 shader_parameter/ColorsCurve = SubResource("CurveXYZTexture_p580u")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mw632"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ypqxu"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("10_pg4ln")
@@ -67,44 +66,93 @@ shader_parameter/GlowDecal = ExtResource("12_kqlog")
 shader_parameter/GlowSTR = 1.0
 shader_parameter/NRM = ExtResource("13_nahgb")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mw632"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("10_pg4ln")
+shader_parameter/TilingScale = 1.0
+shader_parameter/BC = ExtResource("11_mw632")
+shader_parameter/Color = Vector4(1, 0, 1, 1)
+shader_parameter/GlowDecal = ExtResource("12_kqlog")
+shader_parameter/GlowSTR = 1.0
+shader_parameter/NRM = ExtResource("13_nahgb")
+
 [node name="TestLevel" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_fc36d")
 
+[node name="GridMapFloor" type="GridMap" parent="."]
+mesh_library = ExtResource("3_1ixuh")
+cell_size = Vector3(8, 1, 8)
+data = {
+"cells": PackedInt32Array(0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 65535, 0, 1, 65534, 0, 1, 65533, 0, 2, 65533, 0, 2, 65534, 0, 2, 65535, 0, 2, 0, 0, 2, 1, 0, 3, 1, 0, 3, 0, 0, 3, 65535, 0, 3, 65534, 0, 3, 65533, 0, 65535, 65533, 0, 65535, 65534, 0, 65535, 65535, 0, 65535, 0, 0, 65535, 1, 0, 65534, 1, 0, 65534, 0, 0, 65534, 65535, 0, 65534, 65534, 0, 65534, 65533, 0, 65534, 2, 0, 65535, 2, 0, 0, 2, 0, 1, 2, 0, 2, 2, 0, 3, 2, 0, 3, 65532, 0, 2, 65532, 0, 1, 65532, 0, 0, 65532, 0, 65535, 65532, 0, 65534, 65532, 0, 65534, 3, 0, 65535, 3, 0, 0, 3, 0, 1, 3, 0, 2, 3, 0, 3, 3, 0, 65533, 3, 0, 65533, 2, 0, 65533, 1, 0, 65533, 0, 0, 65533, 65535, 0, 65533, 65534, 0, 65533, 65533, 0, 65533, 65532, 0)
+}
+
+[node name="GridMapWalls" type="GridMap" parent="GridMapFloor"]
+mesh_library = ExtResource("3_1ixuh")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(65518, 30, 655363, 65522, 30, 655363, 65526, 30, 655363, 65514, 29, 1048579, 65514, 25, 1048579, 65514, 21, 1048579, 65514, 17, 1048579, 65514, 13, 1048579, 65514, 9, 1048579, 65514, 5, 1048579, 65526, 29, 3, 65530, 29, 3, 65534, 29, 3, 2, 29, 3, 6, 29, 3, 10, 29, 3, 14, 29, 3, 18, 29, 3, 22, 29, 3, 26, 29, 3, 30, 26, 1441795, 30, 22, 1441795, 30, 18, 1441795, 30, 14, 1441795, 30, 10, 1441795, 30, 6, 1441795, 30, 2, 1441795, 24, 18, 1179651, 24, 17, 1179651, 23, 16, 1179651, 23, 15, 1179651, 23, 14, 1179651, 22, 13, 1179651, 22, 12, 1179651, 22, 11, 1179651, 21, 10, 1179651, 21, 9, 1179651, 25, 26, 1048579, 25, 22, 1048579, 23, 25, 2, 21, 25, 2, 18, 22, 1441795, 17, 26, 655363, 22, 23, 1441794, 21, 20, 1048578, 19, 19, 2, 26, 10, 1441796, 26, 3, 1441796, 14, 23, 1441794, 14, 19, 1441795, 10, 22, 1441795, 13, 20, 655362, 11, 20, 655362, 9, 22, 1048578, 17, 22, 1048578, 17, 19, 2, 13, 15, 4, 21, 11, 1048579, 21, 7, 1048579, 14, 3, 1441796, 21, 4, 655364, 14, 11, 1441795, 10, 8, 1441796, 9, 16, 655363, 5, 23, 1048579, 5, 25, 1048578, 9, 8, 1048579, 5, 16, 655363, 1, 15, 1048580, 1, 7, 1048578, 5, 20, 655364, 65533, 19, 1048580, 65533, 24, 4, 18, 65535, 4, 7, 65535, 4, 1, 3, 3, 1, 4, 1, 8, 3, 2, 65535, 65535, 1441793, 65534, 65535, 1441796, 7, 0, 655364, 65533, 8, 1048577, 65533, 11, 1048577, 21, 12, 1048577, 22, 15, 655361, 21, 17, 1048578, 21, 18, 1048577)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="GridMapBanners" type="GridMap" parent="GridMapFloor"]
+mesh_library = ExtResource("3_1ixuh")
+cell_size = Vector3(0.1, 0.5, 0.1)
+data = {
+"cells": PackedInt32Array(262118, 80, 8, 196833, 149, 655368, 196833, 119, 655368)
+}
+metadata/_editor_floor_ = Vector3(0, 3, 0)
+
+[node name="GridMapDirt" type="GridMap" parent="GridMapFloor"]
+mesh_library = ExtResource("3_1ixuh")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(65534, 19, 1048592, 8, 5, 1048591, 2, 5, 1048593, 9, 9, 1441809, 9, 11, 1441809, 2, 15, 1048592)
+}
+
+[node name="GridMapDecor" type="GridMap" parent="GridMapFloor"]
+mesh_library = ExtResource("3_1ixuh")
+cell_size = Vector3(0.5, 1, 0.5)
+data = {
+"cells": PackedInt32Array(65533, 38, 1048595, 7, 30, 19, 5, 28, 1048595, 5, 30, 1048595)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
 [node name="Player" parent="." instance=ExtResource("1_1ixuh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.54918, 0.495, 10.0593)
 
 [node name="Skeleton3D" parent="Player/Char2/Armature" index="0"]
-bones/0/position = Vector3(0.297831, 0.244076, -27.7205)
-bones/0/rotation = Quaternion(-0.726635, -0.0535012, 0.0184602, 0.684689)
-bones/1/rotation = Quaternion(0.0224402, 0.0116923, 0.0162999, 0.999547)
-bones/2/rotation = Quaternion(0.0102288, 0.00316206, 0.0136835, 0.999849)
-bones/3/rotation = Quaternion(0.010143, 0.00345298, 0.0137997, 0.999847)
-bones/4/rotation = Quaternion(0.054778, -0.00112081, 0.00444113, 0.998488)
-bones/5/rotation = Quaternion(-0.0670402, 0.010929, -0.00128495, 0.99769)
-bones/7/rotation = Quaternion(-0.633874, -0.35612, 0.562707, -0.393375)
-bones/8/rotation = Quaternion(0.445216, 0.124214, 0.0782658, 0.883305)
+bones/0/position = Vector3(0.241169, 0.336688, -27.7281)
+bones/0/rotation = Quaternion(-0.727411, -0.0517382, 0.0181209, 0.684009)
+bones/1/rotation = Quaternion(0.0238122, 0.015259, 0.0179284, 0.999439)
+bones/2/rotation = Quaternion(0.0103695, 0.0036885, 0.0137534, 0.999845)
+bones/3/rotation = Quaternion(0.0104242, 0.0040774, 0.013957, 0.99984)
+bones/4/rotation = Quaternion(0.055447, -0.0018175, 0.00426414, 0.998451)
+bones/5/rotation = Quaternion(-0.0711991, 0.00894622, -0.00133503, 0.997421)
+bones/7/rotation = Quaternion(-0.63306, -0.356785, 0.564098, -0.392088)
+bones/8/rotation = Quaternion(0.444992, 0.117509, 0.0807474, 0.884112)
 bones/9/rotation = Quaternion(0.0132538, 0.319054, 0.165144, 0.933143)
 bones/10/rotation = Quaternion(-0.0256837, -0.000962092, -0.0513641, 0.998349)
 bones/10/scale = Vector3(2, 2, 2)
-bones/11/rotation = Quaternion(0.536641, -0.198709, 0.565308, 0.594103)
-bones/12/rotation = Quaternion(0.294996, -0.144714, -0.240798, 0.913264)
+bones/11/rotation = Quaternion(0.538874, -0.19573, 0.565465, 0.59292)
+bones/12/rotation = Quaternion(0.297086, -0.142907, -0.237997, 0.913606)
 bones/13/rotation = Quaternion(-0.176412, -0.347415, -0.245064, 0.887764)
 bones/14/rotation = Quaternion(-0.0918088, 0.098116, 0.135228, 0.981661)
 bones/14/scale = Vector3(2, 2, 2)
-bones/15/rotation = Quaternion(0.153483, -0.0601683, 0.973976, -0.155546)
-bones/16/rotation = Quaternion(-0.164811, -0.0231465, 0.0148045, 0.985942)
-bones/17/rotation = Quaternion(0.564297, -0.0564733, -0.114943, 0.815578)
+bones/15/rotation = Quaternion(0.155051, -0.0653663, 0.97338, -0.155622)
+bones/16/rotation = Quaternion(-0.159329, -0.020305, 0.0138612, 0.986919)
+bones/17/rotation = Quaternion(0.56328, -0.0567534, -0.115559, 0.816175)
 bones/18/rotation = Quaternion(0.352186, -0.0474272, 0.0154917, 0.934599)
 bones/19/scale = Vector3(2, 2, 2)
-bones/20/rotation = Quaternion(-0.0742922, 0.106314, 0.991542, 0.00467857)
-bones/21/rotation = Quaternion(-0.0484121, 0.0730313, 0.0188263, 0.995976)
-bones/22/rotation = Quaternion(0.34563, -0.108102, 0.0188792, 0.931932)
+bones/20/rotation = Quaternion(-0.0751772, 0.102882, 0.991836, 0.0049445)
+bones/21/rotation = Quaternion(-0.048296, 0.0729916, 0.0185048, 0.995991)
+bones/22/rotation = Quaternion(0.347096, -0.10836, 0.0186201, 0.931362)
 bones/23/rotation = Quaternion(0.372399, 0.0475196, -0.01554, 0.926725)
 
 [node name="BoneAttachment3D" parent="Player/Char2/Armature/Skeleton3D" index="2"]
-transform = Transform3D(1.92973, -0.493073, 0.181741, 0.476556, 1.9335, 0.185628, -0.221462, -0.135801, 1.98306, -13.4593, 19.1029, -38.3657)
+transform = Transform3D(1.93187, -0.469315, 0.218187, 0.45167, 1.94048, 0.174743, -0.252699, -0.119517, 1.98037, -13.2012, 19.386, -38.1521)
 
 [node name="PostProcess" type="MeshInstance3D" parent="Player"]
 transform = Transform3D(4.37114e-08, 1, -1.74846e-07, 1, -4.37114e-08, 8.74227e-08, 8.74227e-08, -1.74846e-07, -1, 13.1759, 0.503351, -2.73592)
@@ -171,12 +219,12 @@ player = NodePath("../../Player")
 
 [node name="MazeDoor1" parent="Doors" node_paths=PackedStringArray("player") instance=ExtResource("2_aulnf")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.6264, 0.493587, 8.76892)
-matoverride = SubResource("ShaderMaterial_mw632")
+matoverride = SubResource("ShaderMaterial_ypqxu")
 player = NodePath("../../Player")
 
 [node name="MazeDoor2" parent="Doors" node_paths=PackedStringArray("player", "nearby_sconce") instance=ExtResource("2_aulnf")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.53813, 0.493587, 10.5319)
-matoverride = ExtResource("14_pg4ln")
+matoverride = SubResource("ShaderMaterial_mw632")
 player = NodePath("../../Player")
 nearby_sconce = NodePath("../../Sconces/SconceTutorial/OmniLight3D")
 
@@ -193,44 +241,6 @@ player = NodePath("../../Player")
 [node name="WaterFall3" parent="Waterfalls" node_paths=PackedStringArray("player") instance=ExtResource("10_bctua")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.920531, -3.44028, 0.485, 8.66067)
 player = NodePath("../../Player")
-
-[node name="GridMapFloor" type="GridMap" parent="."]
-mesh_library = ExtResource("3_1ixuh")
-cell_size = Vector3(8, 1, 8)
-data = {
-"cells": PackedInt32Array(0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 65535, 0, 1, 65534, 0, 1, 65533, 0, 2, 65533, 0, 2, 65534, 0, 2, 65535, 0, 2, 0, 0, 2, 1, 0, 3, 1, 0, 3, 0, 0, 3, 65535, 0, 3, 65534, 0, 3, 65533, 0, 65535, 65533, 0, 65535, 65534, 0, 65535, 65535, 0, 65535, 0, 0, 65535, 1, 0, 65534, 1, 0, 65534, 0, 0, 65534, 65535, 0, 65534, 65534, 0, 65534, 65533, 0, 65534, 2, 0, 65535, 2, 0, 0, 2, 0, 1, 2, 0, 2, 2, 0, 3, 2, 0, 3, 65532, 0, 2, 65532, 0, 1, 65532, 0, 0, 65532, 0, 65535, 65532, 0, 65534, 65532, 0, 65534, 3, 0, 65535, 3, 0, 0, 3, 0, 1, 3, 0, 2, 3, 0, 3, 3, 0, 65533, 3, 0, 65533, 2, 0, 65533, 1, 0, 65533, 0, 0, 65533, 65535, 0, 65533, 65534, 0, 65533, 65533, 0, 65533, 65532, 0)
-}
-
-[node name="GridMapWalls" type="GridMap" parent="GridMapFloor"]
-mesh_library = ExtResource("3_1ixuh")
-cell_size = Vector3(1, 1, 1)
-data = {
-"cells": PackedInt32Array(65518, 30, 655363, 65522, 30, 655363, 65526, 30, 655363, 65514, 29, 1048579, 65514, 25, 1048579, 65514, 21, 1048579, 65514, 17, 1048579, 65514, 13, 1048579, 65514, 9, 1048579, 65514, 5, 1048579, 65526, 29, 3, 65530, 29, 3, 65534, 29, 3, 2, 29, 3, 6, 29, 3, 10, 29, 3, 14, 29, 3, 18, 29, 3, 22, 29, 3, 26, 29, 3, 30, 26, 1441795, 30, 22, 1441795, 30, 18, 1441795, 30, 14, 1441795, 30, 10, 1441795, 30, 6, 1441795, 30, 2, 1441795, 24, 18, 1179651, 24, 17, 1179651, 23, 16, 1179651, 23, 15, 1179651, 23, 14, 1179651, 22, 13, 1179651, 22, 12, 1179651, 22, 11, 1179651, 21, 10, 1179651, 21, 9, 1179651, 25, 26, 1048579, 25, 22, 1048579, 23, 25, 2, 21, 25, 2, 18, 22, 1441795, 17, 26, 655363, 22, 23, 1441794, 21, 20, 1048578, 19, 19, 2, 26, 10, 1441796, 26, 3, 1441796, 14, 23, 1441794, 14, 19, 1441795, 10, 22, 1441795, 13, 20, 655362, 11, 20, 655362, 9, 22, 1048578, 17, 22, 1048578, 17, 19, 2, 13, 15, 4, 21, 11, 1048579, 21, 7, 1048579, 14, 3, 1441796, 21, 4, 655364, 14, 11, 1441795, 10, 8, 1441796, 9, 16, 655363, 5, 23, 1048579, 5, 25, 1048578, 9, 8, 1048579, 5, 16, 655363, 1, 15, 1048580, 1, 7, 1048578, 5, 20, 655364, 65533, 19, 1048580, 65533, 24, 4, 18, 65535, 4, 7, 65535, 4, 1, 3, 3, 1, 4, 1, 8, 3, 2, 65535, 65535, 1441793, 65534, 65535, 1441796, 7, 0, 655364, 65533, 8, 1048577, 65533, 11, 1048577, 21, 12, 1048577, 22, 15, 655361, 21, 17, 1048578, 21, 18, 1048577)
-}
-metadata/_editor_floor_ = Vector3(0, 0, 0)
-
-[node name="GridMapBanners" type="GridMap" parent="GridMapFloor"]
-mesh_library = ExtResource("3_1ixuh")
-cell_size = Vector3(0.1, 0.5, 0.1)
-data = {
-"cells": PackedInt32Array(262118, 80, 8, 196833, 149, 655368, 196833, 119, 655368)
-}
-metadata/_editor_floor_ = Vector3(0, 3, 0)
-
-[node name="GridMapDirt" type="GridMap" parent="GridMapFloor"]
-mesh_library = ExtResource("3_1ixuh")
-cell_size = Vector3(1, 1, 1)
-data = {
-"cells": PackedInt32Array(65534, 19, 1048592, 8, 5, 1048591, 2, 5, 1048593, 9, 9, 1441809, 9, 11, 1441809, 2, 15, 1048592)
-}
-
-[node name="GridMapDecor" type="GridMap" parent="GridMapFloor"]
-mesh_library = ExtResource("3_1ixuh")
-cell_size = Vector3(0.5, 1, 0.5)
-data = {
-"cells": PackedInt32Array(65533, 38, 1048595, 7, 30, 19, 5, 28, 1048595, 5, 30, 1048595)
-}
-metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [editable path="Player"]
 [editable path="Braziers/BrazierTutorial"]
