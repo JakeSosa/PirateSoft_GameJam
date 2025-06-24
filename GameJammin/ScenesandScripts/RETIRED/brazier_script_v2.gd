@@ -39,7 +39,6 @@ func brazier_controller():
 			player.torch.light_color = brazier_color
 			player.animation_player.play("Light")
 			player.animation_timer.start()
-			
 		#If player torch is RED & brazier assigned color is BLUE
 		#Then set player torch color to PURPLE (WORKS)
 		elif player.torch.light_color == Color(1, 0, 0, 1) && brazier_color == Color(0, 0, 1, 1):

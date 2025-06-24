@@ -143,4 +143,3 @@ func interact_sconce():
 					add_child(text)
 					MainMenuMusic.play_SFX(BadMixSFX)
 		
-

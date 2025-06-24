@@ -1,18 +1,21 @@
-[gd_scene load_steps=26 format=3 uid="uid://chi7duimobj03"]
+[gd_scene load_steps=27 format=3 uid="uid://chi7duimobj03"]
 
 [ext_resource type="PackedScene" uid="uid://cknayyh8s67ug" path="res://ScenesandScripts/Character/test_player_ANIMATIONTREE.tscn" id="1_1ixuh"]
 [ext_resource type="PackedScene" uid="uid://cwgpe75u0j5rt" path="res://ScenesandScripts/Objects/WallKit/maze_door.tscn" id="2_aulnf"]
 [ext_resource type="Shader" uid="uid://cutue5s6mjjqn" path="res://Art/Shaders/PPShaderGLSL.gdshader" id="2_c7uvb"]
 [ext_resource type="MeshLibrary" uid="uid://daij83a2pa4f8" path="res://Resources/LevelKit.tres" id="3_1ixuh"]
+[ext_resource type="PackedScene" uid="uid://d2ybubn35l8br" path="res://ScenesandScripts/Objects/Props/brazier_tutorial.tscn" id="3_ypqxu"]
 [ext_resource type="Script" uid="uid://d3eimegpm7lwf" path="res://ScenesandScripts/Objects/Props/brazier_script_v3.gd" id="4_c7uvb"]
-[ext_resource type="Shader" uid="uid://bj3q3fxm0e45v" path="res://Art/Shaders/DoorShader.tres" id="4_f0qfn"]
 [ext_resource type="PackedScene" uid="uid://cucpsroek1jxt" path="res://ScenesandScripts/Objects/Props/sconce.tscn" id="5_0rkwn"]
-[ext_resource type="Texture2D" uid="uid://b2nlnhsxd67m3" path="res://Art/Textures/TrimTexture/M_Trim_Base_color.png" id="5_c7uvb"]
-[ext_resource type="Texture2D" uid="uid://optp5pg471n3" path="res://Art/Textures/Spiral3.png" id="6_bctua"]
 [ext_resource type="Script" uid="uid://l7kxyo1d1e6e" path="res://ScenesandScripts/Objects/Props/sconce_script_v3.gd" id="6_rum27"]
-[ext_resource type="Texture2D" uid="uid://bhqabd88sjece" path="res://Art/Textures/TrimTexture/M_Trim_Normal.png" id="7_1yh1n"]
+[ext_resource type="PackedScene" uid="uid://bc8fo4e0r5nos" path="res://ScenesandScripts/Objects/Props/sconce_tutorial.tscn" id="7_f0qfn"]
 [ext_resource type="PackedScene" uid="uid://cug6kjou6ccef" path="res://ScenesandScripts/Objects/Props/brazier.tscn" id="8_0rkwn"]
 [ext_resource type="PackedScene" uid="uid://b82tvavmk75tg" path="res://ScenesandScripts/Objects/Props/WaterFall.tscn" id="10_bctua"]
+[ext_resource type="Shader" uid="uid://bj3q3fxm0e45v" path="res://Art/Shaders/DoorShader.tres" id="10_pg4ln"]
+[ext_resource type="Texture2D" uid="uid://b2nlnhsxd67m3" path="res://Art/Textures/TrimTexture/M_Trim_Base_color.png" id="11_mw632"]
+[ext_resource type="Texture2D" uid="uid://optp5pg471n3" path="res://Art/Textures/Spiral3.png" id="12_kqlog"]
+[ext_resource type="Texture2D" uid="uid://bhqabd88sjece" path="res://Art/Textures/TrimTexture/M_Trim_Normal.png" id="13_nahgb"]
+[ext_resource type="Material" uid="uid://bdiqi5t1ogb82" path="res://Art/Materials/DoorColor/DoorPurple.tres" id="14_pg4ln"]
 
 [sub_resource type="Environment" id="Environment_fc36d"]
 ambient_light_color = Color(1, 1, 1, 1)
@@ -53,38 +56,16 @@ shader_parameter/PixelSize = 37.75
 shader_parameter/vignetteCurve = SubResource("CurveTexture_rcqk1")
 shader_parameter/ColorsCurve = SubResource("CurveXYZTexture_p580u")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ypqxu"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("4_f0qfn")
-shader_parameter/TilingScale = 1.0
-shader_parameter/BC = ExtResource("5_c7uvb")
-shader_parameter/Color = Vector4(0, 0, 1, 1)
-shader_parameter/GlowDecal = ExtResource("6_bctua")
-shader_parameter/GlowSTR = 1.0
-shader_parameter/NRM = ExtResource("7_1yh1n")
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mw632"]
 resource_local_to_scene = true
 render_priority = 0
-shader = ExtResource("4_f0qfn")
+shader = ExtResource("10_pg4ln")
 shader_parameter/TilingScale = 1.0
-shader_parameter/BC = ExtResource("5_c7uvb")
-shader_parameter/Color = Vector4(1, 0, 0, 1)
-shader_parameter/GlowDecal = ExtResource("6_bctua")
+shader_parameter/BC = ExtResource("11_mw632")
+shader_parameter/Color = Vector4(0, 0, 1, 1)
+shader_parameter/GlowDecal = ExtResource("12_kqlog")
 shader_parameter/GlowSTR = 1.0
-shader_parameter/NRM = ExtResource("7_1yh1n")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0rkwn"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("4_f0qfn")
-shader_parameter/TilingScale = 1.0
-shader_parameter/BC = ExtResource("5_c7uvb")
-shader_parameter/Color = Vector4(1, 1, 1, 1)
-shader_parameter/GlowDecal = ExtResource("6_bctua")
-shader_parameter/GlowSTR = 1.0
-shader_parameter/NRM = ExtResource("7_1yh1n")
+shader_parameter/NRM = ExtResource("13_nahgb")
 
 [node name="TestLevel" type="Node3D"]
 
@@ -92,38 +73,38 @@ shader_parameter/NRM = ExtResource("7_1yh1n")
 environment = SubResource("Environment_fc36d")
 
 [node name="Player" parent="." instance=ExtResource("1_1ixuh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.25, 0.495, 8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.54918, 0.495, 10.0593)
 
 [node name="Skeleton3D" parent="Player/Char2/Armature" index="0"]
-bones/0/position = Vector3(0.272122, 0.291157, -27.7218)
-bones/0/rotation = Quaternion(-0.725983, -0.0534268, 0.018755, 0.685378)
-bones/1/rotation = Quaternion(0.0232628, 0.0130721, 0.0165508, 0.999507)
-bones/2/rotation = Quaternion(0.0103035, 0.00344163, 0.0137206, 0.999847)
-bones/3/rotation = Quaternion(0.0102923, 0.00378458, 0.0138833, 0.999844)
-bones/4/rotation = Quaternion(0.0551288, -0.00149754, 0.00441486, 0.998468)
-bones/5/rotation = Quaternion(-0.0679751, 0.0107732, -0.00186049, 0.997627)
-bones/7/rotation = Quaternion(-0.633187, -0.356751, 0.563595, -0.392635)
-bones/8/rotation = Quaternion(0.444272, 0.119341, 0.0798188, 0.884313)
+bones/0/position = Vector3(0.297831, 0.244076, -27.7205)
+bones/0/rotation = Quaternion(-0.726635, -0.0535012, 0.0184602, 0.684689)
+bones/1/rotation = Quaternion(0.0224402, 0.0116923, 0.0162999, 0.999547)
+bones/2/rotation = Quaternion(0.0102288, 0.00316206, 0.0136835, 0.999849)
+bones/3/rotation = Quaternion(0.010143, 0.00345298, 0.0137997, 0.999847)
+bones/4/rotation = Quaternion(0.054778, -0.00112081, 0.00444113, 0.998488)
+bones/5/rotation = Quaternion(-0.0670402, 0.010929, -0.00128495, 0.99769)
+bones/7/rotation = Quaternion(-0.633874, -0.35612, 0.562707, -0.393375)
+bones/8/rotation = Quaternion(0.445216, 0.124214, 0.0782658, 0.883305)
 bones/9/rotation = Quaternion(0.0132538, 0.319054, 0.165144, 0.933143)
 bones/10/rotation = Quaternion(-0.0256837, -0.000962092, -0.0513641, 0.998349)
 bones/10/scale = Vector3(2, 2, 2)
-bones/11/rotation = Quaternion(0.537726, -0.197252, 0.565522, 0.593403)
-bones/12/rotation = Quaternion(0.297309, -0.143839, -0.239441, 0.913009)
+bones/11/rotation = Quaternion(0.536641, -0.198709, 0.565308, 0.594103)
+bones/12/rotation = Quaternion(0.294996, -0.144714, -0.240798, 0.913264)
 bones/13/rotation = Quaternion(-0.176412, -0.347415, -0.245064, 0.887764)
 bones/14/rotation = Quaternion(-0.0918088, 0.098116, 0.135228, 0.981661)
 bones/14/scale = Vector3(2, 2, 2)
-bones/15/rotation = Quaternion(0.15405, -0.0606587, 0.973814, -0.155804)
-bones/16/rotation = Quaternion(-0.163818, -0.0226271, 0.0146512, 0.986122)
-bones/17/rotation = Quaternion(0.564571, -0.0567812, -0.115428, 0.815299)
+bones/15/rotation = Quaternion(0.153483, -0.0601683, 0.973976, -0.155546)
+bones/16/rotation = Quaternion(-0.164811, -0.0231465, 0.0148045, 0.985942)
+bones/17/rotation = Quaternion(0.564297, -0.0564733, -0.114943, 0.815578)
 bones/18/rotation = Quaternion(0.352186, -0.0474272, 0.0154917, 0.934599)
 bones/19/scale = Vector3(2, 2, 2)
-bones/20/rotation = Quaternion(-0.0742071, 0.106096, 0.991573, 0.00451413)
-bones/21/rotation = Quaternion(-0.0480857, 0.0730592, 0.0189368, 0.995988)
-bones/22/rotation = Quaternion(0.346037, -0.108602, 0.0190646, 0.931719)
+bones/20/rotation = Quaternion(-0.0742922, 0.106314, 0.991542, 0.00467857)
+bones/21/rotation = Quaternion(-0.0484121, 0.0730313, 0.0188263, 0.995976)
+bones/22/rotation = Quaternion(0.34563, -0.108102, 0.0188792, 0.931932)
 bones/23/rotation = Quaternion(0.372399, 0.0475196, -0.01554, 0.926725)
 
 [node name="BoneAttachment3D" parent="Player/Char2/Armature/Skeleton3D" index="2"]
-transform = Transform3D(1.92993, -0.484528, 0.201462, 0.468345, 1.93681, 0.171559, -0.236658, -0.118372, 1.98242, -13.3389, 19.2348, -38.1831)
+transform = Transform3D(1.92973, -0.493073, 0.181741, 0.476556, 1.9335, 0.185628, -0.221462, -0.135801, 1.98306, -13.4593, 19.1029, -38.3657)
 
 [node name="PostProcess" type="MeshInstance3D" parent="Player"]
 transform = Transform3D(4.37114e-08, 1, -1.74846e-07, 1, -4.37114e-08, 8.74227e-08, 8.74227e-08, -1.74846e-07, -1, 13.1759, 0.503351, -2.73592)
@@ -133,6 +114,11 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_pg4ln")
 
 [node name="Braziers" type="Node3D" parent="."]
+
+[node name="BrazierTutorial" parent="Braziers" node_paths=PackedStringArray("player") instance=ExtResource("3_ypqxu")]
+transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -6.58916, 0.65, 6.47453)
+brazier_color = Color(1, 0, 0, 1)
+player = NodePath("../../Player")
 
 [node name="Brazier1" parent="Braziers" node_paths=PackedStringArray("player") instance=ExtResource("8_0rkwn")]
 transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -8.68394, 0.65, 8)
@@ -172,31 +158,40 @@ player = NodePath("../../Player")
 
 [node name="Sconces" type="Node3D" parent="."]
 
+[node name="SconceTutorial" parent="Sconces" node_paths=PackedStringArray("player") instance=ExtResource("7_f0qfn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.42743, 1.60846, 10.9936)
+player = NodePath("../../Player")
+
 [node name="Sconce1" parent="Sconces" node_paths=PackedStringArray("player") instance=ExtResource("5_0rkwn")]
-transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -2.44386, 1.80618, 10.9759)
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -2.44386, 1.80618, 13.3975)
 script = ExtResource("6_rum27")
 player = NodePath("../../Player")
 
 [node name="Doors" type="Node3D" parent="."]
 
-[node name="MazeDoor1" parent="Doors" node_paths=PackedStringArray("player", "nearby_sconce") instance=ExtResource("2_aulnf")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.501, 0.485, 10.506)
-matoverride = SubResource("ShaderMaterial_ypqxu")
-player = NodePath("../../Player")
-nearby_sconce = NodePath("../../Sconces/Sconce1/OmniLight3D")
-
-[node name="MazeDoor2" parent="Doors" node_paths=PackedStringArray("player") instance=ExtResource("2_aulnf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.48, 0.485, 10)
+[node name="MazeDoor1" parent="Doors" node_paths=PackedStringArray("player") instance=ExtResource("2_aulnf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.6264, 0.493587, 8.76892)
 matoverride = SubResource("ShaderMaterial_mw632")
 player = NodePath("../../Player")
 
-[node name="DoorObj" parent="Doors/MazeDoor2/SlidingDoor" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_0rkwn")
+[node name="MazeDoor2" parent="Doors" node_paths=PackedStringArray("player", "nearby_sconce") instance=ExtResource("2_aulnf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.53813, 0.493587, 10.5319)
+matoverride = ExtResource("14_pg4ln")
+player = NodePath("../../Player")
+nearby_sconce = NodePath("../../Sconces/SconceTutorial/OmniLight3D")
 
 [node name="Waterfalls" type="Node3D" parent="."]
 
 [node name="WaterFall1" parent="Waterfalls" node_paths=PackedStringArray("player") instance=ExtResource("10_bctua")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.920531, -12.431, 0.485, 5.628)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.920531, -3.44028, 0.485, 10.5666)
+player = NodePath("../../Player")
+
+[node name="WaterFall2" parent="Waterfalls" node_paths=PackedStringArray("player") instance=ExtResource("10_bctua")]
+transform = Transform3D(-4.37114e-08, 0, 0.920531, 0, 1, 0, -1, 0, -4.02377e-08, -4.34412, 0.485, 9.62118)
+player = NodePath("../../Player")
+
+[node name="WaterFall3" parent="Waterfalls" node_paths=PackedStringArray("player") instance=ExtResource("10_bctua")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.920531, -3.44028, 0.485, 8.66067)
 player = NodePath("../../Player")
 
 [node name="GridMapFloor" type="GridMap" parent="."]
@@ -238,6 +233,6 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [editable path="Player"]
+[editable path="Braziers/BrazierTutorial"]
 [editable path="Braziers/Brazier5"]
-[editable path="Sconces/Sconce1"]
-[editable path="Doors/MazeDoor2"]
+[editable path="Sconces/SconceTutorial"]

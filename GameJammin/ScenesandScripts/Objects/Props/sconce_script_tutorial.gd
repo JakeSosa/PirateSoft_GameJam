@@ -2,6 +2,9 @@ extends StaticBody3D
 #NOTE - Sconce's Area3D Collision is assigned to 3 (aka props: sconce & brazier)
 #NOTE - Sconce's Area3D Mask is assigned to 2 (aka player) 
 
+#TUTORIAL LEVEL ONLY VARIABLES 
+@onready var interact_label = $Label3D
+
 #Set public variable that will act as a pointer to the player
 @export var player : CharacterBody3D
 #Sconce variables
@@ -19,14 +22,16 @@ func _ready():
 	sconce.light_color = default_sconce_color
 	sconce.visible = false
 	
-	
 func _physics_process(delta: float) -> void:
 	interact_sconce()
 	
 func _on_sconce_body_entered(body: Node3D) -> void:
 	near_sconce = true
+	interact_label.visible = true
+	
 func _on_sconce_body_exited(body: Node3D) -> void:
 	near_sconce = false
+	interact_label.visible = false
 	
 func interact_sconce():
 	if near_sconce == true && player.moving == false:
@@ -34,6 +39,7 @@ func interact_sconce():
 		if sconce.visible == false:
 			#Deposit color from torch to sconce by pressing E
 			if Input.is_action_just_pressed("interact"):
+				interact_label.visible = false
 				player.interacting = true
 				player.animation_tree["parameters/conditions/is_lighting"] = true
 				#If player's torch color is NOT white
