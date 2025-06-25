@@ -59,6 +59,7 @@ func interact_sconce():
 				#If sconce is RED & player torch color is BLUE
 				#Then set player torch color to PURPLE	
 				if sconce.light_color == Color(1, 0, 0, 1) && player.torch.light_color == Color(0, 0, 1, 1):
+					interact_label.visible = false
 					player.interacting = true
 					sconce.visible = true
 					sconce.light_color = Color(1, 0, 1, 1)
@@ -135,6 +136,7 @@ func interact_sconce():
 				elif near_sconce == true && sconce.visible == true:
 					if player.torch.light_color == player.default_torch_color:
 						if Input.is_action_just_pressed("interact"):
+							interact_label.visible = false
 							player.interacting = true
 							sconce.visible = false
 							player.torch.visible = true
