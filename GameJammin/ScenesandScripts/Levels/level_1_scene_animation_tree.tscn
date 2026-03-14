@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=4 uid="uid://cf8y3skqk26tq"]
+[gd_scene load_steps=108 format=4 uid="uid://cf8y3skqk26tq"]
 
 [ext_resource type="PackedScene" uid="uid://cknayyh8s67ug" path="res://ScenesandScripts/Character/test_player_ANIMATIONTREE.tscn" id="1_206yl"]
 [ext_resource type="Shader" uid="uid://cutue5s6mjjqn" path="res://Art/Shaders/PPShaderGLSL.gdshader" id="2_yisnn"]
@@ -55,12 +55,14 @@
 [ext_resource type="Texture2D" uid="uid://c62mjv8o31x16" path="res://Art/Textures/FloorTexture/M_Floor_Normal.png" id="53_lqb4l"]
 [ext_resource type="Texture2D" uid="uid://c5hdrl7kem4yn" path="res://Art/Textures/FloorTexture/M_Floor_Roughness.png" id="54_678sn"]
 [ext_resource type="PackedScene" uid="uid://cug6kjou6ccef" path="res://ScenesandScripts/Objects/Props/brazier.tscn" id="55_pj7at"]
+[ext_resource type="PackedScene" uid="uid://d2ybubn35l8br" path="res://ScenesandScripts/Objects/Props/brazier_tutorial.tscn" id="55_rcqk1"]
 [ext_resource type="Script" uid="uid://d3eimegpm7lwf" path="res://ScenesandScripts/Objects/Props/brazier_script_v3.gd" id="56_fdlr3"]
 [ext_resource type="Script" uid="uid://dju6bavjgjki7" path="res://ScenesandScripts/Objects/Props/colored_brazier_script_v2.gd" id="57_7e6ga"]
 [ext_resource type="PackedScene" uid="uid://dg2qsl7l74nnr" path="res://ScenesandScripts/Objects/Props/hub_brazier.tscn" id="57_7uq48"]
 [ext_resource type="PackedScene" uid="uid://cucpsroek1jxt" path="res://ScenesandScripts/Objects/Props/sconce.tscn" id="58_8vhhj"]
 [ext_resource type="PackedScene" uid="uid://3lrlx8iuwkvh" path="res://ScenesandScripts/Objects/Props/lever.tscn" id="59_0vms7"]
 [ext_resource type="Script" uid="uid://l7kxyo1d1e6e" path="res://ScenesandScripts/Objects/Props/sconce_script_v3.gd" id="60_acsa0"]
+[ext_resource type="PackedScene" uid="uid://bc8fo4e0r5nos" path="res://ScenesandScripts/Objects/Props/sconce_tutorial.tscn" id="62_lhhd7"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_53br7"]
 flip_faces = true
@@ -1939,8 +1941,8 @@ player = NodePath("../../Player")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -0.4, -5)
 matoverride = SubResource("ShaderMaterial_om6du")
 player = NodePath("../../Player")
-nearby_sconce = NodePath("../../Props/Sconce_test_10_1/OmniLight3D")
-second_nearby_sconce = NodePath("../../Props/Sconce_test_10_2/OmniLight3D")
+nearby_sconce = NodePath("../../Props/SconceTutorial/OmniLight3D")
+second_nearby_sconce = NodePath("../../Props/Sconce_test_10_1/OmniLight3D")
 
 [node name="MazeDoor_11" parent="WallConstructionPieces" node_paths=PackedStringArray("player") instance=ExtResource("42_1pv3v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.95174, -0.4, 0.947468)
@@ -2290,8 +2292,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.23969, -0.405666, 9.86645)
 
 [node name="Props" type="Node" parent="."]
 
+[node name="BrazierTutorial" parent="Props" node_paths=PackedStringArray("player") instance=ExtResource("55_rcqk1")]
+transform = Transform3D(0.717, 0, 0, 0, 0.717, 0, 0, 0, 0.717, -12.8396, 0, 8)
+brazier_color = Color(0, 0, 1, 1)
+player = NodePath("../../Player")
+
 [node name="Brazier" parent="Props" node_paths=PackedStringArray("player") instance=ExtResource("55_pj7at")]
-transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -12.8396, 0, 8)
+transform = Transform3D(0.716893, 0, 0, 0, 0.716893, 0, 0, 0, 0.716893, -12.8396, 0, 8.867307)
+visible = false
 script = ExtResource("56_fdlr3")
 brazier_color = Color(0, 0, 1, 1)
 player = NodePath("../../Player")
@@ -2382,10 +2390,12 @@ transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -5.64493
 script = ExtResource("60_acsa0")
 player = NodePath("../../Player")
 
-[node name="Sconce_test_10_2" parent="Props" node_paths=PackedStringArray("player") instance=ExtResource("58_8vhhj")]
-transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -5.6573, 1, -3.46159)
-script = ExtResource("60_acsa0")
+[node name="SconceTutorial" parent="Props" node_paths=PackedStringArray("player") instance=ExtResource("62_lhhd7")]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -5.6573, 0.9999999, -3.46159)
 player = NodePath("../../Player")
+
+[node name="Label3D" parent="Props/SconceTutorial" index="5"]
+visible = true
 
 [node name="Sconce_15" parent="Props" node_paths=PackedStringArray("player") instance=ExtResource("58_8vhhj")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 9.25772, 1, -11.012)
@@ -2448,3 +2458,6 @@ bus = &"Music"
 
 [connection signal="kill_waterfall" from="Props/Lever" to="Deco/WaterFall_2" method="_on_lever_kill_waterfall"]
 [connection signal="kill_waterfall" from="Props/Lever" to="Deco/WaterFall_4" method="_on_lever_kill_waterfall"]
+
+[editable path="Props/Sconce_test_10_1"]
+[editable path="Props/SconceTutorial"]
