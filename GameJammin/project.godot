@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="IRIDIA"
-run/main_scene="res://ScenesandScripts/UserInterface/main_menu.tscn"
-config/features=PackedStringArray("4.4", "Forward Plus")
+run/main_scene="uid://b70uid2073v1r"
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://IRIDIA Icon.png"
 
 [autoload]

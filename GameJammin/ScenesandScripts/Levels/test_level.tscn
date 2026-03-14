@@ -47,13 +47,13 @@ ssil_radius = 15.35
 ssil_sharpness = 0.41
 glow_enabled = true
 glow_hdr_threshold = 0.5
+fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0, 0, 0, 1)
 fog_density = 1.0
 fog_height_density = -0.5
-fog_depth_curve = 0.7
-fog_depth_begin = 4.0
-fog_depth_end = 8.0
+fog_depth_begin = 3.0
+fog_depth_end = 9.0
 adjustment_enabled = true
 adjustment_saturation = 1.1
 
@@ -902,35 +902,35 @@ environment = SubResource("Environment_fc36d")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.54918, 0.495, 10.0593)
 
 [node name="Skeleton3D" parent="Player/Char2/Armature" index="0"]
-bones/0/position = Vector3(0.29899, 0.207259, -27.727)
-bones/0/rotation = Quaternion(-0.727885, -0.0503607, 0.0156978, 0.683667)
-bones/1/rotation = Quaternion(0.022469, 0.0125907, 0.0174672, 0.999516)
-bones/2/rotation = Quaternion(0.0100857, 0.00263388, 0.0136032, 0.999853)
-bones/3/rotation = Quaternion(0.00986236, 0.00281074, 0.0136289, 0.999855)
-bones/4/rotation = Quaternion(0.0556336, -0.000899366, 0.00396013, 0.998443)
-bones/5/rotation = Quaternion(-0.065929, 0.0119267, -0.00151971, 0.997752)
-bones/7/rotation = Quaternion(-0.63431, -0.355572, 0.562726, -0.393139)
-bones/8/rotation = Quaternion(0.444878, 0.121814, 0.078146, 0.88382)
+bones/0/position = Vector3(0.303855, 0.227797, -27.7246)
+bones/0/rotation = Quaternion(-0.727434, -0.0522063, 0.0175732, 0.683963)
+bones/1/rotation = Quaternion(0.0221615, 0.0118388, 0.0168104, 0.999543)
+bones/2/rotation = Quaternion(0.010173, 0.00295351, 0.0136558, 0.999851)
+bones/3/rotation = Quaternion(0.0100316, 0.00320562, 0.0137374, 0.99985)
+bones/4/rotation = Quaternion(0.0549254, -0.000971891, 0.0043054, 0.998481)
+bones/5/rotation = Quaternion(-0.0657174, 0.0110246, -0.00123369, 0.997777)
+bones/7/rotation = Quaternion(-0.634091, -0.355916, 0.562435, -0.393598)
+bones/8/rotation = Quaternion(0.445783, 0.124747, 0.0777049, 0.882993)
 bones/9/rotation = Quaternion(0.0132538, 0.319054, 0.165144, 0.933143)
 bones/10/rotation = Quaternion(-0.0256837, -0.000962092, -0.0513641, 0.998349)
 bones/10/scale = Vector3(2, 2, 2)
-bones/11/rotation = Quaternion(0.537192, -0.198025, 0.564816, 0.594301)
-bones/12/rotation = Quaternion(0.296091, -0.143626, -0.240932, 0.913046)
+bones/11/rotation = Quaternion(0.536383, -0.1991, 0.564763, 0.594722)
+bones/12/rotation = Quaternion(0.294758, -0.144743, -0.241451, 0.913164)
 bones/13/rotation = Quaternion(-0.176412, -0.347415, -0.245064, 0.887764)
 bones/14/rotation = Quaternion(-0.0918088, 0.098116, 0.135228, 0.981661)
 bones/14/scale = Vector3(2, 2, 2)
-bones/15/rotation = Quaternion(0.152498, -0.0606465, 0.974258, -0.154555)
-bones/16/rotation = Quaternion(-0.161841, -0.0202034, 0.0142438, 0.986507)
-bones/17/rotation = Quaternion(0.561606, -0.0556276, -0.113849, 0.817644)
+bones/15/rotation = Quaternion(0.153122, -0.060636, 0.974074, -0.155102)
+bones/16/rotation = Quaternion(-0.162726, -0.0225787, 0.0147786, 0.986302)
+bones/17/rotation = Quaternion(0.562897, -0.0560837, -0.114471, 0.816638)
 bones/18/rotation = Quaternion(0.352186, -0.0474272, 0.0154917, 0.934599)
 bones/19/scale = Vector3(2, 2, 2)
-bones/20/rotation = Quaternion(-0.0748949, 0.104417, 0.991698, 0.00474265)
-bones/21/rotation = Quaternion(-0.0484126, 0.0727367, 0.0186377, 0.996001)
-bones/22/rotation = Quaternion(0.34536, -0.105298, 0.0172654, 0.932384)
+bones/20/rotation = Quaternion(-0.0748523, 0.105365, 0.991599, 0.00519221)
+bones/21/rotation = Quaternion(-0.0483317, 0.0729259, 0.0187527, 0.995989)
+bones/22/rotation = Quaternion(0.344858, -0.107272, 0.018503, 0.932321)
 bones/23/rotation = Quaternion(0.372399, 0.0475196, -0.01554, 0.926725)
 
 [node name="BoneAttachment3D" parent="Player/Char2/Armature/Skeleton3D" index="2"]
-transform = Transform3D(1.93338, -0.473806, 0.193756, 0.455573, 1.93785, 0.19286, -0.233424, -0.142301, 1.98123, -13.2604, 19.1695, -38.4235)
+transform = Transform3D(1.93172, -0.485878, 0.179951, 0.468626, 1.9347, 0.193233, -0.221019, -0.144471, 1.98249, -13.4162, 19.1067, -38.4512)
 
 [node name="PostProcess" type="MeshInstance3D" parent="Player"]
 transform = Transform3D(4.37114e-08, 1, -1.74846e-07, 1, -4.37114e-08, 8.74227e-08, 8.74227e-08, -1.74846e-07, -1, 13.1759, 0.503351, -2.73592)
